@@ -40,7 +40,7 @@ Guidance to make a copy of the project in R Studio is at  https://moj-analytical
 
 Exercise 3: Follow the guidance load into R as a project.
 
-# 5. Use the Devtools package to create our own package 
+# 5. Create the package 
 
 See http://r-pkgs.had.co.nz/package.html#getting-started 
 
