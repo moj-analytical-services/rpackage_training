@@ -30,6 +30,6 @@ Exercise 1: Decide what name to call your package
 
 # 3. Create github repository 
 
-- see 4.1.1 of https://moj-analytical-services.github.io/platform_user_guidance/using-github-with-r-studio.html  (Also section 3:11 of the MOOC).
+Follow the guidance at https://moj-analytical-services.github.io/platform_user_guidance/github.html#step-1---create-a-new-project-repo-in-the-moj-analytical-services-github-page
 
 Go to https://github.com/moj-analytical-services and log into your account, then click on 'new', check the owner as 'moj-analytical-services' and add your chosen repository and package name (in my case 'egaidanrap'), a description (in my case 'Aidan's RAP training exercise'), make sure the repository is set to ‘private’, and click 'Create repository'.
