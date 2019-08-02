@@ -18,3 +18,13 @@ Hadley Wickham's introduction (http://r-pkgs.had.co.nz/intro.html) states: "Pack
 
 There are benefits to each statistical production using RAP being within a package.   
 
+# 2. Choose a name
+
+Possibly the hardest part of creating a package is choosing a name for it. This should be both short and unique (for google searches) and include either upper or lower case characters but not a mixture of them. If the package is to do some RAP work, we may want to consider putting 'rap' at end of the name. 
+
+You can read more about naming a package in the 'Naming your package' section of  http://r-pkgs.had.co.nz/package.html 
+
+In this training we're going to create a package to RAP the short statistical bulletin that we create as part of the Rmarkdown training - see https://github.com/moj-analytical-services/rmarkdown_training  As such you could choose a name such as egnamerap where the eg is because it's a training exercise, the name is your first name (if not the same as someone else's) and the rap because you are going to RAP a short statistical bulletin.
+
+Exercise 1: Decide what name to call your package
+
