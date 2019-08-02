@@ -39,3 +39,11 @@ Exercise 2: Follow the guidance to create a new github repository, giving it the
 Guidance to make a copy of the project in R Studio is at  https://moj-analytical-services.github.io/platform_user_guidance/github.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio
 
 Exercise 3: Follow the guidance load into R as a project.
+
+# 5. Use the Devtools package to create our own package 
+
+See http://r-pkgs.had.co.nz/package.html#getting-started 
+
+You can check in Rstudio the directory you are in after creating the new project (see 4. above) by running the command 'getwd()' in the console. [May need to install the package devtools]. Then run the command 'devtools::create("path/to/package/pkgname")' after copying in the directory name. Select the option to overwrite what is already there. You can now see in the 'Files' wondow that there are additions in your project directory.
+
+Lastly, push back to git.  You can now refresh your github repository page and see the additions there.
