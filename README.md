@@ -30,6 +30,6 @@ Exercise 1: Decide what name to call your package
 
 # 3. Create github repository 
 
-Follow the guidance at https://moj-analytical-services.github.io/platform_user_guidance/github.html#step-1---create-a-new-project-repo-in-the-moj-analytical-services-github-page
+Guidance to create a new github repository is at https://moj-analytical-services.github.io/platform_user_guidance/github.html#step-1---create-a-new-project-repo-in-the-moj-analytical-services-github-page
 
-Go to https://github.com/moj-analytical-services and log into your account, then click on 'new', check the owner as 'moj-analytical-services' and add your chosen repository and package name (in my case 'egaidanrap'), a description (in my case 'Aidan's RAP training exercise'), make sure the repository is set to ‘private’, and click 'Create repository'.
+Exercise 2: Follow the guidance to create a new github repository, giving it the same name as you've decided to call your package (in my case 'egaidanrap') and a suitable description (in my case 'Aidan's RAP training exercise').
