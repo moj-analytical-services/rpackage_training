@@ -42,8 +42,11 @@ Exercise 3: Follow the guidance load into R as a project.
 
 # 5. Create the package 
 
-See http://r-pkgs.had.co.nz/package.html#getting-started 
+You can create a package by taking the following steps:
 
-You can check in Rstudio the directory you are in after creating the new project (see 4. above) by running the command 'getwd()' in the console. [May need to install the package devtools]. Then run the command 'devtools::create("path/to/package/pkgname")' after copying in the directory name. Select the option to overwrite what is already there. You can now see in the 'Files' wondow that there are additions in your project directory.
+- Install the package devtools if you haven't already (click on Packages, Install, type in devtools and click on Install). 
+- Run the command 'devtools::create("path/to/package/pkgname")' and select the option to overwrite what is already there.
 
-Lastly, push back to git.  You can now refresh your github repository page and see the additions there.
+You can now see in the 'Files' wondow that there are additions in your project directory.
+
+Exercise 4: Follow the above steps, replacing "path/to/package/pkgname" by the correct directory path. Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the additions there.
