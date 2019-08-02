@@ -1,7 +1,7 @@
 # rpackage_training
 Making and developing R packages for RAP (Reproducible Analytical Pipelines)
 
-1. Introduction
+# 1. Introduction
 
 This training is based on Matthew Gregory's free online course 'Reproducible Analytical Pipelines (RAP) using R' (see https://www.udemy.com/reproducible-analytical-pipelines/) and Hadley Wickham's book 'R Packages' (see http://r-pkgs.had.co.nz/)
 
