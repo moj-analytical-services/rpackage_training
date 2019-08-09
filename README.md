@@ -53,6 +53,6 @@ Exercise 4: Follow the above steps, replacing "path/to/package/pkgname" by the c
 
 # 6. Amend the DESCRIPTION file
 
-Click on the DESCRIPTION filename in the file window and amend what needs altering.
+Click on the DESCRIPTION filename in the file window and amend as appropriate. To see an exmaple of an amended DESCRIPTION file see: https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION 
 
 Exercise 5: Amend the DESCRIPTION file, replacing "path/to/package/pkgname" by the correct directory path. Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the additions there.
