@@ -47,6 +47,12 @@ You can create a package by taking the following steps:
 - Install the package devtools if you haven't already (click on Packages, Install, type in devtools and click on Install). 
 - Run the command 'devtools::create("path/to/package/pkgname")' and select the option to overwrite what is already there.
 
-You can now see in the 'Files' wondow that there are additions in your project directory.
+You can now see in the 'Files' window that there are additions in your project directory.
 
 Exercise 4: Follow the above steps, replacing "path/to/package/pkgname" by the correct directory path. Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the additions there.
+
+# 6. Amend the DESCRIPTION file
+
+Click on the DESCRIPTION filename in the file window and amend what needs altering.
+
+Exercise 5: Amend the DESCRIPTION file, replacing "path/to/package/pkgname" by the correct directory path. Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the additions there.
