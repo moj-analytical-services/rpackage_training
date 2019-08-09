@@ -57,13 +57,13 @@ A bare-bones DESCRIPTION file has been created which stores important metadata a
 
 To see an example of an amended DESCRIPTION file see: https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION Take note of the formatting e.g. the Title is a one liner and doesn't end in a period. 
 
-You can read more about the most important DESCRIPTION fields at: http://r-pkgs.had.co.nz/description.html These include the Authors@R field which includes a three letter code specifying the role, the four useful being:
+You can read more about the most important DESCRIPTION fields at: http://r-pkgs.had.co.nz/description.html These include the Authors@R field which has a three letter code specifying the role, the most useful being:
 
 - cre: the creator or maintainer, the person you should bother if you have problems.
 - aut: authors, those who have made significant contributions to the package.
 - ctb: contributors, those who have made smaller contributions, like patches.
 - cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
 
-It also describes how to list the packages that your package needs to work; generally use the Imports rather than Depends command and unless you know which back versions work require a version greater than or equal to the version you’re currently using.
+You should also list the packages that your package needs to work; generally use the Imports rather than Depends command to do this. Unless you have greater knowledge, require the package version to be greater than or equal to the version you’re currently using.
 
-Exercise 5: Amend the DESCRIPTION file, specifically the Title, Authors, Description and package dependency text (we need ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
+Exercise 5: Amend the DESCRIPTION file, specifically the Title, Authors@R, Description and package dependency text (we need ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
