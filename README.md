@@ -53,6 +53,13 @@ Exercise 4: Follow the above steps, replacing "path/to/package/pkgname" by the c
 
 # 6. Amend the DESCRIPTION file
 
-A bare-bones DESCRIPTION file has been created which stores important metadata about your package. You can click on the DESCRIPTION filename in the file window and then amend it as appropriate. To see an example of an amended DESCRIPTION file see: https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION 
+A bare-bones DESCRIPTION file has been created which stores important metadata about your package. You can click on the DESCRIPTION filename in the file window and then amend it as appropriate. 
+
+To see an example of an amended DESCRIPTION file see: https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION Take note of the formatting e.g. the Title is a one liner in plain text (no markup), capitalised like a title, and NOT end in a period. The Authors@R field includes a three letter code specifying the role. There are four important roles:
+
+- cre: the creator or maintainer, the person you should bother if you have problems.
+- aut: authors, those who have made significant contributions to the package.
+- ctb: contributors, those who have made smaller contributions, like patches.
+- cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
 
 Exercise 5: Amend the DESCRIPTION file, amending the Title, Authors and Description text. Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
