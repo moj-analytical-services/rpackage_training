@@ -67,3 +67,14 @@ You can read more about the most important DESCRIPTION fields at: http://r-pkgs.
 You should also list the packages that your package needs to work; generally use the Imports rather than Depends command to do this. Unless you have greater knowledge, require the package version to be greater than or equal to the version you’re currently using.
 
 Exercise 5: Amend the DESCRIPTION file, specifically the Title, Authors@R, Description and package dependency text (we need ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
+
+# 7. Preventing sensitive data being pushed to git 
+
+You can use the gitignore file to specify data files so that they cannot to be pushed to git. Simply open the gitignore file and add the name of the file (e.g. sensitive.txt). If you want to specify a file that's not to be ignored then add an exclamation mark in front of it's name e.g. '!sensitive.txt'. 
+
+A template gitignore that ukgovdatascience have done and is free to copy from is at: https://github.com/ukgovdatascience/dotfiles
+
+You can also use git hooks which check for certain datafiles and prevent a git push going ahead unless you give specific approval. For more guidance about these hooks see: https://github.com/ukgovdatascience/dotfiles
+
+Exercise 6: Upload or copy crimedata2.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After pushing to github can you see crimedata2.csv? Then additionally specify crimedata2.csv as a file not to be ignored. After pushing to github can you now see it?
+
