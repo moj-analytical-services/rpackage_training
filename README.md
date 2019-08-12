@@ -78,5 +78,31 @@ You can also use git hooks which check for certain datafiles and prevent a git p
 
 Exercise 6: Upload or copy crimedata2.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After pushing to github can you see crimedata2.csv? Then additionally specify crimedata2.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
 
+# 8. Adding raw data as an RDA object
 
+Raw data should be a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specfic structure; each variable is a column, each observation a row, and each type of observational unit is a table. 
 
+If the data are non-sensitive, then they should be included within the package, as they make it easier for you and collaborators to help develop functions and test your package. If the data are sensitive, then create some fake data that looks and feels like the real data to develop your package and write meaningful tests and documentation.
+
+It is beneficial for your data to be within .rda files which store R objects in a format native to R. Compared with e.g. write.csv it:
+
+    Is faster to restore the data to R
+    Keeps R specific information encoded in the data (e.g., attributes, variable types, etc).
+
+If the raw data needs some manipulating to make them more nicely formatted then this code should be included within the package for the sake of reproducability.  To create a nice RDA object:
+
+    Place the raw data into a sub-directory you make called 'data-raw' in your project Rstudio folder.
+    Create a new script in this folder with the following contents:
+        raw <- read.csv("data_name.csv", check.names = TRUE)
+        devtools::use_data(raw)  
+        rm(raw)
+        save the script  e.g. as create_raw.R
+
+Now you'll see a data folder has been created that contains the object raw.rda
+
+To develop this code, it is wise to consider two extra steps (section 2.16 in MOOC):
+1. Add a line if a variable should be a factor variable rather than the default (unless number) read_csv character variable e.g.raw$phase <- as.factor(raw$phase)
+2. Add an overwrite=TRUE to the use_data function if when the input raw dataset is amended you want to overwrite the existing RDA object.
+devtools::use_data(raw, overwrite = TRUE)  
+
+When you make changes to your package and want to see the effect of these, you can run the following code which reloads all the changes you have made to your code:  devtools::load_all(".") 
