@@ -86,8 +86,8 @@ If the data are non-sensitive, then they should be included within the package a
 
 It is beneficial for your data to be within .rda files which store R objects in a format native to R. Compared with e.g. write.csv it:
 
-    Is faster to restore the data to R
-    Keeps R specific information encoded in the data (e.g., attributes, variable types, etc).
+- Is faster to restore the data to R
+- Keeps R specific information encoded in the data (e.g., attributes, variable types, etc).
 
 If the raw data needs some manipulating to make them more nicely formatted then this code should be included within the package for the sake of reproducability.  To create a nice RDA object:
 
