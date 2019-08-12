@@ -82,7 +82,7 @@ Exercise 6: Upload or copy crimedata2.csv into your package Rstudio folder. Then
 
 Raw data should be a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specfic structure; each variable is a column, each observation a row, and each type of observational unit is a table. 
 
-If the data are non-sensitive, then they should be included within the package, as they make it easier for you and collaborators to help develop functions and test your package. If the data are sensitive, then create some fake data that looks and feels like the real data to develop your package and write meaningful tests and documentation.
+If the data are non-sensitive, then they should be included within the package as they make it easier for you and collaborators to help develop functions and test your package. If the data are sensitive, then create some fake data instead.
 
 It is beneficial for your data to be within .rda files which store R objects in a format native to R. Compared with e.g. write.csv it:
 
