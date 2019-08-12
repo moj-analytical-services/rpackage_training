@@ -102,9 +102,8 @@ You can include code within the package to manipulate the raw data as needed. To
 
 Now you'll see a data folder has been created that contains the object raw.rda
 
-To develop this code, it is wise to consider two extra steps (section 2.16 in MOOC):
-1. Add a line if a variable should be a factor variable rather than the default (unless number) read_csv character variable e.g.raw$phase <- as.factor(raw$phase)
-2. Add an overwrite=TRUE to the use_data function if when the input raw dataset is amended you want to overwrite the existing RDA object.
-devtools::use_data(raw, overwrite = TRUE)  
+You can develop this code by taking two extra steps:
+1. If you want a variable to be a factor variable add a line of code to make this happen e.g.raw$phase <- as.factor(raw$phase)
+2. If you want the .rda file to be amended when the input raw dataset is amended add an overwrite=TRUE to the use_data function e.g. devtools::use_data(raw, overwrite = TRUE)  
 
 When you make changes to your package and want to see the effect of these, you can run the following code which reloads all the changes you have made to your code:  devtools::load_all(".") 
