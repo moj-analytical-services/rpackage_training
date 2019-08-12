@@ -68,7 +68,11 @@ You should also list the packages that your package needs to work; generally use
 
 Exercise 5: Amend the DESCRIPTION file, specifically the Title, Authors@R, Description and package dependency text (we need ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
 
-# 7. Preventing sensitive data being pushed to git 
+# 7. Handling of sensitive and non-sensitive data 
+
+Raw data should be a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specfic structure; each variable is a column, each observation a row, and each type of observational unit is a table. 
+
+If the data are non-sensitive, then they should be included within the package as they make it easier for you and collaborators to help develop functions and test your package. If the data are sensitive, then create some fake data instead.
 
 You can use the gitignore file to specify data files so that they cannot to be pushed to git. Simply open the gitignore file and add the name of the file (e.g. sensitive.txt). If you want to specify a file that's not to be ignored then add an exclamation mark in front of it's name e.g. '!sensitive.txt'. 
 
@@ -79,10 +83,6 @@ You can also use git hooks which check for certain datafiles and prevent a git p
 Exercise 6: Upload or copy crimedata2.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After pushing to github can you see crimedata2.csv? Then additionally specify crimedata2.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
 
 # 8. Adding raw data as an RDA object
-
-Raw data should be a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specfic structure; each variable is a column, each observation a row, and each type of observational unit is a table. 
-
-If the data are non-sensitive, then they should be included within the package as they make it easier for you and collaborators to help develop functions and test your package. If the data are sensitive, then create some fake data instead.
 
 It is beneficial for your data to be within .rda files which store R objects in a format native to R. Compared with e.g. write.csv it:
 
@@ -95,7 +95,7 @@ You can include code within the package to manipulate the raw data as needed. To
 - Place the raw data into 'data-raw'.
 - Create a new script into 'data-raw' with the following contents:
 
-        raw <- read.csv("data_name.csv", check.names = TRUE)
+        raw <- read.csv("directory_path/data_name.csv", check.names = TRUE)
         devtools::use_data(raw)  
         rm(raw)
 - Save the script  e.g. as create_raw.R
@@ -106,4 +106,6 @@ You can develop this code by taking two extra steps:
 1. If you want a variable to be a factor variable add a line of code to make this happen e.g.raw$phase <- as.factor(raw$phase)
 2. If you want the .rda file to be amended when the input raw dataset is amended add an overwrite=TRUE to the use_data function e.g. devtools::use_data(raw, overwrite = TRUE)  
 
-When you make changes to your package and want to see the effect of these, you can run the following code which reloads all the changes you have made to your code:  devtools::load_all(".") 
+When you make changes to your package and want to see the effect of these, you can run the following code which reloads all the changes you have made to your code: devtools::load_all(".") 
+
+Exercise 7: Make an .rda file of 'crimesdata2.csv' by following the above steps. 
