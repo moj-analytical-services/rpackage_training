@@ -76,5 +76,7 @@ A template gitignore that ukgovdatascience have done and is free to copy from is
 
 You can also use git hooks which check for certain datafiles and prevent a git push going ahead unless you give specific approval. For more guidance about these hooks see: https://github.com/ukgovdatascience/dotfiles
 
-Exercise 6: Upload or copy crimedata2.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After pushing to github can you see crimedata2.csv? Then additionally specify crimedata2.csv as a file not to be ignored. After pushing to github can you now see it?
+Exercise 6: Upload or copy crimedata2.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After pushing to github can you see crimedata2.csv? Then additionally specify crimedata2.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
+
+
 
