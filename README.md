@@ -134,3 +134,17 @@ Exercise 8: Amend the DESCRIPTION file to add roxygen2 to the package dependency
 
 # 10. Automated input data quality assurance checks
 
+We should check the input data contains the correct columns and that the number of rows is more than the minimum expected.
+
+You can copy https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R and adjust for your purposes. The roxygen2 documentation appears at the top of the file. It may also be helpful to:
+
+- add plots so the user can see for themselves from automatically produced plots that things look fine.  
+- add name lookups e.g. any charts will have nice labels (e.g. the first letter being a capital and the others being lower case).
+- drop any variables you won't need.
+- create the final data set as of class 'file/function_name' (see the end of https://github.com/mammykins/regregrap/blob/master/R/phase_date_data.R)
+
+To run these checks, use the code:
+
+    x <- pkgname::file/function_name(dataset_name)
+
+
