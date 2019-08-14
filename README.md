@@ -132,3 +132,5 @@ To read more about documentation, go to: http://r-pkgs.had.co.nz/man.html
 
 Exercise 8: Amend the DESCRIPTION file to add roxygen2 to the package dependency text. Then create an data.R file in your R folder and paste in the first 22 rows from the one in the eesectors package. Amend the contents, update your package and check out the documentation you have created. Lastly, push to github.
 
+# 10. Automated input data quality assurance checks
+
