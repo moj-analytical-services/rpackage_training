@@ -106,7 +106,9 @@ You can develop this code by taking two extra steps:
 1. If you want a variable to be a factor variable add a line of code to make this happen e.g.raw$phase <- as.factor(raw$phase)
 2. If you want the .rda file to be amended when the input raw dataset is amended add an overwrite=TRUE to the use_data function e.g. devtools::use_data(raw, overwrite = TRUE)  
 
-When you make changes to your package and want to see the effect of these, you can run the following code which reloads all the changes you have made to your code: devtools::load_all(".") 
+When you make changes to your package and want to see the effect of these, you can run the following code which reloads all the changes you have made to your code: 
+
+    devtools::load_all(".") 
 
 Exercise 7: Make an .rda file of 'crimesdata2.csv' by following the above steps. 
 
@@ -119,7 +121,8 @@ You can add documentation for your data object by creating a data.R file. You ca
 Looking at the first 22 rows you can see a title, subtitle, the format of the data, a description of each of the variables, the source location, the keywords and at the bottom what the object is called (within speech marks).  
 
 After changing your documentation you can update your package using the code:
-devtools::document(roclets=c('rd', 'collate', 'namespace'))
+
+    devtools::document(roclets=c('rd', 'collate', 'namespace'))
 
 roxygen2 takes the documentation you've written in roxygen2 format and creates a more complicated code file (in the man folder), the output from which we can see in the help facility by running the code:
 ?egaidanrap
