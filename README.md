@@ -98,7 +98,7 @@ You can include code within the package to manipulate the raw data as needed. To
         raw <- read.csv("directory_path/data_name.csv", check.names = TRUE)
         devtools::use_data(raw)  
         rm(raw)
-- Save the script  e.g. as create_raw.R
+- Save the script  (e.g. as create_raw.R) and run it
 
 Now you'll see a data folder has been created that contains the object raw.rda
 
@@ -109,3 +109,43 @@ You can develop this code by taking two extra steps:
 When you make changes to your package and want to see the effect of these, you can run the following code which reloads all the changes you have made to your code: devtools::load_all(".") 
 
 Exercise 7: Make an .rda file of 'crimesdata2.csv' by following the above steps. 
+
+# 9. Adding documentation
+
+Documentation should be embedded within the package so available to all who use it. That for data objects is held in a separate file to the data where as that for functions is held in the same file. All documentation for your R package should be held with the R folder. 
+
+You can add documentation for your data object by creating a data.R file. You can see an example data.R file in the eesectors package at https://github.com/DCMSstats/eesectors/blob/master/R/data.R; this uses the roxygen2 way of automatically producing documentation:
+
+#' GVA data for 2010:2015.
+#'
+#' Data extracted from the 2016 Economic Estimates of DCMS Sectors 2016 report.
+ 	#' These data are provided for testing ouputs of this package against, and for
+ 	#' the initial development phase during which the original data sources were not
+ 	#' available.
+ 	#'
+ 	#' @format A tibble with 54 rows and 3 variables:
+ 	#' \describe{
+ 	#' \item{sector}{DCMS sector, one of: \code{c('creative','culture','digital',
+ 	#' 'gambling','sport','telecoms','tourism', 'UK', 'all_dcms')}, note that
+ 	#' \code{all_dcms} is not the sum of the other sectors, due to overlap between
+ 	#' sectors.}
+ 	#' \item{year}{calendar year.}
+ 	#' \item{GVA}{gross value added (GBP millions).}
+ 	#' }
+ 	#' @source
+ 	#' \url{https://www.gov.uk/government/statistics/dcms-sectors-economic-estimates-2016}
+        "GVA_by_sector_2016"
+        #'
+        #' @keywords Economic Estimates Sectors DCMS
+        "GVA_by_sector_2016"
+ 	
+You can see a title, subtitle, the format of the data, a description of each of the variables, the source location, the keywords and at the bottom what the object is called (within speech marks).  
+
+After changing your documentation you can update your package using the code:
+devtools::document(roclets=c('rd', 'collate', 'namespace'))
+
+roxygen2 takes the documentation you've written in roxygen2 format and creates a more complicated code file (in the man folder), the output from which we can see in the help facility by running the code:
+?egaidanrap
+
+To read more about documentation, go to: http://r-pkgs.had.co.nz/man.html 
+
