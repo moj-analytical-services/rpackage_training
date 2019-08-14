@@ -125,7 +125,8 @@ After changing your documentation you can update your package using the code:
     devtools::document(roclets=c('rd', 'collate', 'namespace'))
 
 roxygen2 takes the documentation you've written in roxygen2 format and creates a more complicated code file (in the man folder), the output from which we can see in the help facility by running the code:
-?egaidanrap
+
+    ?yourpkgname
 
 To read more about documentation, go to: http://r-pkgs.had.co.nz/man.html 
 
