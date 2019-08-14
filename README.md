@@ -114,7 +114,7 @@ Exercise 7: Make an .rda file of 'crimesdata2.csv' by following the above steps.
 
 # 9. Adding documentation
 
-Documentation should be embedded within the package so available to all who use it. That for data objects is held in a separate file to the data where as that for functions is held in the same file. All documentation for your R package should be held with the R folder. 
+Documentation should be embedded within the package so available to all who use it. That for data objects is held in a separate file to the data where as that for functions is held in the same file. All documentation for your R package should be held within the R folder. 
 
 You can add documentation for your data object by creating a data.R file. You can see an example data.R file in the eesectors package at https://github.com/DCMSstats/eesectors/blob/master/R/data.R; this uses the roxygen2 way of automatically producing documentation.
 
@@ -129,4 +129,6 @@ roxygen2 takes the documentation you've written in roxygen2 format and creates a
     ?yourpkgname
 
 To read more about documentation, go to: http://r-pkgs.had.co.nz/man.html 
+
+Exercise 8: Amend the DESCRIPTION file to add roxygen2 to the package dependency text. Then create an data.R file in your R folder.
 
