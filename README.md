@@ -118,7 +118,7 @@ Documentation should be embedded within the package so available to all who use 
 
 You can add documentation for your data object by creating a data.R file. You can see an example data.R file in the eesectors package at https://github.com/DCMSstats/eesectors/blob/master/R/data.R; this uses the roxygen2 way of automatically producing documentation.
 
-Looking at the first 22 rows you can see a title, subtitle, the format of the data, a description of each of the variables, the source location, the keywords and at the bottom what the object is called (within speech marks).  
+Looking at the first 22 rows you can see a title, subtitle, the format of the data, a description of each of the variables, the source location, the keywords and at the bottom what the data object is called (within speech marks).  
 
 After changing your documentation you can update your package using the code:
 
