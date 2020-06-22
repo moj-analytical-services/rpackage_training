@@ -35,13 +35,13 @@ Exercise 1: Decide what name to call your package
 
 Guidance to create a new github repository is at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#creating-your-project-repo-on-github
 
-Exercise 2: Follow the guidance to create a new github repository, giving it the same name as you've decided to call your package (see previous section) and a suitable description (e.g. 'My RAP training exercise').
+Exercise 2: Follow the guidance to create a new github repository, giving it the same name as you've decided to call your package (see previous section) and a suitable description (e.g. 'My RAP training exercise'). As this is a training exercise you can leave the default setting of your repository (see Step 2) as PRIVATE so it’s only visible to you as the creator.
 
-# 4. Load into R as a project
+# 4. Make a copy of the project in R Studio
 
-Guidance to make a copy of the project in R Studio is at  https://moj-analytical-services.github.io/platform_user_guidance/github.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio
+Guidance to make a copy of the project in R Studio is at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio
 
-Exercise 3: Follow the guidance load into R as a project.
+Exercise 3: Follow Step 1 of the guidance to make a copy of the project in R Studio.
 
 # 5. Create the package 
 
