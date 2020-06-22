@@ -5,18 +5,16 @@ Making and developing R packages for RAP (Reproducible Analytical Pipelines)
 
 This training is based on Matthew Gregory's free online course 'Reproducible Analytical Pipelines (RAP) using R' (see https://www.udemy.com/reproducible-analytical-pipelines/) and Hadley Wickham's book 'R Packages' (see http://r-pkgs.had.co.nz/)
 
-The goal of this training is to teach you how to develop packages with a particular emphasis on RAP. Thankfully they are not difficult to make.
+The goal of this training is to teach you how to develop packages with a particular emphasis on RAP. Thankfully they are not difficult to make. There are benefits to the RAP for each statistical publication being within a package.   
 
-Hadley Wickham's introduction (http://r-pkgs.had.co.nz/intro.html) states: "Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data."  The minimal contents of a package include: functions, tests, documentation and data (which can be made up where real data are sensitive). Within an R package (e.g. https://github.com/DCMSstats/eesectors): 
+Hadley Wickham's introduction (http://r-pkgs.had.co.nz/intro.html) states: "Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data."  The package should also include tests and data (which can be made up if real data are sensitive). Within an R package (e.g. https://github.com/DCMSstats/eesectors): 
 
-- R code is in the directory 'R'; 
-- data in 'data'; 
-- documentation in 'man'; 
-- QA in 'tests'; 
-- dependency management in 'packrat'; and 
-- templates on how to use the package in 'vignettes'.
-
-There are benefits to each statistical production using RAP being within a package.   
+- R code is in the directory 'R' (this is compulsory); 
+- documentation is in 'man' (this is compulsory); 
+- data are in 'data'; 
+- tests are in 'tests'; 
+- dependency management is (if using packrat) in 'packrat'; and 
+- templates on how to use the package are in 'vignettes'.
 
 # 2. Choose a name
 
