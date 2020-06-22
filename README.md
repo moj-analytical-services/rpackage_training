@@ -52,7 +52,7 @@ You can create a package by taking the following steps:
 
 You can now see in the 'Files' window that there are additions in your project directory.
 
-Exercise 4: Follow the above steps, replacing "path/to/package/pkgname" by the correct directory path. Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the additions there.
+Exercise 4: Follow the above steps, inserting the correct directory path and package name within the create command. Lastly, follow Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio, committing your changes to git and then pushing them to github.com. If you refresh your github.com repository page you should now see the additions there.
 
 # 6. Amend the DESCRIPTION file
 
