@@ -56,13 +56,13 @@ Exercise 4: Follow the above steps, inserting the correct directory path and pac
 
 # 6. Amend the DESCRIPTION file
 
-A bare-bones DESCRIPTION file has been created which stores important metadata about your package including the packages that your package needs to work. You can click on the DESCRIPTION filename in the file window and then amend it as appropriate. 
+The DESCRIPTION file provides important metadata about the package and is automatically created when you run the create function (see above section). You can click on the DESCRIPTION filename in the file window and then amend it as appropriate. 
 
 To see an example of an amended DESCRIPTION file see: https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION Take note of the formatting e.g. the Title is a one liner and doesn't end in a period. 
 
 You can read more about the most important DESCRIPTION fields at: http://r-pkgs.had.co.nz/description.html These include the Authors@R field which has a three letter code specifying the role, the most useful being:
 
-- cre: the creator or maintainer, the person you should bother if you have problems.
+- cre: the package maintainer, the person you should contact if you have problems.
 - aut: authors, those who have made significant contributions to the package.
 - ctb: contributors, those who have made smaller contributions, like patches.
 - cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
