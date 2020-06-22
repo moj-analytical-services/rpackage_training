@@ -5,9 +5,9 @@ Making and developing R packages for RAP (Reproducible Analytical Pipelines)
 
 This training is based on Matthew Gregory's free online course 'Reproducible Analytical Pipelines (RAP) using R' (see https://www.udemy.com/reproducible-analytical-pipelines/) and Hadley Wickham's book 'R Packages' (see http://r-pkgs.had.co.nz/)
 
-The goal of this training is to teach you how to develop packages with a particular emphasis on RAP. Thankfully they are not difficult to make. There are benefits to the RAP for each statistical publication being within a package.   
+The goal of this training is to teach you how to develop packages with a particular emphasis on RAP. Thankfully they are not difficult to make. To maximise it please do the exercises which enable you to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training - see https://github.com/moj-analytical-services/rmarkdown_training. You can then apply the same skills to your real life publications.
 
-Hadley Wickham's introduction (http://r-pkgs.had.co.nz/intro.html) states: "Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data."  The package should also include tests and data (which can be made up if real data are sensitive). Within an R package (e.g. https://github.com/DCMSstats/eesectors): 
+There are benefits to the RAP for each statistical publication being within a package. Hadley Wickham's introduction (http://r-pkgs.had.co.nz/intro.html) states: "Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data."  The package should also include tests and data (which can be made up if real data are sensitive). Within an R package (e.g. https://github.com/DCMSstats/eesectors): 
 
 - R code is in the directory 'R' (this is compulsory); 
 - documentation is in 'man' (this is compulsory); 
@@ -18,11 +18,16 @@ Hadley Wickham's introduction (http://r-pkgs.had.co.nz/intro.html) states: "Pack
 
 # 2. Choose a name
 
-Possibly the hardest part of creating a package is choosing a name for it. This should be both short and unique (for google searches) and include either upper or lower case characters but not a mixture of them. If the package is to do some RAP work, we may want to consider putting 'rap' at end of the name. 
+Possibly the hardest part of creating a package is choosing a name for it. This should: 
+
+- be short; 
+- be unique (for google searches); 
+- include either upper or lower case characters but not a mixture of them; 
+- make clear what the package does e.g. if to do some RAP work, consider putting 'rap' at end of the name. 
 
 You can read more about naming a package in the 'Naming your package' section of http://r-pkgs.had.co.nz/package.html 
 
-In this training we're going to create a package to RAP the short statistical bulletin that we create as part of the Rmarkdown training - see https://github.com/moj-analytical-services/rmarkdown_training  As such you could choose a name such as egnamerap where the eg is because it's a training exercise, the name is your first name (if not the same as someone else's) and the rap because you are going to RAP a short statistical bulletin.
+As we're going to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training (see https://github.com/moj-analytical-services/rmarkdown_training) choose a name such as egnamerap where the eg is because it's a training exercise, the name is your first name (if not the same as someone else's) and the rap because you are going to RAP a minimal statistical bulletin.
 
 Exercise 1: Decide what name to call your package
 
