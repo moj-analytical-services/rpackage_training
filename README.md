@@ -56,18 +56,21 @@ Exercise 4: Follow the above steps, inserting the correct directory path and pac
 
 # 6. Amend the DESCRIPTION file
 
-The DESCRIPTION file provides important metadata about the package and is automatically created when you run the create function (see above section). You can click on the DESCRIPTION filename in the file window and then amend it as appropriate. 
+The DESCRIPTION file is one of two files automatically created when you run the create command (see above section), the other being the NAMESPACE file (more about this later). It provides important metadata about the package. You can click on the DESCRIPTION filename in the file window and then amend it as appropriate. 
 
-To see an example of an amended DESCRIPTION file see: https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION Take note of the formatting e.g. the Title is a one liner and doesn't end in a period. 
+To view an example of an amended DESCRIPTION file see: https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION Take note of the formatting. Each line consists of a field name and a value, separated by a colon. When values span multiple lines, they need to be indented. In particular:
 
-You can read more about the most important DESCRIPTION fields at: http://r-pkgs.had.co.nz/description.html These include the Authors@R field which has a three letter code specifying the role, the most useful being:
-
+The Title is a one line description of the package - keep short, capitalised like a title and less than 65 characters.
+The Version should be amended when you update the package
+The Authors@R field which has a three letter code specifying the role, the most useful being:
 - cre: the package maintainer, the person you should contact if you have problems.
 - aut: authors, those who have made significant contributions to the package.
 - ctb: contributors, those who have made smaller contributions, like patches.
 - cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
+The Depends and Imports fields allow you to list the packages that your package needs to work; apart from the version of R generally use the Imports rather than Depends command to do this. Unless you have greater knowledge, require the package version to be greater than or equal to the version you’re currently using.
+The Description is more detailed than the Title - one paragraph with each line upto 80 characters
 
-You should also list the packages that your package needs to work; generally use the Imports rather than Depends command to do this. Unless you have greater knowledge, require the package version to be greater than or equal to the version you’re currently using.
+You can read more about the most important DESCRIPTION fields at: http://r-pkgs.had.co.nz/description.html 
 
 Exercise 5: Amend the DESCRIPTION file, specifically the Title, Authors@R, Description and package dependency text (we need ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
 
