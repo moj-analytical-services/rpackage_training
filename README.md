@@ -54,7 +54,13 @@ You can now see in the 'Files' window that there are additions in your project d
 
 Exercise 4: Follow the above steps, inserting the correct directory path and package name within the create command. Lastly, follow Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio, committing your changes to git and then pushing them to github.com. If you refresh your github.com repository page you should now see the additions there.
 
-# 6. Amend the DESCRIPTION file
+# 6. Add R code 
+
+Any R code to be within the package should be saved in the package R/ directory.
+
+Exercise 5: 
+
+# 7. Amend the DESCRIPTION file
 
 The DESCRIPTION file is one of two files automatically created when you run the create command (see above section), the other being the NAMESPACE file (more about this later). It provides important metadata about the package. You can click on the DESCRIPTION filename in the file window and then amend it as appropriate. 
 
@@ -72,9 +78,9 @@ To view an example of an amended DESCRIPTION file see: https://github.com/DCMSst
 
 You can read more about the most important DESCRIPTION fields at: http://r-pkgs.had.co.nz/description.html 
 
-Exercise 5: Amend the DESCRIPTION file, specifically the Title, Authors@R, Description and package dependency text (we need ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
+Exercise 6: Amend the DESCRIPTION file, specifically the Title, Authors@R, Description and package dependency text (we need ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
 
-# 7. Handling of sensitive and non-sensitive data 
+# 8. Handling of sensitive and non-sensitive data 
 
 Raw data should be a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specfic structure; each variable is a column, each observation a row, and each type of observational unit is a table. 
 
@@ -86,9 +92,9 @@ A template gitignore that ukgovdatascience have done and is free to copy from is
 
 You can also use git hooks which check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about these hooks is available at: https://github.com/ukgovdatascience/dotfiles
 
-Exercise 6: Upload or copy crimedata2.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After pushing to github can you see crimedata2.csv? Then additionally specify crimedata2.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
+Exercise 7: Upload or copy crimedata2.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After pushing to github can you see crimedata2.csv? Then additionally specify crimedata2.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
 
-# 8. Adding raw data as an RDA object
+# 9. Adding raw data as an RDA object
 
 It is beneficial for your data to be within .rda files which store R objects in a format native to R. Compared with e.g. write.csv it:
 
@@ -116,9 +122,9 @@ When you make changes to your package and want to see the effect of these, you c
 
     devtools::load_all(".") 
 
-Exercise 7: Make an .rda file of 'crimesdata2.csv' by following the above steps. 
+Exercise 8: Make an .rda file of 'crimesdata2.csv' by following the above steps. 
 
-# 9. Adding documentation
+# 10. Adding documentation
 
 Documentation should be embedded within the package so available to all who use it. That for data objects is held in a separate file to the data where as that for functions is held in the same file. All documentation for your R package should be held within the R folder. 
 
@@ -136,9 +142,9 @@ roxygen2 takes the documentation you've written in roxygen2 format and creates a
 
 To read more about documentation, go to: http://r-pkgs.had.co.nz/man.html 
 
-Exercise 8: Amend the DESCRIPTION file to add roxygen2 to the package dependency text. Then create an data.R file in your R folder and paste in the first 22 rows from the one in the eesectors package. Amend the contents, update your package and check out the documentation you have created. Lastly, push to github.
+Exercise 9: Amend the DESCRIPTION file to add roxygen2 to the package dependency text. Then create an data.R file in your R folder and paste in the first 22 rows from the one in the eesectors package. Amend the contents, update your package and check out the documentation you have created. Lastly, push to github.
 
-# 10. Automated input data quality assurance checks
+# 11. Automated input data quality assurance checks
 
 We should check the input data contains the correct columns and that the number of rows is more than the minimum expected.
 
