@@ -54,11 +54,11 @@ You can now see in the 'Files' window that there are additions in your project d
 
 Exercise 4: Follow the above steps, inserting the correct directory path and package name within the create command. Lastly, follow Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio, committing your changes to git and then pushing them to github.com. If you refresh your github.com repository page you should now see the additions there.
 
-# 6. Add R code 
+# 6. Add R and Rmarkdown code 
 
-Any R code to be within the package should be saved in the package R/ directory.
+Any R and R Markdown code to be within the package should be saved into it. The R code can be saved to the package R/ directory while the R Markdown code can be saved to the package home directory.
 
-Exercise 5: 
+Exercise 5: Add the crimesdata_pub.Rmd to your package
 
 # 7. Amend the DESCRIPTION file
 
