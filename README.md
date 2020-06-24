@@ -80,21 +80,23 @@ You can read more about the most important DESCRIPTION fields at: http://r-pkgs.
 
 Exercise 6: Amend the DESCRIPTION file, specifically the Title, Authors@R, Description and package dependency text (we need ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
 
-# 8. Including non-sensitive data 
+# 8. Excluding sensitive data 
 
-It is helpful to include data within the package as they make the development of functions and package testing easier. If the data are sensitive, then some fake data can instead be created.
+If you are working with data that you don't want to accidentally appear on github the best way to ensure against accidental commits is to ensure that the data are not stored within your R Studio copy of the repository. However you can employ a second layer of protection to ensure that accidents don't happen. 
 
-Any raw data included within the package should be in the form of a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specfic structure; each variable is a column, each observation a row, and each type of observational unit a table (e.g. if for each offender we measure height and weight, then the observational unit is the offender) such that data corresponding to different types of observational unit (e.g. offenders and offender managers) should be stored in separate tables. 
-
-To prevent the package containing any sensitive information the gitignore file can be amended to specify any sensitive data files so that they cannot to be pushed to git. This can simply be done by openning the gitignore file and adding the name of the file (e.g. confidential.txt). If there's a file that's not to be ignored then add an exclamation mark in front of its' name e.g. '!unconfidential.txt'. 
+To prevent the package containing any sensitive information the gitignore file can be amended to specify any sensitive data files so that they cannot to be pushed to git. This can be done by opening the gitignore file and adding the name of the file (e.g. confidential.txt). If there's a file that's not to be ignored then add an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
 
 A link to a template gitignore that ukgovdatascience have done and which is free to copy, use and amend as appropriate is at: https://github.com/ukgovdatascience/dotfiles
 
 You can also use git hooks which check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about these hooks is available at: https://github.com/ukgovdatascience/dotfiles
 
-Exercise 7: Upload or copy crimedata2.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After pushing to github can you see crimedata2.csv? Then additionally specify crimedata2.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
+Exercise 7: Place a copy of crimedata2.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After committing and pushing to github (Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio) can you see crimedata2.csv? Then additionally specify crimedata2.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
 
 # 9. Adding raw data as an RDA object
+
+It is helpful to include data within the package as they make the development of functions and package testing easier. If the data are sensitive, then some fake data can instead be created.
+
+Any raw data included within the package should be in the form of a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specfic structure; each variable is a column, each observation a row, and each type of observational unit a table (e.g. if for each offender we measure height and weight, then the observational unit is the offender) such that data corresponding to different types of observational unit (e.g. offenders and offender managers) should be stored in separate tables. 
 
 It is beneficial for your data to be within .rda files which store R objects in a format native to R. Compared with e.g. write.csv it:
 
