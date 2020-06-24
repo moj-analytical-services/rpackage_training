@@ -80,15 +80,15 @@ You can read more about the most important DESCRIPTION fields at: http://r-pkgs.
 
 Exercise 6: Amend the DESCRIPTION file, specifically the Title, Authors@R, Description and package dependency text (we need ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
 
-# 8. Handling of sensitive and non-sensitive data 
+# 8. Including non-sensitive data 
 
-Raw data should be a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specfic structure; each variable is a column, each observation a row, and each type of observational unit is a table. 
+It is helpful to include data within the package as they make the development of functions and package testing easier. If the data are sensitive, then some fake data can instead be created.
 
-If the data are non-sensitive, then they should be included within the package as they make it easier for you and collaborators to help develop functions and test your package. If the data are sensitive, then create some fake data instead.
+Any raw data included within the package should be in the form of a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specfic structure; each variable is a column, each observation a row, and each type of observational unit a table (e.g. if for each offender we measure height and weight, then the observational unit is the offender) such that data corresponding to different types of observational unit (e.g. offenders and offender managers) should be stored in separate tables. 
 
-You can use the gitignore file to specify data files so that they cannot to be pushed to git. Simply open the gitignore file and add the name of the file (e.g. sensitive.txt). If you want to specify a file that's not to be ignored then add an exclamation mark in front of it's name e.g. '!sensitive.txt'. 
+To prevent the package containing any sensitive information the gitignore file can be amended to specify any sensitive data files so that they cannot to be pushed to git. This can simply be done by openning the gitignore file and adding the name of the file (e.g. confidential.txt). If there's a file that's not to be ignored then add an exclamation mark in front of its' name e.g. '!unconfidential.txt'. 
 
-A template gitignore that ukgovdatascience have done and is free to copy from is at: https://github.com/ukgovdatascience/dotfiles
+A link to a template gitignore that ukgovdatascience have done and which is free to copy, use and amend as appropriate is at: https://github.com/ukgovdatascience/dotfiles
 
 You can also use git hooks which check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about these hooks is available at: https://github.com/ukgovdatascience/dotfiles
 
