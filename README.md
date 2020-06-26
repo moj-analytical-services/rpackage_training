@@ -101,19 +101,19 @@ Any data included within the package should be in the form of a minimal tidy dat
 It is beneficial for the data to be within the package as an .RData file which stores the data in a format native to R. Compared with keeping the data in a .csv file it:
 
 - Is faster to restore the data to R
-- Keeps R specific information encoded in the data (e.g. attributes, variable types).
+- Keeps R specific information encoded in the data (e.g. attributes, variable types)
 
 To create a nice .RData file:
 
-1. Create a sub-directory called 'data-raw' in your project Rstudio folder by running the command 'devtools::use_data_raw()'. 
-2. Place the raw data into 'data-raw/'.
+1. Create a sub-directory called 'data-raw' in your project Rstudio folder by running the command 'devtools::use_data_raw()' 
+2. Place the raw data into 'data-raw/'
 3. Create a new R script in 'data-raw/' which reads in the raw data and puts them into 'data/' as an .RData object:
 
         raw <- read.csv("directory_path/data_name.csv", check.names = TRUE)
         devtools::use_data(raw)  
         rm(raw)
 
-- Save the script (e.g. as create_raw.R) and run it
+4. Save the script (e.g. as create_raw.R) and run it
 
 Now the folder 'data' will have been created that contains the object raw.RData
 
