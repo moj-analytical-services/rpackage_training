@@ -82,9 +82,9 @@ Exercise 6: Amend the DESCRIPTION file, specifically the Title, Authors@R, Descr
 
 # 8. Excluding sensitive data 
 
-If you are working with data that you don't want to accidentally appear on github the best way to ensure against accidental commits is to ensure that the data are not stored within your R Studio copy of the repository. However you can employ a second layer of protection to ensure that accidents don't happen. 
+The best way to ensure you don't accidentally push any sensitive data to github.com is not to store them within your R Studio copy of the repository. There is also a second layer of protection that you should set up to prevent the package containing any sensitive information. 
 
-To prevent the package containing any sensitive information the gitignore file can be amended to specify any sensitive data files so that they cannot to be pushed to git. This can be done by opening the gitignore file and adding the name of the file (e.g. confidential.txt). If there's a file that's not to be ignored then add an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
+The gitignore file can be amended to specify any sensitive data files so that they cannot to be pushed to git. This can be done by opening the gitignore file and adding the name of the file (e.g. confidential.txt). If there's a file that's not to be ignored then add an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
 
 A link to a template gitignore that ukgovdatascience have done and which is free to copy, use and amend as appropriate is at: https://github.com/ukgovdatascience/dotfiles
 
