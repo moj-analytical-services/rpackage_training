@@ -92,39 +92,40 @@ You can also use git hooks which check for certain datafiles and prevent a git p
 
 Exercise 7: Place a copy of crimedata2.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After committing and pushing to github (Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio) can you see crimedata2.csv? Then additionally specify crimedata2.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
 
-# 9. Adding raw data as an RDA object
+# 9. Adding data in RData format
 
-It is helpful to include data within the package as they make the development of functions and package testing easier. If the data are sensitive, then some fake data can instead be created.
+While no sensitive data should be within the package, it is helpful to include non-sensitive data to make the development of functions and package testing easier. Where the data are sensitive, fake data should be generated instead.
 
-Any raw data included within the package should be in the form of a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specfic structure; each variable is a column, each observation a row, and each type of observational unit a table (e.g. if for each offender we measure height and weight, then the observational unit is the offender) such that data corresponding to different types of observational unit (e.g. offenders and offender managers) should be stored in separate tables. 
+Any data included within the package should be in the form of a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specfic structure; each variable is a column, each observation a row, and each type of observational unit a table (e.g. if for each offender we measure height and weight, then the observational unit is the offender) such that data corresponding to different types of observational unit (e.g. offenders and offender managers) are stored in separate tables. 
 
-It is beneficial for your data to be within .rda files which store R objects in a format native to R. Compared with e.g. write.csv it:
+It is beneficial for the data to be within the package as an .RData file which stores the data in a format native to R. Compared with keeping the data in a .csv file it:
 
 - Is faster to restore the data to R
-- Keeps R specific information encoded in the data (e.g., attributes, variable types, etc).
+- Keeps R specific information encoded in the data (e.g. attributes, variable types).
 
-You can include code within the package to manipulate the raw data as needed. To create a nice .rda file:
+To create a nice .RData file:
 
-- Make a sub-directory called 'data-raw' in your project Rstudio folder
-- Place the raw data into 'data-raw'.
-- Create a new script into 'data-raw' with the following contents:
+1. Create a sub-directory called 'data-raw' in your project Rstudio folder by running the command 'devtools::use_data_raw()'. 
+2. Place the raw data into 'data-raw/'.
+3. Create a new R script in 'data-raw/' which reads in the raw data and puts them into 'data/' as an .RData object:
 
         raw <- read.csv("directory_path/data_name.csv", check.names = TRUE)
         devtools::use_data(raw)  
         rm(raw)
-- Save the script  (e.g. as create_raw.R) and run it
 
-Now you'll see a data folder has been created that contains the object raw.rda
+- Save the script (e.g. as create_raw.R) and run it
 
-You can develop this code by taking two extra steps:
-1. If you want a variable to be a factor variable add a line of code to make this happen e.g.raw$phase <- as.factor(raw$phase)
-2. If you want the .rda file to be amended when the input raw dataset is amended add an overwrite=TRUE to the use_data function e.g. devtools::use_data(raw, overwrite = TRUE)  
+Now the folder 'data' will have been created that contains the object raw.RData
 
-When you make changes to your package and want to see the effect of these, you can run the following code which reloads all the changes you have made to your code: 
+The code could be developed. For instance:
+1. If some processing of the data is needed this could be added e.g. to make a variable of class factor i.e. raw$phase <- as.factor(raw$phase)
+2. If the .RData file is to be amended when the input raw dataset is amended then add an overwrite=TRUE to the use_data function e.g. devtools::use_data(raw, overwrite = TRUE)  
 
-    devtools::load_all(".") 
+To see the effect of changes made to the package, the following code needs to be run. All the changes made to the code will now be in memory: 
 
-Exercise 8: Make an .rda file of 'crimesdata2.csv' by following the above steps. 
+    devtools::load_all() 
+
+Exercise 8: Make an .RData file of 'crimesdata2.csv' by following the above steps (including calling it 'raw'). 
 
 # 10. Adding documentation
 
