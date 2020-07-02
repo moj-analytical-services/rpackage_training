@@ -129,21 +129,21 @@ Exercise 8: Make an .RData file of 'crimesdata2.csv' by following the above step
 
 # 10. Adding documentation
 
-Documentation should be embedded within the package so available to all who use it. That for data objects is held in a separate file to the data where as that for functions is held in the same file. All documentation for your R package should be held within the R folder. 
+Documentation is really important so users know how to use the package and so creators (who may forget the details) and developers can quickly get up to speed. It should therefore be embedded within the package in such a way that it is easily available to all users. Documentation about data sets within the package should be provided in a separate R script while that for an function can be held within the same R script. All documentation for the package should be held within the R folder. 
 
-You can add documentation for your data object by creating a data.R file. You can see an example data.R file in the eesectors package at https://github.com/DCMSstats/eesectors/blob/master/R/data.R; this uses the roxygen2 way of automatically producing documentation.
+Documentation can be added for data sets within a package by creating an data.R file. You can view an example data.R file in the eesectors package at https://github.com/DCMSstats/eesectors/blob/master/R/data.R; this makes use of the package roxygen2 to automatically turn the formated comments into nice looking documentation.
 
 Looking at the first 22 rows you can see a title, subtitle, the format of the data, a description of each of the variables, the source location, the keywords and at the bottom what the data object is called (within speech marks).  
 
-After changing your documentation you can update your package using the code:
+After adding or amending documentation in .R files, the following command can be used to create more complicated code (.Rd) files in the man folder, which then enables users to view nice looking documentation through the help facility:
 
     devtools::document(roclets=c('rd', 'collate', 'namespace'))
 
-roxygen2 takes the documentation you've written in roxygen2 format and creates a more complicated code file (in the man folder), the output from which we can see in the help facility by running the code:
+The documentation can then be viewed in the help facility using the usual help facility command i.e.:
 
     ?objectname
 
-To read more about documentation, go to: http://r-pkgs.had.co.nz/man.html 
+To read more about documentation more generally go to: http://r-pkgs.had.co.nz/man.html, and for data objects specifically: http://r-pkgs.had.co.nz/data.html#documenting-data  
 
 Exercise 9: Amend the DESCRIPTION file to add roxygen2 to the package dependency text. Then create an data.R file in your R folder and paste in the first 22 rows from the one in the eesectors package. Amend the contents, update your package and check out the documentation you have created. Lastly, push to github.
 
