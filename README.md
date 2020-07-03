@@ -127,7 +127,7 @@ To see the effect of changes made to the package, the following code needs to be
 
 Exercise 8: Make an .RData file of 'crimesdata2.csv' by following the above steps (including calling it 'raw'). 
 
-# 10. Adding documentation
+# 10. Adding documentation about package data
 
 Documentation is really important so users know how to use the package and so creators (who may forget the details) and developers can quickly get up to speed. It should therefore be embedded within the package in such a way that it is easily available to all users. Documentation about data sets within the package should be provided in a separate R script while that for an function can be held within the same R script. All documentation for the package should be held within the R folder. 
 
