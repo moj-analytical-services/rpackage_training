@@ -147,19 +147,19 @@ To read more about documentation more generally go to: http://r-pkgs.had.co.nz/m
 
 Exercise 9: Create an data.R file in your R folder and paste in the first 22 rows from the one in the eesectors package. Amend the contents, generate the nice looking documentation, and then check out the documentation you have created. Lastly, push to github.
 
-# 11. Automated input data quality assurance checks
+# 11. Automating quality assurance checks on input data sets
 
-We should check the input data contains the correct columns and that the number of rows is more than the minimum expected.
+While input data may already have been quality assured prior to being loaded into the package, it is best practice set up automated quality assurance checks on the data within the package. 
 
-You can copy https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R and adjust for your purposes. The roxygen2 documentation appears at the top of the file. It may also be helpful to:
+You can view an example quality assurance R script in the eesectors package at https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R The roxygen2 documentation appears at the top of the file. The checks include that the data contain the correct columns and that the number of rows is at least the minimum expected. It may also be helpful for the script to:
 
-- add plots so the user can see for themselves from automatically produced plots that things look fine.  
-- add name lookups e.g. any charts will have nice labels (e.g. the first letter being a capital and the others being lower case).
-- drop any variables you won't need.
-- create the final data set as of class 'file/function_name' (see the end of https://github.com/mammykins/regregrap/blob/master/R/phase_date_data.R)
+- produce some plots to enable the user to check visually that the data look okay.  
+- add name lookups for instance so any charts have nice labels (e.g. the first letter being a capital and the others being lower case).
+- drop any variables that won't be needed.
+- create the final data set of class 'file/function_name' (see the end of https://github.com/mammykins/regregrap/blob/master/R/phase_date_data.R)
 
-To run these checks, use the code:
+The checks can be run using the code:
 
     x <- pkgname::file/function_name(dataset_name)
 
-
+Exercise 10: Set up some automated quality assurance checks on your input data to check the the data.frame contains no missing values and the right number and names of columns. To do this, copy rows 1-77 and 174 of https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R, amend the contents suitably, run the checks, and lastly push to github.
