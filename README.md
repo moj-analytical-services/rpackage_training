@@ -1,5 +1,12 @@
 # rpackage_training
-Making and developing R packages for RAP (Reproducible Analytical Pipelines)
+Making and developing R packages for RAP (Reproducible Analytical Pipelines). This training is suitable for those who have completed the following training sessions or have at least reached an equivalent standard to having done this:
+
+- https://github.com/moj-analytical-services/IntroRTraining
+- https://github.com/moj-analytical-services/ggplotTraining
+- https://github.com/moj-analytical-services/rmarkdown_training
+- https://github.com/moj-analytical-services/writing_functions_in_r
+
+Recordings of these sessions can be viewed at: https://web.microsoftstream.com/channel/aa3cda5d-99d6-4e9d-ac5e-6548dd55f52a. 
 
 # 1. Introduction
 
