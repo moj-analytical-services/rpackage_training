@@ -173,7 +173,9 @@ Exercise 10: Set up some automated quality assurance checks on your input data t
 
 # 12. Developing functions
 
-So what functions do we need to produce the report? (section 4.19 in MOOC). Make a list of what will change in your report and see what functions you'll need to work out these changes. For more on writing functions see section 4.20 in MOOC - copy note from Online RAP mooc.
+Why, when and how to write your own functions is covered by the ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) training. As the opening lines of that training state, functions can save you time, reduce the risk of errors, and make your code easier to understand. You should consider and make a list of what functions you should create (or use if they already exist) to produce the report your package is to generate.
+
+Exercise 11: Set up some automated quality assurance checks on your input data to check the the data.frame contains no missing values and the right number and names of columns. To do this, copy rows 1-77 and 174 of https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R, amend the contents suitably, run the checks, and lastly push to github.
 
 # 13. Documenting code
 
