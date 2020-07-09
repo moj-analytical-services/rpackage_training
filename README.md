@@ -170,3 +170,83 @@ The checks can be run using the code:
     x <- pkgname::file/function_name(dataset_name)
 
 Exercise 10: Set up some automated quality assurance checks on your input data to check the the data.frame contains no missing values and the right number and names of columns. To do this, copy rows 1-77 and 174 of https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R, amend the contents suitably, run the checks, and lastly push to github.
+
+# 12. Developing functions
+
+So what functions do we need to produce the report? (section 4.19 in MOOC). Make a list of what will change in your report and see what functions you'll need to work out these changes. For more on writing functions see section 4.20 in MOOC - copy note from Online RAP mooc.
+
+# 13. Documenting code
+
+(section 4.21 in MOOC)
+The main metric for documentation is that it doesn't take long for someone to understand your code.
+Documentation needs to appeal to users of the package and developers (those who in the future develop it)
+Helps to have peer review to get others input into this.
+As when creating documentation for our data object, we can use Roxygen2 to create documentation. A good example of such is at: https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R  We have a title (one sentence), description, details including about inputs, what is returned, some examples, and the @export which tells the package generation phase that we want this function to be accessible to the user when they open your package.
+You could copy this into your function code and then amend; it can be helpful to do this at the start when creating a new function.
+
+After changing the documentation we can update our package using the code:
+devtools::document(roclets=c('rd', 'collate', 'namespace'))
+Then can reload using:
+devtools::load_all(".")
+Then call up the help again and see the change in the help window.
+
+The documentation workflow is:
+
+Add roxygen comments to your .R files.
+
+Run devtools::document() (or press Ctrl/Cmd + Shift + D in RStudio) to convert roxygen comments to .Rd files. (devtools::document() calls roxygen2::roxygenise() to do the hard work.)
+
+Preview documentation with ?.
+
+Rinse and repeat until the documentation looks the way you want.
+
+# 14. Defensive programming 
+(see section 4.22 in MOOC)
+
+The section at: http://adv-r.had.co.nz/Exceptions-Debugging.html#defensive-programming states:
+Defensive programming is the art of making code fail in a well-defined manner even when something unexpected occurs. A key principle of defensive programming is to “fail fast”: as soon as something wrong is discovered, signal an error. 
+
+In R, the “fail fast” principle is implemented in three ways:
+
+Be strict about what you accept. For example, if your function is not vectorised in its inputs, but uses functions that are, make sure to check that the inputs are scalars. You can use stopifnot(), the assertthat package, or simple if statements and stop().
+
+Avoid functions that use non-standard evaluation, like subset, transform, and with. These functions save time when used interactively, but because they make assumptions to reduce typing, when they fail, they often fail with uninformative error messages. You can learn more about non-standard evaluation in non-standard evaluation.
+
+Avoid functions that return different types of output depending on their input. The two biggest offenders are [ and sapply(). Whenever subsetting a data frame in a function, you should always use drop = FALSE, otherwise you will accidentally convert 1-column data frames into vectors. Similarly, never use sapply() inside a function: always use the stricter vapply() which will throw an error if the inputs are incorrect types and return the correct type of output even for zero-length inputs.
+
+
+To handle errors in a bare bones way you can quickly wrap your function body within the following code: 
+
+# informative error handling
+  out <- tryCatch(
+    expr = {
+
+# your function body goes here
+
+    },
+warning = function() {
+
+  w <- warnings()
+  warning('Warning produced running function_name():', w)
+
+},
+error = function(e)  {
+
+  stop('Error produced running function_name():', e)
+
+},
+finally = {}
+  )
+
+}
+
+An applied example of this can be seen at: https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R
+
+NEED TO TRY OUT ON A SIMPLE FUNCTION DEVELOPED AS PART OF COURSE e.g. the ggplot
+
+You can also get more detailed descriptives using the futile.logger package e.g.
+report_data <- phase_date_data(regreg, log_level=futile.logger::ERROR) just reports error messages. But:
+report_data <- phase_date_data(regreg, log_level=futile.logger::DEBUG) provides a much more comprehensive review.
+
+You can read more about QA at:
+https://ukgovdatascience.github.io/rap_companion/qa-data.html
