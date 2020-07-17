@@ -173,7 +173,9 @@ Exercise 10: Set up some automated quality assurance checks on your input data t
 
 # 12. Developing functions
 
-Why, when and how to write your own functions is covered by the ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) training. As ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) states, functions are a way to bundle up bits of code to make them easy to reuse. They can save you time, reduce the risk of errors, and make your code easier to understand. You should consider and make a list of what functions would be beneficial (a good rule of thumb is that this is so whenever you’ll need to use the same or similar code in three places) and then develop those that don't already exist.
+Why, when and how to write your own functions is covered by the ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) training. As ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) states, they are a way to bundle up bits of code to make them easy to reuse. They can save you time, reduce the risk of errors, and make your code easier to understand. You should consider and make a list of what functions would be beneficial (a good rule of thumb for this is whenever you’d be using the same or similar code in three places) and then develop those that don't already exist.
+
+To add a function script to a package ........
 
 Exercise 11: Is it beneficial to incorporate any functions to your minimal statistical bulletin package? Regardless, add one to create the plot. ADD MORE DETAILS
 
