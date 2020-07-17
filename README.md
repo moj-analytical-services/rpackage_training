@@ -173,9 +173,9 @@ Exercise 10: Set up some automated quality assurance checks on your input data t
 
 # 12. Developing functions
 
-Why, when and how to write your own functions is covered by the ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) training. As the opening lines of that training state, functions can save you time, reduce the risk of errors, and make your code easier to understand. You should consider and make a list of what functions you should create (or use if they already exist) to produce the report your package is to generate.
+Why, when and how to write your own functions is covered by the ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) training. As ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) states, functions are a way to bundle up bits of code to make them easy to reuse. They can save you time, reduce the risk of errors, and make your code easier to understand. You should consider and make a list of what functions would be beneficial (a good rule of thumb is that this is so whenever you’ll need to use the same or similar code in three places) and then develop those that don't already exist.
 
-Exercise 11: Set up some automated quality assurance checks on your input data to check the the data.frame contains no missing values and the right number and names of columns. To do this, copy rows 1-77 and 174 of https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R, amend the contents suitably, run the checks, and lastly push to github.
+Exercise 11: Is it beneficial to incorporate any functions to your minimal statistical bulletin package? Regardless, add one to create the plot. ADD MORE DETAILS
 
 # 13. Documenting code
 
