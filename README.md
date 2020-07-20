@@ -63,7 +63,9 @@ Exercise 4: Follow the above steps, inserting the correct directory path and pac
 
 # 6. Add R and Rmarkdown code 
 
-Any R and R Markdown code to be within the package should be saved into it. The R code can be saved to the package R/ directory while the R Markdown code can be saved to the package home directory.
+Any R and R Markdown code to be within the package should be saved into it. The R code can be saved to the package R/ directory while the R Markdown code can be saved to the package home directory. You can do this either in the normal way (e.g. using the 'Save As' option) or programmatically using the function dump() as follows:
+
+        dump("R_object_name", file = "directory_path/R_object_name.R")
 
 Exercise 5: Add the crimesdata_pub.Rmd to your package
 
@@ -97,7 +99,7 @@ A link to a template gitignore that ukgovdatascience have done and which is free
 
 You can also use git hooks which check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about these hooks is available at: https://github.com/ukgovdatascience/dotfiles
 
-Exercise 7: Place a copy of crimedata2.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After committing and pushing to github (Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio) can you see crimedata2.csv? Then additionally specify crimedata2.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
+Exercise 7: Place a copy of crimedata.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After committing and pushing to github (Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio) can you see crimedata2.csv? Then additionally specify crimedata.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
 
 # 9. Adding data in RData format
 
@@ -132,7 +134,7 @@ To see the effect of changes made to the package, the following code needs to be
 
     devtools::load_all() 
 
-Exercise 8: Make an .RData file of 'crimesdata2.csv' by following the above steps (including calling it 'raw'). 
+Exercise 8: Make an .RData file of 'crimesdata.csv' by following the above steps (including calling it 'raw'). 
 
 # 10. Adding documentation about package data
 
