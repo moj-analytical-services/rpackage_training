@@ -134,7 +134,7 @@ To see the effect of changes made to the package, the following code needs to be
 
     devtools::load_all() 
 
-Exercise 8: Make an .RData file of 'crimesdata.csv' by following the above steps (including calling it 'raw'). Then amend crimesdata_pub.Rmd so that it now runs using the .RData file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimedata) line.
+Exercise 8: Make an .RData file of 'crimesdata.csv' by following the above steps (including calling it 'raw'). Then amend crimesdata_pub.Rmd so that it now runs using the .RData file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimedata) line. Lastly push to github.
 
 # 10. Adding documentation about package data
 
@@ -179,7 +179,7 @@ Why, when and how to write your own functions is covered by the ['Writing functi
 
 The mechanism for adding a function script to a package is covered in section 6 above.
 
-Exercise 11: Is it beneficial to incorporate any functions to your minimal statistical bulletin package? Regardless of the answer, a function called plot_crimes.R has been created to produce the plot. Add this to your package and amend crimesdata_pub.Rmd so it uses this function.
+Exercise 11: Is it beneficial to incorporate any functions to your minimal statistical bulletin package? Regardless of the answer, a function called plot_crimes.R has been created to produce the plot. Add this to your package and amend crimesdata_pub.Rmd so it uses this function. Lastly, push to github.
 
 # 13. Documenting code
 
