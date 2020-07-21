@@ -181,30 +181,21 @@ The mechanism for adding a function script to a package is covered in section 6 
 
 Exercise 11: Is it beneficial to incorporate any functions to your minimal statistical bulletin package? Regardless of the answer, a function called plot_crimes.R has been created to produce the plot. Add this to your package and amend crimesdata_pub.Rmd so it uses this function. Lastly, push to github.
 
-# 13. Documenting code
+# 13. Documenting functions
 
-(section 4.21 in MOOC)
-The main metric for documentation is that it doesn't take long for someone to understand your code.
-Documentation needs to appeal to users of the package and developers (those who in the future develop it)
-Helps to have peer review to get others input into this.
-As when creating documentation for our data object, we can use Roxygen2 to create documentation. A good example of such is at: https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R  We have a title (one sentence), description, details including about inputs, what is returned, some examples, and the @export which tells the package generation phase that we want this function to be accessible to the user when they open your package.
-You could copy this into your function code and then amend; it can be helpful to do this at the start when creating a new function.
+As with documenting data (see section 10 above) it is helpful to use Roxygen2 to document functions. The documentation of functions is done within the same R script - an example can be viewed at: https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R  
 
-After changing the documentation we can update our package using the code:
-devtools::document(roclets=c('rd', 'collate', 'namespace'))
-Then can reload using:
-devtools::load_all(".")
-Then call up the help again and see the change in the help window.
+Looking at the first 41 rows you can see a title (one sentence), description, details including about inputs, what is returned, some examples, and the @export which enables the accessibility of the function to users when they load your package.
 
-The documentation workflow is:
+The process is as follows:
+1. add documentation to the .R file (may be easiest to copy from the above R script and then amend)
+2. run devtools::document()
+3. preview in the help facility using ?objectname
+4. amend as appropriate and repeat steps 2 to 4. 
 
-Add roxygen comments to your .R files.
+To check that the documentation enables others to easily understand the code it is also recommended that it is peer reviewed.
 
-Run devtools::document() (or press Ctrl/Cmd + Shift + D in RStudio) to convert roxygen comments to .Rd files. (devtools::document() calls roxygen2::roxygenise() to do the hard work.)
-
-Preview documentation with ?.
-
-Rinse and repeat until the documentation looks the way you want.
+Exercise 12: Follow the above process to add suitable documentation to the function plot_crimes.R. Lastly, push to github.
 
 # 14. Defensive programming 
 (see section 4.22 in MOOC)
