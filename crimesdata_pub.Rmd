@@ -10,8 +10,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
-# crimedata <-read_csv("/home/aidanmews/crimedata.csv")  
-data(crimedata)
+crimedata <-read_csv("/home/aidanmews/crimedata.csv")  
+# data(crimedata)
 devtools::load_all() 
 ```
 
@@ -19,8 +19,8 @@ devtools::load_all()
 Over time, the number of crimes has changed.
 
 ```{r echo=FALSE, fig.height=3, fig.width=6}
- plot_crimes(crimedata, "year", "crimes")
-# ggplot(crimedata , aes(year, crimes)) + geom_bar(stat='identity')
+# plot_crimes(crimedata, "year", "crimes")
+ggplot(crimedata , aes(year, crimes)) + geom_bar(stat='identity')
 
 ```
 
