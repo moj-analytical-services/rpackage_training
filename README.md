@@ -203,29 +203,27 @@ It is very helpful to get feedback to indicate whether something unusual is happ
 
 A quick way of generating useful feedback is by wrapping the function body within the following code: 
 
-# informative error handling
-  out <- tryCatch(
-    expr = {
-
-# your function body goes here
-
+    # informative error handling 
+        out <- tryCatch(
+        expr = {
+        
+    # your function body goes here 
+    
+        },  
+    
+    warning = function() {
+        w <- warnings() 
+        warning('Warning produced running function_name():', w) 
+    
+    }, 
+    error = function(e)  {
+        stop('Error produced running function_name():', e) 
     },
-warning = function() {
-
-  w <- warnings()
-  warning('Warning produced running function_name():', w)
-
-},
-error = function(e)  {
-
-  stop('Error produced running function_name():', e)
-
-},
-finally = {}
-  )
-
-}
-
+    finally = {} 
+      ) 
+    
+    }
+      
 An applied example of this can be seen at: https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R
 
 Exercise 13: Follow the above process to generate useful feedback when running the function plot_crimes.R. Lastly, push to github.
