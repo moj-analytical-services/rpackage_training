@@ -197,22 +197,11 @@ To check that the documentation enables others to easily understand the code it 
 
 Exercise 12: Follow the above process to add suitable documentation to the function plot_crimes.R. Lastly, push to github.
 
-# 14. Defensive programming 
-(see section 4.22 in MOOC)
+# 14. Using the condition system 
 
-The section at: http://adv-r.had.co.nz/Exceptions-Debugging.html#defensive-programming states:
-Defensive programming is the art of making code fail in a well-defined manner even when something unexpected occurs. A key principle of defensive programming is to “fail fast”: as soon as something wrong is discovered, signal an error. 
+It is very helpful to get feedback to indicate whether something unusual is happenning when running a specific function. You can read about the condition system in section 8 of ['Advanced R'](https://adv-r.hadley.nz/conditions.html) by Hadley Wickham.
 
-In R, the “fail fast” principle is implemented in three ways:
-
-Be strict about what you accept. For example, if your function is not vectorised in its inputs, but uses functions that are, make sure to check that the inputs are scalars. You can use stopifnot(), the assertthat package, or simple if statements and stop().
-
-Avoid functions that use non-standard evaluation, like subset, transform, and with. These functions save time when used interactively, but because they make assumptions to reduce typing, when they fail, they often fail with uninformative error messages. You can learn more about non-standard evaluation in non-standard evaluation.
-
-Avoid functions that return different types of output depending on their input. The two biggest offenders are [ and sapply(). Whenever subsetting a data frame in a function, you should always use drop = FALSE, otherwise you will accidentally convert 1-column data frames into vectors. Similarly, never use sapply() inside a function: always use the stricter vapply() which will throw an error if the inputs are incorrect types and return the correct type of output even for zero-length inputs.
-
-
-To handle errors in a bare bones way you can quickly wrap your function body within the following code: 
+A quick way of generating useful feedback is by wrapping the function body within the following code: 
 
 # informative error handling
   out <- tryCatch(
@@ -239,11 +228,5 @@ finally = {}
 
 An applied example of this can be seen at: https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R
 
-NEED TO TRY OUT ON A SIMPLE FUNCTION DEVELOPED AS PART OF COURSE e.g. the ggplot
+Exercise 13: Follow the above process to generate useful feedback when running the function plot_crimes.R. Lastly, push to github.
 
-You can also get more detailed descriptives using the futile.logger package e.g.
-report_data <- phase_date_data(regreg, log_level=futile.logger::ERROR) just reports error messages. But:
-report_data <- phase_date_data(regreg, log_level=futile.logger::DEBUG) provides a much more comprehensive review.
-
-You can read more about QA at:
-https://ukgovdatascience.github.io/rap_companion/qa-data.html
