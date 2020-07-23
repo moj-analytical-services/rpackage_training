@@ -199,9 +199,9 @@ Exercise 12: Follow the above process to add suitable documentation to the funct
 
 # 14. Using the condition system 
 
-It is very helpful to get feedback to indicate whether something unusual is happenning when running a specific function. You can read about the condition system in section 8 of ['Advanced R'](https://adv-r.hadley.nz/conditions.html) by Hadley Wickham.
+It is very helpful for package users to get good feedback about something unusual happenning when running a particular function. R has a very powerful condition system which can be used to flag errors, warnings and messages. You can read more about this in section 8 of ['Advanced R'](https://adv-r.hadley.nz/conditions.html) by Hadley Wickham.
 
-A quick way of generating useful feedback is by wrapping the function body within the following code: 
+A quick way of generating useful feedback is simply by wrapping the function body within the following code: 
 
     # informative error handling 
     out <- tryCatch(
@@ -225,7 +225,7 @@ A quick way of generating useful feedback is by wrapping the function body withi
     finally = {} 
     )   
       
-An applied example of this can be seen at: https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R
+An applied example of this can be seen at: https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R 
 
 Exercise 13: Follow the above process to generate useful feedback when running the function plot_crimes.R. Lastly, push to github.
 
