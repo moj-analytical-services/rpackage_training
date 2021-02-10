@@ -42,7 +42,7 @@ Exercise 1: Decide what name to call your package
 
 Guidance to create a new github repository is at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#creating-your-project-repo-on-github
 
-Exercise 2: Follow the guidance to create a new github repository, giving it the same name as you've decided to call your package (see previous section) and a suitable description (e.g. 'My RAP training exercise'). As this is a training exercise you can leave the default setting of your repository (see Step 2) as PRIVATE so it’s only visible to you as the creator.
+Exercise 2: Follow the guidance to create a new github repository, giving it the same name as you've decided to call your package (see previous section - if this name is already taken you'll have to call it something else) and a suitable description (e.g. 'My RAP training exercise'). As this is a training exercise you can leave the default setting of your repository (see Step 2) as PRIVATE so it’s only visible to you as the creator.
 
 # 4. Make a copy of the project in R Studio
 
