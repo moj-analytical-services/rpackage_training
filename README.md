@@ -40,7 +40,7 @@ Exercise 1: Decide what name to call your package
 
 # 3. Create github repository 
 
-Guidance to create a new github repository is at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#creating-your-project-repo-on-github
+Guidance to create a new github repository is at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#creating-your-project-repo-on-github The formatting of the 'create a new repository' github page has changed slightly since this guidance was created but the substance is still the same. 
 
 Exercise 2: Follow the guidance to create a new github repository, giving it the same name as you've decided to call your package (see previous section - if this name is already taken you'll have to call it something else) and a suitable description (e.g. 'My RAP training exercise'). As this is a training exercise you can leave the default setting of your repository (see Step 2) as PRIVATE so it’s only visible to you as the creator.
 
