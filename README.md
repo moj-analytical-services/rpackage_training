@@ -14,7 +14,7 @@ This training is based on Matthew Gregory's free online course 'Reproducible Ana
 
 The goal of this training is to teach you how to develop packages with a particular emphasis on RAP. Thankfully they are not difficult to make. To maximise its' usefulness please do the exercises which enable you to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training - see https://github.com/moj-analytical-services/rmarkdown_training. You can then apply the same skills to your real life publications.
 
-There are benefits to the RAP for each statistical publication being within a package. Hadley Wickham's introduction (http://r-pkgs.had.co.nz/intro.html) states: "Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data."  The package should also include tests and data (which can be made up if real data are sensitive). The directory structure of an R package is typically as follows (e.g. https://github.com/DCMSstats/eesectors): 
+There are benefits to the RAP for each statistical publication being within a package. Hadley Wickham's introduction (https://r-pkgs.org/intro.html) states: "In R, the fundamental unit of shareable code is the package. A package bundles together code, data, documentation, and tests, and is easy to share with others."  The package should also include tests and data (which can be made up if real data are sensitive). The directory structure of an R package is typically as follows (e.g. https://github.com/DCMSstats/eesectors): 
 
 - R code is in 'R' (this is compulsory); 
 - documentation is in 'man' (this is compulsory); 
@@ -30,9 +30,9 @@ Possibly the hardest part of creating a package is choosing a name for it. This 
 - be short; 
 - be unique (for google searches); 
 - include either upper or lower case characters but not a mixture of them; 
-- make clear what the package does e.g. if to do some RAP work, consider putting 'rap' at end of the name. 
+- be clear about what the package does e.g. if to do some RAP work, consider putting 'rap' at the end of the name. 
 
-You can read more about naming a package in the 'Naming your package' section of http://r-pkgs.had.co.nz/package.html 
+You can read more about naming a package in the 'Naming your package' section of https://r-pkgs.org/workflows101.html?q=name#naming
 
 As we're going to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training (see https://github.com/moj-analytical-services/rmarkdown_training) choose a name such as egnamerap where the eg is because it's a training exercise, the name is your first name (if not the same as someone else's) and the rap because you are going to RAP a minimal statistical bulletin.
 
