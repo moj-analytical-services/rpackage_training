@@ -12,15 +12,15 @@ Recordings of these sessions can be viewed at: https://web.microsoftstream.com/c
 
 This training is based on Matthew Gregory's free online course 'Reproducible Analytical Pipelines (RAP) using R' (see https://www.udemy.com/reproducible-analytical-pipelines/) and Hadley Wickham's book 'R Packages' (see http://r-pkgs.had.co.nz/)
 
-The goal of this training is to teach you how to develop packages with a particular emphasis on RAP. Thankfully they are not difficult to make. To maximise it please do the exercises which enable you to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training - see https://github.com/moj-analytical-services/rmarkdown_training. You can then apply the same skills to your real life publications.
+The goal of this training is to teach you how to develop packages with a particular emphasis on RAP. Thankfully they are not difficult to make. To maximise its' usefulness please do the exercises which enable you to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training - see https://github.com/moj-analytical-services/rmarkdown_training. You can then apply the same skills to your real life publications.
 
-There are benefits to the RAP for each statistical publication being within a package. Hadley Wickham's introduction (http://r-pkgs.had.co.nz/intro.html) states: "Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data."  The package should also include tests and data (which can be made up if real data are sensitive). Within an R package (e.g. https://github.com/DCMSstats/eesectors): 
+There are benefits to the RAP for each statistical publication being within a package. Hadley Wickham's introduction (http://r-pkgs.had.co.nz/intro.html) states: "Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data."  The package should also include tests and data (which can be made up if real data are sensitive). The directory structure of an R package is typically as follows (e.g. https://github.com/DCMSstats/eesectors): 
 
-- R code is in the directory 'R' (this is compulsory); 
+- R code is in 'R' (this is compulsory); 
 - documentation is in 'man' (this is compulsory); 
 - data are in 'data'; 
 - tests are in 'tests'; 
-- dependency management is (if using packrat) in 'packrat'; and 
+- dependency management may be in the associated directory e.g. 'packrat' if using packrat; and 
 - templates on how to use the package are in 'vignettes'.
 
 # 2. Choose a name
