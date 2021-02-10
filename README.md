@@ -46,7 +46,7 @@ Exercise 2: Follow the guidance to create a new github repository, giving it the
 
 # 4. Make a copy of the project in R Studio
 
-Guidance to make a copy of the project in R Studio is at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio
+Guidance to make a copy of the project in R Studio is at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio. As github has changed since this guidance was made, instead of clicking the green github 'Clone or download' button, click the green 'Code' button.
 
 Exercise 3: Follow Step 1 of the guidance to make a copy of the project in R Studio.
 
