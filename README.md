@@ -34,7 +34,7 @@ Possibly the hardest part of creating a package is choosing a name for it. This 
 
 You can read more about naming a package in the 'Naming your package' section of https://r-pkgs.org/workflows101.html?q=name#naming
 
-As we're going to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training (see https://github.com/moj-analytical-services/rmarkdown_training) choose a name such as egnamerap where the eg is because it's a training exercise, the name is your first name (if not the same as someone else's) and the rap because you are going to RAP a minimal statistical bulletin.
+As we're going to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training (see https://github.com/moj-analytical-services/rmarkdown_training) choose a name such as egnamerap where the eg is because it's a training exercise, the name is your first name (if your first name is very unique) and the rap because you are going to RAP a minimal statistical bulletin.
 
 Exercise 1: Decide what name to call your package
 
