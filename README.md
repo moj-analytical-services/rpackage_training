@@ -86,10 +86,10 @@ To view an example of an amended DESCRIPTION file see: https://github.com/DCMSst
    - aut: authors, those who have made significant contributions to the package.
    - ctb: contributors, those who have made smaller contributions, like patches.
    - cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
-- The Depends and Imports fields allow you to list the packages that your package needs to work; apart from the version of R generally use the Imports rather than the Depends command to do this. Unless you have the knowledge to do something different, require the package version to be greater than or equal to the version you’re currently using.
 - The Description is more detailed than the Title - one paragraph with each line being upto 80 characters
+- The Depends and Imports fields allow you to list the packages that your package needs to work; apart from the version of R generally use the Imports rather than the Depends command to do this. Unless you have the knowledge to do something different, require the package version to be greater than or equal to the version you’re currently using.
 
-You can read more about the most important DESCRIPTION fields at: http://r-pkgs.had.co.nz/description.html 
+You can read more about the most important DESCRIPTION fields at: https://r-pkgs.org/description.html
 
 Exercise 6: Amend the DESCRIPTION file, specifically the Title, Authors@R, Description and package dependency text (we need ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
 
