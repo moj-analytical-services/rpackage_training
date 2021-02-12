@@ -55,7 +55,9 @@ Exercise 3: Follow Step 1 of the guidance to make a copy of the project in R Stu
 You can create a package by taking the following steps:
 
 - Install the package devtools if you haven't already (click on Packages, Install, type in devtools and click on Install). 
-- Run the command 'devtools::create("path/to/package/pkgname")' and select the option to overwrite what is already there.
+- Run the following command and select the option to overwrite what is already there:
+
+        devtools::create("path/to/package/pkgname")
 
 You can now see in the 'Files' window that there are additions in your project directory.
 
