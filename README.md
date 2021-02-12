@@ -91,7 +91,7 @@ To view an example of an amended DESCRIPTION file see: https://github.com/DCMSst
 
 You can read more about the most important DESCRIPTION fields at: https://r-pkgs.org/description.html
 
-Exercise 6: Amend the DESCRIPTION file, specifically the Title, Authors@R, Description and package dependency text (we need ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
+Exercise 6: Amend the DESCRIPTION file, specifically the Title (e.g. Create a minimal statistical bulletin), Authors@R (e.g. make yourself author and maintainer), Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) and package dependency text (specify the minimum version of R needed and the need for ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
 
 # 8. Excluding sensitive data 
 
