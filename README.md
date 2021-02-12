@@ -75,19 +75,19 @@ Exercise 5: Add the crimesdata_pub.Rmd to your package.
 
 # 7. Amend the DESCRIPTION file
 
-The DESCRIPTION file is one of two files automatically created when you run the create command (see above section), the other being the NAMESPACE file (more about this later). It provides important metadata about the package. You can click on the DESCRIPTION filename in the file window and then amend it as appropriate. 
+The DESCRIPTION file is one of two files automatically created when you run the create package command (see above section on 'Create the package'), the other being the NAMESPACE file (more about this later). It provides important metadata about the package. You can click on the DESCRIPTION filename in the R Studio files window and then amend it as appropriate. 
 
-To view an example of an amended DESCRIPTION file see: https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION Take note of the formatting. Each line consists of a field name and a value, separated by a colon. When values span multiple lines, they need to be indented. In particular:
+To view an example of an amended DESCRIPTION file see: https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION Take note of the formatting. Each line consists of a field name and a value, separated by a colon. Where values span multiple lines, they need to be indented. In particular:
 
 - The Title is a one line description of the package - keep short, capitalised like a title and less than 65 characters.
 - The Version should be amended when you update the package
 - The Authors@R field which has a three letter code specifying the role, the most useful being:
-   - cre: the package maintainer, the person you should contact if you have problems.
+   - cre: the package maintainer, the person you should contact if you have a problem.
    - aut: authors, those who have made significant contributions to the package.
    - ctb: contributors, those who have made smaller contributions, like patches.
    - cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
-- The Depends and Imports fields allow you to list the packages that your package needs to work; apart from the version of R generally use the Imports rather than Depends command to do this. Unless you have greater knowledge, require the package version to be greater than or equal to the version you’re currently using.
-- The Description is more detailed than the Title - one paragraph with each line upto 80 characters
+- The Depends and Imports fields allow you to list the packages that your package needs to work; apart from the version of R generally use the Imports rather than the Depends command to do this. Unless you have the knowledge to do something different, require the package version to be greater than or equal to the version you’re currently using.
+- The Description is more detailed than the Title - one paragraph with each line being upto 80 characters
 
 You can read more about the most important DESCRIPTION fields at: http://r-pkgs.had.co.nz/description.html 
 
