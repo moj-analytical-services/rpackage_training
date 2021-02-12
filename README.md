@@ -69,7 +69,7 @@ Any R and R Markdown code to be within the package should be saved into it. The 
 
         dump("R_object_name", file = "directory_path/R_object_name.R")
 
-If the files you want to include within your package are in GitHub but not R Studio then you have two main options to get them in R Studio. You could either clone the relevant repository (as in section 4 'Make a copy of the project in R Studio' above). Or if there are only a few files you could click the green github 'Code' button (as in section 4 above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using the commands in the 'Files' window. 
+If the files you want to include within your package are in GitHub but not R Studio then you have two main options to get them in R Studio. You could either clone the relevant repository (as in section 4 'Make a copy of the project in R Studio' above). Or if there are only a few files you could click the green github 'Code' button (as in section 4 above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
 
 Exercise 5: Add the crimesdata_pub.Rmd to your package. 
 
