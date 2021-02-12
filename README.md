@@ -61,7 +61,7 @@ You can create a package by taking the following steps:
 
 You can now see in the 'Files' window that there are additions in your project directory.
 
-Exercise 4: Follow the above steps, inserting the correct directory path and package name within the create command (you can quickly obtain this using the getwd() command). Lastly, follow Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio, committing your changes to git and then pushing them to github.com. If you refresh your github.com repository page you should now see the additions there.
+Exercise 4: Follow the above steps, inserting the correct directory path and package name within the create command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio, committing your changes to git and then pushing them to github.com. If you refresh your github.com repository page you should now see the additions there.
 
 # 6. Add R and Rmarkdown code 
 
