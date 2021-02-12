@@ -52,7 +52,7 @@ Exercise 3: Follow Step 1 of the guidance to make a copy of the project in R Stu
 
 # 5. Create the package 
 
-You can create a package by taking the following steps:
+You can create a package in R Studio by taking the following steps:
 
 - Install the package devtools if you haven't already (click on Packages, Install, type in devtools and click on Install). 
 - Run the following command and select the option to overwrite what is already there:
@@ -65,11 +65,13 @@ Exercise 4: Follow the above steps, inserting the correct directory path and pac
 
 # 6. Add R and Rmarkdown code 
 
-Any R and R Markdown code to be within the package should be saved into it. The R code can be saved to the package R/ directory while the R Markdown code can be saved to the package home directory. You can do this either in the normal way (e.g. using the 'Save As' option) or programmatically using the function dump() as follows:
+Any R and R Markdown code to be within the package should be saved into it. The R code can be saved to the package R/ directory while the R Markdown code can be saved to the package home directory. You can do this in R Studio either in the normal way (e.g. using the 'Save As' option) or programmatically using the function dump() as follows:
 
         dump("R_object_name", file = "directory_path/R_object_name.R")
 
-Exercise 5: Add the crimesdata_pub.Rmd to your package
+If the files you want to include within your package are in GitHub but not R Studio then you have two main options to get them in R Studio. You could either clone the relevant repository (as in section 4 'Make a copy of the project in R Studio' above). Or if there are only a few files you could click the green github 'Code' button (as in section 4 above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using the commands in the 'Files' window. 
+
+Exercise 5: Add the crimesdata_pub.Rmd to your package. 
 
 # 7. Amend the DESCRIPTION file
 
