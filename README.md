@@ -136,7 +136,7 @@ Now the folder 'data' will have been created that contains the object raw.RData
 
 The code could be developed. For instance:
 1. If some processing of the data is needed this could be added e.g. to make a variable of class factor
-2. If the .RData file is to be amended when the input raw dataset is amended then add an overwrite=TRUE to the use_data function e.g. devtools::use_data(raw, overwrite = TRUE)  
+2. If the .RData file is to be amended when the input raw dataset is amended then add an overwrite=TRUE to the use_data function e.g. usethis::use_data(raw, overwrite = TRUE)  
 
 To see the effect of changes made to the package, the following code needs to be run. All the changes made to the code will now be in memory: 
 
