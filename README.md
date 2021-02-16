@@ -109,7 +109,7 @@ Exercise 7: Place a copy of crimedata.csv into your package Rstudio folder. Then
 
 While no sensitive data should be within the package, it is helpful to include non-sensitive data to make the development of functions and package testing easier. Where the data are sensitive, fake data should be generated instead.
 
-Any data included within the package should be in the form of a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specfic structure; each variable is a column, each observation a row, and each type of observational unit a table (e.g. if for each offender we measure height and weight, then the observational unit is the offender) such that data corresponding to different types of observational unit (e.g. offenders and offender managers) are stored in separate tables. 
+Any data included within the package should be in the form of a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specific structure; each variable being a column, each observation a row, and each type of observational unit a table such that data corresponding to different types of observational unit (e.g. offenders and offender managers) are stored in separate tables. 
 
 It is beneficial for the data to be within the package as an .RData file which stores the data in a format native to R. Compared with keeping the data in a .csv file it:
 
@@ -118,8 +118,12 @@ It is beneficial for the data to be within the package as an .RData file which s
 
 To create a nice .RData file:
 
-1. Create a sub-directory called 'data-raw' in your project Rstudio folder by running the command 'devtools::use_data_raw()' 
+1. Create a sub-directory called 'data-raw' in your project Rstudio folder by running the command:
+
+        devtools::use_data_raw()
+        
 2. Place the raw data into 'data-raw/'
+
 3. Create a new R script in 'data-raw/' which reads in the raw data and puts them into 'data/' as an .RData object:
 
         raw <- read.csv("directory_path/data_name.csv", check.names = TRUE)
@@ -131,7 +135,7 @@ To create a nice .RData file:
 Now the folder 'data' will have been created that contains the object raw.RData
 
 The code could be developed. For instance:
-1. If some processing of the data is needed this could be added e.g. to make a variable of class factor i.e. raw$phase <- as.factor(raw$phase)
+1. If some processing of the data is needed this could be added e.g. to make a variable of class factor
 2. If the .RData file is to be amended when the input raw dataset is amended then add an overwrite=TRUE to the use_data function e.g. devtools::use_data(raw, overwrite = TRUE)  
 
 To see the effect of changes made to the package, the following code needs to be run. All the changes made to the code will now be in memory: 
