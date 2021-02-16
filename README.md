@@ -120,17 +120,17 @@ To create a nice .RData file:
 
 1. Create a sub-directory called 'data-raw' in your project Rstudio folder by running the command:
 
-        devtools::use_data_raw()
+        usethis::use_data_raw()
         
 2. Place the raw data into 'data-raw/'
 
-3. Create a new R script in 'data-raw/' which reads in the raw data and puts them into 'data/' as an .RData object:
+3. Open the R script 'DATASET.R' in 'data-raw/' that has automatically been created by step 1. This can be amended to read in the raw data and put them into 'data/' as an .RData object as follows:
 
         raw <- read.csv("directory_path/data_name.csv", check.names = TRUE)
-        devtools::use_data(raw)  
+        usethis::use_data(raw)  
         rm(raw)
 
-4. Save the script (e.g. as create_raw.R) and run it
+4. Run the script.
 
 Now the folder 'data' will have been created that contains the object raw.RData
 
