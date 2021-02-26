@@ -142,7 +142,7 @@ To see the effect of changes made to the package, the following code needs to be
 
     devtools::load_all() 
 
-Exercise 8: Make an .RData file of 'crimesdata.csv' by following the above steps (including calling it 'raw'). Then amend crimesdata_pub.Rmd so that it now runs using the .RData file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimedata) line. Lastly push to github.
+Exercise 8: Make an .RData file of 'crimesdata.csv' by following the above steps and give it a user friendly name such as 'crimes_raw_data'. Then amend crimesdata_pub.Rmd so that it now runs using the .RData file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimedata) line. Lastly push to github.
 
 # 10. Adding documentation about package data
 
