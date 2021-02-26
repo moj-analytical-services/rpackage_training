@@ -105,18 +105,18 @@ You can also use git hooks which check for certain datafiles and prevent a git p
 
 Exercise 7: Place a copy of crimedata.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After committing and pushing to github (Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio) can you see crimedata.csv? Then additionally specify crimedata.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
 
-# 9. Adding data in RData format
+# 9. Adding data in rda format
 
 While no sensitive data should be within the package, it is helpful to include non-sensitive data to make the development of functions and package testing easier. Where the data are sensitive, fake data should be generated instead.
 
 Any data included within the package should be in the form of a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specific structure; each variable being a column, each observation a row, and each type of observational unit a table such that data corresponding to different types of observational unit (e.g. offenders and offender managers) are stored in separate tables. 
 
-It is beneficial for the data to be within the package as an .RData file which stores the data in a format native to R. Compared with keeping the data in a .csv file it:
+It is beneficial for the data to be within the package as an .rda file which stores the data in a format native to R. Compared with keeping the data in a .csv file it:
 
 - Is faster to restore the data to R
 - Keeps R specific information encoded in the data (e.g. attributes, variable types)
 
-To create a nice .RData file:
+To create a nice .rda file:
 
 1. Create a sub-directory called 'data-raw' in your project Rstudio folder by running the command:
 
@@ -124,7 +124,7 @@ To create a nice .RData file:
         
 2. Place the raw data into 'data-raw/'
 
-3. Open the R script 'DATASET.R' in 'data-raw/' that has automatically been created by step 1. This can be amended to read in the raw data and put them into 'data/' as an .RData object as follows:
+3. Open the R script 'DATASET.R' in 'data-raw/' that has automatically been created by step 1. This can be amended to read in the raw data and put them into 'data/' as an .rda object as follows:
 
         raw <- read.csv("directory_path/data_name.csv", check.names = TRUE)
         usethis::use_data(raw)  
@@ -132,17 +132,17 @@ To create a nice .RData file:
 
 4. Run the script.
 
-Now the folder 'data' will have been created that contains the object raw.RData
+Now the folder 'data' will have been created that contains the object raw.rda
 
 The code could be developed. For instance:
 1. If some processing of the data is needed this could be added e.g. to make a variable of class factor
-2. If the .RData file is to be amended when the input raw dataset is amended then add an overwrite=TRUE to the use_data function e.g. usethis::use_data(raw, overwrite = TRUE)  
+2. If the .rda file is to be amended when the input raw dataset is amended then add an overwrite=TRUE to the use_data function e.g. usethis::use_data(raw, overwrite = TRUE)  
 
 To see the effect of changes made to the package, the following code needs to be run. All the changes made to the code will now be in memory: 
 
     devtools::load_all() 
 
-Exercise 8: Make an .RData file of 'crimesdata.csv' by following the above steps and give it a user friendly name such as 'crimes_raw_data'. Then amend crimesdata_pub.Rmd so that it now runs using the .RData file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimedata) line. Lastly push to github.
+Exercise 8: Make an .rda file of 'crimesdata.csv' by following the above steps and give it a user friendly name such as 'crimes_raw_data'. Then amend crimesdata_pub.Rmd so that it now runs using the .rda file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimedata) line. Lastly push to github.
 
 # 10. Adding documentation about package data
 
@@ -150,7 +150,7 @@ Documentation is really important so users know how to use the package and creat
 
 Documentation can be added for data sets within a package by creating an data.R file. You can view an example data.R file in the eesectors package at https://github.com/DCMSstats/eesectors/blob/master/R/data.R; this makes use of the package roxygen2 to automatically turn the formatted comments into nice looking documentation.
 
-Looking at the first 22 rows you can see a title, subtitle, the format of the data, a description of each of the variables, the source location, keywords and lastly what the data object is called (within speech marks).
+Looking at the first 22 rows you can see a title, subtitle, the format of the data, a description of each of the variables, the source location, keywords and lastly what the data object is called (within speech marks; so if the documentation is about crimes_raw_data.rda then "crimes_raw_data").
 
 After adding or amending documentation in an .R file, the following command can be used to generate a more complicated code (.Rd) file in the man folder, which then enables users to view nice looking documentation through the help facility:
 
