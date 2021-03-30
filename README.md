@@ -12,7 +12,7 @@ Recordings of these sessions can be viewed at: https://web.microsoftstream.com/c
 
 This training is based on Matthew Gregory's free online course 'Reproducible Analytical Pipelines (RAP) using R' (see https://www.udemy.com/reproducible-analytical-pipelines/) and Hadley Wickham's book 'R Packages' (see http://r-pkgs.had.co.nz/)
 
-The goal of this training is to teach you how to develop packages with a particular emphasis on RAP. Thankfully they are not difficult to make. This training is designed for you to follow along with, and in each section there are exercises you can follow which enable you to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training - see https://github.com/moj-analytical-services/rmarkdown_training. You can then apply the same skills to your real life publications.
+The goal of this training is to teach you how to develop packages with a particular emphasis on RAP. Thankfully they are not difficult to make. This training is designed for you to follow along with, and in each section there are exercises you can follow which enable you to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training - see https://github.com/moj-analytical-services/rmarkdown_training. The files to do this are all included in this repository. You can then apply the same skills to your real life publications.
 
 There are benefits to the RAP for each statistical publication being within a package. Hadley Wickham's introduction (https://r-pkgs.org/intro.html) states: "In R, the fundamental unit of shareable code is the package. A package bundles together code, data, documentation, and tests, and is easy to share with others."  The package should also include tests and data (which can be made up if real data are sensitive). The directory structure of an R package is typically as follows (e.g. https://github.com/DCMSstats/eesectors): 
 
@@ -48,13 +48,13 @@ Your package will be created inside a github repository to show you how to allow
 
 # 4. Make a copy of the project in R Studio
 
-Guidance to make a copy of the project in R Studio is at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio. As github has changed since this guidance was made, instead of clicking the green github 'Clone or download' button, click the green 'Code' button.
+You then need to clone your repository to your version of R to allow you to make changes to it. Guidance to do this is available here: https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio. As github has changed since this guidance was made, instead of clicking the green github 'Clone or download' button, click the green 'Code' button.
 
-Exercise 3: Follow Step 1 of the guidance to make a copy of the project in R Studio.
+Exercise 4: Follow Step 1 of the guidance to make a copy of the project in R Studio.
 
 # 5. Create the package 
 
-You can create a package in R Studio by taking the following steps:
+You can now convert your cloned repository into a package automatically in R Studio by taking the following steps:
 
 - Install the package devtools if you haven't already (click on Packages, Install, type in devtools and click on Install). 
 - Run the following command and select the option to overwrite what is already there:
@@ -63,17 +63,17 @@ You can create a package in R Studio by taking the following steps:
 
 You can now see in the 'Files' window that there are additions in your project directory.
 
-Exercise 4: Follow the above steps, inserting the correct directory path and package name within the create command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio, committing your changes to all files to git and then pushing them to github.com. If you refresh your github.com repository page you should now see the additions there.
+Exercise 5: Follow the above steps, inserting the correct directory path and package name within the create command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio, committing your changes to all files to git and then pushing them to github.com. If you refresh your github.com repository page you should now see the additions there.
 
 # 6. Add R and Rmarkdown code 
 
-Any R and R Markdown code to be within the package should be saved into it. The R code can be saved to the package R/ directory while the R Markdown code can be saved to the package home directory. You can do this in R Studio either in the normal way (e.g. using the 'Save As' option) or programmatically using the function dump() as follows:
+It's now time to add the code that makes up your package! This can be code in both R and R Markdown files; R files need to be added to the package R/ directory while R Markdown code can be saved to the package home directory. You can do this in R Studio by either saving the files directly (e.g. using the 'Save As' option) or programmatically using the function dump() as follows:
 
         dump("R_object_name", file = "directory_path/R_object_name.R")
 
 If the files you want to include within your package are in GitHub but not R Studio then you have two main options to get them in R Studio. You could either clone the relevant repository (as in section 4 'Make a copy of the project in R Studio' above). Or if there are only a few files you could click the green github 'Code' button (as in section 4 above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
 
-Exercise 5: Add the crimesdata_pub.Rmd to your package. 
+Exercise 6: Add the crimesdata_pub.Rmd file to your package. 
 
 # 7. Amend the DESCRIPTION file
 
