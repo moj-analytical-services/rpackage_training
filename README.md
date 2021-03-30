@@ -50,7 +50,7 @@ Your package will be created inside a github repository to show you how to allow
 
 You then need to clone your repository to your version of R to allow you to make changes to it. Guidance to do this is available here: https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio. As github has changed since this guidance was made, instead of clicking the green github 'Clone or download' button, click the green 'Code' button.
 
-Exercise 4: Follow Step 1 of the guidance to make a copy of the project in R Studio.
+**Exercise 4:** Follow Step 1 of the guidance to make a copy of the project in R Studio.
 
 # 5. Create the package 
 
@@ -63,7 +63,7 @@ You can now convert your cloned repository into a package automatically in R Stu
 
 You can now see in the 'Files' window that there are additions in your project directory.
 
-Exercise 5: Follow the above steps, inserting the correct directory path and package name within the create command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio, committing your changes to all files to git and then pushing them to github.com. If you refresh your github.com repository page you should now see the additions there.
+**Exercise 5:** Follow the above steps, inserting the correct directory path and package name within the create command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio, committing your changes to all files to git and then pushing them to github.com. If you refresh your github.com repository page you should now see the additions there.
 
 # 6. Add R and Rmarkdown code 
 
@@ -73,7 +73,7 @@ It's now time to add the code that makes up your package! This can be code in bo
 
 If the files you want to include within your package are in GitHub but not R Studio then you have two main options to get them in R Studio. You could either clone the relevant repository (as in section 4 'Make a copy of the project in R Studio' above). Or if there are only a few files you could click the green github 'Code' button (as in section 4 above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
 
-Exercise 6: Add the crimesdata_pub.Rmd file to your package. 
+**Exercise 6:** Add the crimesdata_pub.Rmd file to your package. 
 
 # 7. Amend the DESCRIPTION file
 
@@ -93,11 +93,17 @@ To view an example of an amended DESCRIPTION file see: https://github.com/DCMSst
 
 You can read more about the most important DESCRIPTION fields at: https://r-pkgs.org/description.html
 
-Exercise 7: Amend the DESCRIPTION file, specifically the Title (e.g. Create a minimal statistical bulletin), Authors@R (e.g. make yourself author and maintainer), Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) and package dependency text (specify the minimum version of R needed and the need for ggplot2 and dplyr). Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
+**Exercise 7:** Amend the DESCRIPTION file, specifically: 
+- Title (e.g. Create a minimal statistical bulletin) 
+- Authors@R (e.g. make yourself author and maintainer) 
+- Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) 
+- Package dependency text (specify the minimum version of R needed and the need for ggplot2 and dplyr). 
+
+Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
 
 # 8. Excluding sensitive data 
 
-The best way to ensure you don't accidentally push any sensitive data to github.com is not to store them within your R Studio copy of the repository. There is also a second layer of protection that you should set up to prevent the package containing any sensitive information. 
+Analytical Platform best practice is that you should not be storing sensitive data within your R Studio copy of the repository, as this prevents you accidentally pushing this to Github. There is also a second layer of protection that you should set up to prevent the package containing any sensitive information. 
 
 The gitignore file can be amended to specify any sensitive data files so that they cannot to be pushed to git. This can be done by opening the gitignore file and adding the name of the file (e.g. confidential.txt). If there's a file that's not to be ignored then add an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
 
@@ -105,15 +111,15 @@ A link to a template gitignore that ukgovdatascience have done and which is free
 
 You can also use git hooks which check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about these hooks is available at: https://github.com/ukgovdatascience/dotfiles
 
-Exercise 7: Place a copy of crimedata.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After committing and pushing to github (Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio) can you see crimedata.csv? Then additionally specify crimedata.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
+**Exercise 8:** Place a copy of crimedata.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After committing and pushing to github (Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio) can you see crimedata.csv? Then additionally specify crimedata.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
 
 # 9. Adding data in rda format
 
-While no sensitive data should be within the package, it is helpful to include non-sensitive data to make the development of functions and package testing easier. Where the data are sensitive, fake data should be generated instead.
+While no sensitive data should be stored in the package, it is helpful to include some non-sensitive data to make the development of functions and package testing easier. Where the data are sensitive, fake data should be generated instead.
 
-Any data included within the package should be in the form of a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specific structure; each variable being a column, each observation a row, and each type of observational unit a table such that data corresponding to different types of observational unit (e.g. offenders and offender managers) are stored in separate tables. 
+Any data included within the package should be in the form of a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specific structure; each variable being a column, each observation a row, and each type of observational unit a table such that data corresponding to different types of observational unit (e.g. offenders and offender managers) are stored in separate tables. More information about tidy data can be found here: https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html 
 
-It is beneficial for the data to be within the package as an .rda file which stores the data in a format native to R. Compared with keeping the data in a .csv file it:
+The best way to store the data inside the package is as an .rda file, which stores the data in a format native to R. Compared with keeping the data in a .csv file, this format:
 
 - Is faster to restore the data to R
 - Keeps R specific information encoded in the data (e.g. attributes, variable types)
@@ -138,17 +144,17 @@ Now the folder 'data' will have been created that contains the object raw.rda
 
 The code could be developed. For instance:
 1. If some processing of the data is needed this could be added e.g. to make a variable of class factor
-2. If the .rda file is to be amended when the input raw dataset is amended then add an overwrite=TRUE to the use_data function e.g. usethis::use_data(raw, overwrite = TRUE)  
+2. If the .rda file needs to be updated when the input raw dataset is changed, then add an overwrite=TRUE to the use_data function e.g. usethis::use_data(raw, overwrite = TRUE)  
 
 To see the effect of changes made to the package, the following code needs to be run. All the changes made to the code will now be in memory: 
 
     devtools::load_all() 
 
-Exercise 8: Make an .rda file of 'crimesdata.csv' by following the above steps and give it a user friendly name such as 'crimes_raw_data'. Then amend crimesdata_pub.Rmd so that it now runs using the .rda file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimedata) line. Lastly push to github.
+**Exercise 9:** Make an .rda file of 'crimesdata.csv' by following the above steps and give it a user friendly name such as 'crimes_raw_data'. Then amend crimesdata_pub.Rmd so that it now runs using the .rda file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimedata) line. Lastly push to github.
 
 # 10. Adding documentation about package data
 
-Documentation is really important so users know how to use the package and creators (who may forget the details) and developers can quickly get up to speed. It should be embedded within the package in such a way that it is easily available to all users. All documentation for the package should be held within the R folder. Documentation about data sets within the package should be in a separate R script while that for a function can be within the same R script. 
+Documentation is really important so users know how to use the package, and package managers and developers can quickly get up to speed. It should be embedded within the package in such a way that it is easily available to all users. All documentation for the package should be held within the R folder. Documentation about data sets within the package should be in a separate R script while documentation for a function can be within the same R script. 
 
 Documentation can be added for data sets within a package by creating an data.R file. You can view an example data.R file in the eesectors package at https://github.com/DCMSstats/eesectors/blob/master/R/data.R; this makes use of the package roxygen2 to automatically turn the formatted comments into nice looking documentation.
 
@@ -164,7 +170,7 @@ The documentation can then be viewed in the help facility using the usual help f
 
 To read more about documentation more generally go to: https://r-pkgs.org/man.html, and for data objects specifically: https://r-pkgs.org/data.html#documenting-data  
 
-Exercise 9: Create an data.R file in your R folder and paste in the first 22 rows from the one in the eesectors package. Amend the contents, generate the nice looking documentation, and then check out the documentation you have created. Lastly, push to github.
+**Exercise 10:** Create an data.R file in your R folder and paste in the first 22 rows from the one in the eesectors package. Amend the contents, generate the nice looking documentation, and then check out the documentation you have created. Lastly, push to github.
 
 # 11. Automating quality assurance checks on input data sets
 
@@ -173,7 +179,7 @@ While input data may already have been quality assured prior to being loaded int
 You can view an example quality assurance R script in the eesectors package at https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R The roxygen2 documentation appears at the top of the file. The checks include that the data contain the correct columns and that the number of rows is at least the minimum expected. It may also be helpful for the script to:
 
 - produce some plots to enable the user to check visually that the data look okay.  
-- add name lookups for instance so any charts have nice labels (e.g. the first letter being a capital and the others being lower case).
+- add name lookups so any charts have nice labels (e.g. the first letter being a capital and the others being lower case).
 - drop any variables that won't be needed.
 - create the final data set of class 'file/function_name' (see the end of https://github.com/mammykins/regregrap/blob/master/R/phase_date_data.R)
 
