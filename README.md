@@ -36,15 +36,15 @@ Possibly the hardest part of creating a package is choosing a name for it. This 
 
 You can read more about naming a package in the 'Naming your package' section of https://r-pkgs.org/workflows101.html?q=name#naming
 
-As we're going to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training (see https://github.com/moj-analytical-services/rmarkdown_training) choose a name such as egnamerap where the eg is because it's a training exercise, the name is your first name (if your first name is very unique) and the rap because you are going to RAP a minimal statistical bulletin.
+As we're going to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training (see https://github.com/moj-analytical-services/rmarkdown_training) choose a name such as "egnamerap" where the eg is because it's a training exercise, the name is your first name (if your first name is very unique) and the rap because you are going to RAP a minimal statistical bulletin.
 
-Exercise 1: Decide what name to call your package
+**Exercise 2:** Decide what name to call your package
 
 # 3. Create github repository 
 
-Guidance to create a new github repository is at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#creating-your-project-repo-on-github The formatting of the 'create a new repository' github page has changed slightly since this guidance was created but the substance is still the same. 
+Your package will be created inside a github repository to show you how to allow other people to download and use your packages (just like any other R package). Guidance to create a new github repository is at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#creating-your-project-repo-on-github.
 
-Exercise 2: Follow the guidance to create a new github repository, giving it the same name as you've decided to call your package (see previous section - if this name is already taken you'll have to call it something else) and a suitable description (e.g. 'My RAP training exercise'). As this is a training exercise you can leave the default setting of your repository (see Step 2) as PRIVATE so it’s only visible to you as the creator.
+**Exercise 3:** Follow the guidance to create a new github repository, giving it the same name as you've decided to call your package (see previous section) and a suitable description (e.g. 'My RAP training exercise'). As this is a training exercise you can leave the default setting of your repository (see Step 2) as PRIVATE so it’s only visible to you.
 
 # 4. Make a copy of the project in R Studio
 
