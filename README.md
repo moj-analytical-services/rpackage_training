@@ -174,11 +174,15 @@ To read more about documentation more generally go to: https://r-pkgs.org/man.ht
 
 # 11. Automating quality assurance checks on input data sets
 
-While input data may already have been quality assured prior to being loaded into the package, it is best practice set up automated quality assurance checks on the data within the package. 
+While input data may already have been quality assured prior to being loaded into the package, it is best practice set up automated quality assurance checks on the data within the package. These checks ensure that the data loaded is in the expected format and structure. This reduces the likelihood of loading data which is incompatible with the code in the package, and ensures the same checks are carried out every time.
 
-You can view an example quality assurance R script in the eesectors package at https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R The roxygen2 documentation appears at the top of the file. The checks include that the data contain the correct columns and that the number of rows is at least the minimum expected. It may also be helpful for the script to:
+You can view an example quality assurance R script in the eesectors package at https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R The roxygen2 documentation appears at the top of the file. The checks include:
+- the correct columns are present in the data 
+- that the number of rows is higher than the expected minimum. 
 
-- produce some plots to enable the user to check visually that the data look okay.  
+It may also be helpful for the script to:
+
+- produce some plots to enable the user to check the data visually.  
 - add name lookups so any charts have nice labels (e.g. the first letter being a capital and the others being lower case).
 - drop any variables that won't be needed.
 - create the final data set of class 'file/function_name' (see the end of https://github.com/mammykins/regregrap/blob/master/R/phase_date_data.R)
@@ -187,7 +191,7 @@ The checks can be run using the code:
 
     x <- pkgname::file/function_name(dataset_name)
 
-**Exercise 11:** Set up some automated quality assurance checks on your input data to check the the data.frame contains no missing values and the right number and names of columns. To do this, copy rows 1-77 and 174 of https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R, amend the contents suitably, run the checks, and lastly push to github.
+**Exercise 11:** Set up some automated quality assurance checks on your input data. These should check that the the data.frame contains no missing values, that it has the right number of columns, and that these columns have the correct names. To do this, copy rows 1-77 and 174 of https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R, amend the contents suitably, run the checks, and lastly push to github.
 
 # 12. Developing functions
 
@@ -195,7 +199,7 @@ Why, when and how to write your own functions is covered by the ['Writing functi
 
 The mechanism for adding a function script to a package is covered in section 6 above.
 
-**Exercise 12**: Is it beneficial to incorporate any functions to your minimal statistical bulletin package? Regardless of the answer, a function called plot_crimes.R has been created to produce the plot. Add this to your package and amend crimesdata_pub.Rmd so it uses this function. Lastly, push to github.
+**Exercise 12**: Consider whether it would be beneficial to incorporate any functions into a package like your minimal statistical bulletin package? Regardless of the answer, a function called plot_crimes.R has been created to produce the plot. Add this to your package and amend crimesdata_pub.Rmd so it uses this function. Lastly, push to github.
 
 # 13. Documenting functions
 
@@ -203,7 +207,7 @@ As with documenting data (see section 10 above) it is helpful to use Roxygen2 to
 
 The documentation of functions is done within the same R script as the function itself - an example can be viewed at: https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R  
 
-Looking at the first 41 rows you can see a title (one sentence), description, details including inputs, what is returned, some examples, and the @export which enables users to access the function when they load your package.
+Looking at the first 41 rows you can see a title (one sentence), description, details including inputs, what is returned, some examples, and the @export which enables users to access the function when they load your package. Functions which are not marked with @export can be used by other functions inside the package, but aren't readily available for users directly. 
 
 The process is as follows:
 1. add documentation to the .R file
@@ -213,11 +217,11 @@ The process is as follows:
 
 To check that the documentation enables others to easily understand the code you can get someone else to peer review your documentation and see if they understand how to use each function from the documentation alone.
 
-**Exercise 13:** Follow the above process to add suitable documentation to the function plot_crimes.R. Lastly, push to github.
+**Exercise 13:** Follow the above process to add suitable documentation to the function plot_crimes.R. Make sure you include a helpful description, details of the inputs, and an example. Make sure you specify @export to allow users to access the function. Lastly, push to github.
 
 # 14. Using the condition system 
 
-It is very helpful for package users to get good feedback about something unusual happenning when running a particular function. R has a very powerful condition system which can be used to flag errors, warnings and messages. You can read more about this in section 8 of ['Advanced R'](https://adv-r.hadley.nz/conditions.html) by Hadley Wickham.
+It is very helpful for package users to get good feedback about something unusual happening when running a particular function, as it makes it easier to understand what is going wrong, or to debug code.  R has a very powerful condition system which can be used to flag errors, warnings and messages. You can read more about this in section 8 of ['Advanced R'](https://adv-r.hadley.nz/conditions.html) by Hadley Wickham.
 
 A quick way of generating useful feedback is simply by wrapping the function body within the following code: 
 
@@ -245,17 +249,21 @@ A quick way of generating useful feedback is simply by wrapping the function bod
       
 An applied example of this can be seen at: https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R 
 
-Exercise 13: Follow the above process to generate useful feedback when running the function plot_crimes.R. Lastly, push to github.
+**Exercise 14:** Follow the above process to generate useful feedback when running the function plot_crimes.R. Run the function to check what kind of messages this function generates when it runs. Lastly, push to github.
 
 # 15. Testing your code 
 
-Any changes to code should be accompanied by testing to check that the revised function works as it should and the output is as expected. Such testing is best automated as to do manually is laborious, boring and time consuming. Moreover, automated testing provides package users with more assurance and assists anyone who makes changes to the code to identify any shortcomings and rectify these. As with manual checking, it is important to decide what needs to be tested and automate only these tests. It may often be desirable to create mock data to test the code using, which have the key features of the actual data but are much smaller in size. 
+Any time you make a change to code in your package, this should be accompanied by testing to check that the revised function works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides package users with more assurance and assists anyone who makes changes to the code to identify any shortcomings and rectify these. 
+
+As with manual checking, it is first important to decide what aspects of your code need to be tested, and to automate only these tests. Often, it is sensible to create mock data to use to test your code. This data should have have the key features of the actual data (same columns, names, etc) but be much smaller in size to allow for easy loading and processing. The mock data can also be stored in the package as it does not contain any sensitive information. 
 
 There are two types of test:
-- unit tests; generally there should be one for each function. 
+- unit tests; generally there should be at least one for each function. 
 - functional tests; these test everything in the whole pipeline (or package). 
 
-These can be run when desired but also be set up to run automatically (continuous integration) before a github pool request is granted. 
+These can be run when desired but also be set up to run automatically (continuous integration) before a github pull request is granted. 
+
+**Exercise 15**: Create a mock dataset to replace crimedata.csv. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but should be much smaller (e.g. only two or three rows).
 
 # 16. Unit testing
 
