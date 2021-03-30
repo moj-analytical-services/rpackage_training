@@ -12,16 +12,18 @@ Recordings of these sessions can be viewed at: https://web.microsoftstream.com/c
 
 This training is based on Matthew Gregory's free online course 'Reproducible Analytical Pipelines (RAP) using R' (see https://www.udemy.com/reproducible-analytical-pipelines/) and Hadley Wickham's book 'R Packages' (see http://r-pkgs.had.co.nz/)
 
-The goal of this training is to teach you how to develop packages with a particular emphasis on RAP. Thankfully they are not difficult to make. To maximise its' usefulness please do the exercises which enable you to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training - see https://github.com/moj-analytical-services/rmarkdown_training. You can then apply the same skills to your real life publications.
+The goal of this training is to teach you how to develop packages with a particular emphasis on RAP. Thankfully they are not difficult to make. This training is designed for you to follow along with, and in each section there are exercises you can follow which enable you to develop a package for the minimal statistical bulletin created as part of the Rmarkdown training - see https://github.com/moj-analytical-services/rmarkdown_training. You can then apply the same skills to your real life publications.
 
 There are benefits to the RAP for each statistical publication being within a package. Hadley Wickham's introduction (https://r-pkgs.org/intro.html) states: "In R, the fundamental unit of shareable code is the package. A package bundles together code, data, documentation, and tests, and is easy to share with others."  The package should also include tests and data (which can be made up if real data are sensitive). The directory structure of an R package is typically as follows (e.g. https://github.com/DCMSstats/eesectors): 
 
-- R code is in 'R' (this is compulsory); 
-- documentation is in 'man' (this is compulsory); 
+- R code is in 'R' (this is required); 
+- documentation is in 'man' (this is also required); 
 - data are in 'data'; 
 - tests are in 'tests'; 
 - dependency management may be in the associated directory e.g. 'packrat' if using packrat; and 
 - templates on how to use the package are in 'vignettes'.
+
+**Exercise 1:** Take a look at the structure of a github repo which contains [an R package](https://github.com/DCMSstats/eesectors) and see if you can recognise the structure described above.
 
 # 2. Choose a name
 
