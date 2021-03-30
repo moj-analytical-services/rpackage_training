@@ -187,31 +187,33 @@ The checks can be run using the code:
 
     x <- pkgname::file/function_name(dataset_name)
 
-Exercise 10: Set up some automated quality assurance checks on your input data to check the the data.frame contains no missing values and the right number and names of columns. To do this, copy rows 1-77 and 174 of https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R, amend the contents suitably, run the checks, and lastly push to github.
+**Exercise 11:** Set up some automated quality assurance checks on your input data to check the the data.frame contains no missing values and the right number and names of columns. To do this, copy rows 1-77 and 174 of https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R, amend the contents suitably, run the checks, and lastly push to github.
 
 # 12. Developing functions
 
-Why, when and how to write your own functions is covered by the ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) training. As ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) states, they are a way to bundle up bits of code to make them easy to reuse. They can save you time, reduce the risk of errors, and make your code easier to understand. You should consider and make a list of what functions would be beneficial (a good rule of thumb for this is whenever you’d be using the same or similar code in three places) and then develop those that don't already exist.
+Why, when and how to write your own functions is covered by the ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) training. As ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) states, functions are a way to bundle up bits of code to make them easy to reuse. They can save you time, reduce the risk of errors, and make your code easier to understand. You should consider and make a list of what functions would be beneficial (a good rule of thumb for this is whenever you’d be using the same or similar code in three places) and then develop those that don't already exist.
 
 The mechanism for adding a function script to a package is covered in section 6 above.
 
-Exercise 11: Is it beneficial to incorporate any functions to your minimal statistical bulletin package? Regardless of the answer, a function called plot_crimes.R has been created to produce the plot. Add this to your package and amend crimesdata_pub.Rmd so it uses this function. Lastly, push to github.
+**Exercise 12**: Is it beneficial to incorporate any functions to your minimal statistical bulletin package? Regardless of the answer, a function called plot_crimes.R has been created to produce the plot. Add this to your package and amend crimesdata_pub.Rmd so it uses this function. Lastly, push to github.
 
 # 13. Documenting functions
 
-As with documenting data (see section 10 above) it is helpful to use Roxygen2 to document functions. The documentation of functions is done within the same R script - an example can be viewed at: https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R  
+As with documenting data (see section 10 above) it is helpful to use Roxygen2 to document functions. Documentation of functions helps users to understand how functions work, and what arguments they need to be given (and what format those arguments should take).
 
-Looking at the first 41 rows you can see a title (one sentence), description, details including about inputs, what is returned, some examples, and the @export which enables the accessibility of the function to users when they load your package.
+The documentation of functions is done within the same R script as the function itself - an example can be viewed at: https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R  
+
+Looking at the first 41 rows you can see a title (one sentence), description, details including inputs, what is returned, some examples, and the @export which enables users to access the function when they load your package.
 
 The process is as follows:
-1. add documentation to the .R file (may be easiest to copy from the above R script and then amend)
+1. add documentation to the .R file
 2. run devtools::document()
 3. preview in the help facility using ?objectname
-4. amend as appropriate and repeat steps 2 to 4. 
+4. amend the documentation as appropriate and repeat steps 2 to 4. 
 
-To check that the documentation enables others to easily understand the code it is also recommended that it is peer reviewed.
+To check that the documentation enables others to easily understand the code you can get someone else to peer review your documentation and see if they understand how to use each function from the documentation alone.
 
-Exercise 12: Follow the above process to add suitable documentation to the function plot_crimes.R. Lastly, push to github.
+**Exercise 13:** Follow the above process to add suitable documentation to the function plot_crimes.R. Lastly, push to github.
 
 # 14. Using the condition system 
 
