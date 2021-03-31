@@ -79,13 +79,13 @@ If the files you want to include within your package are in GitHub but not R Stu
 
 Generally, there are few differences between the normal R code that you write, and the format of code inside a package. The most important consideration is how you reference functions that you are using from other packages.
 
-Normally when you use a function from another package, you will generally call that package in a library call, and then reference the function directly e.g.
+Normally when you use a function from another package, you might call that package in a library call, and then reference the function directly e.g.
 
         library(dplyr)
         
         data %>% filter(Year == 2020)
 
-You can't do this from inside a package as it will affect the package availability across someone else's version of R! Instead you need to call each function specifically using a double colon e.g.
+You can't do this from inside a package as it will affect the package availability across someone else's version of R. Instead you need to call each function specifically using a double colon e.g.
 
         data %>% dplyr::filter(Year == 2020)
         
