@@ -75,7 +75,25 @@ If the files you want to include within your package are in GitHub but not R Stu
 
 **Exercise 6:** Add the crimesdata_pub.Rmd file to your package. 
 
-# 7. Amend the DESCRIPTION file
+# 7. Making your functions work in a package
+
+Generally, there are few differences between the normal R code that you write, and the format of code inside a package. The most important consideration is how you reference functions that you are using from other packages.
+
+Normally when you use a function from another package, you will generally call that package in a library call, and then reference the function directly e.g.
+
+        library(dplyr)
+        
+        data %>% filter(Year == 2020)
+
+You can't do this from inside a package as it will affect the package availability across someone else's version of R! Instead you need to call each function specifically using a double colon e.g.
+
+        data %>% dplyr::filter(Year == 2020)
+        
+You will also need to add any packages you use to your own package's DESCRIPTION file (more on this in the next section) to ensure they are available to anyone who downloads your package. Note that none of this affects how your code actually runs, it just ensures that it works correctly when installed.
+
+**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Push your changes to Github.
+
+# 8. Amend the DESCRIPTION file
 
 The DESCRIPTION file is one of two files automatically created when you run the create package command, the other being the NAMESPACE file (more about this later). It provides important metadata about the package. You can click on the DESCRIPTION filename in the R Studio files window and then amend it as appropriate. 
 
@@ -93,7 +111,7 @@ To view an example of an amended DESCRIPTION file see: https://github.com/DCMSst
 
 You can read more about the most important DESCRIPTION fields at: https://r-pkgs.org/description.html
 
-**Exercise 7:** Amend the DESCRIPTION file, specifically: 
+**Exercise 8:** Amend the DESCRIPTION file, specifically: 
 - Title (e.g. Create a minimal statistical bulletin) 
 - Authors@R (e.g. make yourself author and maintainer) 
 - Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) 
@@ -283,6 +301,12 @@ by testing the expectation that:
 - an error is produced if a suitable dataset is not input, e.g. if an integer is input as the dataset or without the variables 'register' or 'date'.
 - the output is consistent with what we'd get if we manually did in excel.
 3) Run test using command+shift+t (it can be good to write something so the test should fail to begin to check the procedure is working).
+
+# 17. Functional testing
+
+# 18. Continuous integration
+
+# 19. Installing and using your package
 You can additionally test figures e.g. plots to see whether they look like they should by using the package vdiffr (in CRAN and compatible with the testthat package).
 
 COULD DEVELOP a function like https://github.com/mammykins/regregrap/blob/master/R/figure_1.R and then do unit test like https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_figure_1.R 
