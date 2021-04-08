@@ -313,19 +313,23 @@ A completed test will look something like this:
     })
     
 * You can find a full list of expect_ functions in the Testing chapter of the [R Packages book](https://r-pkgs.org/tests.html)
-* When the test runs, it will check that all of the expect functions 
+* When the test runs, it will check that all of the expect functions produce a TRUE result. If they don't, that specific test will fail.
 
-**Exercise 16**: Create some tests for For example, take a look at developing a test for https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R  which can be viewed at: https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R 
-1) Create a new R script in the testthat folder called 'test_fivereg_recent.R' 
-2) Then can copy code from http://r-pkgs.had.co.nz/tests.html#test-structure and adapt it. Can now check function that for instance is coded to:
-- stop running if there is an error.
-- stop running if the input is not a dataframe.
-- stop running if the input dataframe 'df' doesn't contain the variable 'register' that is of class character or the variable 'date' that is of class date.
-by testing the expectation that:
-- the code has run without an error.
-- an error is produced if a suitable dataset is not input, e.g. if an integer is input as the dataset or without the variables 'register' or 'date'.
-- the output is consistent with what we'd get if we manually did in excel.
-3) Run test using command+shift+t (it can be good to write something so the test should fail to begin to check the procedure is working).
+**Exercise 16**: Create some tests for the fivereg_recent function (taken from [here](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R):  
+
+1) Save a copy of the fivereg_recent.R file from this repo into your R package repo. Take a look at the function.
+
+2) Run "devtools::use_testthat()" to set up your testing structure.
+
+3) Inside the test/testthat folder, create an R file called test_fivereg_recent.R
+
+4) Create some tests for this function, to check for example:
+
+  * Does the function stop running if there is an error.
+  * Does the function stop running if the input is not a dataframe.
+  * Does the function stop running if the input dataframe 'df' doesn't contain the variable 'register' that is of class character or the variable 'date' that is of class date.
+
+5) Run the tests you have created using command+shift+t. Try writing a test that the function will fail, just to see what happens!
 
 # 17. Functional testing
 
