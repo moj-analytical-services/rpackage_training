@@ -281,16 +281,41 @@ There are two types of test:
 
 These can be run when desired but also be set up to run automatically (continuous integration) before a github pull request is granted. 
 
-**Exercise 15**: Create a mock dataset to replace crimedata.csv. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but should be much smaller (e.g. only two or three rows).
+**Exercise 15**: Create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but should be much smaller (e.g. only two or three rows).
 
 # 16. Unit testing
 
-The testthat package makes setting up tests easy:
-- provides functions that make it easy to describe what you expect a function to do (e.g. logical boolean tests).
-- it enables you to write informative messages (e.g. figure 1 works as expected) so that when you run the test you can quickly see whether something has worked as expected (e.g. if the test involves two figure 1 checks and is passed then the output will be 'figure 1 works as expected: ..', a dot indicating a pass. If there is a failure a number will be give and it will be listed at the end of your output.   
+Unit testing can be easily automated using the testthat package:
+
+- It provides functions that make it easy to describe what you expect a function to do (e.g. logical boolean tests).
+- It enables you to write informative messages (e.g. figure 1 works as expected). This means that when you run the test you can quickly see whether something has worked as expected.
+- It is easy to see checks have passed or failed. If a check is passed then the output will be 'figure X works as expected: ..', with a dot indicating a pass. If there is a failure, a number will be given and it will be listed at the end of your output.   
 - it easily integrates into your existing workflow. 
-To set up your package to use testthat run the code "devtools::use_testthat()" (see http://r-pkgs.had.co.nz/tests.html for more details) which creates a test folder, within that a testthat folder and testthat.R which doesn't contain much code. The bulk of the code can now be added to the testthat folder, with the various files being named "test_[function name].R"
-For example, take a look at developing a test for https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R  which can be viewed at: https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R 
+
+To set up your package to use testthat:
+
+* Run "devtools::use_testthat()" (see http://r-pkgs.had.co.nz/tests.html for more details). This creates a test folder structure, which consists of a folder called "test" and inside that is a testthat folder and the testthat.R file, which contains the basic code required to run the tests. 
+* You can now create your tests in the testthat folder. You can create a new file in here for every set of tests you want to run on a specific function. Each file needs to be named "test_[function name].R"
+* Inside the test file, you can load in any data that you want to use for the tests. You can then create any tests you want to run using the test_that() function.
+* The first argument to this function should be a description of the test you are running; this is what test_that displays when a test fails, so make it a clear description e.g. "string is five characters long"
+* After this, you can pass the tests themselves in curly brackets {}. There are many varieties of test that can be created using the range of expect_X functions. Some examples of these functions are:
+  * expect_equal(): Checks that two outputs are equal
+  * expect_match(): Checks a string matches a regular expression
+  * expect_output(): Checks the output has a specific structure such as a list
+  * expect_error(): Check that the code returns an error in specific circumstances.
+  
+A completed test will look something like this:
+
+    test_that("Vector contains exactly five objects", {
+      
+      expect_equal(length(your_function(x)), 5)
+    
+    })
+    
+* You can find a full list of expect_ functions in the Testing chapter of the [R Packages book](https://r-pkgs.org/tests.html)
+* When the test runs, it will check that all of the expect functions 
+
+**Exercise 16**: Create some tests for For example, take a look at developing a test for https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R  which can be viewed at: https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R 
 1) Create a new R script in the testthat folder called 'test_fivereg_recent.R' 
 2) Then can copy code from http://r-pkgs.had.co.nz/tests.html#test-structure and adapt it. Can now check function that for instance is coded to:
 - stop running if there is an error.
