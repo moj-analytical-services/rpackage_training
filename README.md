@@ -88,10 +88,10 @@ Normally when you use a function from another package, you might call that packa
 You can't do this from inside a package as it will affect the package availability across someone else's version of R. Instead you need to call each function specifically using a double colon e.g.
 
         data %>% dplyr::filter(Year == 2020)
-        
+
 You will also need to add any packages you use to your own package's DESCRIPTION file (more on this in the next section) to ensure they are available to anyone who downloads your package. Note that none of this affects how your code actually runs, it just ensures that it works correctly when installed.
 
-**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Push your changes to Github.
+**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function; at the moment the package dplyr is not called correctly for use in a package. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Push your changes to Github.
 
 # 8. Amend the DESCRIPTION file
 
@@ -228,6 +228,7 @@ The documentation of functions is done within the same R script as the function 
 Looking at the first 41 rows you can see a title (one sentence), description, details including inputs, what is returned, some examples, and the @export which enables users to access the function when they load your package. Functions which are not marked with @export can be used by other functions inside the package, but aren't readily available for users directly. 
 
 The process is as follows:
+
 1. add documentation to the .R file
 2. run devtools::document()
 3. preview in the help facility using ?objectname
@@ -312,7 +313,7 @@ A completed test will look something like this:
     
     })
     
-* You can find a full list of expect_ functions in the Testing chapter of the [R Packages book](https://r-pkgs.org/tests.html)
+* You can find a full list of expect_ functions in the Testing chapter of the [R Packages book](https://r-pkgs.org/tests.html). You can additionally test figures e.g. plots to see whether they look like they should by using the package vdiffr (in CRAN and compatible with the testthat package).
 * When the test runs, it will check that all of the expect functions produce a TRUE result. If they don't, that specific test will fail.
 
 **Exercise 16**: Create some tests for the fivereg_recent function (taken from [here](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R):  
@@ -331,11 +332,24 @@ A completed test will look something like this:
 
 5) Run the tests you have created using command+shift+t. Try writing a test that the function will fail, just to see what happens!
 
-# 17. Functional testing
+6) You can also run devtools::test_coverage() to check what percentage of the code in your package is currently being tested.
 
-# 18. Continuous integration
+# 17. Continuous integration (functional testing)
 
-# 19. Installing and using your package
-You can additionally test figures e.g. plots to see whether they look like they should by using the package vdiffr (in CRAN and compatible with the testthat package).
+# 18. Installing and using your package
 
-COULD DEVELOP a function like https://github.com/mammykins/regregrap/blob/master/R/figure_1.R and then do unit test like https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_figure_1.R 
+Congratulations, you have successfully produced a working package in R!
+
+For you and anyone else to install this package, you need to install it from github using devtools::install_github("your package repo and name") e.g.
+    
+    devtools::install_github("moj-analytical-services/mojrap")
+    
+You may need to use a Github Personal Access Token (PAT) if your repository access setting is "internal" or "private". 
+
+When installing your own packages in the development stage, you can also use other arguments in this function. To install a package from a branch other than your default branch, use the "ref" argument to specify the branch of interest. You can also specify a commit or release to install using:
+    
+    devtools::install_github("moj-analytical-services/mojrap@v1.0.1")
+    
+**Exercise 18**: Try installing your completed package!
+
+
