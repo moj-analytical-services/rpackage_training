@@ -91,7 +91,7 @@ You can't do this from inside a package as it will affect the package availabili
 
 You will also need to add any packages you use to your own package's DESCRIPTION file (more on this in the next section) to ensure they are available to anyone who downloads your package. Note that none of this affects how your code actually runs, it just ensures that it works correctly when installed.
 
-**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function; at the moment the package dplyr is not called correctly for use in a package. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Push your changes to Github.
+**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the total number of crimes for the selected years; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Push your changes to Github (click on Git and then Push).
 
 # 8. Amend the DESCRIPTION file
 
