@@ -272,7 +272,7 @@ An applied example of this can be seen at: https://github.com/DCMSstats/eesector
 
 # 15. Testing your code 
 
-Any time you make a change to code in your package, this should be accompanied by testing to check that the revised function works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides package users with more assurance and assists anyone who makes changes to the code to identify any shortcomings and rectify these. 
+Any time you or someone else makes a change to code in your package, this should be accompanied by testing to check that the revised function works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides package users with more assurance and assists anyone who makes changes to the code to identify any shortcomings and rectify these. 
 
 As with manual checking, it is first important to decide what aspects of your code need to be tested, and to automate only these tests. Often, it is sensible to create mock data to use to test your code. This data should have have the key features of the actual data (same columns, names, etc) but be much smaller in size to allow for easy loading and processing. The mock data can also be stored in the package as it does not contain any sensitive information. 
 
