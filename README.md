@@ -192,7 +192,7 @@ To read more about documentation more generally go to: https://r-pkgs.org/man.ht
 
 # 11. Automating quality assurance checks on input data sets
 
-While input data may already have been quality assured prior to being loaded into the package, it is best practice set up automated quality assurance checks on the data within the package. These checks ensure that the data loaded is in the expected format and structure. This reduces the likelihood of loading data which is incompatible with the code in the package, and ensures the same checks are carried out every time.
+While input data may already have been quality assured prior to being loaded into the package, it is best practice set up automated quality assurance checks on the data within the package. As well as being able to flag up inconsistencies, these checks should ensure that the data loaded are in the expected format and structure. This reduces the likelihood of loading data which are incompatible with the code in the package, and ensures the same checks are carried out every time.
 
 You can view an example quality assurance R script in the eesectors package at https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R The roxygen2 documentation appears at the top of the file. The checks include:
 - the correct columns are present in the data 
