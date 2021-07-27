@@ -290,7 +290,7 @@ Unit testing can be easily automated using the testthat package:
 
 - It provides functions that make it easy to describe what you expect a function to do (e.g. logical boolean tests).
 - It enables you to write informative messages (e.g. figure 1 works as expected). This means that when you run the test you can quickly see whether something has worked as expected.
-- It is easy to see checks have passed or failed. If a check is passed then the output will be 'figure X works as expected: ..', with a dot indicating a pass. If there is a failure, a number will be given and it will be listed at the end of your output.   
+- It is easy to see whether checks have passed or failed. If there are two figure 1 checks which both pass, then the output will be 'figure 1 works as expected: ..', with each dot indicating a pass. If there is a failure, a number will be given which will be listed at the end of your output.
 - it easily integrates into your existing workflow. 
 
 To set up your package to use testthat:
