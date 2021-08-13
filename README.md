@@ -208,7 +208,7 @@ It may also be helpful for the script to:
 - produce some plots to enable the user to check the data visually.  
 - add name lookups so any charts have nice labels (e.g. the first letter being a capital and the others being lower case).
 - drop any variables that won't be needed.
-- create the final data set of class 'file/function_name' (see the end of https://github.com/mammykins/regregrap/blob/master/R/phase_date_data.R)
+- create the final data set of class 'file/function_name' (see the end of https://github.com/mammykins/regregrap/blob/master/R/phase_date_data.R). (Everything in R is an object and many objects have a class attribute, representing the set of properties or methods that are common to all objects of this type). 
 
 The checks can be run using the code:
 
