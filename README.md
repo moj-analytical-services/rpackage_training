@@ -218,7 +218,7 @@ The checks can be run using the code:
 
 # 12. Developing functions
 
-Why, when and how to write your own functions is covered by the ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) training. As ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_rWriting) states, functions are a way to bundle up bits of code to make them easy to reuse. They can save you time, reduce the risk of errors, and make your code easier to understand. You should consider and make a list of what functions would be beneficial (a good rule of thumb for this is whenever you’d be using the same or similar code in three places) and then develop those that don't already exist.
+Why, when and how to write your own functions is covered by the ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_r) training. As ['Writing functions in R'](https://github.com/moj-analytical-services/writing_functions_in_r) states, functions are a way to bundle up bits of code to make them easy to reuse. They can save you time, reduce the risk of errors, and make your code easier to understand. When commencing a project, you should consider and make a list of what functions would be beneficial. A good rule of thumb for a function being beneficial is whenever you’d be using the same or similar code in three places. After you've made a list you can develop those that don't already exist.
 
 The mechanism for adding a function script to a package is covered in section 6 above.
 
