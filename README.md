@@ -8,9 +8,9 @@ This training is designed to enable you to learn more about both making and deve
 
 Recordings of these sessions can be viewed on the [MS Stream R Training channel](https://web.microsoftstream.com/channel/aa3cda5d-99d6-4e9d-ac5e-6548dd55f52a). If you have any access problems please contact Aidan Mews or Georgina Eaton.
 
-# Contents
+## Contents
 
-  - [1. Introduction](#1.-Introduction)
+  - [1. Introduction](#1-introduction)
   - [2. Choose a name](#2.-Choose-a-name)
   - [3. Create github repository](#3.-Create-github-repository)
   - [4. Make a copy of the project in R Studio](#4.-Make-a-copy-of-the-project-in-R-Studio)
@@ -21,7 +21,7 @@ Recordings of these sessions can be viewed on the [MS Stream R Training channel]
   - [9. Adding data in rda format](#9.-Adding-data-in-rda-format)
   - [10. Adding documentation about package data](#10.-Adding-documentation-about-package-data)
 
-# 1. Introduction
+## 1. Introduction
 
 This training is based on Matthew Gregory's free online course [Reproducible Analytical Pipelines (RAP) using R](https://www.udemy.com/reproducible-analytical-pipelines/) and Hadley Wickham's book [R Packages](http://r-pkgs.had.co.nz/)
 
