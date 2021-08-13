@@ -22,12 +22,12 @@ Recordings of these sessions can be viewed on the [MS Stream R Training channel]
   - [10. Adding data in rda format](#10-adding-data-in-rda-format)
   - [11. Adding documentation about package data](#11-adding-documentation-about-package-data)
   - [12. Automating quality assurance checks on input data sets](#12-automating-quality-assurance-checks-on-input-data-sets)
-  - [13. Developing functions](#13-developing-function)
+  - [13. Developing functions](#13-developing-functions)
   - [14. Documenting functions](#14-documenting-functions)
   - [15. Using the condition system](#15-using-the-condition-system) 
   - [16. Testing your code](#16-testing-your-code)
   - [17. Unit testing](#17-unit-testing)
-  - [18. Continuous integration (functional testing)](#18-continuous-integration-(functional-testing))
+  - [18. Continuous integration (functional testing)](#18-continuous-integration-functional-testing)
   - [19. Installing and using your package](#19-installing-and-using-your-package)
 
 ## 1. Introduction
