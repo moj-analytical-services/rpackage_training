@@ -122,7 +122,7 @@ You will also need to add any packages you use to your own package's DESCRIPTION
 
 ## 8. Amend the DESCRIPTION file
 
-The DESCRIPTION file is one of two files automatically created when you run the create package command, the other being the NAMESPACE file (more about this later). It provides important metadata about the package. You can click on the DESCRIPTION filename in the R Studio files window and then amend it as appropriate. 
+The DESCRIPTION file is one of two files automatically created when you run the create package command, the other being the NAMESPACE file (which declares the functions your package exports for external use and the external functions your package imports from other packages). It provides important metadata about the package. You can click on the DESCRIPTION filename in the R Studio files window and then amend it as appropriate. 
 
 To view an example of an amended DESCRIPTION file see: https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION Take note of the formatting. Each line consists of a field name and a value, separated by a colon. Where values span multiple lines, they need to be indented. In particular:
 
