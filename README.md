@@ -20,10 +20,6 @@ Recordings of these sessions can be viewed on the [MS Stream R Training channel]
   - [8. Amend the DESCRIPTION file](#8.-Amend-the-DESCRIPTION-file)
   - [9. Adding data in rda format](#9.-Adding-data-in-rda-format)
   - [10. Adding documentation about package data](#10.-Adding-documentation-about-package-data)
-  - [How to organise your code](#how-to-organise-your-code)
-  - [Writing a package](#writing-a-package)
-  - [Further reading](#further-reading)
-  - [Appendix](#appendix)
 
 # 1. Introduction
 
