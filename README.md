@@ -98,7 +98,7 @@ Code can be added to a package by saving the R file to the package R/ directory 
 
         dump("R_object_name", file = "directory_path/R_object_name.R")
 
-If the files are in github.com but not R Studio then there are two main options to get them into R Studio. 
+If the files are in github.com but not R Studio you have two main options to get them into R Studio. 
 * Clone the relevant repository (as in section 4 'Make a copy of the project in R Studio' above). 
 * If there are only a few files you could click the green github 'Code' button (as in section 4 above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
 
@@ -106,7 +106,7 @@ If the files are in github.com but not R Studio then there are two main options 
 
 ## 7. Making your functions work in a package
 
-Generally, there are few differences between the normal R code that you write, and the format of code inside a package. The most important consideration is how you reference functions that you are using from other packages. While this won't affect how your code runs, it ensures that it works correctly when your package is used by others.
+Generally, there are few differences between normal R code and the format of code inside a package. The most important consideration is how you reference functions that you are using from other packages. While this won't affect how your code runs, it ensures that it works correctly when your package is used by others.
 
 Normally when you use a function from another package, you might call that package in a library call, and then reference the function directly e.g.
 
@@ -114,7 +114,7 @@ Normally when you use a function from another package, you might call that packa
         
         data %>% filter(Year == 2020)
 
-Doing this inside a package would cause the dplyr library to be loaded into the R environment which can then have unexpected (global) effects for the user, with their code then running in ways that they might not expect or want. For example, if someone's code uses the base function filter(), calling your package that references the dplyr filter() function as above could result in the filter() commands running as if they were dplyr ones. Instead of loading the whole package in, the correct way to use a function from another package is to call it specifically when you need it. You can do this using a double colon e.g.
+Doing this inside a package would cause the dplyr library to be loaded into the R environment which can then have unexpected (global) effects for the user of your package. Their code could then run in ways that they might not expect or want. For example, if someone's code uses the base function filter(), calling your package that references the dplyr filter() function as above could result in the filter() commands running as if they were dplyr ones. Instead, to use a function from another package, you should call it specifically when you need it. You can do this using a double colon e.g.
 
         data %>% dplyr::filter(Year == 2020)
 
