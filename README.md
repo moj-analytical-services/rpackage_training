@@ -1,12 +1,12 @@
 # rpackage_training
-This training is designed to enable you to learn more about both making and developing R packages and implementing many RAP (Reproducible Analytical Pipelines) ways of working. It is suitable if you have completed the following training sessions or have at least reached an equivalent standard to having done these:
+This training is designed as an introduction to both making and developing R packages and to integrating the many components of RAP (Reproducible Analytical Pipelines) ways of working. It is suitable if you have completed the following training sessions or have at least reached an equivalent standard to having done these:
 
 - [Introduction to R](https://github.com/moj-analytical-services/IntroRTraining)
 - [R Charting](https://github.com/moj-analytical-services/ggplotTraining)
 - [Introduction to R Markdown](https://github.com/moj-analytical-services/rmarkdown_training)
 - [Writing functions in R](https://github.com/moj-analytical-services/writing_functions_in_r)
 
-Recordings of these sessions can be viewed on the [MS Stream R Training channel](https://web.microsoftstream.com/channel/aa3cda5d-99d6-4e9d-ac5e-6548dd55f52a). If you have any access problems please contact Aidan Mews or Georgina Eaton.
+Recordings of these sessions can be viewed on the [MS Stream R Training channel](https://web.microsoftstream.com/channel/aa3cda5d-99d6-4e9d-ac5e-6548dd55f52a). If you have any access problems please contact [Aidan Mews](aidan.mews@justice.gov.uk) or [Georgina Eaton](georgina.eaton4@justice.gov.uk).
 
 ## Contents
 
@@ -36,8 +36,8 @@ This training is based on Matthew Gregory's free online course [Reproducible Ana
 
 The goal of this training is two fold: 
 
-- Firstly to equip you about many RAP ways of working components so your coding can benefit from these. Even if you are coding a one-off product rather than automating a task, integrating RAP ways of working increases transparency and trust in statistics, quality and quality management, and accessibility of code and data - see pages 11-16 of the [OSR Review - RAP: Overcoming barriers to adoption](https://osr.statisticsauthority.gov.uk/wp-content/uploads/2021/03/Reproducible-Analytical-Pipelines-Overcoming-barriers-to-adoption-1.pdf) 
-- Secondly, to teach you how to develop packages. These are not difficult to make but enable others to easily use your code and also save you time due to conventions that you can simply follow e.g. to organise code. 
+- Firstly to enable you to integrate the many components of RAP ways of working into your projects. Even if you are coding a one-off product rather than automating a task, integrating RAP ways of working still have large benefits. They increase transparency and trust in statistics, quality and quality management, and accessibility of code and data - see pages 11-16 of the [OSR Review - RAP: Overcoming barriers to adoption](https://osr.statisticsauthority.gov.uk/wp-content/uploads/2021/03/Reproducible-Analytical-Pipelines-Overcoming-barriers-to-adoption-1.pdf) 
+- Secondly, to teach you how to make and develop packages. These are not difficult to make but enable others to easily use your code and have time saving conventions that you can follow (e.g. to organise code). The latter can be very beneficial to use in projects even if you are not making packages. 
  
 Hadley Wickham's [R Packages introduction](https://r-pkgs.org/intro.html#intro) states: "In R, the fundamental unit of shareable code is the package. A package bundles together code, data, documentation, and tests, and is easy to share with others." The package should also include tests and data (which can be made up if real data are sensitive). The directory structure of an R package is typically as follows: 
 
@@ -48,7 +48,7 @@ Hadley Wickham's [R Packages introduction](https://r-pkgs.org/intro.html#intro) 
 - dependency management may be in the associated directory e.g. 'renv' if using renv; and 
 - templates on how to use the package are in 'vignettes'.
 
-This training is designed for you to follow along with, and in each section there are exercises you can follow which enable you to develop a package for the minimal statistical bulletin created as part of the [Introduction to Rmarkdown](https://github.com/moj-analytical-services/rmarkdown_training). The files to do this are all included in this repository. You can then apply the same skills to your real life publications.
+This training is designed with exercises in each section to enable you to develop a package and integrate RAP ways of working for the minimal statistical bulletin created as part of the [Introduction to Rmarkdown](https://github.com/moj-analytical-services/rmarkdown_training). The files to do this are all included in this repository. You can then apply the same skills to your real life publications.
 
 **Exercise 1:** Take a look at the structure of a github repo which contains [an R package](https://github.com/DCMSstats/eesectors) and see if you can recognise the structure described above.
 
