@@ -104,7 +104,7 @@ If the files are in github.com but not R Studio you have two main options to get
 
 **Exercise 6:** Add the crimesdata_pub.Rmd file to your package. 
 
-## 7. Making your functions work in a package
+## 7. Making functions work in a package
 
 Generally, there are few differences between normal R code and the format of code inside a package. The most important consideration is how you reference functions that you are using from other packages. While this won't affect how your code runs, it ensures that it works correctly when your package is used by others.
 
