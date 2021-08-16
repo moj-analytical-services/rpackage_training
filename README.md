@@ -94,11 +94,13 @@ After completing this process the 'Files' window will show additions to the proj
 
 ## 6. Add R and Rmarkdown code 
 
-It's now time to add the code that makes up your package! This can be code in both R and R Markdown files; R files need to be added to the package R/ directory while R Markdown code can be saved to the package home directory. You can do this in R Studio by either saving the files directly (e.g. using the 'Save As' option) or programmatically using the function dump() as follows:
+Code can be added to a package by saving the R file to the package R/ directory and the R Markdown file to the package home directory. This can be done in R Studio by either saving the files directly (e.g. using the 'Save As' option) or programmatically using the function dump() as follows:
 
         dump("R_object_name", file = "directory_path/R_object_name.R")
 
-If the files you want to include within your package are in GitHub but not R Studio then you have two main options to get them in R Studio. You could either clone the relevant repository (as in section 4 'Make a copy of the project in R Studio' above). Or if there are only a few files you could click the green github 'Code' button (as in section 4 above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
+If the files are in github.com but not R Studio then there are two main options to get them into R Studio. 
+* Clone the relevant repository (as in section 4 'Make a copy of the project in R Studio' above). 
+* If there are only a few files you could click the green github 'Code' button (as in section 4 above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
 
 **Exercise 6:** Add the crimesdata_pub.Rmd file to your package. 
 
