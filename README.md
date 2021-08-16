@@ -104,7 +104,7 @@ If the files you want to include within your package are in GitHub but not R Stu
 
 ## 7. Making your functions work in a package
 
-Generally, there are few differences between the normal R code that you write, and the format of code inside a package. The most important consideration is how you reference functions that you are using from other packages.
+Generally, there are few differences between the normal R code that you write, and the format of code inside a package. The most important consideration is how you reference functions that you are using from other packages. While this won't affect how your code runs, it ensures that it works correctly when your package is used by others.
 
 Normally when you use a function from another package, you might call that package in a library call, and then reference the function directly e.g.
 
@@ -112,11 +112,11 @@ Normally when you use a function from another package, you might call that packa
         
         data %>% filter(Year == 2020)
 
-You can't do this from inside a package as it will affect the package availability across someone else's version of R. Instead you need to call each function specifically using a double colon e.g.
+Doing this inside a package would cause the dplyr library to be loaded into the R environment which can then have unexpected (global) effects for the user, with their code then running in ways that they might not expect or want. For example, if someone's code uses the base function filter(), calling your package that references the dplyr filter() function as above could result in the filter() commands running as if they were dplyr ones. Instead of loading the whole package in, the correct way to use a function from another package is to call it specifically when you need it. You can do this using a double colon e.g.
 
         data %>% dplyr::filter(Year == 2020)
 
-You will also need to add any packages you use to your own package's DESCRIPTION file (more on this in the next section) to ensure they are available to anyone who downloads your package. Note that none of this affects how your code actually runs, it just ensures that it works correctly when installed.
+You will also need to add any packages you use to your own package's DESCRIPTION file (more on this in the next section) to ensure they are available to anyone who downloads your package. 
 
 **Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the total number of crimes for the selected years; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Push your changes to Github (click on Git and then Push).
 
