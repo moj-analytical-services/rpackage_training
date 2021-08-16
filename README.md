@@ -75,22 +75,22 @@ To utilise the benefits of version control and to enable other people to downloa
 
 ## 4. Make a copy of the project in R Studio
 
-To enable you to make changes to your project using R Studio you can make a copy of your repository in R Studio. Guidance to do this is available [here](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio). As github has changed since this guidance was made, instead of clicking the green github 'Clone or download' button, click the green 'Code' button.
+To enable you to make changes to your project using R Studio you can make a copy of your repository in your personal R Studio workspace. Guidance to do this is available [here](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio). As github has changed since this guidance was made, instead of clicking the green github 'Clone or download' button, click the green 'Code' button.
 
 **Exercise 4:** Follow Step 1 of the guidance to make a copy of your project in R Studio.
 
 ## 5. Create the package 
 
-You can now convert your cloned repository into a package automatically in R Studio by taking the following steps:
+A repository can easily be converted into a package using R Studio. The steps are as follows:
 
-- Install the package devtools if you haven't already (click on Packages, Install, type in devtools and click on Install). 
+- Install the package devtools if not already installed (click on Packages, Install, type in devtools and click on Install). 
 - Run the following command and select the option to overwrite what is already there:
 
-        devtools::create("path/to/package/pkgname")
+        devtools::create_package("path/to/package/pkgname")
 
-You can now see in the 'Files' window that there are additions in your project directory.
+After completing this process the 'Files' window will show additions to the project directory.
 
-**Exercise 5:** Follow the above steps, inserting the correct directory path and package name within the create command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio, committing your changes to all files to git and then pushing them to github.com. If you refresh your github.com repository page you should now see the additions there.
+**Exercise 5:** Follow the above steps, inserting the correct directory path and package name within the create_package command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 of [this guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio) to commit all your changes to git and then push them to github.com. If you refresh your github.com repository page you should now see the additions there.
 
 ## 6. Add R and Rmarkdown code 
 
