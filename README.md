@@ -75,9 +75,9 @@ To utilise the benefits of version control and to enable other people to downloa
 
 ## 4. Make a copy of the project in R Studio
 
-You then need to clone your repository to your version of R to allow you to make changes to it. Guidance to do this is available here: https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio. As github has changed since this guidance was made, instead of clicking the green github 'Clone or download' button, click the green 'Code' button.
+To enable you to make changes to your project using R Studio you can make a copy of your repository in R Studio. Guidance to do this is available [here](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio). As github has changed since this guidance was made, instead of clicking the green github 'Clone or download' button, click the green 'Code' button.
 
-**Exercise 4:** Follow Step 1 of the guidance to make a copy of the project in R Studio.
+**Exercise 4:** Follow Step 1 of the guidance to make a copy of your project in R Studio.
 
 ## 5. Create the package 
 
