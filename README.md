@@ -154,11 +154,11 @@ To prevent you accidentally pushing any sensitive data to Github.com, Analytical
 
 You should also set up a second layer of protection by specifying any sensitive data files in the gitignore file so they cannot be pushed to Github.com. To do this, open the gitignore file and add the names of the files (e.g. confidential.txt). If there's a file that's not to be ignored then add an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
 
-A [useful gitignore template](https://github.com/ukgovdatascience/dotfiles) has been developed by ukdatascience which is free to copy, use and amend.
+A useful [gitignore template](https://github.com/ukgovdatascience/dotfiles) has been developed by ukdatascience which is free to copy, use and amend.
 
-You can also use git hooks which check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about these hooks is available at: https://github.com/ukgovdatascience/dotfiles
+You can also use git hooks which check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about these hooks is available [here](https://github.com/ukgovdatascience/dotfiles).
 
-**Exercise 9:** Place a copy of crimedata.csv into your package Rstudio folder. Then amend the gitignore file to include the code in [the useful ukdatascience gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore). After committing and pushing to github.com and refreshing your github.com repository page can you see crimedata.csv? Then additionally specify crimedata.csv as a file not to be ignored at the end of the gitignore file. After pushing to github.com can you now see it?
+**Exercise 9:** Place a copy of crimedata.csv into your package Rstudio folder. Then amend the gitignore file to include the code in the useful ukdatascience [gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore). After committing and pushing to github.com and refreshing your github.com repository page can you see crimedata.csv? Then additionally specify crimedata.csv as a file not to be ignored at the end of the gitignore file. After pushing to github.com can you now see it?
 
 ## 10. Adding data in rda format
 
