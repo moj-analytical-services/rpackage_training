@@ -120,33 +120,33 @@ Doing this inside a package would cause the dplyr library to be loaded into the 
 
 You will also need to add any packages you use to your own package's DESCRIPTION file (more on this in the next section) to ensure they are available to anyone who downloads your package. 
 
-**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the total number of crimes for the selected years; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Push your changes to Github (click on Git and then Push).
+**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the total number of crimes for the selected years; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Commit all your changes to git and then push them to github.com. You can now refresh your github repository page and see the amendments there.
 
 ## 8. Amend the DESCRIPTION file
 
-The DESCRIPTION file is one of two files automatically created when you run the create package command, the other being the NAMESPACE file (which declares the functions your package exports for external use and the external functions your package imports from other packages). It provides important metadata about the package. You can click on the DESCRIPTION filename in the R Studio files window and then amend it as appropriate. 
+The DESCRIPTION file is one of two files automatically created when you run the create package command (the other is the NAMESPACE file which declares the external functions your package imports from other packages and the functions your package exports for external use and ). It provides important metadata about the package. You can click on the DESCRIPTION filename in the R Studio files window and then amend it as appropriate. 
 
-To view an example of an amended DESCRIPTION file see: https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION Take note of the formatting. Each line consists of a field name and a value, separated by a colon. Where values span multiple lines, they need to be indented. In particular:
+An example of an amended DESCRIPTION file [is provided here](https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION). The formatting is important. Each line consists of a field name and a value, separated by a colon. Where values span multiple lines, they need to be indented. In particular:
 
-- The Title is a one line description of the package - keep short, capitalised like a title and less than 65 characters.
+- The Title is a one line description of the package - keep this short, with suitable use of capitals and less than 65 characters.
 - The Version should be amended when you update the package
-- The Authors@R field which has a three letter code specifying the role, the most useful being:
-   - cre: the package maintainer, the person you should contact if you have a problem.
-   - aut: authors, those who have made significant contributions to the package.
-   - ctb: contributors, those who have made smaller contributions, like patches.
+- The Authors@R field makes use of a three letter code to specify the various roles, the most useful being:
+   - cre: the package maintainer; the person you should contact if you have a problem.
+   - aut: authors; those who have made significant contributions to the package.
+   - ctb: contributors; those who have made smaller contributions, like patches.
    - cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
 - The Description is more detailed than the Title - one paragraph with each line being up to 80 characters
-- The Depends and Imports fields allow you to list the packages that your package needs to work; nowadays it is considered best practice to add these packages as Imports rather than Depends. Unless you have the knowledge to do something different, you should assume that the package version needs to be greater than or equal to the version you're currently using.
+- The Depends and Imports fields allow you to list the external packages that your package uses; it is now considered best practice to add these packages as Imports rather than Depends. Unless you have the knowledge to do something different, you should assume that the package version needs to be greater than or equal to the version you're currently using.
 
-You can read more about the most important DESCRIPTION fields at: https://r-pkgs.org/description.html
+You can read more about the most important DESCRIPTION fields [in R Packages](https://r-pkgs.org/description.html).
 
-**Exercise 8:** Amend the DESCRIPTION file, specifically: 
+**Exercise 8:** Amend the DESCRIPTION file, specifically the: 
 - Title (e.g. Create a minimal statistical bulletin) 
 - Authors@R (e.g. make yourself author and maintainer) 
 - Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) 
 - Package dependency text (specify the minimum version of R needed and the need for ggplot2 and dplyr). 
 
-Lastly, push back to git (click on Git and then Push). You can now refresh your github repository page and see the amendments there.
+Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github repository page and see the amendments there.
 
 ## 9. Excluding sensitive data 
 
