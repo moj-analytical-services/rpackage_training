@@ -152,7 +152,7 @@ Lastly, commit all your changes to git and then push them to github.com. You can
 
 To prevent you accidentally pushing any sensitive data to Github.com, it is best practice not to store any sensitive data within the R Studio copy of your repository. 
 
-You should also set up a second layer of protection by specifying any sensitive data files in the gitignore file so that they cannot be pushed to Github.com. To do this, open the gitignore file and add the names of the files (e.g. confidential.txt). If there's a file that's not to be ignored then you can add an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
+You should also set up a second layer of protection by specifying any sensitive data files in the gitignore file so that they cannot be pushed to Github.com. To do this, open the gitignore file and add the names of the files (e.g. confidential.txt). If there's a file that's not to be ignored then you can specify it while adding an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
 
 A useful [gitignore template](https://github.com/ukgovdatascience/dotfiles) has been developed by ukdatascience which is free to copy, use and amend.
 
