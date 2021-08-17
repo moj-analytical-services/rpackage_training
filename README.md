@@ -120,7 +120,7 @@ Doing this inside a package would cause the dplyr library to be loaded into the 
 
 You will also need to add any packages you use to your own package's DESCRIPTION file (more on this in the next section) to ensure they are available to anyone who downloads your package. 
 
-**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the total number of crimes for the selected years; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Commit all your changes to git and then push them to github.com. You can now refresh your github repository page and see the amendments there.
+**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the total number of crimes for the selected years; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ## 8. Amend the DESCRIPTION file
 
@@ -138,7 +138,7 @@ An example of an amended DESCRIPTION file [is provided here](https://github.com/
 - The Description is more detailed than the Title - one paragraph with each line being up to 80 characters
 - The Depends and Imports fields allow you to list the external packages that your package uses; it is now considered best practice to add these packages as Imports rather than Depends. Unless you have the knowledge to do something different, you should assume that the package version needs to be greater than or equal to the version you're currently using.
 
-You can read more about the most important DESCRIPTION fields [in R Packages](https://r-pkgs.org/description.html).
+You can read more about the most important DESCRIPTION fields in [R Packages](https://r-pkgs.org/description.html).
 
 **Exercise 8:** Amend the DESCRIPTION file, specifically the: 
 - Title (e.g. Create a minimal statistical bulletin) 
@@ -146,19 +146,19 @@ You can read more about the most important DESCRIPTION fields [in R Packages](ht
 - Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) 
 - Package dependency text (specify the minimum version of R needed and the need for ggplot2 and dplyr). 
 
-Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github repository page and see the amendments there.
+Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ## 9. Excluding sensitive data 
 
-Analytical Platform best practice is that you should not be storing sensitive data within your R Studio copy of the repository, as this prevents you accidentally pushing this to Github. There is also a second layer of protection that you should set up to prevent the package containing any sensitive information. 
+To prevent you accidentally pushing any sensitive data to Github.com, Analytical Platform best practice is not to store any sensitive data within the R Studio copy of your repository. 
 
-The gitignore file can be amended to specify any sensitive data files so that they cannot to be pushed to git. This can be done by opening the gitignore file and adding the name of the file (e.g. confidential.txt). If there's a file that's not to be ignored then add an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
+You should also set up a second layer of protection by specifying any sensitive data files in the gitignore file so they cannot be pushed to Github.com. To do this, open the gitignore file and add the names of the files (e.g. confidential.txt). If there's a file that's not to be ignored then add an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
 
-A link to a template gitignore that ukgovdatascience have done and which is free to copy, use and amend as appropriate is at: https://github.com/ukgovdatascience/dotfiles
+A [useful gitignore template](https://github.com/ukgovdatascience/dotfiles) has been developed by ukdatascience which is free to copy, use and amend.
 
 You can also use git hooks which check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about these hooks is available at: https://github.com/ukgovdatascience/dotfiles
 
-**Exercise 9:** Place a copy of crimedata.csv into your package Rstudio folder. Then amend the gitignore file to include the code in https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore After committing and pushing to github (Steps 2 and 3 at https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio) can you see crimedata.csv? Then additionally specify crimedata.csv as a file not to be ignored at the end of the gitignore file. After pushing to github can you now see it?
+**Exercise 9:** Place a copy of crimedata.csv into your package Rstudio folder. Then amend the gitignore file to include the code in [the useful ukdatascience gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore). After committing and pushing to github.com and refreshing your github.com repository page can you see crimedata.csv? Then additionally specify crimedata.csv as a file not to be ignored at the end of the gitignore file. After pushing to github.com can you now see it?
 
 ## 10. Adding data in rda format
 
