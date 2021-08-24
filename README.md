@@ -307,17 +307,15 @@ You can view [this applied example](https://github.com/DCMSstats/eesectors/blob/
 
 ## 16. Testing your code 
 
-Any time you or someone else makes a change to code in your package, this should be accompanied by testing to check that the revised function works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides package users with more assurance and assists anyone who makes changes to the code to identify any shortcomings and rectify these. 
+Anytime someone makes a change to the code, this should be accompanied by testing to check that it works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides users with more assurance and helps those making changes to the code to identify any shortcomings and rectify these. 
 
-As with manual checking, it is first important to decide what aspects of your code need to be tested, and to automate only these tests. Often, it is sensible to create mock data to use to test your code. These data should have have the key features of the actual data (same columns, names, etc) but be much smaller in size to allow for easy loading and processing. The mock data can also be stored in the package as they do not contain any sensitive information. 
+Tests can be run when desired but is better set up to run automatically (see section 18 on continuous integration) before a github pull request is granted. There are two types of test:
+- unit tests (covered in the next section); generally there should be at least one for each function. 
+- functional tests; testing everything in the whole pipeline (or package). 
 
-There are two types of test:
-- unit tests; generally there should be at least one for each function. 
-- functional tests; these test everything in the whole pipeline (or package). 
+It is important you decide what aspects of the code really need to be tested, and then to automate only these tests. To make the process as efficient as possible, it may be desirable for you to create mock data that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. The mock data can be stored in the package as they do not contain any sensitive information. 
 
-These can be run when desired but also be set up to run automatically (continuous integration) before a github pull request is granted. 
-
-**Exercise 16**: Create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but should be much smaller (e.g. only two or three rows).
+**Exercise 16**: Create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but be much smaller (e.g. only two or three rows). Lastly, commit all your changes to git and then push them to github.com.
 
 ## 17. Unit testing
 
