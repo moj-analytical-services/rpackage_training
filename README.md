@@ -244,11 +244,17 @@ The checks can be run using the code:
 
 ## 13. Developing functions
 
-Why, when and how to write your own functions is covered by the [Writing functions in R](https://github.com/moj-analytical-services/writing_functions_in_r) training. As this states, functions are a way to bundle up bits of code to make them easy to reuse. They can save you time, reduce the risk of errors, and make your code easier to understand. When commencing a project, you should consider and make a list of what functions would be beneficial. A good rule of thumb is to develop a function whenever you’d be using the same or similar code in three places. After you've made a list you should check whether the functions already exist (e.g. in the mojrap package) and then develop any that don't. When developing a new function you should also consider which package it's most beneficial to develop it in (e.g. it may be more beneficial to develop an mojrap type function within mojrap).
+Why, when and how to write your own functions is covered by the [Writing functions in R](https://github.com/moj-analytical-services/writing_functions_in_r) training. As this states, functions are a way to bundle up bits of code to make them easy to reuse. They can save you time, reduce the risk of errors, and make your code easier to understand. When commencing a project, you should:
+
+* Consider and make a list of what functions would be beneficial. A good rule of thumb is to develop a function whenever you’d be using the same or similar code in three places. It is also helpful to consider others' needs e.g. you may know another analyst who needs similar code.
+* After you've made a list, check whether the functions already exist (e.g. in the [mojrap package](https://github.com/moj-analytical-services/mojrap)) and then develop any that don't. 
+* If developing a new function, consider where it's most beneficial to develop it (e.g. it may be more beneficial to develop an [mojrap](https://github.com/moj-analytical-services/mojrap) type function within [mojrap](https://github.com/moj-analytical-services/mojrap)).
+
+Even if you're not planning to use the same or similar code in three places, you may be able to use a function that already exists (e.g. in the [mojrap](https://github.com/moj-analytical-services/mojrap) package).  
 
 The mechanism for adding a function script to a package is covered in section 6 above.
 
-**Exercise 13**: Consider whether it would be beneficial to incorporate any functions into a package like your minimal statistical bulletin package? Regardless of the answer, a function called plot_crimes.R has been created to produce the plot. Add this to your package and amend crimesdata_pub.Rmd so it uses this function. Lastly, push to github.
+**Exercise 13**: Consider whether it would be beneficial to incorporate any functions into a package like your minimal statistical bulletin package? Regardless of the answer, a function called plot_crimes.R has been created to produce the plot. Add this to your package and amend crimesdata_pub.Rmd so it uses this function. Lastly, commit all your changes to git and then push them to github.com.
 
 ## 14. Documenting functions
 
