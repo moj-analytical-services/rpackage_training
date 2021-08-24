@@ -250,7 +250,7 @@ Why, when and how to write your own functions is covered by the [Writing functio
 * After you've made a list, check whether the functions already exist (e.g. in the [mojrap](https://github.com/moj-analytical-services/mojrap)) package and then develop any that don't. 
 * If developing a new function, consider where it's most beneficial to develop it (e.g. it may be more beneficial to develop an [mojrap](https://github.com/moj-analytical-services/mojrap) type function within [mojrap](https://github.com/moj-analytical-services/mojrap)).
 
-Even if you're not planning to use the same or similar code in three places, you may be able to use a function that already exists (e.g. in the [mojrap](https://github.com/moj-analytical-services/mojrap) package).  
+Even if you're not planning to use the same or similar code in three places, you may benefit from using a function that already exists (e.g. in the [mojrap](https://github.com/moj-analytical-services/mojrap) package).  
 
 The mechanism for adding a function script to a package is covered in section 6 above.
 
