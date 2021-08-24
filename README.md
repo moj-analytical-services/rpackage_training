@@ -301,7 +301,7 @@ A quick way of generating useful feedback is simply by wrapping the function bod
     finally = {} 
     )   
       
-You can view [this applied example](https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R) from the eesectors package. For more details, read the [Advanced R Conditions chapter](https://adv-r.hadley.nz/conditions.html).
+You can view [this applied example](https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R) from the eesectors package. For further information, read the [Advanced R Conditions chapter](https://adv-r.hadley.nz/conditions.html).
 
 **Exercise 15:** Apply the quick way of generating useful feedback to the function plot_crimes.R and then run it to see what messages are produced. Lastly, commit all your changes to git and then push them to github.com.
 
