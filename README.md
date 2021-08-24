@@ -319,7 +319,7 @@ It is important you decide what aspects of the code really need to be tested, an
 
 ## 17. Unit testing
 
-Unit testing can be easily automated using the testthat package:
+Unit testing can be easily automated using the [testthat package](https://testthat.r-lib.org/):
 
 - It provides functions that make it easy to describe what you expect a function to do (e.g. logical boolean tests).
 - It enables you to write informative messages (e.g. figure 1 works as expected). This means that when you run the test you can quickly see whether something has worked as expected.
