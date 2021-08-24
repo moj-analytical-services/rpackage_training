@@ -24,7 +24,7 @@ Recordings of these sessions can be viewed on the [MS Stream R Training channel]
 * [12. Automating quality assurance checks on input data sets](#12-automating-quality-assurance-checks-on-input-data-sets)
 * [13. Developing functions](#13-developing-functions)
 * [14. Documenting functions](#14-documenting-functions)
-* [15. Using the condition system](#15-using-the-condition-system) 
+* [15. Using the condition system for functions](#15-using-the-condition-system) 
 * [16. Testing your code](#16-testing-your-code)
 * [17. Unit testing](#17-unit-testing)
 * [18. Continuous integration (functional testing)](#18-continuous-integration-functional-testing)
@@ -273,9 +273,9 @@ To check that the documentation enables others to easily understand the code you
 
 **Exercise 14:** Follow the above process to add suitable documentation to the function plot_crimes.R. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com.
 
-## 15. Using the condition system 
+## 15. Using the condition system for functions 
 
-It is very helpful for package users to get good feedback about something unusual happening when running a particular function, as it makes it easier to understand what is going wrong, or to debug code.  R has a very powerful condition system which can be used to flag errors, warnings and messages. You can read more about this in section 8 of ['Advanced R'](https://adv-r.hadley.nz/conditions.html) by Hadley Wickham.
+The [Advanced R Conditions chapter](https://adv-r.hadley.nz/conditions.html) states 'The condition system provides a paired set of tools that allow the author of a function to indicate that something unusual is happening, and the user of that function to deal with it'. R has a very powerful condition system which can be used to flag errors, warnings and messages.
 
 A quick way of generating useful feedback is simply by wrapping the function body within the following code: 
 
@@ -301,9 +301,9 @@ A quick way of generating useful feedback is simply by wrapping the function bod
     finally = {} 
     )   
       
-An applied example of this can be seen at: https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R 
+You can view [this applied example](https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R) from the eesectors package. For more details, read the [Advanced R Conditions chapter](https://adv-r.hadley.nz/conditions.html).
 
-**Exercise 15:** Follow the above process to generate useful feedback when running the function plot_crimes.R. Run the function to check what kind of messages this function generates when it runs. Lastly, push to github.
+**Exercise 15:** Apply the quick way of generating useful feedback to the function plot_crimes.R and then run it to see what messages are produced. Lastly, commit all your changes to git and then push them to github.com.
 
 ## 16. Testing your code 
 
