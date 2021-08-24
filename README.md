@@ -240,7 +240,7 @@ The checks can be run using the code:
 
     x <- pkgname::file/function_name(dataset_name)
 
-**Exercise 12:** Set up some automated quality assurance checks on your input data. These should check that the data.frame contains no missing values, that it has the right number of columns, and that these columns have the correct names. To do this, copy rows 1-77 and 174 of this [quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R), amend the contents suitably and run the checks. Lastly, commit all your changes to git and then push them to github.com.
+**Exercise 12:** Set up some automated quality assurance checks on your input data. These should check that the data.frame contains no missing values, that it has the right number of columns, and that these columns have the correct names. To do this, copy rows 1-77 and 174 of [this quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R), amend the contents suitably and run the checks. Lastly, commit all your changes to git and then push them to github.com.
 
 ## 13. Developing functions
 
