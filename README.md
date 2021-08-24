@@ -223,24 +223,24 @@ You can learn more about documentation by reading the [R Packages Object documen
 
 ## 12. Automating quality assurance checks on input data sets
 
-While input data may already have been quality assured prior to being loaded into the package, it is best practice set up automated quality assurance checks on the data within the package. As well as being able to flag up inconsistencies, these checks should ensure that the data loaded are in the expected format and structure. This reduces the likelihood of loading data which are incompatible with the code in the package, and ensures the same checks are carried out every time.
+While input data may already have been quality assured prior to being loaded into the package, it is best practice to set up automated quality assurance checks on these data. As well as being able to flag up inconsistencies, these checks should ensure that the data loaded are in the expected format and structure. This reduces the likelihood of loading data which are incompatible with the code in the package, and ensures the same checks are carried out every time.
 
-You can view an example quality assurance R script in the eesectors package at https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R The roxygen2 documentation appears at the top of the file. The checks include:
+You can view an example [quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R) from the eesectors package. The roxygen2 documentation appears at the top of the file. The checks include:
 - the correct columns are present in the data 
 - that the number of rows is higher than the expected minimum. 
 
 It may also be helpful for the script to:
 
-- produce some plots to enable the user to check the data visually.  
-- add name lookups so any charts have nice labels (e.g. the first letter being a capital and the others being lower case).
+- produce some charts to enable the user to check the data visually.  
+- add name lookups so any charts produced have nice labels (e.g. the first letter being a capital and the others being lower case).
 - drop any variables that won't be needed.
-- create the final data set of class 'file/function_name' (see the end of https://github.com/mammykins/regregrap/blob/master/R/phase_date_data.R). (Everything in R is an object and many objects have a class attribute, representing the set of properties or methods that are common to all objects of this type). 
+- create the final data set of class 'file/function_name' as done at the end of [this quality assurance R script](https://github.com/mammykins/regregrap/blob/master/R/phase_date_data.R). (Everything in R is an object and many objects have a class attribute, representing the set of properties or methods that are common to all objects of this type.) 
 
 The checks can be run using the code:
 
     x <- pkgname::file/function_name(dataset_name)
 
-**Exercise 12:** Set up some automated quality assurance checks on your input data. These should check that the the data.frame contains no missing values, that it has the right number of columns, and that these columns have the correct names. To do this, copy rows 1-77 and 174 of https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R, amend the contents suitably, run the checks, and lastly push to github.
+**Exercise 12:** Set up some automated quality assurance checks on your input data. These should check that the data.frame contains no missing values, that it has the right number of columns, and that these columns have the correct names. To do this, copy rows 1-77 and 174 of this [quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R), amend the contents suitably and run the checks. Lastly, commit all your changes to git and then push them to github.com.
 
 ## 13. Developing functions
 
