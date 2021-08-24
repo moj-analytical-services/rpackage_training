@@ -258,22 +258,20 @@ The mechanism for adding a function script to a package is covered in section 6 
 
 ## 14. Documenting functions
 
-As with documenting data (see section 10 above) it is helpful to use Roxygen2 to document functions. Documentation of functions helps users to understand how functions work, and what arguments they need to be given (and what format those arguments should take).
+As with documenting data (see section 11 above) it is helpful to use Roxygen2 to document functions. Documentation of functions helps users to understand how they work, what arguments need to be given, and how the arguments need to be formatted.
 
-The documentation of functions is done within the same R script as the function itself - an example can be viewed at: https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R  
-
-Looking at the first 41 rows you can see a title (one sentence), description, details including inputs, what is returned, some examples, and the @export which enables users to access the function when they load your package. Functions which are not marked with @export can be used by other functions inside the package, but aren't readily available for users directly. 
+The documentation of functions is done within the same R script as the function itself - see [this example]( https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R) from the eesectors package. Looking at the first 41 rows you can see a title (one sentence), description, details including inputs, what is returned, some examples, and the @export which enables users to access the function when they load your package. Functions which are not marked with @export can be used by other functions inside the package, but aren't readily available for users directly. 
 
 The process is as follows:
 
-1. add documentation to the .R file
-2. run devtools::document()
-3. preview in the help facility using ?objectname
-4. amend the documentation as appropriate and repeat steps 2 to 4. 
+1. Add documentation to the .R file
+2. Run devtools::document()
+3. Preview in the help facility using ?objectname
+4. Amend the documentation as appropriate and repeat steps 2 to 4. 
 
-To check that the documentation enables others to easily understand the code you can get someone else to peer review your documentation and see if they understand how to use each function from the documentation alone.
+To check that the documentation enables others to easily understand the code you should get someone else to peer review your documentation and see if they understand how to use each function from the documentation alone.
 
-**Exercise 14:** Follow the above process to add suitable documentation to the function plot_crimes.R. Make sure you include a helpful description, details of the inputs, and an example. Make sure you specify @export to allow users to access the function. Lastly, push to github.
+**Exercise 14:** Follow the above process to add suitable documentation to the function plot_crimes.R. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com.
 
 ## 15. Using the condition system 
 
