@@ -165,14 +165,14 @@ You can also add further protection by using git hooks. These check for certain 
 
 While no sensitive data should be stored in the package, it is helpful to include some non-sensitive data to make the development of functions and package testing easier. Where the data are sensitive, fake data should be generated instead.
 
-Any data included within the package should be in the form of a minimal tidy data set. Tidy datasets are easy to manipulate, model and visualise, and have a specific structure; each variable being a column, each observation a row, and each type of observational unit a table such that data corresponding to different types of observational unit (e.g. offenders and offender managers) are stored in separate tables. More information about tidy data can be found here: https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html 
+Any data included within the package should be in the form of a minimal tidy data set, as these are easy to manipulate, model and visualise. Tidy datasets have a specific structure; each variable being a column, each observation a row, and each type of observational unit a table (so for example data relating to offenders and offender managers would be stored in separate tables). More information about tidy data can be found [here](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html). 
 
 The best way to store the data inside the package is as an .rda file, which stores the data in a format native to R. Compared with keeping the data in a .csv file, this format:
 
 - Is faster to restore the data to R
 - Keeps R specific information encoded in the data (e.g. attributes, variable types)
 
-To create a nice .rda file:
+To create a nice .rda file from your .csv file:
 
 1. Create a sub-directory called 'data-raw' in your project Rstudio folder by running the command:
 
@@ -180,17 +180,15 @@ To create a nice .rda file:
         
 2. Place the raw data into 'data-raw/'
 
-3. Open the R script 'DATASET.R' in 'data-raw/' that has automatically been created by step 1. This can be amended to read in the raw data and put them into 'data/' as an .rda object as follows:
+3. Open the R script 'DATASET.R' in 'data-raw/' that has automatically been created by step 1. This can then be amended to read in the raw data and put them into 'data/' as an .rda object. The relevent code is:
 
         raw <- read.csv("directory_path/data_name.csv", check.names = TRUE)
         usethis::use_data(raw)  
         rm(raw)
 
-4. Run the script.
+4. Run the R script. The folder 'data' should now have been created that contains the object raw.rda
 
-Now the folder 'data' will have been created that contains the object raw.rda
-
-The code could be developed. For instance:
+This R script could be developed. For instance:
 1. If some processing of the data is needed this could be added e.g. to make a variable of class factor
 2. If the .rda file needs to be updated when the input raw dataset is changed, then add an overwrite=TRUE to the use_data function e.g. usethis::use_data(raw, overwrite = TRUE)  
 
@@ -198,7 +196,7 @@ To see the effect of changes made to the package, the following code needs to be
 
     devtools::load_all() 
 
-**Exercise 10:** Make an .rda file of 'crimesdata.csv' by following the above steps and give it a user friendly name such as 'crimes_raw_data'. Then amend crimesdata_pub.Rmd so that it now runs using the .rda file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimedata) line. Lastly push to github.
+**Exercise 10:** Make an .rda file of 'crimesdata.csv' (which is already in tidy data format) by following the above steps and give it a user friendly name such as 'crimes_raw_data'. Then amend crimesdata_pub.Rmd so that it now runs using the .rda file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimedata) line. Lastly, commit all your changes to git and then push them to github.com. 
 
 ## 11. Adding documentation about package data
 
