@@ -323,16 +323,18 @@ Unit testing can be easily automated using the [testthat package](https://testth
 
 - It provides functions that make it easy to describe what you expect a function to do (e.g. logical boolean tests).
 - It enables you to write informative messages (e.g. figure 1 works as expected). This means that when you run the test you can quickly see whether something has worked as expected.
-- It is easy to see whether checks have passed or failed. If there are two figure 1 checks which both pass, then the output will be 'figure 1 works as expected: ..', with each dot indicating a pass. If there is a failure, a number will be given which will be listed at the end of your output.
+- It is easy to see whether checks have passed or failed. If there are two figure 1 checks which both pass, then the output will be 'figure 1 works as expected: ..', with each dot indicating a pass. If there is a failure, a number will be shown which references information listed at the end of your output.
 - it easily integrates into your existing workflow. 
 
-To set up your package to use testthat:
+To set up your package to use testthat run the command:
 
-* Run "usethis::use_testthat()" (see http://r-pkgs.had.co.nz/tests.html for more details). This creates a tests folder structure consisting of a folder called "tests", inside which is a testthat folder and testthat.R file, the latter containing the code that runs all your tests. It also adds testthat to the Suggests field in the DESCRIPTION.
-* You can now create your tests in the testthat folder. You can create a new R script file for every set of tests you want to run on a specific function. Each file needs to be named "test_[function name].R"
-* Inside the test file, you can load in any data that you want to use for the tests and create any tests you want to run using the test_that() function.
-* The first argument to this function should be a description of the test you are running; this is what test_that displays when a test fails, so make it a clear description e.g. "string is five characters long"
-* After this, you can pass the tests themselves in curly brackets {}. There are many varieties of test that can be created using the range of expect_ functions. Some examples of these expectation functions are:
+        usethis::use_testthat()
+        
+This adds testthat to the DESCRIPTION Suggests field and creates a tests folder structure. This consists of a folder called 'tests', inside which is a testthat folder and testthat.R file, the latter containing the code that runs all your tests. 
+
+You can develop tests by creating a new R script file in 'testthat/' for every set of tests you want to run on a specific function. Each test file needs to be named 'test_[function name].R'. Then you can amend the test file to load in any data that you want the tests to use, and create each test using the test_that() function:
+* The first argument is for providing a clear description of the test you are running (e.g. "string is five characters long"); this is the text that is displayed when a test fails.
+* Following the first argument, the tests are specified within curly brackets {}. There are many varieties of test that can be created using the range of expect_ functions - for a full list see the [R Packages Testing chapter](https://r-pkgs.org/tests.html). You can also test figures (e.g. plots) to see whether they look like they should by using the package vdiffr (in CRAN and compatible with the testthat package). Some expect_ function examples are:
   * expect_equal(): Checks that two outputs are equal
   * expect_match(): Checks a string matches a regular expression
   * expect_output(): Checks the output has a specific structure such as a list
@@ -341,13 +343,10 @@ To set up your package to use testthat:
 A completed test will look something like this:
 
     test_that("Vector contains exactly five objects", {
-      
-      expect_equal(length(your_function(x)), 5)
-    
+     expect_equal(length(your_function(x)), 5)
     })
     
-* You can find a full list of expect_ functions in the Testing chapter of the [R Packages book](https://r-pkgs.org/tests.html). You can additionally test figures e.g. plots to see whether they look like they should by using the package vdiffr (in CRAN and compatible with the testthat package).
-* When the test runs, it will check that all of the expect_ functions produce a TRUE result. If they don't, that specific test will fail.
+When a test runs, it will check that all of the expect_ functions produce a TRUE result. If they don't, that specific test will fail.
 
 **Exercise 17**: Create some tests for the fivereg_recent function (taken from [here](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R):  
 
