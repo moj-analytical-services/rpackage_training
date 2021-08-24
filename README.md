@@ -200,9 +200,12 @@ To see the effect of changes made to the package, the following code needs to be
 
 ## 11. Adding documentation about package data
 
-Documentation is really important so users know how to use the package, and package managers and developers can quickly get up to speed. It should be embedded within the package in such a way that it is easily available to all users. All documentation for the package should be held within the R folder. Documentation about data sets within the package should be in a separate R script while documentation for a function can be within the same R script. 
+Documentation is really important so users know how to use the package, and package managers and developers can quickly get up to speed. It should therefore be embedded within the package in such a way that it is easily available to all users. Best practice is for documentation about:
+ 
+* Datasets (within the package) to be in a separate R script within the R folder.
+* Functions (within the package) to be within the same R scripts. 
 
-Documentation can be added for data sets within a package by creating an data.R file. You can view an example data.R file in the eesectors package at https://github.com/DCMSstats/eesectors/blob/master/R/data.R; this makes use of the package roxygen2 to automatically turn the formatted comments into nice looking documentation.
+Documentation can be added for datasets within a package by creating an data.R file. You can view an example [data.R file](https://github.com/DCMSstats/eesectors/blob/master/R/data.R) from the eesectors package; this makes use of the package roxygen2 to automatically turn the formatted comments into nice looking documentation.
 
 Looking at the first 22 rows you can see a title, subtitle, the format of the data, a description of each of the variables, the source location, keywords and lastly what the data object is called (within speech marks; so if the documentation is about crimes_raw_data.rda then "crimes_raw_data").
 
@@ -210,7 +213,7 @@ After adding or amending documentation in an .R file, the following command can 
 
     devtools::document()
 
-The documentation can then be viewed in the help facility using the usual help facility command i.e.:
+The documentation for the data object can then be viewed in the help facility using the usual command i.e.:
 
     ?objectname
 
