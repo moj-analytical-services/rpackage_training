@@ -27,8 +27,9 @@ Recordings of these sessions can be viewed on the [MS Stream R Training channel]
 * [15. Using the condition system for functions](#15-using-the-condition-system) 
 * [16. Testing your code](#16-testing-your-code)
 * [17. Unit testing](#17-unit-testing)
-* [18. Continuous integration (functional testing)](#18-continuous-integration-functional-testing)
-* [19. Installing and using your package](#19-installing-and-using-your-package)
+* [18. Continuous integration](#18-continuous-integration-functional-testing)
+* [19. Dependency management](#19-dependency-management)
+* [20. Installing and using your package](#20-installing-and-using-your-package)
 
 ## 1. Introduction
 
@@ -365,9 +366,11 @@ When a test runs, it will only pass if all of the expect_ functions produce a TR
   * Run devtools::test_coverage() to check what percentage of the code in your package is currently being tested.
 6) Lastly, commit all your changes to git and then push them to github.com.
 
-## 18. Continuous integration (functional testing)
+## 18. Continuous integration
 
-## 19. Installing and using your package
+## 19. Dependency management
+
+## 20. Installing and using your package
 
 Congratulations, you have successfully produced a working package in R!
 
@@ -381,6 +384,6 @@ When installing your own packages in the development stage, you can also use oth
     
     devtools::install_github("moj-analytical-services/mojrap@v1.0.1")
     
-**Exercise 19**: Try installing your completed package!
+**Exercise 20**: Try installing your completed package!
 
 
