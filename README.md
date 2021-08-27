@@ -368,6 +368,48 @@ When a test runs, it will only pass if all of the expect_ functions produce a TR
 
 ## 18. Continuous integration
 
+AMEND THE FOLLOWING TEXT
+
+We can enhance the quality of our package further and check for common problems using R CMD check, initiated by devtools 
+
+Whenever we want to push code to github we should run R CMD to ascertain whether our code and package as a whole has any problems. 
+
+The first time it can be a lengthy process (as may have many error messages), but ensures our package is useful to our collegues and works on their computers as well. 
+
+To use R CMD 
+
+1. Run devtools::check() For more information see http://r-pkgs.had.co.nz/check.html  This runs a series of checks (built through experience). 
+
+2. Fix each problem (searching for any keyword looking at Hadley's chapter &/or 'Writing R Extensions - https://cran.r-project.org/doc/manuals/r-release/R-exts.html', as will looking at someone else's code (e.g. e.g. https://github.com/DCMSstats/eesectors) which has passed the test, will help in this). E.g. In the description file, should specify the dependency package versions as minimal that used when developing it.  
+
+3. Rerun 
+
+Most importantly get rid of any errors, although you'll need to do much more to put the package on CRAN.  
+
+18. Adding Quality Assurance badges to your package using Travis/Appveyor (see section 6.30 of MOOC)  
+
+Nice to have badges which are an indicator of quality and continuous integration with Travis (which tests your package build in linux) and Appveyor (which tests your package build in windows). This gives assurance to users and also to you when someone changes your code. 
+
+The idea behind Continuous Integration is that the R CMD check including your unit tests will automatically be run when you push a commit to Github. You can get it to check a pool request as well. If your package is open source you can use Travis for free 
+
+To run Travis (more information in: http://r-pkgs.had.co.nz/check.html#travis): 
+
+Run devtools::use_travis() to set up a basic .travis.yml config file. To additional get warnings, can include 'warnings_are_errors: false' within the .travis.yml file. 
+
+Navigate to your Travis account and enable Travis for the repo you want to test. To get nice badges go to the README (can copy the first few lines from https://raw.githubusercontent.com/DCMSstats/eesectors/master/README.md and replace the links with your links which you can get from Travis).  
+
+Commit and push to GitHub. 
+
+Wait a few minutes to see the results in your email. 
+
+With this setup in place, every time you push to GitHub, and every time someone submits a pull request, devtools::check() will be automatically run.  
+
+Appveyor is similar. 
+
+To go even further (see section 6.30 of MOOC), you can add a code coverage badge; this describing the degree to which the code is executed when the tests are run. To do this go to https://codecov.io/  and to https://github.com/codecov/example-r appending the relevant text on the bottom of the text in travis.yml. You wouldn't want the code coverage % to decrease substantially after someone has amended (or added) to the code. 
+
+You can also to provide extra security protect your master branch by going to github settings, then Branches, and 'Require pull request reviews before merging' and 'Require status checks to pass before merging' 
+
 ## 19. Dependency management
 
 AMEND THE FOLLOWING TEXT (USE RENV)
