@@ -368,7 +368,7 @@ When a test runs, it will only pass if all of the expect_ functions produce a TR
 
 ## 18. Continuous integration
 
-AMEND THE FOLLOWING TEXT
+AMEND THE FOLLOWING TEXT - see https://trello.com/c/VyuRbJrS/103-github-actions
 
 We can enhance the quality of our package further and check for common problems using R CMD check, initiated by devtools 
 
@@ -412,7 +412,7 @@ You can also to provide extra security protect your master branch by going to gi
 
 ## 19. Dependency management
 
-AMEND THE FOLLOWING TEXT (USE RENV)
+AMEND THE FOLLOWING TEXT - see https://trello.com/c/owR9YG91/98-r-dependency-management
 
 While the DESCRIPTION Depends and Imports fields list the external packages that your package needs together with the versions required, it's helpful for users of your package to have a similar computing environment to yours. 
 
