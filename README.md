@@ -370,6 +370,27 @@ When a test runs, it will only pass if all of the expect_ functions produce a TR
 
 ## 19. Dependency management
 
+AMEND THE FOLLOWING TEXT (USE RENV)
+
+While the DESCRIPTION Depends and Imports fields list the external packages that your package needs together with the versions required, it's helpful for users of your package to have a similar computing environment to yours. 
+
+Packrat can stop us getting into dependency hell where for instance one package clashes with another.  Instead of your computer looking in the library for these packages, Packrat enables all the source files for specific versions of the packages used to be in the src folder.    
+
+To enable Packrat (https://rstudio.github.io/packrat/, see section 7.33 of MOOC)): 
+
+- run 'install.packages("packrat") 
+
+- follow https://rstudio.github.io/packrat/walkthrough.html and in the project run 'packrat::init()'  
+
+- so that Travis doesn't run through all the checks on the packages add the following to ,travis.yml: 
+
+cache: 
+
+directories: 
+- $TRAVIS_BUILD_DIR/packrat/spc 
+- $TRAVIS_BUILD_DIR/packrat/lib 
+packages: true 
+ 
 ## 20. Installing and using your package
 
 Congratulations, you have successfully produced a working package in R!
