@@ -319,52 +319,51 @@ It is important you decide what aspects of the code really need to be tested, an
 
 ## 17. Unit testing
 
-Unit testing can be easily automated using the [testthat package](https://testthat.r-lib.org/):
-
-- It provides functions that make it easy to describe what you expect a function to do (e.g. logical boolean tests).
-- It enables you to write informative messages (e.g. figure 1 works as expected). This means that when you run the test you can quickly see whether something has worked as expected.
-- It is easy to see whether checks have passed or failed. If there are two figure 1 checks which both pass, then the output will be 'figure 1 works as expected: ..', with each dot indicating a pass. If there is a failure, a number will be shown which references information listed at the end of your output.
-- it easily integrates into your existing workflow. 
+Unit testing can be easily automated using the [testthat package](https://testthat.r-lib.org/). This:
+* Provides a user friendly way of specifying tests that determine whether a function has run as expected (e.g. returns a particular value).
+* Enables you to write informative messages (e.g. figure 1 works as expected) that are outputted when the tests are run.
+* Instructs users about whether checks have passed or failed. For example, if there are two 'figure 1 works as expected' checks which both pass, then the output will be 'figure 1 works as expected: ..', with each dot indicating a pass. If there is a failure, a number will be shown instead of one of the dots; this referencing information that will be shown at the end of your output.
+* Easily integrates into your existing workflow. 
 
 To set up your package to use testthat run the command:
 
         usethis::use_testthat()
         
-This adds testthat to the DESCRIPTION Suggests field and creates a tests folder structure. This consists of a folder called 'tests', inside which is a testthat folder and testthat.R file, the latter containing the code that runs all your tests. 
+This adds testthat to the DESCRIPTION Suggests field and creates a 'tests' folder structure. This consists of a folder called 'tests', inside of which is a testthat folder and testthat.R file, the latter containing the code that runs all your tests. 
 
-You can develop tests by creating a new R script file in 'testthat/' for every set of tests you want to run on a specific function. Each test file needs to be named 'test_[function name].R'. Then you can amend the test file to load in any data that you want the tests to use, and create each test using the test_that() function:
-* The first argument is for providing a clear description of the test you are running (e.g. "string is five characters long"); this is the text that is displayed when a test fails.
-* Following the first argument, the tests are specified within curly brackets {}. There are many varieties of test that can be created using the range of expect_ functions - for a full list see the [R Packages Testing chapter](https://r-pkgs.org/tests.html). You can also test figures (e.g. plots) to see whether they look like they should by using the package vdiffr (in CRAN and compatible with the testthat package). Some expect_ function examples are:
+You can develop tests by: 
+* Creating a new R script file in the testthat folder. 
+ * There should generally be one R script for each function which will include all the tests you want to run on it. 
+ * Each test file should be named 'test_[function name].R'. 
+* Using the R script to load in any data that you want the tests to use.
+* Specifying each test within the R script using the test_that() function.
+ * The first argument is for providing a clear description of the test you are running (e.g. "string is five characters long"); this being displayed to the user when the test is run.
+ * Following the first argument, the tests are specified within curly brackets {}. There are many varieties of test that can be created using the range of expect_ functions - for a full list see the [R Packages Testing chapter](https://r-pkgs.org/tests.html). There are also other functions you can use e.g. using the package vdiffr to test plots to see whether they look like they should. Some expect_ function examples are:
   * expect_equal(): Checks that two outputs are equal
   * expect_match(): Checks a string matches a regular expression
   * expect_output(): Checks the output has a specific structure such as a list
   * expect_error(): Check that the code returns an error in specific circumstances.
   
-A completed test will look something like this:
+An example test is as follows:
 
     test_that("Vector contains exactly five objects", {
      expect_equal(length(your_function(x)), 5)
     })
     
-When a test runs, it will check that all of the expect_ functions produce a TRUE result. If they don't, that specific test will fail.
+When a test runs, it will only pass if all of the expect_ functions produce a TRUE result. Otherwise it will fail.
 
-**Exercise 17**: Create some tests for the fivereg_recent function (taken from [here](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R):  
-
-1) Save a copy of the fivereg_recent.R file from this repo into the R folder of your R package repo. Take a look at the function.
-
-2) Run "usethis::use_testthat()" to set up your testing structure.
-
-3) Inside the tests/testthat folder, create an R file called test_fivereg_recent.R
-
-4) Create some tests for this function, to check for example:
-
-  * Does the function stop running if there is an error.
-  * Does the function stop running if the input is not a dataframe.
-  * Does the function stop running if the input dataframe 'df' doesn't contain the variable 'register' that is of class character or the variable 'date' that is of class date.
-
-5) Run the tests you have created using command+shift+t. Try writing a test that the function will fail, just to see what happens!
-
-6) You can also run devtools::test_coverage() to check what percentage of the code in your package is currently being tested.
+**Exercise 17**: Create some tests for the summarise_crimes function:  
+1) Run "usethis::use_testthat()" to set up your testing structure.
+2) Inside the tests/testthat folder, create an R file called test_summarise_crimes.R
+3) Create the following tests for this function to check whether it stops running if:
+  * There is an error.
+  * The input is not a dataframe.
+  * The input dataframe 'data_set' doesn't contain the variable 'crimes' that is of either class int or num or the variable 'year' that is that is of either class int or num.
+4) Run the tests you have created using command+shift+t. 
+5) If time permits, you could also: 
+  * Try writing a test that the function will fail, just to see what happens!
+  * Run devtools::test_coverage() to check what percentage of the code in your package is currently being tested.
+6) Lastly, commit all your changes to git and then push them to github.com.
 
 ## 18. Continuous integration (functional testing)
 
