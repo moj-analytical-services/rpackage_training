@@ -380,11 +380,11 @@ To setup continuous integration using GitHub Actions:
 
         usethis::use_github_actions()
 
- It even automatically puts a status badge in your README.
+(MAYBE ADD HERE) It automatically puts a status badge in your README.
 
-**Exercise 18**: Setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
+**Exercise 18**: Setup continuous integration using GitHub Actions - IS THIS A SUITABLE EXERCISE? Lastly, commit all your changes to git and then push them to github.com.
 
-Maybe delete: You can also to provide extra security protect your master branch by going to github settings, then Branches, and 'Require pull request reviews before merging' and 'Require status checks to pass before merging' 
+(MAYBE ADD HERE) You can also to provide extra security protect your master branch by going to github settings, then Branches, and 'Require pull request reviews before merging' and 'Require status checks to pass before merging' 
 
 ## 19. Dependency management
 
