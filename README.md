@@ -368,23 +368,23 @@ When a test runs, it will only pass if all of the expect_ functions produce a TR
 
 ## 18. Continuous integration
 
-Continous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests and also the R CMD tests (over 50 individual checks for common problems).  
+Continous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
 
-Before setting up this automation, it's worth first enhancing the quality of your package by running the CRAN tests (which can take a long time at first as there may be many error messages) and fixing any problems. To do this: 
+Before setting up this automation, it's worth first enhancing the quality of your package by running the R CMD tests (which can take a long time at first as there may be many error messages) and fixing any problems. To do this: 
 
 1. Run devtools::check()  
-2. Fix each problem. To understand more about a problem, look it up in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html). Another resource that may be useful is [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html), as may be looking at code that has passed the test (e.g. [the eesectors package](https://github.com/DCMSstats/eesectors)). 
+2. Fix each problem. To understand more about a problem, look it up in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html). It may also be useful to look at [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html), and at code that has passed the test (e.g. [the eesectors package](https://github.com/DCMSstats/eesectors)). 
 3. Rerun 
 
 To setup continuous integration using GitHub Actions: 
 
-AMEND THE FOLLOWING TEXT - see https://trello.com/c/VyuRbJrS/103-github-actions
+        usethis::use_github_actions()
 
-Commit and push to GitHub. 
+ It even automatically puts a status badge in your README.
 
-You can add a code coverage badge.
+**Exercise 18**: Setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
 
-You can also to provide extra security protect your master branch by going to github settings, then Branches, and 'Require pull request reviews before merging' and 'Require status checks to pass before merging' 
+Maybe delete: You can also to provide extra security protect your master branch by going to github settings, then Branches, and 'Require pull request reviews before merging' and 'Require status checks to pass before merging' 
 
 ## 19. Dependency management
 
