@@ -388,27 +388,19 @@ To setup continuous integration using GitHub Actions:
 
 ## 19. Dependency management
 
-AMEND THE FOLLOWING TEXT - see https://trello.com/c/owR9YG91/98-r-dependency-management
-
 While the DESCRIPTION Depends and Imports fields list the external packages that your package needs together with the versions required, it's helpful for users of your package to have a similar computing environment to yours. 
 
-Packrat can stop us getting into dependency hell where for instance one package clashes with another.  Instead of your computer looking in the library for these packages, Packrat enables all the source files for specific versions of the packages used to be in the src folder.    
+The use of [renv](https://cran.r-project.org/web/packages/renv/vignettes/renv.html) can stop us getting into problems where for instance one package clashes with another.  Instead of your computer looking in the library for these packages, Renv enables all the source files for specific versions of the packages used to be in a separate folder.    
 
+AMEND THE FOLLOWING:
 To enable Packrat (https://rstudio.github.io/packrat/, see section 7.33 of MOOC)): 
 
 - run 'install.packages("packrat") 
 
 - follow https://rstudio.github.io/packrat/walkthrough.html and in the project run 'packrat::init()'  
 
-- so that Travis doesn't run through all the checks on the packages add the following to ,travis.yml: 
+**Exercise 19**: Setup renv as above. Lastly, commit all your changes to git and then push them to github.com.
 
-cache: 
-
-directories: 
-- $TRAVIS_BUILD_DIR/packrat/spc 
-- $TRAVIS_BUILD_DIR/packrat/lib 
-packages: true 
- 
 ## 20. Installing and using your package
 
 Congratulations, you have successfully produced a working package in R!
