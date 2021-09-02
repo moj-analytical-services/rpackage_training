@@ -388,14 +388,17 @@ To setup continuous integration using GitHub Actions:
 
 ## 19. Dependency management
 
-While the DESCRIPTION Depends and Imports fields list the external packages that your package needs together with the versions required, it's helpful for users of your package to have a similar computing environment to yours. 
+The DESCRIPTION Depends and Imports fields list the external packages that your package needs together with the versions required. However, it is still possible that problems may surface, for instance where one package clashes with another. The use of [renv](https://cran.r-project.org/web/packages/renv/vignettes/renv.html) enables each project to have its' own project-local library.     
 
-The use of [renv](https://cran.r-project.org/web/packages/renv/vignettes/renv.html) can stop us getting into problems where for instance one package clashes with another.  Instead of your computer looking in the library for these packages, Renv enables all the source files for specific versions of the packages used to be in a separate folder.    
+To install renv: 
 
-AMEND THE FOLLOWING:
-To enable Packrat (https://rstudio.github.io/packrat/, see section 7.33 of MOOC)): 
+        install.packages("renv")
 
-- run 'install.packages("packrat") 
+You will also need to add the renv package to your package DESCRIPTION file imports list - see section [8. Amend the DESCRIPTION file](#8-amend-the-DESCRIPTION-file).
+
+The first step in activating renv is to fork (or copy) the state of your default R libraries into a project local library: 
+
+        renv::init()
 
 - follow https://rstudio.github.io/packrat/walkthrough.html and in the project run 'packrat::init()'  
 
