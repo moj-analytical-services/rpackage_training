@@ -396,13 +396,18 @@ To install renv:
 
 You will also need to add the renv package to your package DESCRIPTION file imports list - see section [8. Amend the DESCRIPTION file](#8-amend-the-DESCRIPTION-file).
 
-The first step in activating renv is to fork (or copy) the state of your default R libraries into a project local library: 
+You can now use renv to fork (or copy) the state of your default R libraries into a project local library and create (or amend) a project-local .Rprofile which is then used by new R sessions to ensure the project-local library is used: 
 
         renv::init()
 
-- follow https://rstudio.github.io/packrat/walkthrough.html and in the project run 'packrat::init()'  
+The state of your project-local libraries can also be saved (renv::snapshot()) and loaded (renv::restore()). Benefits of being able to do this include:  
 
-**Exercise 19**: Setup renv as above. Lastly, commit all your changes to git and then push them to github.com.
+* So you can return to a project in the future with a record of the packages originally used to run it.
+* To ensure all collaborators are working with the exact same set of packages.
+
+For more information see [this introduction to renv](https://www.rstudio.com/resources/rstudioconf-2020/renv-project-environments-for-r/).
+
+**Exercise 19**: Setup renv and activate it using renv::init(). Lastly, commit all your changes to git and then push them to github.com.
 
 ## 20. Installing and using your package
 
