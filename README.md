@@ -1,5 +1,5 @@
 # Developing R packages & RAP ways of working
-This training is designed as an introduction to both making and developing R packages and to integrating the many components of RAP (Reproducible Analytical Pipelines) ways of working. It is suitable if you have completed the following training sessions or have at least reached an equivalent standard to having done these:
+This training is designed as an introduction to both making and developing R packages and to integrating the many components of RAP (Reproducible Analytical Pipelines) ways of working. You should first have completed the following training sessions (or reached an equivalent standard to having done so):
 
 - [Introduction to R](https://github.com/moj-analytical-services/IntroRTraining)
 - [R Charting](https://github.com/moj-analytical-services/ggplotTraining)
