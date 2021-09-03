@@ -170,7 +170,10 @@ A useful [gitignore template](https://github.com/ukgovdatascience/dotfiles) has 
 
 You can also add further protection by using git hooks. These check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about this is available [here](https://github.com/ukgovdatascience/dotfiles).
 
-**Exercise 9:** Place a copy of crimedata.csv into your package Rstudio folder. Then amend the gitignore file to include the code in the ukdatascience [gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore). After committing and pushing to github.com and refreshing your github.com repository page can you see crimedata.csv? Then additionally specify crimedata.csv as a file not to be ignored at the end of the gitignore file (it doesn't actually contain sensitive data). After pushing to github.com can you now see it?
+**Exercise 9:** 
+1) Place a copy of crimedata.csv into your package Rstudio folder. After committing and pushing to github.com and refreshing your github.com repository page can you see crimedata.csv there? 
+2) Amend the gitignore file to include the code in the ukdatascience [gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore). After pushing to github.com can you now see crimedata.csv?
+3) Now specify crimedata.csv as a file not to be ignored at the end of the gitignore file (it doesn't actually contain sensitive data). After pushing to github.com can you now see it?
 
 ## 10. Adding data in rda format
 
