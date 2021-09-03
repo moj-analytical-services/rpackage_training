@@ -235,7 +235,7 @@ The documentation for the data object can then be viewed in the help facility us
 
 You can learn more about documentation by reading the [R Packages Object documentation chapter](https://r-pkgs.org/man.html); a separate section about documenting datasets is [here](https://r-pkgs.org/data.html#documenting-data).  
 
-**Exercise 11:** Create an data.R file in your R folder and paste in the first 22 rows from the one in the eesectors package. Amend the contents, generate the nice looking documentation, and then take a look at it (using the help facility). Lastly, commit all your changes to git and then push them to github.com. 
+**Exercise 11:** Create an data.R file in your R folder and paste in the first 22 rows from the example eesectors package [data.R file](https://github.com/DCMSstats/eesectors/blob/master/R/data.R). Amend the contents, generate the nice looking documentation, and then take a look at it (using the help facility). Lastly, commit all your changes to git and then push them to github.com. 
 
 ## 12. Automating quality assurance checks on input data sets
 
