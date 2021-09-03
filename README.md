@@ -6,6 +6,8 @@ This training is designed as an introduction to both making and developing R pac
 - [Introduction to R Markdown](https://github.com/moj-analytical-services/rmarkdown_training)
 - [Writing functions in R](https://github.com/moj-analytical-services/writing_functions_in_r)
 
+It would also be helpful if you could first install the package devtools. If the version you have installed is less than 2.4.2 please upgrade (update) it.
+
 Recordings of these sessions can be viewed on the [MS Stream R Training channel](https://web.microsoftstream.com/channel/aa3cda5d-99d6-4e9d-ac5e-6548dd55f52a). If you have any access problems please contact <aidan.mews@justice.gov.uk> or <georgina.eaton4@justice.gov.uk>.
 
 ## Contents
