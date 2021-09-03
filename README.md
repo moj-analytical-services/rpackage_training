@@ -209,7 +209,10 @@ To see the effect of changes made to the package, the following code needs to be
 
     devtools::load_all() 
 
-**Exercise 10:** Make an .rda file of 'crimesdata.csv' (which is already in tidy data format) by following the above steps and give it a user friendly name such as 'crimes_raw_data'. Then amend crimesdata_pub.Rmd so that it now runs using the .rda file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimedata) line. Lastly, commit all your changes to git and then push them to github.com. 
+**Exercise 10:** 
+1) Make an .rda file of 'crimesdata.csv' (which is already in tidy data format) by following the above steps and give it a user friendly name such as 'crimes_raw_data'. 
+2) Amend crimesdata_pub.Rmd so that it now runs using the .rda file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimedata) line. 
+3) Lastly, commit all your changes to git and then push them to github.com. 
 
 ## 11. Adding documentation about package data
 
