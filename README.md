@@ -18,7 +18,7 @@ Recordings of these sessions can be viewed on the [MS Stream R Training channel]
 * [4. Make a copy of the project in R Studio](#4-make-a-copy-of-the-project-in-R-Studio)
 * [5. Create the package](#5-create-the-package)
 * [6. Add R and Rmarkdown code](#6-add-R-and-Rmarkdown-code)
-* [7. Making your functions work in a package](#7-making-your-functions-work-in-a-package)
+* [7. Making functions work in a package](#7-making-functions-work-in-a-package)
 * [8. Amend the DESCRIPTION file](#8-amend-the-DESCRIPTION-file)
 * [9. Excluding sensitive data](#9-excluding-sensitive-data)
 * [10. Adding data in rda format](#10-adding-data-in-rda-format)
