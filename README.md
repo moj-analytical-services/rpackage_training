@@ -70,9 +70,9 @@ As we're going to develop a package for the minimal statistical bulletin created
 
 ## 3. Create github repository 
 
-To utilise the benefits of version control and to enable other people to download and use your package, it should be created inside a github repository. You can view how to do this [here](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#creating-your-project-repo-on-github).
+To utilise the benefits of version control and to enable other people to download and use your package, it should be created inside a github repository. [This guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#creating-your-project-repo-on-github) shows you how to do this.
 
-**Exercise 3:** Create a new github repository, giving it the same name as you've decided to call your package (see previous section) and a suitable description (e.g. 'My RAP training exercise'). As this is a training exercise leave the default setting of your repository (see Step 2 of the guidance) as PRIVATE so it’s only visible to you.
+**Exercise 3:** Create a new github repository, following Step 1 of the above guidance. Give the repository it the same name as you've decided to call your package (see previous section) and a suitable description (e.g. 'My RAP training exercise'). Add a README file but not a .gitignore file or license.
 
 ## 4. Make a copy of the project in R Studio
 
