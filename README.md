@@ -256,7 +256,7 @@ The checks can be run using the code:
 
     x <- pkgname::file/function_name(dataset_name)
 
-**Exercise 12:** Set up some automated quality assurance checks in a new R script on your input data "crimes_raw_data". These should check that the data.frame contains no missing values, that it has the right number of columns, and that these columns have the correct names. To do this, copy rows 1-77 and 174 of [this quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R), amend the contents suitably and run the checks. Lastly, commit all your changes to git and then push them to github.com.
+**Exercise 12:** Set up some automated quality assurance checks in a new R script on your input data "crimes_raw_data". These should check that the data.frame contains no missing values, that it has the right number of columns, and that these columns have the correct names. To do this, copy rows 1-77 and 174 of [this quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R), amend the contents suitably and run the checks. Remember to run devtools::document() to update the production of documentation and also devtools::load_all() to see the effect of changes made to your package. Lastly, commit all your changes to git and then push them to github.com.
 
 ## 13. Developing functions
 
