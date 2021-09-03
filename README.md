@@ -6,7 +6,7 @@ This training is designed as an introduction to both making and developing R pac
 - [Introduction to R Markdown](https://github.com/moj-analytical-services/rmarkdown_training)
 - [Writing functions in R](https://github.com/moj-analytical-services/writing_functions_in_r)
 
-It would also be helpful if you could first install the package devtools. If the version you have installed is less than 2.4.2 please upgrade (update) it.
+It would also be helpful if you could first make sure you have installed the packages devtools and usethis. If the versions you have are lower than 2.4.2 (devtools) and 2.0.0 (usethis) please upgrade (update) them.
 
 Recordings of these sessions can be viewed on the [MS Stream R Training channel](https://web.microsoftstream.com/channel/aa3cda5d-99d6-4e9d-ac5e-6548dd55f52a). If you have any access problems please contact <aidan.mews@justice.gov.uk> or <georgina.eaton4@justice.gov.uk>.
 
@@ -145,7 +145,7 @@ An example of an amended DESCRIPTION file [is provided here](https://github.com/
 
 You can read more about the most important DESCRIPTION fields in the [R Packages Package metadata chapter](https://r-pkgs.org/description.html). 
 
-You can learn more about the different types of licenses by reading [R Packages Licensing chapter](https://r-pkgs.org/license.html). To specify a particular license, run the appropriate command. For example, to use a permissive MIT license (specifying your firstname and surname):  
+You can learn more about the different types of licenses by reading [R Packages Licensing chapter](https://r-pkgs.org/license.html). To specify a particular license, make sure the usethis package you have installed is 2.0.0 or greater and run the appropriate command. For example, to use a permissive MIT license (specifying your firstname and surname):  
 
         use_mit_license("Firstname Surname")
         
