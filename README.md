@@ -145,7 +145,11 @@ An example of an amended DESCRIPTION file [is provided here](https://github.com/
 
 You can read more about the most important DESCRIPTION fields in the [R Packages Package metadata chapter](https://r-pkgs.org/description.html). 
 
-To specify a license run the appropriate use_license command - see [R Packages Licensing chapter](https://r-pkgs.org/license.html). e.g. use_mit_license("Firstname Surname") This specifies the license you have choosen in the DESCRIPTION file and also puts a copy of the full license in LICENSE.md and adds this file to .Rbuildignore.
+You can learn more about the different types of licenses by reading [R Packages Licensing chapter](https://r-pkgs.org/license.html). To specify a particular license, run the appropriate command. For example, to use a permissive MIT license (specifying your firstname and surname):  
+
+        use_mit_license("Firstname Surname")
+        
+This specifies the license you have choosen in the DESCRIPTION file and also puts a copy of the full license in LICENSE.md and adds this file to .Rbuildignore.
 
 **Exercise 8:** Amend the DESCRIPTION file, specifically the: 
 - Title (e.g. Create a Minimal Statistical Bulletin) 
@@ -153,9 +157,7 @@ To specify a license run the appropriate use_license command - see [R Packages L
 - Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) 
 - Package dependency text (specify the minimum version of R needed and the need for ggplot2 and dplyr).
 
-Then 
-
-Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+Follow up by specifying an MIT license. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ## 9. Excluding sensitive data 
 
