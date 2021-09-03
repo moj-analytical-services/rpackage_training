@@ -76,7 +76,7 @@ To utilise the benefits of version control and to enable other people to downloa
 
 ## 4. Make a copy of the project in R Studio
 
-To enable you to make changes to your project using R Studio you can make a copy of your repository in your personal R Studio workspace. Guidance to do this is available [here](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio). As Github.com has changed slightly since this guidance was made, the green button 'Clone or download' is now called 'Code'.
+To enable you to make changes to your project using R Studio you can make a copy of your repository in your personal R Studio workspace. Guidance to do this is available [here](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio). As github.com has changed slightly since this guidance was made, the green button 'Clone or download' is now called 'Code'.
 
 **Exercise 4:** Follow Step 1 of the guidance to make a copy of your project in R Studio.
 
