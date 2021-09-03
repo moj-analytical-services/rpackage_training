@@ -128,7 +128,7 @@ You will also need to add any packages you use to your own package's DESCRIPTION
 
 ## 8. Amend the DESCRIPTION file
 
-The DESCRIPTION file is one of two files automatically created when you run the create package command (the other is the NAMESPACE file which declares the external functions your package imports from other packages and the functions your package exports for external use and ). It provides important metadata about the package. You can click on the DESCRIPTION filename in the R Studio files window and then amend it as appropriate. 
+The DESCRIPTION file is one of the files automatically created when you run the create package command. It provides important metadata about the package including declaring the external functions your package imports from other packages and the functions your package exports for external use. You can click on the DESCRIPTION filename in the R Studio files window and then amend it as appropriate. 
 
 An example of an amended DESCRIPTION file [is provided here](https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION). The formatting is important. Each line consists of a field name and a value, separated by a colon. Where values span multiple lines, they need to be indented. In particular:
 
@@ -139,16 +139,21 @@ An example of an amended DESCRIPTION file [is provided here](https://github.com/
    - aut: authors; those who have made significant contributions to the package.
    - ctb: contributors; those who have made smaller contributions, like patches.
    - cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
-- The Description is more detailed than the Title - one paragraph with each line being up to 80 characters
+- The Description is more detailed than the Title - one paragraph with each line being up to 80 characters.
+- The License determines who can use your code and for what purpose. Without a license, the code is copyrighted by default; to use it, you must contact the author directly and ask permission. You can read more about licensing in the [R Packages Licensing chapter](https://r-pkgs.org/license.html)
 - The Depends and Imports fields allow you to list the external packages that your package uses; it is now considered best practice to add these packages as Imports rather than Depends. Unless you have the knowledge to do something different, you should assume that the package version needs to be greater than or equal to the version you're currently using.
 
-You can read more about the most important DESCRIPTION fields in [R Packages](https://r-pkgs.org/description.html).
+You can read more about the most important DESCRIPTION fields in the [R Packages Package metadata chapter](https://r-pkgs.org/description.html). 
+
+To specify a license run the appropriate use_license command - see [R Packages Licensing chapter](https://r-pkgs.org/license.html). e.g. use_mit_license("Firstname Surname") This specifies the license you have choosen in the DESCRIPTION file and also puts a copy of the full license in LICENSE.md and adds this file to .Rbuildignore.
 
 **Exercise 8:** Amend the DESCRIPTION file, specifically the: 
-- Title (e.g. Create a minimal statistical bulletin) 
+- Title (e.g. Create a Minimal Statistical Bulletin) 
 - Authors@R (e.g. make yourself author and maintainer) 
 - Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) 
-- Package dependency text (specify the minimum version of R needed and the need for ggplot2 and dplyr). 
+- Package dependency text (specify the minimum version of R needed and the need for ggplot2 and dplyr).
+
+Then 
 
 Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
