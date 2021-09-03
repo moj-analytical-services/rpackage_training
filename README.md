@@ -163,7 +163,7 @@ Follow up by specifying an MIT license. Lastly, commit all your changes to git a
 
 You should not hold any sensitive data in Github.com as they may be accessed by others. To prevent you accidentally pushing any sensitive data to Github.com: 
 
-* It is best practice not to store any sensitive data within the R Studio copy of your repository. 
+* Don't store any sensitive data within the R Studio copy of your repository. 
 * As a second line of protection, specify the names of any sensitive data files in the gitignore file so that they cannot be pushed to Github.com. To do this, open the gitignore file and add the names of the files (e.g. confidential.txt). If there's a file that's not to be ignored then you can specify it while adding an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
 
 A useful [gitignore template](https://github.com/ukgovdatascience/dotfiles) has been developed by ukdatascience which is free to copy, use and amend.
