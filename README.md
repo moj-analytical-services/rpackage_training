@@ -118,7 +118,7 @@ Normally when you use a function from another package, you might call that packa
         
         data %>% filter(Year == 2020)
 
-Doing this inside a package would cause the dplyr library to be loaded into the R environment which can then have unexpected (global) effects for the user of your package. Their code could then run in ways that they might not expect or want. For example, if someone's code uses the base function filter(), calling your package that references the dplyr filter() function as above could result in the filter() commands running as if they were dplyr ones. Instead, to use a function from another package, you should call it specifically when you need it. You can do this using a double colon e.g.
+Doing this inside a package would cause the dplyr library to be loaded into the R environment which can then have unexpected (global) effects for the user of your package. Their code could then run in ways that they might not expect or want. For example, if someone's code makes use of the base function filter(), calling your package that references the dplyr filter() function as above could result in their filter() commands running as if they were dplyr ones. When using a function from another package, you should therefore specify the function along with the package it's from. You can do this using a double colon e.g.
 
         data %>% dplyr::filter(Year == 2020)
 
