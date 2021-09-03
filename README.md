@@ -256,7 +256,7 @@ The checks can be run using the code:
 
     x <- pkgname::file/function_name(dataset_name)
 
-**Exercise 12:** Set up some automated quality assurance checks in a new R script on your input data "crimes_raw_data". These should check that the data.frame contains no missing values, that it has the right number of columns, and that these columns have the correct names. To do this, copy rows 1-77 and 174 of [this quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R), amend the contents suitably and run the checks. Remember to run devtools::document() to update the production of documentation and also devtools::load_all() to see the effect of changes made to your package. Lastly, commit all your changes to git and then push them to github.com.
+**Exercise 12:** Set up some automated quality assurance checks in a new R script on your input data "crimes_raw_data". These should check that the data.frame contains no missing values, that it has the right number of columns, and that these columns have the correct names. To do this, copy rows 38-77 and 174 of [this quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R), amend the contents suitably and run the checks. Remember to run devtools::load_all() to see the effect of changes made to your package. Lastly, commit all your changes to git and then push them to github.com.
 
 ## 13. Developing functions
 
@@ -270,7 +270,7 @@ Even if you're not planning to use the same or similar code in three places, you
 
 The mechanism for adding a function script to a package is covered in section 6 above.
 
-**Exercise 13**: Consider whether it would be beneficial to incorporate any functions into a package like your minimal statistical bulletin package? Regardless of the answer, a function called plot_crimes.R has been created to produce the plot. Add this to your package and amend crimesdata_pub.Rmd so it uses this function. Lastly, commit all your changes to git and then push them to github.com.
+**Exercise 13**: Consider (by looking at crimesdata_pub.Rmd) whether it would be beneficial to incorporate any functions into a package like your minimal statistical bulletin package? Regardless of the answer, a function called plot_crimes.R has been created to produce the plot. Add this to your package and amend crimesdata_pub.Rmd so it uses this function. Lastly, commit all your changes to git and then push them to github.com.
 
 ## 14. Documenting functions
 
