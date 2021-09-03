@@ -84,8 +84,9 @@ To enable you to make changes to your project using R Studio you can make a copy
 
 A repository can easily be converted into a package using R Studio. The steps are as follows:
 
-- Install the package devtools if not already installed (click on Packages, Install, type in devtools and click on Install). 
-- Run the following command and select the option to overwrite what is already there:
+* Install the package devtools if not already installed (click on Packages, Install, type in devtools and click on Install).
+* If devtools you have installed is less than 2.4.2 please upgrade (update) it. 
+* Run the following command and select the option to overwrite what is already there:
 
         devtools::create_package("path/to/package/pkgname")
 
