@@ -287,7 +287,7 @@ The process is as follows:
 
 To check that the documentation enables others to easily understand the code you should get someone else to peer review your documentation and see if they understand how to use each function from the documentation alone.
 
-**Exercise 14:** Follow the above process to add suitable documentation to the function plot_crimes.R. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com. If you still have time, then do the same for the function you may have called crimes_data.R that you created in exercise 12 above.
+**Exercise 14:** Follow the above process to add suitable documentation to the function plot_crimes.R. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com. If you still have time, then do the same for the function that you created in exercise 12 above (and probably called crimes_data.R ).
 
 ## 15. Using the condition system for functions 
 
