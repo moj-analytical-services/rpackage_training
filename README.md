@@ -110,7 +110,7 @@ If the files are in github.com but not R Studio you have two main options to get
 
 ## 7. Making functions work in a package
 
-Generally, there are few differences between normal R code and the format of code inside a package. The most important consideration is how you reference functions that you are using from other packages. While this won't affect how your code runs, it ensures that it works correctly when your package is used by others.
+While the format of code inside a package is very similar to "normal R code", it is particularly important to properly reference functions that you are using from other packages. This won't affect how your code runs, but it will ensure that others code works correctly when they use your package.
 
 Normally when you use a function from another package, you might call that package in a library call, and then reference the function directly e.g.
 
@@ -118,7 +118,7 @@ Normally when you use a function from another package, you might call that packa
         
         data %>% filter(Year == 2020)
 
-Doing this inside a package would cause the dplyr library to be loaded into the R environment which can then have unexpected (global) effects for the user of your package. Their code could then run in ways that they might not expect or want. For example, if someone's code makes use of the base function filter(), calling your package that references the dplyr filter() function as above could result in their filter() commands running as if they were dplyr ones. When using a function from another package, you should therefore specify the function along with the package it's from. You can do this using a double colon e.g.
+Doing this inside a package would cause the dplyr library to be loaded into the R environment which can then have unexpected (global) effects for the user of your package. Their code could then run in ways that they might not expect or want. For example, if someone calls your package that references the dplyr filter() function as above, this could result in their base filter() commands running as if they were dplyr ones. When using a function from another package, you should always specify the function along with the package it's from. You can do this using a double colon e.g.
 
         data %>% dplyr::filter(Year == 2020)
 
