@@ -106,7 +106,7 @@ If the files are in github.com but not R Studio you have two main options to get
 * Clone the relevant repository (as in section 4 'Make a copy of the project in R Studio' above). 
 * If there are only a few files you could click the green github 'Code' button (as in section 4 above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
 
-**Exercise 6:** Add the crimesdata_pub.Rmd file to your package. 
+**Exercise 6:** Add the crimesdata_pub.Rmd file to your package. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ## 7. Making functions work in a package
 
@@ -124,7 +124,7 @@ Doing this inside a package would cause the dplyr library to be loaded into the 
 
 You will also need to add any packages you use to your own package's DESCRIPTION file (more on this in the next section) to ensure they are available to anyone who downloads your package. 
 
-**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the total number of crimes for the selected years; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the total number of crimes for the selected years; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ## 8. Amend the DESCRIPTION file
 
