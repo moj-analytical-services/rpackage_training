@@ -106,7 +106,7 @@ If the files are in github.com but not R Studio you have two main options to get
 * Clone the relevant repository (as in section 4 'Make a copy of the project in R Studio' above). 
 * If there are only a few files you could click the green github 'Code' button (as in section 4 above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
 
-**Exercise 6:** Add the crimesdata_pub.Rmd file to your package. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+**Exercise 6:** Add the crimesdata_pub.Rmd file and also the mystyles.docx file (which crimesdata_pub.Rmd calls on) to your package. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ## 7. Making functions work in a package
 
