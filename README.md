@@ -124,7 +124,7 @@ Doing this inside a package would cause the dplyr library to be loaded into the 
 
 You will also need to add any packages you use to your own package's DESCRIPTION file (more on this in the next section) to ensure they are available to anyone who downloads your package. 
 
-**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the average number of crimes for the selected years; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the average number of crimes for the selected years; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions (filter and summarise) specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ## 8. Amend the DESCRIPTION file
 
@@ -270,7 +270,7 @@ Even if you're not planning to use the same or similar code in three places, you
 
 The mechanism for adding a function script to a package is covered in section 6 above.
 
-**Exercise 13**: Consider (by looking at crimesdata_pub.Rmd) whether it would be beneficial to incorporate any functions into a package like your minimal statistical bulletin package? Regardless of the answer, a function called plot_crimes.R has been created to produce the plot. Add this to your package and amend crimesdata_pub.Rmd so it uses this function. Lastly, commit all your changes to git and then push them to github.com.
+**Exercise 13**: Consider (by looking at crimesdata_pub.Rmd) whether it would be beneficial to incorporate any extra functions into your minimal statistical bulletin package (in addition to summarise_crimes.R)?
 
 ## 14. Documenting functions
 
