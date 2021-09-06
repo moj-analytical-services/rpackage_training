@@ -287,7 +287,7 @@ The process is as follows:
 
 To check that the documentation enables others to easily understand the code you should get at least one other person to peer review your documentation. Are they able to understand how to use each function from the documentation alone?
 
-**Exercise 14:** Follow the above process to add suitable documentation to the function plot_crimes.R. It may be easiest to copy rows 1-22 from [this ggplot making eesectors package function](https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R) and then amend. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com. If you still have time, then do the same for the function that you created in exercise 12 above.
+**Exercise 14:** Follow the above process to add suitable documentation to the function summarise_crimes.R. It may be easiest to copy rows 1-35 from [this example](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R) and then amend. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com. If you still have time, then do the same for the function that you created in exercise 12 above.
 
 ## 15. Using the condition system for functions 
 
