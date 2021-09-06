@@ -1,4 +1,4 @@
-##This function filters on multiple years and summarises the crime data 
+##This function filters on multiple years and provides the mean crimes per year
 
 library(dplyr)
 
