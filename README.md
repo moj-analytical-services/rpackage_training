@@ -285,9 +285,9 @@ The process is as follows:
 3. Preview in the help facility using ?objectname
 4. Amend the documentation as appropriate and repeat steps 2 to 4. 
 
-To check that the documentation enables others to easily understand the code you should get someone else to peer review your documentation and see if they understand how to use each function from the documentation alone.
+To check that the documentation enables others to easily understand the code you should get at least one other person to peer review your documentation. Are they able to understand how to use each function from the documentation alone?
 
-**Exercise 14:** Follow the above process to add suitable documentation to the function plot_crimes.R. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com. If you still have time, then do the same for the function that you created in exercise 12 above (and probably called crimes_data.R ).
+**Exercise 14:** Follow the above process to add suitable documentation to the function plot_crimes.R. It may be easiest to copy rows 1-41 from [this function]( https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R) and then amend. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com. If you still have time, then do the same for the function that you created in exercise 12 above.
 
 ## 15. Using the condition system for functions 
 
