@@ -4,8 +4,7 @@ library(dplyr)
 
 filter_crimes <- function(data_set, years) {
   
-  data_set %>%
-    filter(year %in% years) %>%
-    summarise(crimes = sum(crimes))
+  filtered <- filter(data_set, year %in% years)
+  summarise(filtered, crimes = mean(crimes))
   
 }
