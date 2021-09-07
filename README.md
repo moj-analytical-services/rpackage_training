@@ -329,7 +329,7 @@ Tests can be run when desired but are better set up to run automatically (see [s
 - unit tests (covered in [section 17](#17-unit-testing)); generally there should be at least one for each function. 
 - integration tests (covered in [section 18](#18-continuous-integration)); testing everything in the whole pipeline (or package). 
 
-It is important you decide what aspects of the code really need to be tested, and then to automate only these tests. To make the process as efficient as possible, it may be desirable for you to create mock data (which shouldn't contain any sensitive information) that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. As long as the data files are small, the mock data can be stored in the test directory ([section 17](#17-unit-testing) covers how to set this directory up).
+It is important you decide what aspects of the code really need to be tested, and then to automate only these tests. To make the process as efficient as possible, it may be desirable for you to create mock data (which shouldn't contain any sensitive information) that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. As long as the data files are small, the mock data can be stored in the tests directory ([section 17](#17-unit-testing) covers how to set this directory up).
 
 **Exercise 16**: Consider (by looking at crimesdata_pub.Rmd) whether it could be beneficial to create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but be much smaller (e.g. only two or three rows).
 
@@ -337,15 +337,15 @@ It is important you decide what aspects of the code really need to be tested, an
 
 Unit testing can be easily automated using the [testthat package](https://testthat.r-lib.org/). This:
 * Provides a user friendly way of specifying tests that determine whether a function has run as expected (e.g. returns a particular value).
-* Enables you to write informative messages (e.g. figure 1 works as expected) that are outputted when the tests are run.
-* Instructs users about whether checks have passed or failed. For example, if there are two 'figure 1 works as expected' checks which both pass, then the output will be 'figure 1 works as expected: ..', with each dot indicating a pass. If there is a failure, a number will be shown instead of one of the dots; this referencing information that will be shown at the end of your output.
+* Enables you to write messages that inform the user when running the tests (e.g. figure 1 works as expected).
+* Instructs users about whether checks have passed or failed. For example, if there are two 'figure 1 works as expected' checks which both pass, then the output will be 'figure 1 works as expected: ..', with each dot indicating a pass. If there is a failure, a number will be shown instead of one of the dots. This number signposts the user to information about the failure which is shown at the end of the output generated when running the test.
 * Easily integrates into your existing workflow. 
 
 To set up your package to use testthat run the command:
 
         usethis::use_testthat()
         
-This adds testthat to the DESCRIPTION Suggests field and creates a 'tests' folder structure. This consists of a folder called 'tests', inside of which is a testthat folder and testthat.R file, the latter containing the code that runs all your tests. 
+This adds testthat to the DESCRIPTION Suggests field and creates a 'tests' folder structure. This consists of a folder called tests, inside of which is a testthat folder and testthat.R file, the latter containing the code that runs all the tests contained within R scripts in the testthat folder. 
 
 You can develop tests by: 
 * Creating a new R script file in the testthat folder. 
@@ -354,7 +354,7 @@ You can develop tests by:
 * Using the R script to load in any data that you want the tests to use.
 * Specifying each test within the R script using the test_that() function.
   * The first argument is for providing a clear description of the test you are running (e.g. "string is five characters long"); this being displayed to the user when the test is run.
-  * Following the first argument, the tests are specified within curly brackets {}. There are many varieties of test that can be created using the range of expect_ functions - for a full list see the [R Packages Testing chapter](https://r-pkgs.org/tests.html). There are also other functions you can use e.g. using the package vdiffr to test plots to see whether they look like they should. Some expect_ function examples are:
+  * Following the first argument, the test itself is specified within curly brackets {}. There are many varieties of test that can be created using the range of expect_ functions - for a full list see the [R Packages Testing chapter](https://r-pkgs.org/tests.html). There are also other functions you can use e.g. using the package vdiffr to test plots to see whether they look as expected. Some expect_ function examples are:
     * expect_equal(): Checks that two outputs are equal
     * expect_match(): Checks a string matches a regular expression
     * expect_output(): Checks the output has a specific structure such as a list
@@ -362,14 +362,14 @@ You can develop tests by:
   
 An example test is as follows:
 
-    test_that("Vector contains exactly five objects", {
+    test_that("Returns vector of length five", {
      expect_equal(length(your_function(x)), 5)
     })
     
-When a test runs, it will only pass if all of the expect_ functions produce a TRUE result. Otherwise it will fail.
+When a test which involves more than one expect_ function command runs, it will only pass if all of the expect_ functions produce a TRUE result. Otherwise it will fail.
 
 **Exercise 17**: Create some tests for the summarise_crimes function:  
-1) Run "usethis::use_testthat()" to set up your testing structure.
+1) Run usethis::use_testthat() to set up your testing structure.
 2) Inside the tests/testthat folder, create an R file called test_summarise_crimes.R
 3) Create the following tests for this function to check whether it stops running if:
   * There is an error.
