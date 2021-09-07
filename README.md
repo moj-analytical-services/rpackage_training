@@ -74,7 +74,7 @@ As we're going to develop a package for the minimal statistical bulletin created
 
 To utilise the benefits of version control and to enable other people to download and use your package, it should be created inside a github repository. [This guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#creating-your-project-repo-on-github) shows you how to do this.
 
-**Exercise 3:** Create a new github repository, following Step 1 of the above guidance. Give the repository it the same name as you've decided to call your package (see previous section) and a suitable description (e.g. 'My RAP training exercise'). Add a README file but not a .gitignore file or license.
+**Exercise 3:** Create a new github repository, following Step 1 of the above guidance. Give the repository it the same name as you've decided to call your package (see [section 2](#2-choose-a-name)) and a suitable description (e.g. 'My RAP training exercise'). Add a README file but not a .gitignore file or license.
 
 ## 4. Make a copy of the project in R Studio
 
@@ -103,8 +103,8 @@ Code can be added to a package by saving the R file to the package R/ directory 
         dump("R_object_name", file = "directory_path/R_object_name.R")
 
 If the files are in github.com but not R Studio you have two main options to get them into R Studio. 
-* Clone the relevant repository (as in section 4 'Make a copy of the project in R Studio' above). 
-* If there are only a few files you could click the green github 'Code' button (as in section 4 above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
+* Clone the relevant repository (as shown in [section 4](#4-make-a-copy-of-the-project-in-R-Studio)). 
+* If there are only a few files you could click the green github 'Code' button (as in [section 4](#4-make-a-copy-of-the-project-in-R-Studio) aove) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
 
 **Exercise 6:** Add the crimesdata_pub.Rmd file and also the mystyles.docx file (which crimesdata_pub.Rmd calls on) to your package. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
@@ -122,7 +122,7 @@ Doing this inside a package would cause the dplyr library to be loaded into the 
 
         data %>% dplyr::filter(Year == 2020)
 
-You will also need to add any packages you use to your own package's DESCRIPTION file (more on this in the next section) to ensure they are available to anyone who downloads your package. 
+You will also need to add any packages you use to your own package's DESCRIPTION file (more on this in [section 8](#8-amend-the-DESCRIPTION-file)) to ensure they are available to anyone who downloads your package. 
 
 **Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the average number of crimes for the selected years; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions (filter and summarise) specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
@@ -268,13 +268,13 @@ Why, when and how to write your own functions is covered by the [Writing functio
 
 Even if you're not planning to use the same or similar code in three places, you may benefit from using a function that already exists (e.g. in the [mojrap](https://github.com/moj-analytical-services/mojrap) package).  
 
-The mechanism for adding a function script to a package is covered in section 6 above.
+The mechanism for adding a function script to a package is covered in [section 6](#6-add-R-and-Rmarkdown-code) above.
 
 **Exercise 13**: Consider (by looking at crimesdata_pub.Rmd) whether it would be beneficial to incorporate any extra functions into your minimal statistical bulletin package (in addition to the filter_crimes function provided by summarise_crimes.R)? Do you consider the filter_crimes function beneficial?
 
 ## 14. Documenting functions
 
-As with documenting data (see section 11 above) it is helpful to use Roxygen2 to document functions. Documentation of functions helps users to understand how they work, what arguments need to be given, and how the arguments need to be formatted.
+As with documenting data (see [section 11](#11-adding-documentation-about-package-data) above) it is helpful to use Roxygen2 to document functions. Documentation of functions helps users to understand how they work, what arguments need to be given, and how the arguments need to be formatted.
 
 The documentation of functions is done within the same R script as the function itself - see [this example]( https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R) from the eesectors package. Looking at the first 41 rows you can see a title (one sentence), description, details including inputs, what is returned, some examples, and the @export which enables users to access the function when they load your package. Functions which are not marked with @export can be used by other functions inside the package, but aren't readily available for users directly. Where you see the syntax \code{} the contents of the {} will be regarded as code.  
 
