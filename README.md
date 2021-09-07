@@ -325,9 +325,9 @@ You can view [this applied example](https://github.com/DCMSstats/eesectors/blob/
 
 Anytime someone makes a change to the code, this should be accompanied by testing to check that it works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides users with more assurance and helps those making changes to the code to identify any shortcomings and rectify these. 
 
-Tests can be run when desired but is better set up to run automatically (see section 18 on continuous integration) before a github pull request is granted. There are two types of test:
-- unit tests (covered in the next section); generally there should be at least one for each function. 
-- functional tests; testing everything in the whole pipeline (or package). 
+Tests can be run when desired but are better set up to run automatically (see [section 18](#18-continuous-integration) on continuous integration) before a github pull request is granted. In particular, there are two types of test you should consider:
+- unit tests (covered in [section 17](#17-unit-testing)); generally there should be at least one for each function. 
+- integration tests (covered in [section 18](#18-continuous-integration)); testing everything in the whole pipeline (or package). 
 
 It is important you decide what aspects of the code really need to be tested, and then to automate only these tests. To make the process as efficient as possible, it may be desirable for you to create mock data that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. The mock data can be stored in the package as they do not contain any sensitive information. 
 
