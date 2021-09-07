@@ -270,7 +270,7 @@ Even if you're not planning to use the same or similar code in three places, you
 
 The mechanism for adding a function script to a package is covered in section 6 above.
 
-**Exercise 13**: Consider (by looking at crimesdata_pub.Rmd) whether it would be beneficial to incorporate any extra functions into your minimal statistical bulletin package (in addition to summarise_crimes.R)?
+**Exercise 13**: Consider (by looking at crimesdata_pub.Rmd) whether it would be beneficial to incorporate any extra functions into your minimal statistical bulletin package (in addition to the filter_crimes function provided by summarise_crimes.R)? Do you consider the filter_crimes function beneficial?
 
 ## 14. Documenting functions
 
