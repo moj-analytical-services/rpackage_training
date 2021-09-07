@@ -329,9 +329,9 @@ Tests can be run when desired but are better set up to run automatically (see [s
 - unit tests (covered in [section 17](#17-unit-testing)); generally there should be at least one for each function. 
 - integration tests (covered in [section 18](#18-continuous-integration)); testing everything in the whole pipeline (or package). 
 
-It is important you decide what aspects of the code really need to be tested, and then to automate only these tests. To make the process as efficient as possible, it may be desirable for you to create mock data that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. The mock data can be stored in the package as they do not contain any sensitive information. 
+It is important you decide what aspects of the code really need to be tested, and then to automate only these tests. To make the process as efficient as possible, it may be desirable for you to create mock data (which shouldn't contain any sensitive information) that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. As long as the data files are small, the mock data can be stored in the test directory ([section 17](#17-unit-testing) covers how to set this directory up).
 
-**Exercise 16**: Create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but be much smaller (e.g. only two or three rows). Lastly, commit all your changes to git and then push them to github.com.
+**Exercise 16**: Consider (by looking at crimesdata_pub.Rmd) whether it could be beneficial to create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but be much smaller (e.g. only two or three rows).
 
 ## 17. Unit testing
 
