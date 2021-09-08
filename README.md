@@ -379,7 +379,7 @@ When a test which involves more than one expect_ function command runs, it will 
 3) Create tests (it's easiest to copy and amend [this test script](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R) which contains the tests for [this fivereg_recent function](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R)) to check whether the summarise_crimes function stops running if:
    * There is an error.
    * The input is not a dataframe.
-   * The input dataframe 'data_set' doesn't contain the variable 'crimes' that is of either class int or num or the variable 'year' that is that is of either class int or num.
+   * The input dataframe variables 'year' and 'crimes' aren't of class int.
 4) Run the tests you have created using command+shift+t. 
 5) If time permits, you could also: 
    * Try writing a test that the function will fail, just to see what happens!
