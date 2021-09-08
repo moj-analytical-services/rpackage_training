@@ -376,7 +376,7 @@ When a test which involves more than one expect_ function command runs, it will 
 **Exercise 17**: Create some tests for the summarise_crimes function:  
 1) Run usethis::use_testthat() to set up your testing structure.
 2) Inside the tests/testthat folder, create an R file called test_summarise_crimes.R
-3) Create the following tests (it's easiest to copy and amend [this test script](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R) which contains the tests for [this function](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R)) to check whether it stops running if:
+3) Create tests (it's easiest to copy and amend [this test script](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R) which contains the tests for [this fivereg_recent function](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R)) to check whether the summarise_crimes function stops running if:
    * There is an error.
    * The input is not a dataframe.
    * The input dataframe 'data_set' doesn't contain the variable 'crimes' that is of either class int or num or the variable 'year' that is that is of either class int or num.
