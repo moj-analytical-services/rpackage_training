@@ -377,13 +377,13 @@ When a test which involves more than one expect_ function command runs, it will 
 1) Run usethis::use_testthat() to set up your testing structure.
 2) Inside the tests/testthat folder, create an R file called test_summarise_crimes.R
 3) Create the following tests (it's easiest to copy and amend [this test script](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R) which contains the tests for [this function](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R)) to check whether it stops running if:
-  * There is an error.
-  * The input is not a dataframe.
-  * The input dataframe 'data_set' doesn't contain the variable 'crimes' that is of either class int or num or the variable 'year' that is that is of either class int or num.
+   * There is an error.
+   * The input is not a dataframe.
+   * The input dataframe 'data_set' doesn't contain the variable 'crimes' that is of either class int or num or the variable 'year' that is that is of either class int or num.
 4) Run the tests you have created using command+shift+t. 
 5) If time permits, you could also: 
-  * Try writing a test that the function will fail, just to see what happens!
-  * Run devtools::test_coverage() to check what percentage of the code in your package is currently being tested.
+   * Try writing a test that the function will fail, just to see what happens!
+   * Run devtools::test_coverage() to check what percentage of the code in your package is currently being tested.
 6) Lastly, commit all your changes to git and then push them to github.com.
 
 ## 18. Continuous integration
