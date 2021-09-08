@@ -365,13 +365,18 @@ An example test is as follows:
     test_that("Returns vector of length five", {
      expect_equal(length(your_function(x)), 5)
     })
-    
+
+An example R script is [here](https://r-pkgs.org/tests.html#test-structure). You'll notice this file includes:
+* A single context() call which provides a brief description of its contents.
+* Calling up a package using library() - if you need to call up a package then see [Section 7. Making functions work in a package](#7-making-functions-work-in-a-package) for what to do instead.
+* Lastly, specification of the tests. 
+
 When a test which involves more than one expect_ function command runs, it will only pass if all of the expect_ functions produce a TRUE result. Otherwise it will fail.
 
 **Exercise 17**: Create some tests for the summarise_crimes function:  
 1) Run usethis::use_testthat() to set up your testing structure.
 2) Inside the tests/testthat folder, create an R file called test_summarise_crimes.R
-3) Create the following tests for this function to check whether it stops running if:
+3) Create the following tests (it's easiest to copy and amend [this test script](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R) which contains the tests for [this function](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R)) to check whether it stops running if:
   * There is an error.
   * The input is not a dataframe.
   * The input dataframe 'data_set' doesn't contain the variable 'crimes' that is of either class int or num or the variable 'year' that is that is of either class int or num.
