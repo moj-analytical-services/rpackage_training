@@ -338,7 +338,7 @@ It is important you decide what aspects of the code really need to be tested, an
 Unit testing can be easily automated using the [testthat package](https://testthat.r-lib.org/). This:
 * Provides a user friendly way of specifying tests that determine whether a function has run as expected (e.g. returns a particular value).
 * Enables you to write messages that inform the user when running the tests (e.g. figure 1 works as expected).
-* Instructs users about whether checks have passed or failed. For example, if there are two 'figure 1 works as expected' checks which both pass, then the output will be 'figure 1 works as expected: ..', with each dot indicating a pass. If there is a failure, a number will be shown instead of one of the dots. This number signposts the user to information about the failure which is shown at the end of the output generated when running the test.
+* Instructs users about whether checks have passed or failed. 
 * Easily integrates into your existing workflow. 
 
 To set up your package to use testthat run the command:
@@ -373,6 +373,8 @@ An example R script is [here](https://r-pkgs.org/tests.html#test-structure). You
 
 When a test which involves more than one expect_ function command runs, it will only pass if all of the expect_ functions produce a TRUE result. Otherwise it will fail.
 
+To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
+
 **Exercise 17**: Create some tests for the summarise_crimes function:  
 1) Run usethis::use_testthat() to set up your testing structure.
 2) Inside the tests/testthat folder, create an R file called test_summarise_crimes.R
@@ -380,7 +382,7 @@ When a test which involves more than one expect_ function command runs, it will 
    * There is an error.
    * The input is not a dataframe.
    * The input dataframe variables 'year' and 'crimes' aren't of class int.
-4) Run the tests you have created using command+shift+t. 
+4) Run the tests you have created. 
 5) If time permits, you could also: 
    * Try writing a test that the function will fail, just to see what happens!
    * Run devtools::test_coverage() to check what percentage of the code in your package is currently being tested.
