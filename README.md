@@ -124,7 +124,7 @@ Doing this inside a package would cause the dplyr library to be loaded into the 
 
 You will also need to add any packages you use to your own package's DESCRIPTION file (more on this in [section 8](#8-amend-the-DESCRIPTION-file)) to ensure they are available to anyone who downloads your package. 
 
-**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the average number of crimes for the selected years; at the moment the package dplyr is not called correctly. Make this code work within your package by removing the "library()" call and calling the two dplyr functions (filter and summarise) specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+**Exercise 7:** Add the summarise_crimes.R file to your package. Open the file and have a look at this function which provides the average number of crimes for the selected years; at the moment the package dplyr is not called correctly. Amend this code so it will work as expected for other users (after you have added dplyr to your package's DESCRIPTION file (a task in [section 8](#8-amend-the-DESCRIPTION-file)) ) by removing the "library()" call and calling the two dplyr functions (filter and summarise) specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ## 8. Amend the DESCRIPTION file
 
