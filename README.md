@@ -250,13 +250,13 @@ It may also be helpful for the script to:
 - produce some charts to enable the user to check the data visually.  
 - add name lookups so any charts produced have nice labels (e.g. the first letter being a capital and the others being lower case).
 - drop any variables that won't be needed.
-- create the final dataset of class 'file/function_name' as done at the end of [this quality assurance R script](https://github.com/mammykins/regregrap/blob/master/R/phase_date_data.R). (Everything in R is an object and many objects have a class attribute, representing the set of properties or methods that are common to all objects of this type.) 
+- create the final dataset of class 'file/function_name' as done at the end of the example [quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R). (Everything in R is an object and many objects have a class attribute, representing the set of properties or methods that are common to all objects of this type.) 
 
 The checks can be run using the code:
 
     x <- pkgname::file/function_name(dataset_name)
 
-**Exercise 12:** Set up some automated quality assurance checks on your input data "crimes_raw_data". These should check that the data.frame contains no missing values, that it has the right number of columns, and that these columns have the correct names. To do this, copy rows 38-77 and 174 of [this quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R) into a new R script you can call "crimes_data.R", amend the contents suitably and run the checks. Remember to run devtools::load_all() to see the effect of changes made to your package. Lastly, commit all your changes to git and then push them to github.com.
+**Exercise 12:** Set up some automated quality assurance checks on your input data "crimes_raw_data". These should check that the data.frame contains no missing values, that it has the right number of columns, and that these columns have the correct names. To do this, copy rows 38-77 and 174 of [the example quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R) into a new R script you can call "crimes_data.R", amend the contents suitably and run the checks. Remember to run devtools::load_all() to see the effect of changes made to your package. Lastly, commit all your changes to git and then push them to github.com. 
 
 ## 13. Developing functions
 
