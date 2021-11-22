@@ -242,8 +242,8 @@ You can learn more about documentation by reading the [R Packages Object documen
 While input data may already have been quality assured prior to being loaded into the package, it is best practice to set up automated quality assurance checks on these data. As well as being able to flag up inconsistencies, these checks should ensure that the data loaded are in the expected format and structure. This reduces the likelihood of loading data which are incompatible with the code in the package, and ensures the same checks are carried out every time.
 
 You can view an example [quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R) from the eesectors package. The roxygen2 documentation appears at the top of the file. The checks include:
-- the correct columns are present in the data 
-- that the number of rows is higher than the expected minimum. 
+- the correct columns are present in the data. 
+- that the number of rows is as expected. 
 
 It may also be helpful for the script to:
 
