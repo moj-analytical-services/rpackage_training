@@ -359,7 +359,7 @@ To develop tests:
   * Load in any data that you want the test(s) to use.
   * Specify each test using the test_that() function.
 
-An example test_that function test is as follows:
+An example test_that() function test is as follows:
 
     test_that("Returns vector of length five", {
      expect_equal(length(your_function(x)), 5)
@@ -367,14 +367,16 @@ An example test_that function test is as follows:
 
 Notice that:
 * The first argument is for providing a clear description of the test (in this example "Returns vector of length five") which is displayed to the user when the test is run.
-* Following the first argument, the test itself is specified within curly brackets {}. There are many varieties of test that can be created using the range of expect_ functions - for a full list see the [R Packages Testing chapter](https://r-pkgs.org/tests.html). Some expect_ function examples are:
-    * expect_equal(): Checks that two outputs are equal
-    * expect_match(): Checks a string matches a regular expression
-    * expect_output(): Checks the output has a specific structure such as a list
-    * expect_error(): Check that the code returns an error in specific circumstances. 
-  There are also other functions you can use e.g. using the package vdiffr to test plots to see whether they look as expected. 
-  
+* Following the first argument, the test itself is specified within curly brackets {} (in this example testing that the returned vector is of length 5). 
 
+Some frequently used expect_ function examples are:
+* expect_equal(): Checks that two outputs are equal
+* expect_match(): Checks a string matches a regular expression
+* expect_output(): Checks the output has a specific structure such as a list
+* expect_error(): Check that the code returns an error in specific circumstances. 
+
+For a full list of expect_ functions see the [R Packages Testing chapter](https://r-pkgs.org/tests.html). There are also other functions you can use e.g. using the package vdiffr to test plots to see whether they look as expected. 
+  
 An example R script is [here](https://r-pkgs.org/tests.html#test-structure). You'll notice this file includes:
 * A single context() call which provides a brief description of its contents.
 * Calling up a package using library() - if you need to call up a package then see [Section 7. Making functions work in a package](#7-making-functions-work-in-a-package) for what to do instead.
