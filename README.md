@@ -359,7 +359,12 @@ To develop tests:
   * Load in any data that you want the test(s) to use.
   * Specify each test using the test_that() function.
 
-An example test using the test_that() function is as follows:
+An example R script is [here](https://r-pkgs.org/tests.html#test-structure). You'll notice this file includes:
+* A single context() call which provides a brief description of its contents.
+* Using a package - instead of calling it up using library() follow the see [Section 7. Making functions work in a package](#7-making-functions-work-in-a-package) guidance.
+* Specifying the tests using the test_that() functions. Where a test_that() function involves more than one expect_ function, it will only a pass if all expect_ functions produce a TRUE result. Otherwise it will fail.
+ 
+An example test_that() function is as follows:
 
     test_that("Returns vector of length five", {
      expect_equal(length(your_function(x)), 5)
@@ -377,13 +382,6 @@ Some frequently used expect_ function examples are:
 
 For a full list of expect_ functions see the [R Packages Testing chapter](https://r-pkgs.org/tests.html). There are also other functions you can use e.g. using the package vdiffr to test plots to see whether they look as expected. 
   
-An example R script is [here](https://r-pkgs.org/tests.html#test-structure). You'll notice this file includes:
-* A single context() call which provides a brief description of its contents.
-* Calling up a package using library() - if you need to call up a package then see [Section 7. Making functions work in a package](#7-making-functions-work-in-a-package) for what to do instead.
-* Lastly, specification of the tests. 
-
-When a test which involves more than one expect_ function command runs, it will only pass if all of the expect_ functions produce a TRUE result. Otherwise it will fail.
-
 To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
 
 **Exercise 17**: Create some tests for the summarise_crimes function:  
