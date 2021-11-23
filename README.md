@@ -353,7 +353,7 @@ This:
 
 To develop tests:
 * Create a new R script file in the testthat folder.
-		* There should generally be one R script for each function which will include all the tests you want to run on it.
+  * There should generally be one R script for each function which will include all the tests you want to run on it.
   * Each test file should be named 'test_[function name].R'.
 * Use the R script to: 
   * Load in any data that you want the test(s) to use.
