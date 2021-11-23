@@ -345,7 +345,11 @@ To set up your package to use testthat run the command:
 
         usethis::use_testthat()
         
-This adds testthat to the DESCRIPTION Suggests field and creates a 'tests' folder structure. This consists of a folder called tests, inside of which is a testthat folder and testthat.R file, the latter containing the code that runs all the tests contained within R scripts in the testthat folder. 
+	This: 
+	* Adds testthat to the DESCRIPTION Suggests field
+	* Creates a 'tests' folder, inside of which is: 
+	  * A testthat folder, where your R test scripts should be placed;
+	  * The testthat.R file, which runs the R scripts in the testthat folder.
 
 You can develop tests by: 
 * Creating a new R script file in the testthat folder. 
