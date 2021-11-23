@@ -359,7 +359,7 @@ To develop tests:
   * Load in any data that you want the test(s) to use.
   * Specify each test using the test_that() function.
 
-An example test_that() function test is as follows:
+An example test using the test_that() function is as follows:
 
     test_that("Returns vector of length five", {
      expect_equal(length(your_function(x)), 5)
