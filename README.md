@@ -344,12 +344,12 @@ Unit testing can be easily automated using the [testthat package](https://testth
 To set up your package to use testthat run the command:
 
         usethis::use_testthat()
-        
-	This: 
-	* Adds testthat to the DESCRIPTION Suggests field
-	* Creates a 'tests' folder, inside of which is: 
-	  * A testthat folder, where your R test scripts should be placed;
-	  * The testthat.R file, which runs the R scripts in the testthat folder.
+
+This: 
+* Adds testthat to the DESCRIPTION Suggests field
+* Creates a 'tests' folder, inside of which is: 
+  * A testthat folder, where your R test scripts should be placed;
+  * The testthat.R file, which runs the R scripts in the testthat folder.
 
 You can develop tests by: 
 * Creating a new R script file in the testthat folder. 
