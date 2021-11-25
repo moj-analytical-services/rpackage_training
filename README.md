@@ -377,8 +377,10 @@ Notice that:
 Some frequently used expect_ function examples are:
 * expect_equal(): Checks that two outputs are equal
 * expect_match(): Checks a string matches a regular expression
+* expect_type(): Checks an object matches a certain type or class
 * expect_output(): Checks the output has a specific structure such as a list
-* expect_error(): Check that the code returns an error in specific circumstances. 
+* expect_error(): Checks the code returns an error in specific circumstances
+* expect_silent(): Checks that the code produces no output, messages, or warnings. 
 
 For a full list of expect_ functions see the [R Packages Testing chapter](https://r-pkgs.org/tests.html). There are also other functions you can use e.g. using the package vdiffr to test plots to see whether they look as expected. 
   
