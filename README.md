@@ -391,7 +391,7 @@ To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
 **Exercise 17**: Create some tests for the summarise_crimes function:  
 1) Run usethis::use_testthat() to set up your testing structure.
 2) Inside the tests/testthat folder, create an R file called test_summarise_crimes.R
-3) Create tests (it's easiest to copy and amend [this test script](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R) which contains the tests for [this fivereg_recent function](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R)) to check whether the summarise_crimes function stops running if:
+3) Create tests (it's easiest to copy and amend some of [this test script](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R) which contains tests for [this fivereg_recent function](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R)) to check whether the summarise_crimes function stops running if:
    * There is an error.
    * The input is not a dataframe.
    * The input dataframe variables 'year' and 'crimes' aren't of class int.
