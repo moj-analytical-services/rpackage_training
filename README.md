@@ -351,6 +351,8 @@ This:
   * A testthat folder, where your R test scripts should be placed;
   * The testthat.R file, which runs the R scripts in the testthat folder.
 
+To check what percentage of the (relevant) code in your package is currently being tested, you can run the command devtools::test_coverage()
+
 To develop tests:
 * Create a new R script file in the testthat folder.
   * There should generally be one R script for each function which will include all the tests you want to run on it.
@@ -396,7 +398,7 @@ To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
 4) Run the tests you have created. 
 5) If time permits, you could also: 
    * Try writing a test that the function will fail, just to see what happens!
-   * Run devtools::test_coverage() to check what percentage of the code in your package is currently being tested.
+   * Run devtools::test_coverage() to check what percentage of (relevant) code in your package is now being tested.
 6) Lastly, commit all your changes to git and then push them to github.com.
 
 ## 18. Continuous integration
