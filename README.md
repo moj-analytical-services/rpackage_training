@@ -26,7 +26,7 @@ Recordings of these sessions can be viewed on the [MS Stream R Training channel]
 * [12. Automating quality assurance checks on input data sets](#12-automating-quality-assurance-checks-on-input-data-sets)
 * [13. Developing functions](#13-developing-functions)
 * [14. Documenting functions](#14-documenting-functions)
-* [15. Using the condition system for functions](#15-using-the-condition-system) 
+* [15. Using the condition system for functions](#15-using-the-condition-system-for-functions)
 * [16. Testing your code](#16-testing-your-code)
 * [17. Unit testing](#17-unit-testing)
 * [18. Continuous integration](#18-continuous-integration)
