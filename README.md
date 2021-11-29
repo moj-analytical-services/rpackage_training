@@ -74,7 +74,7 @@ As we're going to develop a package for the minimal statistical bulletin created
 
 To utilise the benefits of version control and to enable other people to download and use your package, it should be created inside a github repository. [This guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#creating-your-project-repo-on-github) shows you how to do this.
 
-**Exercise 3:** Create a new github repository, following Step 1 of the above guidance. Give the repository it the same name as you've decided to call your package (see [section 2](#2-choose-a-name)) and a suitable description (e.g. 'My RAP training exercise'). Add a README file but not a .gitignore file or license.
+**Exercise 3:** Create a new github repository, following Step 1 of the above guidance. Give the repository it the same name as you've decided to call your package (see [section 2](#2-choose-a-name)) and a suitable description (e.g. 'My RAP training exercise'). Add a README file and a .gitignore file but not a license at this stage.
 
 ## 4. Make a copy of the project in R Studio
 
