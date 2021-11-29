@@ -9,8 +9,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-crimedata <-read_csv("/home/aidanmews/crimedata.csv")  
-# data(crimedata)
+# crimes_raw_data <-read_csv("/home/aidanmews/crimedata.csv")  
+data(crimes_raw_data)
 devtools::load_all() 
 ```
 
@@ -18,23 +18,22 @@ devtools::load_all()
 Over time, the number of crimes has changed.
 
 ```{r echo=FALSE, fig.height=3, fig.width=6}
-ggplot(crimedata , aes(year, crimes)) + geom_bar(stat='identity')
+ggplot2::ggplot(crimes_raw_data, ggplot2::aes(year, crimes)) + ggplot2::geom_bar(stat='identity')
 ```
 
 # Key figures
 ```{r echo=FALSE}
-maxcrimes <- max(crimedata$crimes)
-mincrimes <- min(crimedata$crimes)
+maxcrimes <- max(crimes_raw_data$crimes)
+mincrimes <- min(crimes_raw_data$crimes)
 
 crimes_raw_data <- dplyr::arrange(crimes_raw_data, year)
 earliestyear <- dplyr::first(crimes_raw_data$year)
 latestyear <- dplyr::last(crimes_raw_data$year)
 latestcrimes <- dplyr::last(crimes_raw_data$crimes)
 
-crimes_decade_previous <- filter_crimes(crimes_raw_data, paste((latestyear-10):(latestyear-1)))
+crimes_decade_previous <- summarise_crimes(crimes_raw_data, paste((latestyear-10):(latestyear-1)))
 ```
 Since `r earliestyear`, the minimum number of crimes was `r mincrimes` and the maximum was `r maxcrimes`. 
 
 In the latest year `r latestyear` there were `r latestcrimes` crimes. This compares to an average of `r round(crimes_decade_previous,0)` over the previous decade (from `r latestyear-10` to `r latestyear-1`).
-
 
