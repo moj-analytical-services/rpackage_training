@@ -266,7 +266,7 @@ Even if you're not planning to use the same or similar code in three places, you
 
 The mechanism for adding a function script to a package is covered in [section 6](#6-add-R-and-Rmarkdown-code) above.
 
-**Exercise 13**: Consider (by looking at crimesdata_pub.Rmd) whether it would be beneficial to incorporate any extra functions into your minimal statistical bulletin package (in addition to the filter_crimes function provided by summarise_crimes.R)? Do you consider the filter_crimes function beneficial?
+**Exercise 13**: Consider (by looking at crimesdata_pub.Rmd) whether it would be beneficial to incorporate any extra functions into your minimal statistical bulletin package (in addition to the summarise_crimes function provided by summarise_crimes.R)? Do you consider the summarise_crimes function beneficial?
 
 ## 14. Documenting functions
 
@@ -448,7 +448,7 @@ For you and anyone else to install this package, you need to install it from git
     
     devtools::install_github("moj-analytical-services/mojrap")
     
-You may need to use a Github Personal Access Token (PAT) if your repository access setting is "internal" or "private". 
+You may need to use a Github Personal Access Token (PAT) if your repository access setting is "internal" or "private". For guidance on how to use a PAT, see the [Analytical Platform Guidance section](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#private-r-packages-on-github-pat-authentication) for this. **Note** as per section nine, it is important not to push your PAT to GitHub.
 
 When installing your own packages in the development stage, you can also use other arguments in this function. To install a package from a branch other than your default branch, use the "ref" argument to specify the branch of interest. You can also specify a commit or release to install using:
     
