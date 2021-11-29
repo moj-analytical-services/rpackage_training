@@ -141,7 +141,7 @@ An example of an amended DESCRIPTION file [is provided here](https://github.com/
 
 You can read more about the most important DESCRIPTION fields in the [R Packages Package metadata chapter](https://r-pkgs.org/description.html). 
 
-You can learn more about the different types of licenses by reading the [R Packages Licensing chapter](https://r-pkgs.org/license.html). To specify a particular license, make sure the usethis package you have installed is 2.0.0 or greater and run the appropriate command. For example, to use a permissive MIT license (specifying your firstname and surname):  
+To specify a particular license, make sure the usethis package you have installed is 2.0.0 or greater and run the appropriate command. For example, to use a permissive MIT license (specifying your firstname and surname):  
 
         use_mit_license("Firstname Surname")
         
