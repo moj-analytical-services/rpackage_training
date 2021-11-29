@@ -84,7 +84,7 @@ To enable you to make changes to your project using R Studio you can make a copy
 
 ## 5. Create the package 
 
-A repository can easily be converted into a package using R Studio. Assuming you have already installed the package usethis (see [the opening paragraph](#Developing-R-packages-&-RAP-ways-of-working)), run the following command and select the option to overwrite what is already there:
+A repository can easily be converted into a package using R Studio. Assuming you have already installed the package usethis ([see the opening paragraph](#developing-r-packages--rap-ways-of-working)), run the following command and select the option to overwrite what is already there:
 
         usethis::create_package("path/to/package/pkgname")
 
