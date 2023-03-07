@@ -88,7 +88,7 @@ A repository can easily be converted into a package using R Studio. Assuming you
 
 After completing this process the 'Files' window will show additions to the project directory.
 
-**Exercise 5:** Follow the above steps, inserting the correct directory path and package name within the create_package command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 of [this guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio) to commit all your changes to git and then push them to github.com. If you refresh your github.com repository page you should now see the additions there.
+**Exercise 5:** Follow the above steps, inserting the correct directory path and package name within the create_package command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 of [this guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/rstudio-git.html#work-with-git-in-rstudio) to commit all your changes to git and then push them to github.com. If you refresh your github.com repository page you should now see the additions there.
 
 ## 6. Add R and Rmarkdown code 
 
