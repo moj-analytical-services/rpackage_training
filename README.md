@@ -64,6 +64,8 @@ Possibly the hardest part of creating a package is choosing a name for it. This 
 - include either upper or lower case characters but not a mixture of them; 
 - be clear about what the package does e.g. if a training exercise example, consider putting 'eg' in the name. 
 
+You can read more in the [R Packages section Name your package](https://r-pkgs.org/workflow101.html#name-your-package).
+
 As we're going to develop a package for the minimal statistical bulletin created as part of the [Introduction to R Markdown](https://github.com/moj-analytical-services/rmarkdown_training), choose a name such as "egnamerap" where the eg is because it's a training exercise, the name is your first name (if your first name is very unique) and the rap because you are going to RAP a minimal statistical bulletin.
 
 **Exercise 2:** Decide what name to call your package
