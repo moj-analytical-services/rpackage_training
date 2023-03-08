@@ -94,7 +94,7 @@ After completing this process the 'Files' window will show additions to the proj
 
 ## 6. Add R and Rmarkdown code 
 
-Code can be added to a package by saving the R file to the package R/ directory and the R Markdown file to the package home directory. This can be done in R Studio by either saving the files directly (e.g. using the 'Save As' option) or programmatically using the function dump() as follows:
+Code can be added to a package by saving the R file to the package R directory and the R Markdown file to the package home directory. This can be done in R Studio by saving the files directly (e.g. using the 'Save As' option if they are in a different location). You could also potentially do this programmatically using the function dump() as follows:
 
         dump("R_object_name", file = "directory_path/R_object_name.R")
 
@@ -102,7 +102,7 @@ If the files are in github.com but not R Studio you have two main options to get
 * Clone the relevant repository (as shown in [section 4](#4-make-a-copy-of-the-project-in-R-Studio)). 
 * If there are only a few files you could click the green github 'Code' button (as in [section 4](#4-make-a-copy-of-the-project-in-R-Studio) aove) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
 
-**Exercise 6:** Add the crimesdata_pub.Rmd file and also the mystyles.docx file (which crimesdata_pub.Rmd calls on) to your package. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+**Exercise 6:** Add the crimesdata_pub.Rmd file and also the mystyles.docx file (which crimesdata_pub.Rmd calls on) to your package home directory. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ## 7. Making functions work in a package
 
