@@ -259,16 +259,14 @@ The checks can be run using the code:
 Why, when and how to write your own functions is covered by the [Writing functions in R](https://github.com/moj-analytical-services/writing_functions_in_r) training. As this states, functions are a way to bundle up bits of code to make them easy to reuse. They can save you time, reduce the risk of errors, and make your code easier to understand. When commencing a project, you should:
 
 * Consider and make a list of what functions would be beneficial. A good rule of thumb is to develop a function whenever you’d be using the same or similar code in three places. It is also helpful to consider others' needs e.g. you may know another analyst who needs similar code.
-* After you've made a list, check whether the functions already exist (e.g. in the [mojrap](https://github.com/moj-analytical-services/mojrap)) package and then develop any that don't. 
-* If developing a new function, consider where it's most beneficial to develop it (e.g. it may be more beneficial to develop an [mojrap](https://github.com/moj-analytical-services/mojrap) type function within [mojrap](https://github.com/moj-analytical-services/mojrap)).
-
-Even if you're not planning to use the same or similar code in three places, you may benefit from using a function that already exists (e.g. in the [mojrap](https://github.com/moj-analytical-services/mojrap) package).  
-
-The mechanism for adding a function script to a package is covered in [section 6](#6-add-R-and-Rmarkdown-code) above.
+* After you've made a list, check whether the functions already exist (e.g. in the [mojrap](https://github.com/moj-analytical-services/mojrap) package). As appropriate use those that do and develop any that don't. 
+* If developing a new function, consider where it's most beneficial for it to reside. For instance, it may be more beneficial to develop an [mojrap](https://github.com/moj-analytical-services/mojrap) type function within [mojrap](https://github.com/moj-analytical-services/mojrap) than within your package.
 
 **Exercise 13**: Consider (by looking at crimesdata_pub.Rmd) whether it would be beneficial to incorporate any extra functions into your minimal statistical bulletin package (in addition to the summarise_crimes function provided by summarise_crimes.R)? Do you consider the summarise_crimes function beneficial?
 
 ## 14. Documenting functions
+
+The mechanism for adding a function script to a package is covered in [section 6](#6-add-R-and-Rmarkdown-code) above.
 
 As with documenting data (see [section 11](#11-adding-documentation-about-package-data) above) it is helpful to use Roxygen2 to document functions. Documentation of functions helps users to understand how they work, what arguments need to be given, and how the arguments need to be formatted.
 
