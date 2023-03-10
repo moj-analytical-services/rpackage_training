@@ -319,13 +319,15 @@ You can view [this applied example](https://github.com/DCMSstats/eesectors/blob/
 
 Anytime someone makes a change to the code, this should be accompanied by testing to check that it works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides users with more assurance and helps those making changes to the code to identify any shortcomings and rectify these. 
 
-Tests can be run when desired but are better set up to run automatically (see [section 18](#18-continuous-integration) on continuous integration) before a github pull request is granted. In particular, there are two types of test you should consider:
+While tests can be run when desired, it is better to set them up to run automatically before a github pull request is granted (see [section 18](#18-continuous-integration) on continuous integration). 
+
+There are two types of test you should consider:
 - unit tests (covered in [section 17](#17-unit-testing)); generally there should be at least one for each function. 
 - integration tests (covered in [section 18](#18-continuous-integration)); testing everything in the whole pipeline (or package). 
 
-It is important you decide what aspects of the code really need to be tested, and then to automate only these tests. To make the process as efficient as possible, it may be desirable for you to create mock data (which shouldn't contain any sensitive information) that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. As long as the data files are small, the mock data can be stored in the tests directory ([section 17](#17-unit-testing) covers how to set this directory up).
+As testing can have no end to it, it is recommended that you start by considering what really needs to be tested (e.g. what is of high risk?), and then to develop these tests. If in the future you decide something else really needs to be tested you can add a test for this. To make the process as efficient as possible, it may be desirable for you to create mock data (which shouldn't contain any sensitive information) that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. As long as the data files are small, the mock data can be stored in the tests directory ([section 17](#17-unit-testing) covers how to set this directory up).
 
-**Exercise 16**: Consider (by looking at crimesdata_pub.Rmd) whether it could be beneficial to create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but be much smaller (e.g. only two or three rows).
+**Exercise 16**: Consider whether it could be beneficial to create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but be much smaller (e.g. only two or three rows).
 
 ## 17. Unit testing
 
