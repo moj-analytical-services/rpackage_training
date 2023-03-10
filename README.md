@@ -381,21 +381,19 @@ Some frequently used expect_ function examples are:
 * expect_type(): Checks an object matches a certain type or class
 * expect_output(): Checks the output has a specific structure such as a list
 * expect_error(): Checks the code returns an error in specific circumstances
-* expect_silent(): Checks that the code produces no output, messages, or warnings. 
+* expect_silent(): Checks that the code executes silently (produces no output, messages, or warnings etc.). 
 
-For a full list of testthat expect_ and other functions see the [testthat function documentation](https://testthat.r-lib.org/reference/). There are also other functions you can use e.g. the package [vdiffr](https://cran.rstudio.com/web/packages/vdiffr/index.html) enables the testing of plots to see whether they look as expected. You can also read more about using testhat in the [R Packages testing sections](https://r-pkgs.org/testing-basics.html)
+For a full list of testthat expect_ and other functions see the [testthat function documentation](https://testthat.r-lib.org/reference/). There are also other functions you can use e.g. the package [vdiffr](https://cran.rstudio.com/web/packages/vdiffr/index.html) enables the testing of plots to see whether they look as expected. You can also read more about using testhat in the [R Packages testing sections](https://r-pkgs.org/testing-basics.html).
   
 To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
 
 **Exercise 17**: Create some tests for the summarise_crimes function:  
 1) Run usethis::use_testthat() to set up your testing structure.
 2) Inside the tests/testthat folder, create an R file called test_summarise_crimes.R
-3) Create tests (it's easiest to copy and amend some of [this test script](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R) which contains tests for [this fivereg_recent function](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R)) to check whether the summarise_crimes function stops running if:
-   * There is an error.
-   * The input is not a dataframe.
-   * The input dataframe variables 'year' and 'crimes' aren't of class int.
+3) Create a test (it's easiest to copy and amend some of [this test script](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R) which contains tests for [this fivereg_recent function](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R)) to check whether the summarise_crimes function stops running if there is an error (e.g. using expect_silent()).
 4) Run the tests you have created. 
-5) If time permits, you could also: 
+5) If time permits, you could also:
+   * Add tests that the input is not a suitable dataframe and the input dataframe variables 'year' and 'crimes' aren't of class int. 
    * Try writing a test that the function will fail, just to see what happens!
    * Run devtools::test_coverage() to check what percentage of (relevant) code in your package is now being tested.
 6) Lastly, commit all your changes to git and then push them to github.com.
