@@ -339,15 +339,17 @@ Unit testing can be easily automated using the [testthat package](https://testth
 
 To set up your package to use testthat run the command:
 
-        usethis::use_testthat()
+        usethis::use_testthat(3)
 
 This: 
-* Adds testthat to the DESCRIPTION Suggests field
+* Adds testthat (>= 3.0.0) to the DESCRIPTION Suggests field
 * Creates a 'tests' folder, inside of which is: 
   * A testthat folder, where your R test scripts should be placed;
   * The testthat.R file, which runs the R scripts in the testthat folder.
 
-To check what percentage of the (relevant) code in your package is currently being tested, you can run the command devtools::test_coverage()
+To check what percentage of the (relevant) code in your package is currently being tested, you can run the command:
+
+        devtools::test_coverage()
 
 To develop tests:
 * Create a new R script file in the testthat folder.
@@ -357,10 +359,11 @@ To develop tests:
   * Load in any data that you want the test(s) to use.
   * Specify each test using the test_that() function.
 
-An example R script is [here](https://r-pkgs.org/tests.html#test-structure). You'll notice this file includes:
+An example R test script is [here](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R). You'll notice this file includes:
 * A single context() call which provides a brief description of its contents.
-* Using a package - instead of calling it up using library() follow the see [Section 7. Making functions work in a package](#7-making-functions-work-in-a-package) guidance.
-* Specifying the tests using the test_that() functions. Where a test_that() function involves more than one expect_ function, it will only a pass if all expect_ functions produce a TRUE result. Otherwise it will fail.
+* Data being loaded for the tests to use.
+* Tests being specified using the test_that() functions. Where a test_that() function involves more than one expect_ function, it will only a pass if all expect_ functions produce a TRUE result. Otherwise it will fail.
+* Using the package [stringr](https://stringr.tidyverse.org/) in line with the [Section 7. Making functions work in a package](#7-making-functions-work-in-a-package) guidance.
  
 An example test_that() function is as follows:
 
@@ -380,7 +383,7 @@ Some frequently used expect_ function examples are:
 * expect_error(): Checks the code returns an error in specific circumstances
 * expect_silent(): Checks that the code produces no output, messages, or warnings. 
 
-For a full list of expect_ functions see the [R Packages Testing chapter](https://r-pkgs.org/tests.html). There are also other functions you can use e.g. using the package vdiffr to test plots to see whether they look as expected. 
+For a full list of testthat expect_ and other functions see the [testthat function documentation](https://testthat.r-lib.org/reference/). There are also other functions you can use e.g. the package [vdiffr](https://cran.rstudio.com/web/packages/vdiffr/index.html) enables the testing of plots to see whether they look as expected. You can also read more about using testhat in the [R Packages testing sections](https://r-pkgs.org/testing-basics.html)
   
 To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
 
