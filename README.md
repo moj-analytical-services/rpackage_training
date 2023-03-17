@@ -90,7 +90,7 @@ To install renv:
 
         install.packages("renv")
 
-You will also need to add the renv package to your package DESCRIPTION file imports list - see section [8. Amend the DESCRIPTION file](#8-amend-the-DESCRIPTION-file).
+You will also need to add the renv package to your package DESCRIPTION file imports list - see section [9. Amend the DESCRIPTION file](#9-amend-the-DESCRIPTION-file).
 
 You can now use renv to fork (or copy) the state of your default R libraries into a project local library and create (or amend) a project-local .Rprofile which is then used by new R sessions to ensure the project-local library is used: 
 
@@ -140,9 +140,9 @@ Doing this inside a package would cause the dplyr library to be loaded into the 
 
         data %>% dplyr::filter(Year == 2020)
 
-You will also, instead of using the library() command, need to add any packages you use to your own package's DESCRIPTION file to ensure they are available without causing unexpected effects to anyone who downloads your package. This is covered in [section 8](#8-amend-the-DESCRIPTION-file).   
+You will also, instead of using the library() command, need to add any packages you use to your own package's DESCRIPTION file to ensure they are available without causing unexpected effects to anyone who downloads your package. This is covered in [section 9](#9-amend-the-DESCRIPTION-file).   
 
-**Exercise 8:** Add the summarise_crimes.R file from this repository to your package. Open the file and have a look at this function which provides the average number of crimes for the selected years; at the moment the package dplyr is not called correctly. Amend this code so it will work as expected for other users (which it will after you have added dplyr to your package's DESCRIPTION file (a task in [section 8](#8-amend-the-DESCRIPTION-file))) by removing the "library()" call and calling the two dplyr functions (filter and summarise) specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+**Exercise 8:** Add the summarise_crimes.R file from this repository to your package. Open the file and have a look at this function which provides the average number of crimes for the selected years; at the moment the package dplyr is not called correctly. Amend this code so it will work as expected for other users (which it will after you have added dplyr to your package's DESCRIPTION file (a task in [section 9](#9-amend-the-DESCRIPTION-file))) by removing the "library()" call and calling the two dplyr functions (filter and summarise) specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ## 9. Amend the DESCRIPTION file
 
@@ -257,7 +257,7 @@ The documentation for the data object can then be viewed in the help facility us
 
     ?objectname
 
-Documenting functions is covered in [section 14](#14-documenting-functions). You can learn more about documentation more generally by reading the [R Packages Object documentation chapter](https://r-pkgs.org/man.html); there is also a separate [R Packages section about documenting datasets](https://r-pkgs.org/data.html#sec-documenting-data) which you may want to look at. 
+Documenting functions is covered in [section 15](#15-documenting-functions). You can learn more about documentation more generally by reading the [R Packages Object documentation chapter](https://r-pkgs.org/man.html); there is also a separate [R Packages section about documenting datasets](https://r-pkgs.org/data.html#sec-documenting-data) which you may want to look at. 
 
 **Exercise 12:** Create an data.R file in your R folder and paste in the first 22 rows from the example eesectors package [data.R file](https://github.com/DCMSstats/eesectors/blob/master/R/data.R). Amend the contents, generate the nice looking documentation, and then take a look at it (using the help facility). Lastly, commit all your changes to git and then push them to github.com. 
 
@@ -294,9 +294,9 @@ Why, when and how to write your own functions is covered by the [Writing functio
 
 ## 15. Documenting functions
 
-The mechanism for adding a function script to a package is covered in [section 6](#6-add-R-and-Rmarkdown-code) above.
+The mechanism for adding a function script to a package is covered in [section 7](#7-add-R-and-Rmarkdown-code) above.
 
-As with documenting data (see [section 11](#11-adding-documentation-about-package-data) above) it is helpful to use Roxygen2 to document functions. Documentation of functions helps users to understand how they work, what arguments need to be given, and how the arguments need to be formatted.
+As with documenting data (see [section 12](#12-adding-documentation-about-package-data) above) it is helpful to use Roxygen2 to document functions. Documentation of functions helps users to understand how they work, what arguments need to be given, and how the arguments need to be formatted.
 
 The documentation of functions is done within the same R script as the function itself - see [this example]( https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R) from the eesectors package. Looking at the first 41 rows you can see a title (one sentence), description, details including inputs, what is returned, some examples, and the @export which enables users to access the function when they load your package. Functions which are not marked with @export can be used by other functions inside the package, but aren't readily available for users directly. Where you see the syntax \code{} the contents of the {} will be regarded as code.  
 
@@ -309,7 +309,7 @@ The process is as follows:
 
 To check that the documentation enables others to easily understand the code you should get at least one other person to peer review your documentation. Are they able to understand how to use each function from the documentation alone?
 
-**Exercise 15:** Follow the above process to add suitable documentation to the function summarise_crimes.R. It may be easiest to copy rows 1-41 from [this example](https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R) and then amend. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com. If you still have time, then do the same for the function that you created in the [section 12](#12-automating-quality-assurance-checks-on-input-data-sets) exercise above.
+**Exercise 15:** Follow the above process to add suitable documentation to the function summarise_crimes.R. It may be easiest to copy rows 1-41 from [this example](https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R) and then amend. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com. If you still have time, then do the same for the function that you created in the [section 13](#13-automating-quality-assurance-checks-on-input-data-sets) exercise above.
 
 ## 16. Using the condition system for functions 
 
@@ -350,10 +350,10 @@ Anytime someone makes a change to the code, this should be accompanied by testin
 While tests can be run when desired, it is better to set them up to run automatically before a github pull request is granted (see [section 18](#18-continuous-integration) on continuous integration). 
 
 There are two types of test you should consider:
-- unit tests (covered in [section 17](#17-unit-testing)); generally there should be at least one for each function. 
-- integration tests (covered in [section 18](#18-continuous-integration)); testing everything in the whole pipeline (or package). 
+- unit tests (covered in [section 18](#18-unit-testing)); generally there should be at least one for each function. 
+- integration tests (covered in [section 19](#19-continuous-integration)); testing everything in the whole pipeline (or package). 
 
-As testing can have no end to it, it is recommended that you start by considering what really needs to be tested (e.g. what is of high risk?), and then to develop these tests. If in the future you decide something else really needs to be tested you can add a test for this. To make the process as efficient as possible, it may be desirable for you to create mock data (which shouldn't contain any sensitive information) that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. As long as the data files are small, the mock data can be stored in the tests directory ([section 17](#17-unit-testing) covers how to set this directory up).
+As testing can have no end to it, it is recommended that you start by considering what really needs to be tested (e.g. what is of high risk?), and then to develop these tests. If in the future you decide something else really needs to be tested you can add a test for this. To make the process as efficient as possible, it may be desirable for you to create mock data (which shouldn't contain any sensitive information) that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. As long as the data files are small, the mock data can be stored in the tests directory ([section 18](#18-unit-testing) covers how to set this directory up).
 
 **Exercise 17**: Consider whether it could be beneficial to create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but be much smaller (e.g. only two or three rows).
 
