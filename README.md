@@ -215,15 +215,15 @@ To create a nice .rda file from your .csv file:
 
 3. Open the R script 'DATASET.R' in 'data-raw/' that has automatically been created by step 1. This can then be amended to read in the raw data and put them into 'data/' as an .rda object. The relevent code is:
 
-        raw <- read.csv("directory_path/data_name.csv", check.names = TRUE)
-        usethis::use_data(raw)  
-        rm(raw)
+        crimes_raw_data <- read.csv("directory_path/data_name.csv", check.names = TRUE)
+        usethis::use_data(crimes_raw_data)  
+        rm(crimes_raw_data)
 
-4. Run the R script. The folder 'data' should now have been created that contains the object raw.rda
+4. Run the R script. The folder 'data' should now have been created that contains the object crimes_raw_data.rda
 
 Alternatively, if the data is already loaded into your local environment, to create RData you can simply use
         
-        save(raw, file = "directory_path/raw_rdata_save.Rda")
+        save(crimes_raw_data, file = "directory_path/crimes_raw_data.Rda")
 
 This R script could be developed. For instance:
 1. If some processing of the data is needed this could be added e.g. to make a variable of class factor
