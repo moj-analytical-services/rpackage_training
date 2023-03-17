@@ -215,7 +215,7 @@ To create a nice .rda file from your .csv file:
 
 3. Open the R script 'DATASET.R' in 'data-raw/' that has automatically been created by step 1. This can then be amended to read in the raw data and put them into 'data/' as an .rda object. The relevent code is:
 
-        crimes_raw_data <- read.csv("directory_path/data_name.csv", check.names = TRUE)
+        crimes_raw_data <- read.csv("your_package_directory_path/crimedata.csv", check.names = TRUE)
         usethis::use_data(crimes_raw_data)  
         rm(crimes_raw_data)
 
