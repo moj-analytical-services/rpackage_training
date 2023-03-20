@@ -104,6 +104,8 @@ The state of your project-local libraries can also be:
 
 For more information on renv please see [this Coffee and Coding introduction to renv](https://web.microsoftstream.com/video/3ec54ac3-473c-4268-9d54-9f7096338824?channelId=f6aa6c5d-e90c-44b7-8ccc-28a318fa0630).
 
+The function `renv::install()` has [special behavior](https://rstudio.github.io/renv/articles/packages.html) in a package development context and will install packages listed in the DESCRIPTION file.
+
 **Exercise 5:** Following the above steps, install and initiate renv in your package repo.
 
 ## 6. Create the package 
