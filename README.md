@@ -452,20 +452,44 @@ You can read further about automating checking in [R Packages Automated Checking
 
 **Exercise 19**: Run the R CMD tests on your code and resolve any error messages. Then setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
 
-## 20. Installing and using your package
+## 20. Add a NEWS file
 
-Congratulations, you have successfully produced a working package in R!
+The NEWS markdown file functions as a changelog for your package. It must be updated every time you make changes to your package.
 
-For you and anyone else to install this package, you need to install it from github using devtools::install_github("your package repo and name") e.g.
-    
-    devtools::install_github("moj-analytical-services/mojrap")
-    
-You may need to use a Github Personal Access Token (PAT) if your repository access setting is "internal" or "private". For guidance on how to use a PAT, see the [Analytical Platform Guidance section](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#private-r-packages-on-github-pat-authentication) for this. **Note** as per section nine, it is important not to push your PAT to GitHub.
+**Exercise 20**: Add a NEWS file to your package (`usethis::use_news_md()`). 
 
-When installing your own packages in the development stage, you can also use other arguments in this function. To install a package from a branch other than your default branch, use the "ref" argument to specify the branch of interest. You can also specify a commit or release to install using:
+## 21. Installing and using your package
+
+Congratulations, you have successfully produced a working package in R! Open a pull request and merge it to the main branch.
+
+To install a package from a **public** GitHub repo using `renv` you just need the owner and the repo:
+
+    renv::install("moj-analytical-services/mojrap")
+  
+The easiest way install a package from an **internal** or **private** GitHub repo is with the following syntax:
+
+    renv::install("git@github.com:moj-analytical-services/mojrap.git")
     
-    devtools::install_github("moj-analytical-services/mojrap@v1.0.1")
+With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where the "ref" is a branch name, commit or github tag e.g.    
     
-**Exercise 20**: Try installing your completed package!
+    renv::install("git@github.com:moj-analytical-services/mojrap.git@v1.0.1")
+    
+    
+**Exercise 21**: Try installing your completed package!
+
+## 22. Releases and Future changes to your package
+
+Keep the default branch of your repo for the most recent working release of your package. 
+
+Never release changes to your package without updating the version number.
+
+Use [semantic versioning](https://semver.org/).
+
+[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) are a great way to mange the versions of your package. Every time you release an updated version of your package, including a GitHub realease. This way if you ever need an older version of your package it is very easy to install using the GitHub Release Tag. 
+
+**Exercise 22**: Create a GitHub Release for you package
+
+
+
 
 
