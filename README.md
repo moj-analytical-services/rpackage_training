@@ -60,7 +60,7 @@ This training is designed with exercises in each section to enable you to develo
 Possibly the hardest part of creating a package is choosing a name for it. This should: 
 
 - be short; 
-- be unique (for google searches); 
+- be unique (for Google searches); 
 - include either upper or lower case characters but not a mixture of them; 
 - be clear about what the package does e.g. if a training exercise example, consider putting 'eg' in the name. 
 
@@ -126,7 +126,7 @@ Code can be added to a package by saving the R file to the package R directory a
 
 If the files are in github.com but not R Studio you have two main options to get them into R Studio. 
 * Clone the relevant repository (as shown in [section 4](#4-make-a-copy-of-the-project-in-R-Studio)). 
-* If there are only a few files you could click the green github 'Code' button (as in [section 4](#4-make-a-copy-of-the-project-in-R-Studio) aove) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
+* If there are only a few files you could click the green github 'Code' button (as in [section 4](#4-make-a-copy-of-the-project-in-R-Studio) above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
 
 **Exercise 7:** Add the crimesdata_pub.Rmd file and also the mystyles.docx file (which crimesdata_pub.Rmd calls on) from this repository to your package home directory. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
@@ -433,12 +433,12 @@ To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
 
 ## 19. Continuous integration
 
-Continous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
+Continuous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
 
 Before setting up this automation, it's worth first enhancing the quality of your package by running the R CMD tests (which can take a long time at first as there may be many error messages) and fixing any problems. To do this: 
 
 1. Run devtools::check()  
-2. Fix each problem. You should definately fix the errors, try to eliminate the warnings (essential if submitting to CRAN), and ideally eliminate all notes. To understand more about a problem, look it up in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html). It may also be useful to look at [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html), and at code that has passed the test (e.g. [the eesectors package](https://github.com/DCMSstats/eesectors)). 
+2. Fix each problem. You should definitely fix the errors, try to eliminate the warnings (essential if submitting to CRAN), and ideally eliminate all notes. To understand more about a problem, look it up in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html). It may also be useful to look at [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html), and at code that has passed the test (e.g. [the eesectors package](https://github.com/DCMSstats/eesectors)). 
 3. Rerun 
 
 To setup continuous integration using GitHub Actions: 
