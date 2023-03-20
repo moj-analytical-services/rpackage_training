@@ -470,10 +470,11 @@ The easiest way install a package from an **internal** or **private** GitHub rep
 
     renv::install("git@github.com:moj-analytical-services/mojrap.git")
     
+Note: If your package has any Imports that are from internal or private repos you will need to also use this syntax in the Remotes field. [Example here.](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION)
+    
 With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where the "ref" is a branch name, commit or github tag e.g.    
     
     renv::install("git@github.com:moj-analytical-services/mojrap.git@v1.0.1")
-    
     
 **Exercise 21**: Try installing your completed package!
 
@@ -485,7 +486,7 @@ Never release changes to your package without updating the version number.
 
 Use [semantic versioning](https://semver.org/).
 
-[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) are a great way to mange the versions of your package. Every time you release an updated version of your package, including a GitHub realease. This way if you ever need an older version of your package it is very easy to install using the GitHub Release Tag. 
+[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) are a great way to mange the versions of your package. Every time you release an updated version of your package, including a GitHub release. This way if you ever need an older version of your package it is very easy to install using the GitHub Release Tag. 
 
 **Exercise 22**: Create a GitHub Release for you package
 
