@@ -163,7 +163,8 @@ An example of an amended DESCRIPTION file [is provided here](https://github.com/
    - cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
 - The Description is more detailed than the Title - one paragraph with each line being up to 80 characters.
 - The License determines who can use your code and for what purpose. Without a license, the code is copyrighted by default; to use it, you must contact the author directly and ask permission. You can read more about licensing in the [R Packages Licensing chapter](https://r-pkgs.org/license.html). At MoJ we use the MIT License -  see [Analytical Platofrm User Guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/create-project.html#licence).
-- The Depends and Imports fields allow you to list the external packages that your package uses; it is now considered best practice to add these packages as Imports rather than Depends. Unless you have the knowledge to do something different, you should assume that the package version needs to be greater than or equal to the version you're currently using.
+- The Imports field must contain all the other packages that your package uses. Unless you have the knowledge to do something different, you should assume that the package version needs to be greater than or equal to the version you're currently using. You can add a package to the Imports field with `usethis::use_package("package_name")`.
+- The Suggests field can contain packages that are not required for basic functionality but allow enhanced features such as vignettes or are useful during package development. You can, for example, add `devtools` to your Suggests field with `usethis::use_package("devtools", type = "Suggests")`
 
 You can read more about the most important DESCRIPTION fields in the [R Packages Package metadata chapter](https://r-pkgs.org/description.html). 
 
