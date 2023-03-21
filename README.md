@@ -82,9 +82,9 @@ To utilise the benefits of version control and to enable other people to downloa
 
 To enable you to make changes to your project using R Studio you can make a copy of your repository in your personal R Studio workspace. Guidance to do this is available [here](https://user-guidance.services.alpha.mojanalytics.xyz/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio). As github.com has changed slightly since this guidance was made, the green button 'Clone or download' is now called 'Code'.
 
-The default branch of an R package GitHub repo should be reserved for working releases of the package. Always make your changes on a different branch then merge to the default branch for each release. For these exercises create a git branch called `0.0.1`.
+The default branch of an R package GitHub repo should be reserved for working releases of the package. Always make your changes on a different branch then merge to the default branch for each release. 
 
-**Exercise 4:** Follow Step 1 of the guidance to make a copy of your project in R Studio.
+**Exercise 4:** Follow Step 1 of the guidance to make a copy of your project in R Studio. Create a git branch called `0.0.1` where you can make changes.
 
 ## 5. Initiate renv
 
