@@ -490,7 +490,7 @@ Use [semantic versioning](https://semver.org/).
 
 [GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) are a great way to mange the versions of your package. Every time you release an updated version of your package, include a GitHub release. This way if you ever need an older version of your package it is very easy to install using the GitHub Release Tag. 
 
-**Exercise 22**: Create a GitHub Release for you package
+**Exercise 22**: Create a GitHub Release for your package
 
 
 
