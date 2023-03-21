@@ -170,9 +170,9 @@ An example of an amended DESCRIPTION file [is provided here](https://github.com/
 
 You can read more about the most important DESCRIPTION fields in the [R Packages Package metadata chapter](https://r-pkgs.org/description.html). 
 
-To specify a particular license, make sure the usethis package you have installed is 2.0.0 or greater and run the appropriate command. For example, to use the permissive MIT license used by MoJ (specifying your firstname and surname):  
+To specify a particular license, make sure the usethis package you have installed is 2.0.0 or greater and run the appropriate command. For example, to use the permissive MIT license used by MoJ (specifying "Crown Copyright (Ministry of Justice)"):  
 
-        use_mit_license("Firstname Surname")
+        use_mit_license("Crown Copyright (Ministry of Justice)")
         
 This specifies the license you have chosen in the DESCRIPTION file and also puts a copy of the full license in LICENSE.md and adds this file to .Rbuildignore.
 
