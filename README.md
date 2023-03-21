@@ -196,7 +196,7 @@ A useful [gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/
 
 You can also add further protection by using git hooks. These check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about this is available [here](https://github.com/ukgovdatascience/dotfiles).
 
-Note: if you do accidentally end up pushing sensitive data or information to Github, please refer immediately to the Analytical Platform guidance on next steps here: [https://user-guidance.services.alpha.mojanalytics.xyz/information-governance.html#privacy-notice](https://user-guidance.services.alpha.mojanalytics.xyz/information-governance.html#privacy-notice)
+Note: if you do accidentally end up pushing sensitive data or information to Github, please refer immediately to the Analytical Platform guidance on next steps [here](https://user-guidance.services.alpha.mojanalytics.xyz/information-governance.html#reporting-security-incidents).
 
 **Exercise 10:** 
 1) Place a copy of crimedata.csv into your package Rstudio folder. Amend the gitignore file to also include the code in the ukdatascience [gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore). After committing and pushing to github.com and refreshing your github.com repository page can you see crimedata.csv there? 
