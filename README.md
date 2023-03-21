@@ -31,7 +31,9 @@ Recordings of these sessions can be viewed on the [MS Stream R Training channel]
 * [17. Testing your code](#17-testing-your-code)
 * [18. Unit testing](#18-unit-testing)
 * [19. Continuous integration](#19-continuous-integration)
-* [20. Installing and using your package](#20-installing-and-using-your-package)
+* [20. Adding a NEWS file](#20-adding-a-news-file)
+* [21. Installing and using your package](#21-installing-and-using-your-package)
+* [22. Managing releases and future changes to your package](#22-managing-releases-and-future-changes-to-your-package)
 
 ## 1. Introduction
 
@@ -60,7 +62,7 @@ This training is designed with exercises in each section to enable you to develo
 Possibly the hardest part of creating a package is choosing a name for it. This should: 
 
 - be short; 
-- be unique (for google searches); 
+- be unique (for Google searches); 
 - include either upper or lower case characters but not a mixture of them; 
 - be clear about what the package does e.g. if a training exercise example, consider putting 'eg' in the name. 
 
@@ -80,7 +82,9 @@ To utilise the benefits of version control and to enable other people to downloa
 
 To enable you to make changes to your project using R Studio you can make a copy of your repository in your personal R Studio workspace. Guidance to do this is available [here](https://user-guidance.services.alpha.mojanalytics.xyz/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio). As github.com has changed slightly since this guidance was made, the green button 'Clone or download' is now called 'Code'.
 
-**Exercise 4:** Follow Step 1 of the guidance to make a copy of your project in R Studio.
+The default branch of an R package GitHub repo should be reserved for working releases of the package. Always make your changes on a different branch then merge to the default branch for each release. 
+
+**Exercise 4:** Follow Step 1 of the guidance to make a copy of your project in R Studio. Create a git branch called `0.0.1` where you can make changes.
 
 ## 5. Initiate renv
 
@@ -104,6 +108,8 @@ The state of your project-local libraries can also be:
 
 For more information on renv please see [this Coffee and Coding introduction to renv](https://web.microsoftstream.com/video/3ec54ac3-473c-4268-9d54-9f7096338824?channelId=f6aa6c5d-e90c-44b7-8ccc-28a318fa0630).
 
+The function `renv::install()` has [special behavior](https://rstudio.github.io/renv/articles/packages.html) in a package development context and will install packages listed in the DESCRIPTION file.
+
 **Exercise 5:** Following the above steps, install and initiate renv in your package repo.
 
 ## 6. Create the package 
@@ -122,7 +128,7 @@ Code can be added to a package by saving the R file to the package R directory a
 
 If the files are in github.com but not R Studio you have two main options to get them into R Studio. 
 * Clone the relevant repository (as shown in [section 4](#4-make-a-copy-of-the-project-in-R-Studio)). 
-* If there are only a few files you could click the green github 'Code' button (as in [section 4](#4-make-a-copy-of-the-project-in-R-Studio) aove) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
+* If there are only a few files you could click the green github 'Code' button (as in [section 4](#4-make-a-copy-of-the-project-in-R-Studio) above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
 
 **Exercise 7:** Add the crimesdata_pub.Rmd file and also the mystyles.docx file (which crimesdata_pub.Rmd calls on) from this repository to your package home directory. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
@@ -159,7 +165,8 @@ An example of an amended DESCRIPTION file [is provided here](https://github.com/
    - cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
 - The Description is more detailed than the Title - one paragraph with each line being up to 80 characters.
 - The License determines who can use your code and for what purpose. Without a license, the code is copyrighted by default; to use it, you must contact the author directly and ask permission. You can read more about licensing in the [R Packages Licensing chapter](https://r-pkgs.org/license.html). At MoJ we use the MIT License -  see [Analytical Platofrm User Guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/create-project.html#licence).
-- The Depends and Imports fields allow you to list the external packages that your package uses; it is now considered best practice to add these packages as Imports rather than Depends. Unless you have the knowledge to do something different, you should assume that the package version needs to be greater than or equal to the version you're currently using.
+- The Imports field must contain all the other packages that your package uses. Unless you have the knowledge to do something different, you should assume that the package version needs to be greater than or equal to the version you're currently using. You can add a package to the Imports field with `usethis::use_package("package_name")`.
+- The Suggests field can contain packages that are not required for basic functionality but allow enhanced features such as vignettes or are useful during package development. You can, for example, add `devtools` to your Suggests field with `usethis::use_package("devtools", type = "Suggests")`
 
 You can read more about the most important DESCRIPTION fields in the [R Packages Package metadata chapter](https://r-pkgs.org/description.html). 
 
@@ -174,6 +181,7 @@ This specifies the license you have chosen in the DESCRIPTION file and also puts
 - Authors@R (e.g. make yourself author and maintainer) 
 - Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) 
 - Package dependency text (specify the minimum version of R needed and the need for ggplot2, dplyr and magrittr).
+- Package version to `0.0.1`
 
 Follow up by specifying an MIT license. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
@@ -428,12 +436,12 @@ To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
 
 ## 19. Continuous integration
 
-Continous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
+Continuous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
 
 Before setting up this automation, it's worth first enhancing the quality of your package by running the R CMD tests (which can take a long time at first as there may be many error messages) and fixing any problems. To do this: 
 
 1. Run devtools::check()  
-2. Fix each problem. You should definately fix the errors, try to eliminate the warnings (essential if submitting to CRAN), and ideally eliminate all notes. To understand more about a problem, look it up in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html). It may also be useful to look at [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html), and at code that has passed the test (e.g. [the eesectors package](https://github.com/DCMSstats/eesectors)). 
+2. Fix each problem. You should definitely fix the errors, try to eliminate the warnings (essential if submitting to CRAN), and ideally eliminate all notes. To understand more about a problem, look it up in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html). It may also be useful to look at [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html), and at code that has passed the test (e.g. [the eesectors package](https://github.com/DCMSstats/eesectors)). 
 3. Rerun 
 
 To setup continuous integration using GitHub Actions: 
@@ -446,20 +454,45 @@ You can read further about automating checking in [R Packages Automated Checking
 
 **Exercise 19**: Run the R CMD tests on your code and resolve any error messages. Then setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
 
-## 20. Installing and using your package
+## 20. Adding a NEWS file
 
-Congratulations, you have successfully produced a working package in R!
+The NEWS markdown file functions as a changelog for your package. It must be updated every time you make changes to your package.
 
-For you and anyone else to install this package, you need to install it from github using devtools::install_github("your package repo and name") e.g.
-    
-    devtools::install_github("moj-analytical-services/mojrap")
-    
-You may need to use a Github Personal Access Token (PAT) if your repository access setting is "internal" or "private". For guidance on how to use a PAT, see the [Analytical Platform Guidance section](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#private-r-packages-on-github-pat-authentication) for this. **Note** as per section nine, it is important not to push your PAT to GitHub.
+**Exercise 20**: Add a NEWS file to your package (`usethis::use_news_md()`). 
 
-When installing your own packages in the development stage, you can also use other arguments in this function. To install a package from a branch other than your default branch, use the "ref" argument to specify the branch of interest. You can also specify a commit or release to install using:
+## 21. Installing and using your package
+
+Congratulations, you have successfully produced a working package in R! Open a pull request and merge it to the main branch.
+
+To install a package from a **public** GitHub repo using `renv` you just need the owner and the repo:
+
+    renv::install("moj-analytical-services/mojrap")
+  
+The easiest way install a package from an **internal** or **private** GitHub repo is with the following syntax:
+
+    renv::install("git@github.com:moj-analytical-services/mojrap.git")
     
-    devtools::install_github("moj-analytical-services/mojrap@v1.0.1")
+Note: If your package has any Imports that are from internal or private repos you will need to also use this syntax in the Remotes field. [Example here.](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION)
     
-**Exercise 20**: Try installing your completed package!
+With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where the "ref" is a branch name, commit or github tag e.g.    
+    
+    renv::install("git@github.com:moj-analytical-services/mojrap.git@v1.0.1")
+    
+**Exercise 21**: Try installing your completed package!
+
+## 22. Managing releases and future changes to your package
+
+Keep the default branch of your repo for the most recent working release of your package. 
+
+Never release changes to your package without updating the version number.
+
+Use [semantic versioning](https://semver.org/).
+
+[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) are a great way to mange the versions of your package. Every time you release an updated version of your package, include a GitHub release. This way if you ever need an older version of your package it is very easy to install using the GitHub Release Tag. 
+
+**Exercise 22**: Create a GitHub Release for your package
+
+
+
 
 
