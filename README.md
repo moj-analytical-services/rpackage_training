@@ -31,7 +31,9 @@ Recordings of these sessions can be viewed on the [MS Stream R Training channel]
 * [17. Testing your code](#17-testing-your-code)
 * [18. Unit testing](#18-unit-testing)
 * [19. Continuous integration](#19-continuous-integration)
-* [20. Installing and using your package](#20-installing-and-using-your-package)
+* [20. Adding a NEWS file](#20-adding-a-news-file)
+* [21. Installing and using your package](#21-installing-and-using-your-package)
+* [22. Managing releases and future changes to your package](#22-managing-releases-and-future-changes-to-your-package)
 
 ## 1. Introduction
 
@@ -452,7 +454,7 @@ You can read further about automating checking in [R Packages Automated Checking
 
 **Exercise 19**: Run the R CMD tests on your code and resolve any error messages. Then setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
 
-## 20. Add a NEWS file
+## 20. Adding a NEWS file
 
 The NEWS markdown file functions as a changelog for your package. It must be updated every time you make changes to your package.
 
@@ -478,7 +480,7 @@ With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where 
     
 **Exercise 21**: Try installing your completed package!
 
-## 22. Releases and Future changes to your package
+## 22. Managing releases and future changes to your package
 
 Keep the default branch of your repo for the most recent working release of your package. 
 
@@ -486,7 +488,7 @@ Never release changes to your package without updating the version number.
 
 Use [semantic versioning](https://semver.org/).
 
-[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) are a great way to mange the versions of your package. Every time you release an updated version of your package, including a GitHub release. This way if you ever need an older version of your package it is very easy to install using the GitHub Release Tag. 
+[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) are a great way to mange the versions of your package. Every time you release an updated version of your package, include a GitHub release. This way if you ever need an older version of your package it is very easy to install using the GitHub Release Tag. 
 
 **Exercise 22**: Create a GitHub Release for you package
 
