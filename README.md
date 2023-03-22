@@ -355,7 +355,7 @@ You can view [this applied example](https://github.com/DCMSstats/eesectors/blob/
 
 Anytime someone makes a change to the code, this should be accompanied by testing to check that it works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides users with more assurance and helps those making changes to the code to identify any shortcomings and rectify these. 
 
-While tests can be run when desired, it is better to set them up to run automatically before a github pull request is granted (see [section 18](#18-continuous-integration) on continuous integration). 
+While tests can be run when desired, it is better to set them up to run automatically before a github pull request is granted (see [section 19](#19-continuous-integration) on continuous integration). 
 
 There are two types of test you should consider:
 - unit tests (covered in [section 18](#18-unit-testing)); generally there should be at least one for each function. 
