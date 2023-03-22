@@ -399,7 +399,7 @@ An example R test script is [here](https://github.com/mammykins/regregrap/blob/m
 * A single context() call which provides a brief description of its contents.
 * Data being loaded for the tests to use.
 * Tests being specified using the test_that() functions. Where a test_that() function involves more than one expect_ function, it will only a pass if all expect_ functions produce a TRUE result. Otherwise it will fail.
-* Using the package [stringr](https://stringr.tidyverse.org/) in line with the [Section 7. Making functions work in a package](#7-making-functions-work-in-a-package) guidance.
+* Using the package [stringr](https://stringr.tidyverse.org/) in line with the [Section 8. Making functions work in a package](#8-making-functions-work-in-a-package) guidance.
  
 An example test_that() function is as follows:
 
