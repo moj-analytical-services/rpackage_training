@@ -2,16 +2,17 @@
 title: "Crimes data"
 author: "An Analyst"
 date: "30/11/2020"
-output: 
+output:
   word_document:
     reference_docx: mystyles.docx
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-crimes_raw_data <-read_csv("/home/aidanmews/crimedata.csv")  
+crimes_raw_data <-read_csv("/home/aidanmews/rpackage_training/crimedata.csv")
+# devtools::load_all() 
 # data(crimes_raw_data)
-devtools::load_all() 
 ```
 
 # Trends over time
