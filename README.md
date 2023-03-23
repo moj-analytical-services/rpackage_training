@@ -172,7 +172,7 @@ You can read more about the most important DESCRIPTION fields in the [R Packages
 
 To specify a particular license, make sure the usethis package you have installed is 2.0.0 or greater and run the appropriate command. For example, to use the permissive MIT license used by MoJ (specifying "Crown Copyright (Ministry of Justice)"):  
 
-        use_mit_license("Crown Copyright (Ministry of Justice)")
+        usethis::use_mit_license("Crown Copyright (Ministry of Justice)")
         
 This specifies the license you have chosen in the DESCRIPTION file and also puts a copy of the full license in LICENSE.md and adds this file to .Rbuildignore.
 
