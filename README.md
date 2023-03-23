@@ -180,7 +180,7 @@ This specifies the license you have chosen in the DESCRIPTION file and also puts
 - Title (e.g. Create a Minimal Statistical Bulletin) 
 - Authors@R (e.g. make yourself author and maintainer) 
 - Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) 
-- Package dependency text (specify the minimum version of R needed and the need for ggplot2, dplyr and magrittr).
+- Package dependency text (specify the minimum version of R needed and the need for ggplot2, dplyr, readr and magrittr).
 - Package version to `0.0.1`
 
 Follow up by specifying an MIT license. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
