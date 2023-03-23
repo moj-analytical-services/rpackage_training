@@ -1,16 +1,18 @@
 ---
 title: "Crimes data"
 author: "An Analyst"
-date: "30/11/2020"
+date: "24/03/2023"
 output:
+  html_document:
+    df_print: paged
+  pdf_document: default
   word_document:
     reference_docx: mystyles.docx
-  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-crimes_raw_data <-read_csv("/home/aidanmews/rpackage_training/crimedata.csv")
+crimes_raw_data <-readr::read_csv("crimedata.csv")
 # devtools::load_all() 
 # data(crimes_raw_data)
 ```
