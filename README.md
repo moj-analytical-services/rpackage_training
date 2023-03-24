@@ -286,7 +286,7 @@ It may also be helpful for the script to:
 
 The checks can be run using the code:
 
-    x <- pkgname::file/function_name(dataset_name)
+    x <- file_or_function_name(dataset_name)
 
 **Exercise 13:** Set up automated quality assurance checks on your input data "crimes_raw_data". These should check that the data are in a valid data.frame and contain no missing values To do this, copy rows 38, 53-56, 67-68, 77 and 174 of [the example quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R) into a new R script you can call "crimes_data.R", amend the contents suitably and run the checks. Remember to run devtools::load_all() to see the effect of changes made to your package. Lastly, commit all your changes to git and then push them to github.com. If you have more time, then you could also add checks that the data.frame contains the right number of columns and that these columns have the correct names, and some documentation.
 
