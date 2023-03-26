@@ -388,7 +388,7 @@ To check what percentage of the (relevant) code in your package is currently bei
         devtools::test_coverage()
 
 To develop tests:
-* Create a new R script file in the testthat folder.
+* Select the R script containing the function you want to test, and in the Console run: `usethis::use_test()`
   * There should generally be one R script for each function which will include all the tests you want to run on it.
   * Each test file should be named 'test_[function name].R'.
 * Use the R script to: 
