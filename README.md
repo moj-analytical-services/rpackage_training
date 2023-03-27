@@ -388,7 +388,7 @@ To check what percentage of the (relevant) code in your package is currently bei
         devtools::test_coverage()
 
 To develop tests:
-* Create a new R script file in the testthat folder.
+* Select the R script containing the function you want to test, and in the Console run: `usethis::use_test()`
   * There should generally be one R script for each function which will include all the tests you want to run on it.
   * Each test file should be named 'test_[function name].R'.
 * Use the R script to: 
@@ -403,13 +403,13 @@ An example R test script is [here](https://github.com/mammykins/regregrap/blob/m
  
 An example test_that() function is as follows:
 
-    test_that("Returns vector of length five", {
+    test_that("your_function() Returns object of length five", {
      expect_equal(length(your_function(x)), 5)
     })
 
 Notice that:
-* The first argument is for providing a clear description of the test (in this example "Returns vector of length five") which is displayed to the user when the test is run.
-* Following the first argument, the test itself is specified within curly brackets {} (in this example testing that the returned vector is of length 5). 
+* The first argument is for providing a clear description of the test (in this example "Returns object of length five") which is displayed to the user when the test is run. It also contains the name of the function being tested. This helps with debugging if the test fails.
+* Following the first argument, the test itself is specified within curly brackets {} (in this example testing that the returned object is of length 5). You can include multiple expect_ functions within the curly brackets for each test.
 
 Some frequently used expect_ function examples are:
 * expect_equal(): Checks that two outputs are equal
