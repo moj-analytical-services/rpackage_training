@@ -62,7 +62,7 @@ This training is designed with exercises in each section to enable you to develo
 
 **Exercise 1:** Take a look at the structure of a github repo which contains [an R package](https://github.com/DCMSstats/eesectors) and see if you can recognise the structure described above.
 
-## 2. Choose a name
+## 2. Naming and setting up your package project
 
 Possibly the hardest part of creating a package is choosing a name for it. This should: 
 
@@ -75,21 +75,15 @@ You can read more in the [R Packages section Name your package](https://r-pkgs.o
 
 As we're going to develop a package for the minimal statistical bulletin created as part of the [Introduction to R Markdown](https://github.com/moj-analytical-services/rmarkdown_training), choose a name such as "egnamerap" where the eg is because it's a training exercise, the name is your first name (if your first name is very unique) and the rap because you are going to RAP a minimal statistical bulletin.
 
-**Exercise 2:** Decide what name to call your package
-
-## 3. Create github repository 
-
-To utilise the benefits of version control and to enable other people to download and use your package, it should be created inside a github repository. [This guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/create-project.html#create-a-new-project-in-github) shows you how to do this.
-
-**Exercise 3:** Create a new github repository, following the above guidance. Give the repository the same name as you've decided to call your package (see [section 2](#2-choose-a-name)) and a suitable description (e.g. 'My RAP training exercise'). Add a README file and a .gitignore file but not a license at this stage.
-
-## 4. Make a copy of the project in R Studio
-
-To enable you to make changes to your project using R Studio you can make a copy of your repository in your personal R Studio workspace. Guidance to do this is available [here](https://user-guidance.services.alpha.mojanalytics.xyz/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio). As github.com has changed slightly since this guidance was made, the green button 'Clone or download' is now called 'Code'.
+Once you have decided on a name, you can create a new github repository using it (following [this Analytical Platform guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/create-project.html#create-a-new-project-in-github)), and make a copy of your repository in your personal R Studio workspace (following step 1 of [this Analytical Platform guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) - note as github.com has changed slightly since this guidance was made, the green button 'Clone or download' is now called 'Code'). 
 
 The default branch of an R package GitHub repo should be reserved for working releases of the package. Always make your changes on a different branch then merge to the default branch for each release. 
 
-**Exercise 4:** Follow Step 1 of the guidance to make a copy of your project in R Studio. Create a git branch called `0.0.1` where you can make changes.
+**Exercise 2:** 
+1. Decide what name to call your package
+2. Create a new github repository, giving it your chosen name and a suitable description (e.g. 'My RAP training exercise'). Add a README file and a .gitignore file but not a license at this stage.
+3. Make a copy of your project in R Studio.
+4. Create a git branch called `0.0.1` where you can make changes.
 
 ## 5. Initiate renv
 
