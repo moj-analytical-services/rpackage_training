@@ -1,14 +1,14 @@
-# Developing R packages & RAP ways of working
-This training is designed as an introduction to both making and developing R packages and to integrating the many components of RAP (Reproducible Analytical Pipelines) ways of working. You should first have completed the following training sessions (or reached an equivalent standard to having done so):
+# Developing R packages
+This training is designed as an introduction to making and developing R packages which are important to reproducible ways of working. You should first have completed the following training sessions (or reached an equivalent standard to having done so):
 
+- [Introduction to using R on the Analytical Platform](https://github.com/moj-analytical-services/intro_using_r_on_ap)
 - [Introduction to R](https://github.com/moj-analytical-services/IntroRTraining)
 - [R Charting](https://github.com/moj-analytical-services/ggplotTraining)
-- [Introduction to R Markdown](https://github.com/moj-analytical-services/rmarkdown_training)
 - [Writing functions in R](https://github.com/moj-analytical-services/writing_functions_in_r)
 
 It would also be helpful if you could first make sure you have installed the packages devtools and usethis. If the versions you have are lower than 2.4.2 (devtools) and 2.0.0 (usethis) please upgrade (update) them.
 
-Recordings of these sessions can be viewed on the [MS Stream R Training channel](https://web.microsoftstream.com/channel/aa3cda5d-99d6-4e9d-ac5e-6548dd55f52a). If you have any access problems please contact <aidan.mews@justice.gov.uk> or <georgina.eaton4@justice.gov.uk>.
+Recordings of these sessions can be viewed in the [Analytical Platform and related tools training section on R training](https://moj-analytical-services.github.io/ap-tools-training/ITG.html#r-training). If you have any access problems please contact <aidan.mews@justice.gov.uk> or <georgina.eaton4@justice.gov.uk>.
 
 ## Contents
 
