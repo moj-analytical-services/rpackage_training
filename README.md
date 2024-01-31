@@ -192,6 +192,38 @@ You can learn more about documentation more generally by reading the [R Packages
 
 **Exercise 8:** Follow the above process to add suitable documentation to the function summarise_crimes.R. It may be easiest to copy rows 1-41 from [this example](https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R) and then amend. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com. If you still have time, then do the same for the function that you created in the [section 13](#13-automating-quality-assurance-checks-on-input-data-sets) exercise above.
 
+## 9. Exception handling 
+
+The [Advanced R Conditions chapter](https://adv-r.hadley.nz/conditions.html) states 'The condition system provides a paired set of tools that allow the author of a function to indicate that something unusual is happening, and the user of that function to deal with it'. R has a very powerful condition system which can be used to flag errors, warnings and messages.
+
+A quick way of generating useful feedback is simply by wrapping the function body within the following code: 
+
+    # informative error handling 
+    out <- tryCatch(
+    expr = {
+        
+    # your function body goes here 
+    
+        },  
+    
+    warning = function() {
+    
+        w <- warnings() 
+        warning('Warning produced running function_name():', w) 
+    
+    }, 
+    error = function(e)  {
+    
+        stop('Error produced running function_name():', e) 
+    
+    },
+    finally = {} 
+    )   
+      
+You can view [this applied example](https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R) from the eesectors package. For further information, read the [Advanced R Conditions chapter](https://adv-r.hadley.nz/conditions.html).
+
+**Exercise 9:** Apply the quick way of generating useful feedback to the function summarise_crimes.R and then run it to see what messages are produced. Lastly, commit all your changes to git and then push them to github.com.
+
 ## 10. Excluding sensitive data 
 
 You should not hold any sensitive data in Github.com as they may be accessed by others. To prevent you accidentally pushing any sensitive data to Github.com: 
@@ -296,38 +328,6 @@ The checks can be run using the code:
     x <- file_or_function_name(dataset_name)
 
 **Exercise 13:** Set up automated quality assurance checks on your input data "crimes_raw_data". These should check that the data are in a valid data.frame and contain no missing values To do this, copy rows 38, 53-56, 67-68, 77 and 174 of [the example quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R) into a new R script you can call "crimes_data.R", amend the contents suitably and run the checks. Remember to run devtools::load_all() to see the effect of changes made to your package. Lastly, commit all your changes to git and then push them to github.com. If you have more time, then you could also add checks that the data.frame contains the right number of columns and that these columns have the correct names, and some documentation.
-
-## 16. Using the condition system for functions 
-
-The [Advanced R Conditions chapter](https://adv-r.hadley.nz/conditions.html) states 'The condition system provides a paired set of tools that allow the author of a function to indicate that something unusual is happening, and the user of that function to deal with it'. R has a very powerful condition system which can be used to flag errors, warnings and messages.
-
-A quick way of generating useful feedback is simply by wrapping the function body within the following code: 
-
-    # informative error handling 
-    out <- tryCatch(
-    expr = {
-        
-    # your function body goes here 
-    
-        },  
-    
-    warning = function() {
-    
-        w <- warnings() 
-        warning('Warning produced running function_name():', w) 
-    
-    }, 
-    error = function(e)  {
-    
-        stop('Error produced running function_name():', e) 
-    
-    },
-    finally = {} 
-    )   
-      
-You can view [this applied example](https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R) from the eesectors package. For further information, read the [Advanced R Conditions chapter](https://adv-r.hadley.nz/conditions.html).
-
-**Exercise 16:** Apply the quick way of generating useful feedback to the function summarise_crimes.R and then run it to see what messages are produced. Lastly, commit all your changes to git and then push them to github.com.
 
 ## 17. Testing your code 
 
