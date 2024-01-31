@@ -47,12 +47,7 @@ Lastly, if you are able to, it may also help to make use of dual screens (your l
 
 ## 1. Introduction
 
-This training is based on Matthew Gregory's free online course [Reproducible Analytical Pipelines (RAP) using R](https://www.udemy.com/reproducible-analytical-pipelines/) and Hadley Wickham's book [R Packages](http://r-pkgs.had.co.nz/)
-
-The goal of this training is two fold: 
-
-- To enable you to integrate the many components of RAP ways of working into your projects. Even if you are coding a one-off product rather than automating a task, integrating RAP ways of working still have large benefits. They increase transparency and trust in statistics, quality and quality management, and accessibility of code and data - see pages 11-16 of the [OSR Review - RAP: Overcoming barriers to adoption](https://osr.statisticsauthority.gov.uk/wp-content/uploads/2021/03/Reproducible-Analytical-Pipelines-Overcoming-barriers-to-adoption-1.pdf) 
-- To teach you how to make and develop packages. These are not difficult to make but enable others to easily use your code and have time saving conventions that you can follow (e.g. to organise code). The latter can be very beneficial to use in projects even if you are not making packages. 
+This training is based on Hadley Wickham's book [R Packages](http://r-pkgs.had.co.nz/). The goal of it is to teach you how to make and develop packages. These are not difficult to make but enable others to easily use your code (increasing efficiency, reducing the maintenance burden, and also helping improve quality) and have time saving conventions that you can follow (e.g. to organise code). The latter can be very beneficial to use in projects even if you are not making packages. 
  
 Hadley Wickham's [R Packages introduction](https://r-pkgs.org/introduction.html) states: "In R, the fundamental unit of shareable code is the package. A package bundles together code, data, documentation, and tests, and is easy to share with others." The directory structure of an R package is typically as follows: 
 
@@ -63,7 +58,7 @@ Hadley Wickham's [R Packages introduction](https://r-pkgs.org/introduction.html)
 - dependency management may be in the associated directory e.g. 'renv' if using renv; and 
 - templates on how to use the package are in 'vignettes'.
 
-This training is designed with exercises in each section to enable you to develop a package and integrate RAP ways of working for the minimal statistical bulletin created as part of the [Introduction to Rmarkdown](https://github.com/moj-analytical-services/rmarkdown_training). The files to do this are all included in this repository. You can then apply the same skills to your real life publications.
+This training is designed with exercises in each section to enable you to develop a package. The files to do this are all included in this repository.
 
 **Exercise 1:** Take a look at the structure of a github repo which contains [an R package](https://github.com/DCMSstats/eesectors) and see if you can recognise the structure described above.
 
