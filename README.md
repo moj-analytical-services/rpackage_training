@@ -85,33 +85,7 @@ The default branch of an R package GitHub repo should be reserved for working re
 3. Make a copy of your project in R Studio.
 4. Create a git branch called `0.0.1` where you can make changes.
 
-## 5. Initiate renv
-
-The DESCRIPTION Depends and Imports fields list the external packages that your package needs together with the versions required. However, it is still possible that problems may surface, for instance where one package clashes with another. The use of [renv](https://cran.r-project.org/web/packages/renv/vignettes/renv.html) enables each project to have its' own project-local library.
-
-To install renv: 
-
-        install.packages("renv")
-
-You will also need to add the renv package to your package DESCRIPTION file imports list - see section [9. Amend the DESCRIPTION file](#9-amend-the-DESCRIPTION-file).
-
-You can now use renv to fork (or copy) the state of your default R libraries into a project local library and create (or amend) a project-local .Rprofile which is then used by new R sessions to ensure the project-local library is used: 
-
-        renv::init()
-
-The state of your project-local libraries can also be:
-
-* saved (renv::snapshot()) - this will record the latest set of package dependencies used by your package. A snapshot should be taken any time you start relying on/using a new package dependency, or update the versions that your package is running from. This enables benefits from renv::restore to be realised, as per below.
-
-* loaded (renv::restore()) - when new developers start working on the package, they can easily sync up with the latest dependency versions being used by the package. You can return to a project in the future with a record of the packages originally used to run it, and this also ensures all collaborators are working with the exact same set of packages.
-
-For more information on renv please see [this Coffee and Coding introduction to renv](https://web.microsoftstream.com/video/3ec54ac3-473c-4268-9d54-9f7096338824?channelId=f6aa6c5d-e90c-44b7-8ccc-28a318fa0630).
-
-The function `renv::install()` has [special behavior](https://rstudio.github.io/renv/articles/packages.html) in a package development context and will install packages listed in the DESCRIPTION file.
-
-**Exercise 5:** Following the above steps, install and initiate renv in your package repo.
-
-## 6. Create the package 
+## 3. Create the package 
 
 A repository can easily be converted into a package using R Studio. Assuming you have already installed the package usethis ([see the opening paragraph of this README](#developing-r-packages--rap-ways-of-working)), run the following command and select the option to overwrite what is already there:
 
@@ -119,7 +93,7 @@ A repository can easily be converted into a package using R Studio. Assuming you
 
 After completing this process the 'Files' window will show additions to the project directory.
 
-**Exercise 6:** Follow the above steps, inserting the correct directory path and package name within the create_package command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 of [this guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/rstudio-git.html#work-with-git-in-rstudio) to commit all your changes to git and then push them to github.com. If you refresh your github.com repository page you should now see the additions there.
+**Exercise 3:** Follow the above steps, inserting the correct directory path and package name within the create_package command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 of [this guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/rstudio-git.html#work-with-git-in-rstudio) to commit all your changes to git and then push them to github.com. If you refresh your github.com repository page you should now see the additions there.
 
 ## 7. Add R and Rmarkdown code 
 
