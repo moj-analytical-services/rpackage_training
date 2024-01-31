@@ -308,27 +308,6 @@ Documenting functions is covered in [section 15](#15-documenting-functions). You
 
 **Exercise 12:** Create an data.R file in your R folder and paste in the first 22 rows from the example eesectors package [data.R file](https://github.com/DCMSstats/eesectors/blob/master/R/data.R). Amend the contents, generate nice looking documentation, and then take a look at it (using the help facility). Lastly, commit all your changes to git and then push them to github.com. 
 
-## 13. Automating quality assurance checks on input data sets
-
-While input data may already have been quality assured prior to being loaded into the package, it is best practice to set up automated quality assurance checks on these data. As well as being able to flag up inconsistencies, these checks should ensure that the data loaded are in the expected format and structure. This reduces the likelihood of loading data which are incompatible with the code in the package, and ensures the same checks are carried out every time.
-
-You can view an example [quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R) from the eesectors package. The roxygen2 documentation appears at the top of the file. The checks include:
-- the correct columns are present in the data. 
-- that the number of rows is as expected. 
-
-It may also be helpful for the script to:
-
-- produce some charts to enable the user to check the data visually.  
-- add name lookups so any charts produced have nice labels (e.g. the first letter being a capital and the others being lower case).
-- drop any variables that won't be needed.
-- create the final dataset of class 'file/function_name' as done at the end of [the example quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R). (Everything in R is an object and many objects have a class attribute, representing the set of properties or methods that are common to all objects of this type.) 
-
-The checks can be run using the code:
-
-    x <- file_or_function_name(dataset_name)
-
-**Exercise 13:** Set up automated quality assurance checks on your input data "crimes_raw_data". These should check that the data are in a valid data.frame and contain no missing values To do this, copy rows 38, 53-56, 67-68, 77 and 174 of [the example quality assurance R script](https://github.com/ukgovdatascience/eesectors/blob/master/R/year_sector_data.R) into a new R script you can call "crimes_data.R", amend the contents suitably and run the checks. Remember to run devtools::load_all() to see the effect of changes made to your package. Lastly, commit all your changes to git and then push them to github.com. If you have more time, then you could also add checks that the data.frame contains the right number of columns and that these columns have the correct names, and some documentation.
-
 ## 17. Testing your code 
 
 Anytime someone makes a change to the code, this should be accompanied by testing to check that it works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides users with more assurance and helps those making changes to the code to identify any shortcomings and rectify these. 
