@@ -95,6 +95,41 @@ After completing this process the 'Files' window will show additions to the proj
 
 **Exercise 3:** Follow the above steps, inserting the correct directory path and package name within the create_package command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 of [this guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/rstudio-git.html#work-with-git-in-rstudio) to commit all your changes to git and then push them to github.com. If you refresh your github.com repository page you should now see the additions there.
 
+## 4. Amend the DESCRIPTION file
+
+The DESCRIPTION file is one of the files automatically created when you run the create package command. It provides important metadata about the package including declaring the external functions your package imports from other packages and the functions your package exports for external use. You can click on the DESCRIPTION filename in the R Studio files window and then amend it as appropriate. 
+
+An example of an amended DESCRIPTION file [is provided here](https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION). The formatting is important. Each line consists of a field name and a value, separated by a colon. Where values span multiple lines, they need to be indented. In particular:
+
+- The Title is a one line description of the package - keep this short, with suitable use of capitals and less than 65 characters.
+- The Version should be amended when you update the package
+- The Authors@R field makes use of a three letter code to specify the various roles, the most useful being:
+   - cre: the package maintainer; the person you should contact if you have a problem.
+   - aut: authors; those who have made significant contributions to the package.
+   - ctb: contributors; those who have made smaller contributions, like patches.
+   - cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
+- The Description is more detailed than the Title - one paragraph with each line being up to 80 characters.
+- The License determines who can use your code and for what purpose. Without a license, the code is copyrighted by default; to use it, you must contact the author directly and ask permission. You can read more about licensing in the [R Packages Licensing chapter](https://r-pkgs.org/license.html). At MoJ we use the MIT License -  see [Analytical Platofrm User Guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/create-project.html#licence).
+- The Imports field must contain all the other packages that your package uses. Unless you have the knowledge to do something different, you should assume that the package version needs to be greater than or equal to the version you're currently using. You can add a package to the Imports field with `usethis::use_package("package_name")`.
+- The Suggests field can contain packages that are not required for basic functionality but allow enhanced features such as vignettes or are useful during package development. You can, for example, add `devtools` to your Suggests field with `usethis::use_package("devtools", type = "Suggests")`
+
+You can read more about the most important DESCRIPTION fields in the [R Packages Package metadata chapter](https://r-pkgs.org/description.html). 
+
+To specify a particular license, make sure the usethis package you have installed is 2.0.0 or greater and run the appropriate command. For example, to use the permissive MIT license used by MoJ (specifying "Crown Copyright (Ministry of Justice)"):  
+
+        usethis::use_mit_license("Crown Copyright (Ministry of Justice)")
+        
+This specifies the license you have chosen in the DESCRIPTION file and also puts a copy of the full license in LICENSE.md and adds this file to .Rbuildignore.
+
+**Exercise 4:** Amend the DESCRIPTION file, specifically the: 
+- Title (e.g. Create a Minimal Statistical Bulletin) 
+- Authors@R (e.g. make yourself author and maintainer) 
+- Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) 
+- Package dependency text (specify the minimum version of R needed and the need for ggplot2, dplyr, readr and magrittr).
+- Package version to `0.0.1`
+
+Follow up by specifying an MIT license. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+
 ## 7. Add R and Rmarkdown code 
 
 Code can be added to a package by saving the R file to the package R directory and the R Markdown file to the package home directory. This can be done in R Studio by saving the files directly (e.g. using the 'Save As' option if they are in a different location), or by using the move/copy GUI options in RStudio. 
@@ -122,41 +157,6 @@ Doing this inside a package would cause the dplyr library to be loaded into the 
 You will also, instead of using the library() command, need to add any packages you use to your own package's DESCRIPTION file to ensure they are available without causing unexpected effects to anyone who downloads your package. This is covered in [section 9](#9-amend-the-DESCRIPTION-file).   
 
 **Exercise 8:** Add the summarise_crimes.R file from this repository to your package. Open the file and have a look at this function which provides the average number of crimes for the selected years; at the moment the package dplyr is not called correctly. Amend this code so it will work as expected for other users (which it will later after you have added dplyr to your package's DESCRIPTION file (a task in [section 9](#9-amend-the-DESCRIPTION-file))) by removing the "library()" call and calling the two dplyr functions (filter and summarise) specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
-
-## 9. Amend the DESCRIPTION file
-
-The DESCRIPTION file is one of the files automatically created when you run the create package command. It provides important metadata about the package including declaring the external functions your package imports from other packages and the functions your package exports for external use. You can click on the DESCRIPTION filename in the R Studio files window and then amend it as appropriate. 
-
-An example of an amended DESCRIPTION file [is provided here](https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION). The formatting is important. Each line consists of a field name and a value, separated by a colon. Where values span multiple lines, they need to be indented. In particular:
-
-- The Title is a one line description of the package - keep this short, with suitable use of capitals and less than 65 characters.
-- The Version should be amended when you update the package
-- The Authors@R field makes use of a three letter code to specify the various roles, the most useful being:
-   - cre: the package maintainer; the person you should contact if you have a problem.
-   - aut: authors; those who have made significant contributions to the package.
-   - ctb: contributors; those who have made smaller contributions, like patches.
-   - cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
-- The Description is more detailed than the Title - one paragraph with each line being up to 80 characters.
-- The License determines who can use your code and for what purpose. Without a license, the code is copyrighted by default; to use it, you must contact the author directly and ask permission. You can read more about licensing in the [R Packages Licensing chapter](https://r-pkgs.org/license.html). At MoJ we use the MIT License -  see [Analytical Platofrm User Guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/create-project.html#licence).
-- The Imports field must contain all the other packages that your package uses. Unless you have the knowledge to do something different, you should assume that the package version needs to be greater than or equal to the version you're currently using. You can add a package to the Imports field with `usethis::use_package("package_name")`.
-- The Suggests field can contain packages that are not required for basic functionality but allow enhanced features such as vignettes or are useful during package development. You can, for example, add `devtools` to your Suggests field with `usethis::use_package("devtools", type = "Suggests")`
-
-You can read more about the most important DESCRIPTION fields in the [R Packages Package metadata chapter](https://r-pkgs.org/description.html). 
-
-To specify a particular license, make sure the usethis package you have installed is 2.0.0 or greater and run the appropriate command. For example, to use the permissive MIT license used by MoJ (specifying "Crown Copyright (Ministry of Justice)"):  
-
-        usethis::use_mit_license("Crown Copyright (Ministry of Justice)")
-        
-This specifies the license you have chosen in the DESCRIPTION file and also puts a copy of the full license in LICENSE.md and adds this file to .Rbuildignore.
-
-**Exercise 9:** Amend the DESCRIPTION file, specifically the: 
-- Title (e.g. Create a Minimal Statistical Bulletin) 
-- Authors@R (e.g. make yourself author and maintainer) 
-- Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) 
-- Package dependency text (specify the minimum version of R needed and the need for ggplot2, dplyr, readr and magrittr).
-- Package version to `0.0.1`
-
-Follow up by specifying an MIT license. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ## 10. Excluding sensitive data 
 
