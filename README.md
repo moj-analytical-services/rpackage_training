@@ -130,17 +130,17 @@ This specifies the license you have chosen in the DESCRIPTION file and also puts
 
 Follow up by specifying an MIT license. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
-## 7. Add R and Rmarkdown code 
+## 5. Add R and Rmarkdown code 
 
 Code can be added to a package by saving the R file to the package R directory and the R Markdown file to the package home directory. This can be done in R Studio by saving the files directly (e.g. using the 'Save As' option if they are in a different location), or by using the move/copy GUI options in RStudio. 
 
 If the files are in github.com but not R Studio you have two main options to get them into R Studio. 
-* Clone the relevant repository (as shown in [section 4](#4-make-a-copy-of-the-project-in-R-Studio)). 
-* If there are only a few files you could click the green github 'Code' button (as in [section 4](#4-make-a-copy-of-the-project-in-R-Studio) above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
+* Clone the relevant repository (as shown in [section 2](#2-choose-a-name)). 
+* If there are only a few files you could click the green github 'Code' button (as in [section 2](#2-choose-a-name) above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
 
-**Exercise 7:** Add the crimesdata_pub.Rmd file and also the mystyles.docx file (which crimesdata_pub.Rmd calls on) from this repository to your package home directory. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+**Exercise 5:** Add the crimesdata_pub.Rmd file and also the mystyles.docx file (which crimesdata_pub.Rmd calls on) from this repository to your package home directory. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
-## 8. Making functions work in a package
+## 6. Making functions work in a package
 
 While the format of code inside a package is very similar to "normal R code", it is particularly important to properly reference functions that you are using from other packages. This won't affect how your code runs, but it will ensure that others code works correctly when they use your package.
 
@@ -154,9 +154,9 @@ Doing this inside a package would cause the dplyr library to be loaded into the 
 
         data %>% dplyr::filter(Year == 2020)
 
-You will also, instead of using the library() command, need to add any packages you use to your own package's DESCRIPTION file to ensure they are available without causing unexpected effects to anyone who downloads your package. This is covered in [section 9](#9-amend-the-DESCRIPTION-file).   
+You will also, instead of using the library() command, need to add any packages you use to your own package's DESCRIPTION file to ensure they are available without causing unexpected effects to anyone who downloads your package. This was covered in [section 4](#4-amend-the-DESCRIPTION-file).   
 
-**Exercise 8:** Add the summarise_crimes.R file from this repository to your package. Open the file and have a look at this function which provides the average number of crimes for the selected years; at the moment the package dplyr is not called correctly. Amend this code so it will work as expected for other users (which it will later after you have added dplyr to your package's DESCRIPTION file (a task in [section 9](#9-amend-the-DESCRIPTION-file))) by removing the "library()" call and calling the two dplyr functions (filter and summarise) specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+**Exercise 6:** Add the summarise_crimes.R file from this repository to your package. Open the file and have a look at this function which provides the average number of crimes for the selected years; at the moment the package dplyr is not called correctly. Amend this code so it will work as expected for other users (which it will later after you have added dplyr to your package's DESCRIPTION file (a task in [section 4](#4-amend-the-DESCRIPTION-file))) by removing the "library()" call and calling the two dplyr functions (filter and summarise) specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ## 10. Excluding sensitive data 
 
