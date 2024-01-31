@@ -62,7 +62,7 @@ This training is designed with exercises in each section to enable you to develo
 
 **Exercise 1:** Take a look at the structure of a github repo which contains [an R package](https://github.com/DCMSstats/eesectors) and see if you can recognise the structure described above.
 
-## 2. Naming and setting up your package project
+## 2. Naming and setting up your project
 
 Possibly the hardest part of creating a package is choosing a name for it. This should: 
 
