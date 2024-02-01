@@ -22,28 +22,33 @@ Lastly, if you are able to, it may also help to make use of dual screens (your l
 
 ## Contents
 
+[Package overview ](#package-overview)
 * [1. Introduction](#1-introduction)
-* [2. Choose a name](#2-choose-a-name)
-* [3. Create github repository](#3-create-github-repository)
-* [4. Make a copy of the project in R Studio](#4-make-a-copy-of-the-project-in-R-Studio)
-* [5. Initiate renv](#5-initiate-renv)
-* [6. Create the package](#6-create-the-package)
-* [7. Add R and Rmarkdown code](#7-add-R-and-Rmarkdown-code)
-* [8. Making functions work in a package](#8-making-functions-work-in-a-package)
-* [9. Amend the DESCRIPTION file](#9-amend-the-DESCRIPTION-file)
-* [10. Excluding sensitive data](#10-excluding-sensitive-data)
-* [11. Adding data in rda format](#11-adding-data-in-rda-format)
-* [12. Adding documentation about package data](#12-adding-documentation-about-package-data)
-* [13. Automating quality assurance checks on input data sets](#13-automating-quality-assurance-checks-on-input-data-sets)
-* [14. Developing functions](#14-developing-functions)
-* [15. Documenting functions](#15-documenting-functions)
-* [16. Using the condition system for functions](#16-using-the-condition-system-for-functions)
-* [17. Testing your code](#17-testing-your-code)
-* [18. Unit testing](#18-unit-testing)
-* [19. Continuous integration](#19-continuous-integration)
-* [20. Adding a NEWS file](#20-adding-a-news-file)
-* [21. Installing and using your package](#21-installing-and-using-your-package)
-* [22. Managing releases and future changes to your package](#22-managing-releases-and-future-changes-to-your-package)
+* [2. Naming and setting up your project](#2-naming-and-setting-up-your-project)
+[Package structure](#package-structure)
+* [3. Create the package](#3-create-the-package)
+* [4. Amend the DESCRIPTION file](#4-amend-the-DESCRIPTION-file)
+[Adding functions](#adding-functions)
+* [5. Developing functions](#5-developing-functions)
+* [6. Add R and Rmarkdown code](#6-add-R-and-Rmarkdown-code)
+* [7. Making functions work in a package](#7-making-functions-work-in-a-package)
+* [8. Documenting functions](#8-documenting-functions) 
+[Exception handling](#exception-handling)
+* [9. Using the condition system for functions](#9-using-the-condition-system-for-functions)
+[Testing code](#testing-code)
+* [10. Testing your code](#10-testing-your-code)
+* [11. Unit testing](#11-unit-testing)
+[Releasing a package](#releasing-a-package)
+* [12. Checking your package](#12-checking-your-package)
+* [13. Managing releases and future changes to your package](#13-managing-releases-and-future-changes-to-your-package)
+* [14. Installing and using your package](#14-installing-and-using-your-package)
+[Maintenance cycle](#maintenance-cycle)
+* [15. Adding a NEWS file](#15-adding-a-news-file)
+* [16. Continuous integration](#16-continuous-integration)
+[Annex](#annex)
+* [A1. Excluding sensitive data](#a1-excluding-sensitive-data)
+* [A2. Adding data in rda format](#a2-adding-data-in-rda-format)
+* [A3. Adding documentation about package data](#a3-adding-documentation-about-package-data)
 
 ## Package overview 
 
@@ -200,7 +205,7 @@ You can learn more about documentation more generally by reading the [R Packages
 
 ## Exception handling
 
-### 9. Exception handling 
+### 9. Using the condition system for functions 
 
 The [Advanced R Conditions chapter](https://adv-r.hadley.nz/conditions.html) states 'The condition system provides a paired set of tools that allow the author of a function to indicate that something unusual is happening, and the user of that function to deal with it'. R has a very powerful condition system which can be used to flag errors, warnings and messages.
 
