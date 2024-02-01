@@ -23,8 +23,8 @@ Lastly, if you are able to, it may also help to make use of dual screens (your l
 ## Contents
 
 * [Package overview](#package-overview)
-                + [1. Introduction](#1-introduction)
-                + [2. Naming and setting up your project](#2-naming-and-setting-up-your-project)
+   + [1. Introduction](#1-introduction)
+   + [2. Naming and setting up your project](#2-naming-and-setting-up-your-project)
 * [Package structure](#package-structure)
 * [3. Create the package](#3-create-the-package)
 * [4. Amend the DESCRIPTION file](#4-amend-the-DESCRIPTION-file)
