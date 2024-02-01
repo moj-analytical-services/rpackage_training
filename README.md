@@ -45,7 +45,7 @@ Lastly, if you are able to, it may also help to make use of dual screens (your l
 * [21. Installing and using your package](#21-installing-and-using-your-package)
 * [22. Managing releases and future changes to your package](#22-managing-releases-and-future-changes-to-your-package)
 
-## Package Overview 
+## Package overview 
 
 ### 1. Introduction
 
@@ -319,7 +319,7 @@ To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
 
 ## Releasing a package
 
-### 19. Continuous integration
+### 12. Continuous integration
 
 Continuous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
 
@@ -337,17 +337,21 @@ This automatically puts a status badge in your README. You can provide extra sec
 
 You can read further about automating checking in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html).
 
-**Exercise 19**: Run the R CMD tests on your code and resolve any error messages. Then setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
+**Exercise 12**: Run the R CMD tests on your code and resolve any error messages. Then setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
 
-## Maintenance cycle
+### 13. Managing releases and future changes to your package
 
-### 20. Adding a NEWS file
+Keep the default branch of your repo for the most recent working release of your package. 
 
-The NEWS markdown file functions as a changelog for your package. It must be updated every time you make changes to your package.
+Never release changes to your package without updating the version number.
 
-**Exercise 20**: Add a NEWS file to your package (`usethis::use_news_md()`). 
+Use [semantic versioning](https://semver.org/).
 
-### 21. Installing and using your package
+[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) are a great way to mange the versions of your package. Every time you release an updated version of your package, include a GitHub release. This way if you ever need an older version of your package it is very easy to install using the GitHub Release Tag. 
+
+**Exercise 13**: Create a GitHub Release for your package
+
+### 14. Installing and using your package
 
 Congratulations, you have successfully produced a working package in R! Open a pull request and merge it to the main branch.
 
@@ -365,19 +369,15 @@ With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where 
     
     renv::install("git@github.com:moj-analytical-services/mojrap.git@v1.0.1")
     
-**Exercise 21**: Try installing your completed package!
+**Exercise 14**: Try installing your completed package!
 
-### 22. Managing releases and future changes to your package
+## Maintenance cycle
 
-Keep the default branch of your repo for the most recent working release of your package. 
+### 15. Adding a NEWS file
 
-Never release changes to your package without updating the version number.
+The NEWS markdown file functions as a changelog for your package. It must be updated every time you make changes to your package.
 
-Use [semantic versioning](https://semver.org/).
-
-[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) are a great way to mange the versions of your package. Every time you release an updated version of your package, include a GitHub release. This way if you ever need an older version of your package it is very easy to install using the GitHub Release Tag. 
-
-**Exercise 22**: Create a GitHub Release for your package
+**Exercise 15**: Add a NEWS file to your package (`usethis::use_news_md()`). 
 
 ## Annex
 
