@@ -365,6 +365,8 @@ Use [semantic versioning](https://semver.org/).
 
 **Exercise 22**: Create a GitHub Release for your package
 
+# Annex
+
 ## A1. Excluding sensitive data 
 
 You should not hold any sensitive data in Github.com as they may be accessed by others. To prevent you accidentally pushing any sensitive data to Github.com: 
