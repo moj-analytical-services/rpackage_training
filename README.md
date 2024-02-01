@@ -319,25 +319,15 @@ To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
 
 ## Releasing a package
 
-### 12. Continuous integration
+### 12. Checking your package
 
-Continuous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
-
-Before setting up this automation, it's worth first enhancing the quality of your package by running the R CMD tests (which can take a long time at first as there may be many error messages) and fixing any problems. To do this: 
+Before releasing your package, you can check it by running the R CMD tests which include over 50 individual checks for common problems, and fix any problems. This can take a long time at first as there may be many error messages. To do this: 
 
 1. Run devtools::check()  
 2. Fix each problem. You should definitely fix the errors, try to eliminate the warnings (essential if submitting to CRAN), and ideally eliminate all notes. To understand more about a problem, look it up in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html). It may also be useful to look at [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html), and at code that has passed the test (e.g. [the eesectors package](https://github.com/DCMSstats/eesectors)). 
 3. Rerun 
 
-To setup continuous integration using GitHub Actions: 
-
-        usethis::use_github_actions()
-
-This automatically puts a status badge in your README. You can provide extra security for your master branch by going to github settings, then Branches, and 'Require pull request reviews before merging' and 'Require status checks to pass before merging'.
-
-You can read further about automating checking in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html).
-
-**Exercise 12**: Run the R CMD tests on your code and resolve any error messages. Then setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
+**Exercise 12**: Run the R CMD tests on your code and resolve any error messages. Then commit all your changes to git and then push them to github.com.
 
 ### 13. Managing releases and future changes to your package
 
@@ -378,6 +368,22 @@ With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where 
 The NEWS markdown file functions as a changelog for your package. It must be updated every time you make changes to your package.
 
 **Exercise 15**: Add a NEWS file to your package (`usethis::use_news_md()`). 
+
+### 16. Continuous integration
+
+Continuous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
+
+Before setting up this automation, you should have fixed any problems identified by running the R CMD tests - see [Section 12. Checking your package](#12-hecking-your-package).
+
+To setup continuous integration using GitHub Actions: 
+
+        usethis::use_github_actions()
+
+This automatically puts a status badge in your README. You can provide extra security for your master branch by going to github settings, then Branches, and 'Require pull request reviews before merging' and 'Require status checks to pass before merging'.
+
+You can read further about automating checking in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html).
+
+**Exercise 16**: Setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
 
 ## Annex
 
