@@ -45,7 +45,7 @@ Lastly, if you are able to, it may also help to make use of dual screens (your l
 * [21. Installing and using your package](#21-installing-and-using-your-package)
 * [22. Managing releases and future changes to your package](#22-managing-releases-and-future-changes-to-your-package)
 
-## 1. Introduction
+### 1. Introduction
 
 This training is based on Hadley Wickham's book [R Packages](http://r-pkgs.had.co.nz/). The goal of it is to teach you how to make and develop packages. These are not difficult to make but enable others to easily use your code (increasing efficiency, reducing the maintenance burden, and also helping improve quality) and have time saving conventions that you can follow (e.g. to organise code). The latter can be very beneficial to use in projects even if you are not making packages. 
  
@@ -62,7 +62,7 @@ This training is designed with exercises in each section to enable you to develo
 
 **Exercise 1:** Take a look at the structure of a github repo which contains [an R package](https://github.com/DCMSstats/eesectors) and see if you can recognise the structure described above.
 
-## 2. Naming and setting up your project
+### 2. Naming and setting up your project
 
 Possibly the hardest part of creating a package is choosing a name for it. This should: 
 
@@ -85,7 +85,7 @@ The default branch of an R package GitHub repo should be reserved for working re
 3. Make a copy of your project in R Studio.
 4. Create a git branch called `0.0.1` where you can make changes.
 
-## 3. Create the package 
+### 3. Create the package 
 
 A repository can easily be converted into a package using R Studio. Assuming you have already installed the package usethis ([see the opening paragraph of this README](#developing-r-packages--rap-ways-of-working)), run the following command and select the option to overwrite what is already there:
 
@@ -95,7 +95,7 @@ After completing this process the 'Files' window will show additions to the proj
 
 **Exercise 3:** Follow the above steps, inserting the correct directory path and package name within the create_package command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 of [this guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/rstudio-git.html#work-with-git-in-rstudio) to commit all your changes to git and then push them to github.com. If you refresh your github.com repository page you should now see the additions there.
 
-## 4. Amend the DESCRIPTION file
+### 4. Amend the DESCRIPTION file
 
 The DESCRIPTION file is one of the files automatically created when you run the create package command. It provides important metadata about the package including declaring the external functions your package imports from other packages and the functions your package exports for external use. You can click on the DESCRIPTION filename in the R Studio files window and then amend it as appropriate. 
 
@@ -130,7 +130,7 @@ This specifies the license you have chosen in the DESCRIPTION file and also puts
 
 Follow up by specifying an MIT license. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
-## 5. Developing functions
+### 5. Developing functions
 
 Why, when and how to write your own functions is covered by the [Writing functions in R](https://github.com/moj-analytical-services/writing_functions_in_r) training. As this states, functions are a way to bundle up bits of code to make them easy to reuse. They can save you time, reduce the risk of errors, and make your code easier to understand. When commencing a project, you should:
 
@@ -140,7 +140,7 @@ Why, when and how to write your own functions is covered by the [Writing functio
 
 **Exercise 5**: Consider (by looking at crimesdata_pub.Rmd) whether it would be beneficial to incorporate any extra functions into your minimal statistical bulletin package (in addition to the summarise_crimes function provided by summarise_crimes.R)? Do you consider the summarise_crimes function beneficial?
 
-## 6. Add R and Rmarkdown code 
+### 6. Add R and Rmarkdown code 
 
 Code can be added to a package by saving the R file to the package R directory and the R Markdown file to the package home directory. This can be done in R Studio by saving the files directly (e.g. using the 'Save As' option if they are in a different location), or by using the move/copy GUI options in RStudio. 
 
@@ -150,7 +150,7 @@ If the files are in github.com but not R Studio you have two main options to get
 
 **Exercise 6:** Add the crimesdata_pub.Rmd file and also the mystyles.docx file (which crimesdata_pub.Rmd calls on) from this repository to your package home directory. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
-## 7. Making functions work in a package
+### 7. Making functions work in a package
 
 While the format of code inside a package is very similar to "normal R code", it is particularly important to properly reference functions that you are using from other packages. This won't affect how your code runs, but it will ensure that others code works correctly when they use your package.
 
@@ -168,7 +168,7 @@ You will also, instead of using the library() command, need to add any packages 
 
 **Exercise 7:** Add the summarise_crimes.R file from this repository to your package. Open the file and have a look at this function which provides the average number of crimes for the selected years; at the moment the package dplyr is not called correctly. Amend this code so it will work as expected for other users (which it will later after you have added dplyr to your package's DESCRIPTION file (a task in [section 4](#4-amend-the-DESCRIPTION-file))) by removing the "library()" call and calling the two dplyr functions (filter and summarise) specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
-## 8. Documenting functions
+### 8. Documenting functions
 
 Documentation is really important so users know how to use the package, and package managers and developers can quickly get up to speed. It should therefore be embedded within the package in such a way that it is easily available to all users. Best practice is for documentation about:
  
@@ -192,7 +192,7 @@ You can learn more about documentation more generally by reading the [R Packages
 
 **Exercise 8:** Follow the above process to add suitable documentation to the function summarise_crimes.R. It may be easiest to copy rows 1-41 from [this example](https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R) and then amend. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com. If you still have time, then do the same for the function that you created in the [section 13](#13-automating-quality-assurance-checks-on-input-data-sets) exercise above.
 
-## 9. Exception handling 
+### 9. Exception handling 
 
 The [Advanced R Conditions chapter](https://adv-r.hadley.nz/conditions.html) states 'The condition system provides a paired set of tools that allow the author of a function to indicate that something unusual is happening, and the user of that function to deal with it'. R has a very powerful condition system which can be used to flag errors, warnings and messages.
 
@@ -224,7 +224,7 @@ You can view [this applied example](https://github.com/DCMSstats/eesectors/blob/
 
 **Exercise 9:** Apply the quick way of generating useful feedback to the function summarise_crimes.R and then run it to see what messages are produced. Lastly, commit all your changes to git and then push them to github.com.
 
-## 10. Testing your code 
+### 10. Testing your code 
 
 Anytime someone makes a change to the code, this should be accompanied by testing to check that it works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides users with more assurance and helps those making changes to the code to identify any shortcomings and rectify these. 
 
@@ -238,7 +238,7 @@ As testing can have no end to it, it is recommended that you start by considerin
 
 **Exercise 10**: Consider whether it could be beneficial to create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but be much smaller (e.g. only two or three rows).
 
-## 11. Unit testing
+### 11. Unit testing
 
 Unit testing can be easily automated using the [testthat package](https://testthat.r-lib.org/). This:
 * Provides a user friendly way of specifying tests that determine whether a function has run as expected (e.g. returns a particular value).
@@ -307,7 +307,7 @@ To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
    * Run devtools::test_coverage() to check what percentage of (relevant) code in your package is now being tested.
 6) Lastly, commit all your changes to git and then push them to github.com.
 
-## 19. Continuous integration
+### 19. Continuous integration
 
 Continuous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
 
@@ -327,13 +327,13 @@ You can read further about automating checking in [R Packages Automated Checking
 
 **Exercise 19**: Run the R CMD tests on your code and resolve any error messages. Then setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
 
-## 20. Adding a NEWS file
+### 20. Adding a NEWS file
 
 The NEWS markdown file functions as a changelog for your package. It must be updated every time you make changes to your package.
 
 **Exercise 20**: Add a NEWS file to your package (`usethis::use_news_md()`). 
 
-## 21. Installing and using your package
+### 21. Installing and using your package
 
 Congratulations, you have successfully produced a working package in R! Open a pull request and merge it to the main branch.
 
@@ -353,7 +353,7 @@ With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where 
     
 **Exercise 21**: Try installing your completed package!
 
-## 22. Managing releases and future changes to your package
+### 22. Managing releases and future changes to your package
 
 Keep the default branch of your repo for the most recent working release of your package. 
 
@@ -365,9 +365,9 @@ Use [semantic versioning](https://semver.org/).
 
 **Exercise 22**: Create a GitHub Release for your package
 
-# Annex
+## Annex
 
-## A1. Excluding sensitive data 
+### A1. Excluding sensitive data 
 
 You should not hold any sensitive data in Github.com as they may be accessed by others. To prevent you accidentally pushing any sensitive data to Github.com: 
 
@@ -384,7 +384,7 @@ Note: if you do accidentally end up pushing sensitive data or information to Git
 1) Place a copy of crimedata.csv into your package Rstudio folder. Amend the gitignore file to also include the code in the ukdatascience [gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore). After committing and pushing to github.com and refreshing your github.com repository page can you see crimedata.csv there? 
 2) Now specify crimedata.csv as a file not to be ignored at the end of the gitignore file (it doesn't actually contain sensitive data). After pushing to github.com can you now see it?
 
-## A2. Adding data in rda format
+### A2. Adding data in rda format
 
 While no sensitive data should be stored in the package, it is helpful to include some non-sensitive data to make the development of functions and package testing easier. Where the data are sensitive, fake data should be generated instead.
 
@@ -428,7 +428,7 @@ To see the effect of changes made to the package, the following code needs to be
 2) Amend crimesdata_pub.Rmd so that it now runs using the .rda file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimes_raw_data) line. 
 3) Lastly, commit all your changes to git and then push them to github.com. 
 
-## A3. Adding documentation about package data
+### A3. Adding documentation about package data
 
 Documentation can be added for datasets within a package by creating an data.R file. You can view an example [data.R file](https://github.com/DCMSstats/eesectors/blob/master/R/data.R) from the eesectors package; this makes use of the package roxygen2 to automatically turn the formatted comments into nice looking documentation.
 
