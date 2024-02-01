@@ -224,24 +224,7 @@ You can view [this applied example](https://github.com/DCMSstats/eesectors/blob/
 
 **Exercise 9:** Apply the quick way of generating useful feedback to the function summarise_crimes.R and then run it to see what messages are produced. Lastly, commit all your changes to git and then push them to github.com.
 
-## 10. Excluding sensitive data 
-
-You should not hold any sensitive data in Github.com as they may be accessed by others. To prevent you accidentally pushing any sensitive data to Github.com: 
-
-* Don't store any sensitive data within the R Studio copy of your repository. 
-* As a second line of protection, specify the names of any sensitive data files in the gitignore file so that they cannot be pushed to Github.com. To do this, open the gitignore file and add the names of the files (e.g. confidential.txt). If there's a file that's not to be ignored then you can specify it while adding an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
-
-A useful [gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore) has been developed by ukdatascience which is free for you to copy, use and amend.
-
-You can also add further protection by using git hooks. These check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about this is available [here](https://github.com/ukgovdatascience/dotfiles).
-
-Note: if you do accidentally end up pushing sensitive data or information to Github, please refer immediately to the Analytical Platform guidance on next steps [here](https://user-guidance.services.alpha.mojanalytics.xyz/information-governance.html#reporting-security-incidents).
-
-**Exercise 10:** 
-1) Place a copy of crimedata.csv into your package Rstudio folder. Amend the gitignore file to also include the code in the ukdatascience [gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore). After committing and pushing to github.com and refreshing your github.com repository page can you see crimedata.csv there? 
-2) Now specify crimedata.csv as a file not to be ignored at the end of the gitignore file (it doesn't actually contain sensitive data). After pushing to github.com can you now see it?
-
-## 11. Testing your code 
+## 10. Testing your code 
 
 Anytime someone makes a change to the code, this should be accompanied by testing to check that it works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides users with more assurance and helps those making changes to the code to identify any shortcomings and rectify these. 
 
@@ -253,9 +236,9 @@ There are two types of test you should consider:
 
 As testing can have no end to it, it is recommended that you start by considering what really needs to be tested (e.g. what is of high risk?), and then to develop these tests. If in the future you decide something else really needs to be tested you can add a test for this. To make the process as efficient as possible, it may be desirable for you to create mock data (which shouldn't contain any sensitive information) that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. As long as the data files are small, the mock data can be stored in the tests directory ([section 18](#18-unit-testing) covers how to set this directory up).
 
-**Exercise 11**: Consider whether it could be beneficial to create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but be much smaller (e.g. only two or three rows).
+**Exercise 10**: Consider whether it could be beneficial to create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but be much smaller (e.g. only two or three rows).
 
-## 12. Unit testing
+## 11. Unit testing
 
 Unit testing can be easily automated using the [testthat package](https://testthat.r-lib.org/). This:
 * Provides a user friendly way of specifying tests that determine whether a function has run as expected (e.g. returns a particular value).
@@ -313,7 +296,7 @@ For a full list of testthat expect_ and other functions see the [testthat functi
   
 To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
 
-**Exercise 12**: Create some tests for the summarise_crimes function:  
+**Exercise 11**: Create some tests for the summarise_crimes function:  
 1) Run usethis::use_testthat(3) to set up your testing structure.
 2) Inside the tests/testthat folder, create an R file called test_summarise_crimes.R
 3) Create a test (it's easiest to copy and amend lines 1 and 10-13 of [this test script](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R) which contains tests for [this fivereg_recent function](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R)) to check whether the summarise_crimes function stops running if there is an error (e.g. using expect_silent()).
@@ -324,7 +307,7 @@ To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
    * Run devtools::test_coverage() to check what percentage of (relevant) code in your package is now being tested.
 6) Lastly, commit all your changes to git and then push them to github.com.
 
-## 13. Adding data in rda format
+## 12. Adding data in rda format
 
 While no sensitive data should be stored in the package, it is helpful to include some non-sensitive data to make the development of functions and package testing easier. Where the data are sensitive, fake data should be generated instead.
 
@@ -363,12 +346,12 @@ To see the effect of changes made to the package, the following code needs to be
 
     devtools::load_all() 
 
-**Exercise 13:** 
+**Exercise 12:** 
 1) Make an .rda file of 'crimesdata.csv' (which is already in tidy data format) by following the above steps and give it the user friendly name 'crimes_raw_data'. 
 2) Amend crimesdata_pub.Rmd so that it now runs using the .rda file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimes_raw_data) line. 
 3) Lastly, commit all your changes to git and then push them to github.com. 
 
-## 14. Adding documentation about package data
+## 13. Adding documentation about package data
 
 Documentation can be added for datasets within a package by creating an data.R file. You can view an example [data.R file](https://github.com/DCMSstats/eesectors/blob/master/R/data.R) from the eesectors package; this makes use of the package roxygen2 to automatically turn the formatted comments into nice looking documentation.
 
@@ -384,7 +367,7 @@ The documentation for the data object can then be viewed in the help facility us
 
 Documenting functions is covered in [section 15](#15-documenting-functions). There is also a separate [R Packages section about documenting datasets](https://r-pkgs.org/data.html#sec-documenting-data) which you may want to look at. 
 
-**Exercise 14:** Create an data.R file in your R folder and paste in the first 22 rows from the example eesectors package [data.R file](https://github.com/DCMSstats/eesectors/blob/master/R/data.R). Amend the contents, generate nice looking documentation, and then take a look at it (using the help facility). Lastly, commit all your changes to git and then push them to github.com. 
+**Exercise 13:** Create an data.R file in your R folder and paste in the first 22 rows from the example eesectors package [data.R file](https://github.com/DCMSstats/eesectors/blob/master/R/data.R). Amend the contents, generate nice looking documentation, and then take a look at it (using the help facility). Lastly, commit all your changes to git and then push them to github.com. 
 
 ## 19. Continuous integration
 
@@ -443,6 +426,23 @@ Use [semantic versioning](https://semver.org/).
 [GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) are a great way to mange the versions of your package. Every time you release an updated version of your package, include a GitHub release. This way if you ever need an older version of your package it is very easy to install using the GitHub Release Tag. 
 
 **Exercise 22**: Create a GitHub Release for your package
+
+## A1. Excluding sensitive data 
+
+You should not hold any sensitive data in Github.com as they may be accessed by others. To prevent you accidentally pushing any sensitive data to Github.com: 
+
+* Don't store any sensitive data within the R Studio copy of your repository. 
+* As a second line of protection, specify the names of any sensitive data files in the gitignore file so that they cannot be pushed to Github.com. To do this, open the gitignore file and add the names of the files (e.g. confidential.txt). If there's a file that's not to be ignored then you can specify it while adding an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
+
+A useful [gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore) has been developed by ukdatascience which is free for you to copy, use and amend.
+
+You can also add further protection by using git hooks. These check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about this is available [here](https://github.com/ukgovdatascience/dotfiles).
+
+Note: if you do accidentally end up pushing sensitive data or information to Github, please refer immediately to the Analytical Platform guidance on next steps [here](https://user-guidance.services.alpha.mojanalytics.xyz/information-governance.html#reporting-security-incidents).
+
+**Exercise A1:** 
+1) Place a copy of crimedata.csv into your package Rstudio folder. Amend the gitignore file to also include the code in the ukdatascience [gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore). After committing and pushing to github.com and refreshing your github.com repository page can you see crimedata.csv there? 
+2) Now specify crimedata.csv as a file not to be ignored at the end of the gitignore file (it doesn't actually contain sensitive data). After pushing to github.com can you now see it?
 
 
 
