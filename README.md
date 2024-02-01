@@ -45,6 +45,8 @@ Lastly, if you are able to, it may also help to make use of dual screens (your l
 * [21. Installing and using your package](#21-installing-and-using-your-package)
 * [22. Managing releases and future changes to your package](#22-managing-releases-and-future-changes-to-your-package)
 
+## Package Overview 
+
 ### 1. Introduction
 
 This training is based on Hadley Wickham's book [R Packages](http://r-pkgs.had.co.nz/). The goal of it is to teach you how to make and develop packages. These are not difficult to make but enable others to easily use your code (increasing efficiency, reducing the maintenance burden, and also helping improve quality) and have time saving conventions that you can follow (e.g. to organise code). The latter can be very beneficial to use in projects even if you are not making packages. 
@@ -84,6 +86,8 @@ The default branch of an R package GitHub repo should be reserved for working re
 2. Create a new github repository, giving it your chosen name and a suitable description (e.g. 'My RAP training exercise'). Add a README file and a .gitignore file but not a license at this stage.
 3. Make a copy of your project in R Studio.
 4. Create a git branch called `0.0.1` where you can make changes.
+
+## Package structure
 
 ### 3. Create the package 
 
@@ -129,6 +133,8 @@ This specifies the license you have chosen in the DESCRIPTION file and also puts
 - Package version to `0.0.1`
 
 Follow up by specifying an MIT license. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+
+## Adding functions
 
 ### 5. Developing functions
 
@@ -192,6 +198,8 @@ You can learn more about documentation more generally by reading the [R Packages
 
 **Exercise 8:** Follow the above process to add suitable documentation to the function summarise_crimes.R. It may be easiest to copy rows 1-41 from [this example](https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R) and then amend. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com. If you still have time, then do the same for the function that you created in the [section 13](#13-automating-quality-assurance-checks-on-input-data-sets) exercise above.
 
+## Exception handling
+
 ### 9. Exception handling 
 
 The [Advanced R Conditions chapter](https://adv-r.hadley.nz/conditions.html) states 'The condition system provides a paired set of tools that allow the author of a function to indicate that something unusual is happening, and the user of that function to deal with it'. R has a very powerful condition system which can be used to flag errors, warnings and messages.
@@ -223,6 +231,8 @@ A quick way of generating useful feedback is simply by wrapping the function bod
 You can view [this applied example](https://github.com/DCMSstats/eesectors/blob/master/R/figure3.1.R) from the eesectors package. For further information, read the [Advanced R Conditions chapter](https://adv-r.hadley.nz/conditions.html).
 
 **Exercise 9:** Apply the quick way of generating useful feedback to the function summarise_crimes.R and then run it to see what messages are produced. Lastly, commit all your changes to git and then push them to github.com.
+
+## Testing code
 
 ### 10. Testing your code 
 
@@ -307,6 +317,8 @@ To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
    * Run devtools::test_coverage() to check what percentage of (relevant) code in your package is now being tested.
 6) Lastly, commit all your changes to git and then push them to github.com.
 
+## Releasing a package
+
 ### 19. Continuous integration
 
 Continuous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
@@ -326,6 +338,8 @@ This automatically puts a status badge in your README. You can provide extra sec
 You can read further about automating checking in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html).
 
 **Exercise 19**: Run the R CMD tests on your code and resolve any error messages. Then setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
+
+## Maintenance cycle
 
 ### 20. Adding a NEWS file
 
