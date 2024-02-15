@@ -176,7 +176,7 @@ communicate what type of changes occur between versions.
 
 Read the [Semantic Versioning specification](https://semver.org/) but some key points for now:
 
-* Don't change your package without also changing the verison number
+* Don't change your package without also changing the version number
 * Major change - backwards incompatible changes e.g. removing/renaming a function, changing an argument name, etc
 * Minor change - backwards compatible new features e.g. adding a new function, etc
 * Patch change - backwards compatible bug fix e.g. refactoring code, bug fix, etc
