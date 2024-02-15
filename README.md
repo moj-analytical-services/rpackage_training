@@ -193,8 +193,7 @@ Amend the DESCRIPTION file of your package, specifically the:
 Add {usethis} and {devtools} to Suggests
 
 - Ensure the package version is `0.1.0`.
-
-Follow up by specifying an MIT license. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+- Commit the changes
 
 ## Adding functions
 
