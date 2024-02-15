@@ -1,30 +1,29 @@
 # Developing R packages
-This training is designed as an introduction to making and developing R packages which are important to reproducible ways of working. You should first have completed the following training sessions (or reached an equivalent standard to having done so):
+This training is designed as an introduction to making and developing R packages which are 
+important to reproducible ways of working. You should first have completed the following training 
+sessions (or reached an equivalent standard to having done so):
 
 - [Introduction to using R on the Analytical Platform](https://github.com/moj-analytical-services/intro_using_r_on_ap)
 - [Introduction to R](https://github.com/moj-analytical-services/IntroRTraining)
 - [R Charting](https://github.com/moj-analytical-services/ggplotTraining)
 - [Writing functions in R](https://github.com/moj-analytical-services/writing_functions_in_r)
 
+You must also have completed steps 1 to 4 and 6 of 
+[this MoJ Analytical Platform quickstart guide](https://user-guidance.analytical-platform.service.justice.gov.uk/get-started.html#get-started), 
+making sure you can access RStudio from the control panel but you do not need to clone this repo. If 
+you have any issues, please post them in the appropriate Slack channel (either #[ask-operations-engineering](https://moj.enterprise.slack.com/archives/C01BUKJSZD4) or #[intro_r channel](https://asdslack.slack.com/archives/CGKSJV9HN)).
+
+If you are able to, it may also help to make use of dual screens (your laptop plus a monitor) 
+during the training session to enable you to watch the session on one and code on the other.
+
 Recordings of these sessions can be viewed via links provided in the [Analytical Platform and related tools training section on R training](https://moj-analytical-services.github.io/ap-tools-training/ITG.html#r-training). If you have any access problems please contact <aidan.mews@justice.gov.uk> or <georgina.eaton4@justice.gov.uk>.
 
-You should also have completed the following (if not done already):
-1.	Steps 1 to 4 and 6 of [this MoJ Analytical Platform quickstart guide](https://user-guidance.analytical-platform.service.justice.gov.uk/get-started.html#get-started), making sure you can access RStudio from the control panel.
-2. Clone this course repository from GitHub into RStudio. Guidance on how to clone repos can be found at [Using GitHub with the platform - MoJ Analytical Platform](https://user-guidance.analytical-platform.service.justice.gov.uk/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio)
-3.	Once you have cloned the repository run these lines in your RStudio console, including to install appropriate versions of the packages devtools and usethis: 
-
-        install.packages("renv")
-  	     renv::restore()
-
-If you have any issues, please post them in the appropriate Slack channel (either #[ask-operations-engineering](https://moj.enterprise.slack.com/archives/C01BUKJSZD4) or #[intro_r channel](https://asdslack.slack.com/archives/CGKSJV9HN))
-
-Lastly, if you are able to, it may also help to make use of dual screens (your laptop plus a monitor) during the training session to enable you to watch the session on one and code on the other.
 
 ## Contents
 
 * [Package overview](#package-overview)
    + [1. Introduction](#1-introduction)
-   + [2. Naming and setting up your project](#2-naming-and-setting-up-your-project)
+   + [2. Package Scope and Naming](2.-package-scope-and-naming)
 * [Package structure](#package-structure)
    + [3. Create the package](#3-create-the-package)
    + [4. Amend the DESCRIPTION file](#4-amend-the-DESCRIPTION-file)
@@ -54,55 +53,134 @@ Lastly, if you are able to, it may also help to make use of dual screens (your l
 
 ### 1. Introduction
 
-This training is based on Hadley Wickham's book [R Packages](http://r-pkgs.had.co.nz/). The goal of it is to teach you how to make and develop packages. These are not difficult to make but enable others to easily use your code (increasing efficiency, reducing the maintenance burden, and also helping improve quality) and have time saving conventions that you can follow (e.g. to organise code). The latter can be very beneficial to use in projects even if you are not making packages. 
- 
-Hadley Wickham's [R Packages introduction](https://r-pkgs.org/introduction.html) states: "In R, the fundamental unit of shareable code is the package. A package bundles together code, data, documentation, and tests, and is easy to share with others." The directory structure of an R package is typically as follows: 
+This training is based on Hadley Wickham's book [R Packages](https://r-pkgs.org/). The goal of it is 
+to teach you how to make and develop packages. R packages are not difficult to make and have several 
+benefits:
 
-- R code is in 'R' (this is required); 
-- documentation is in 'man' (this is also required); 
-- data are in 'data'; 
-- tests are in 'tests'; 
-- dependency management may be in the associated directory e.g. 'renv' if using renv; and 
-- templates on how to use the package are in 'vignettes'.
+* Packages have a standard structure and are easy to install. 
+* Documentation is included with the code.
+* Packages facilitate the integration of unit testing.
+* Code changes can be clearly tracked via package versioning.
 
-This training is designed with exercises in each section to enable you to develop a package. The files to do this are all included in this repository.
+These benefits together improve the reliability, reusability and sharability of code, give you the 
+confidence to update it without the fear of unknowingly breaking something.
 
-**Exercise 1:** Take a look at the structure of a github repo which contains [an R package](https://github.com/DCMSstats/eesectors) and see if you can recognise the structure described above.
+PLACEHOLDER - something about what the package built in this training will do.
 
-### 2. Naming and setting up your project
+
+### 2. Package Scope and Naming
+
+Before you start developing a package there are two questions to consider "what will your package 
+contain?" (the scope) and "what will you call it?" (the name).
+
+
+#### The scope
+
+You could put every function you ever write into one package but it is likely that this would 
+quickly become difficult to maintain especially if this resulted in a large number of dependencies.
+Instead it is better to group your functions into thematically similar activities for example the
+{forcats} package contains functions for working with categorical data and factors and the {stringr}
+package contains functions for working with strings and regular expressions.
+
+Some packages may contain generalized functions (on a particular theme) that have a broad spectrum 
+of applications e.g. [{psutils}](https://github.com/moj-analytical-services/psutils). Others may 
+contain very specialized functions that are only used as part of one process e.g. 
+[{pssf}](https://github.com/moj-analytical-services/pssf).
+
+#### The name
 
 Possibly the hardest part of creating a package is choosing a name for it. This should: 
 
-- be short; 
-- be unique (for Google searches); 
-- include either upper or lower case characters but not a mixture of them; 
-- be clear about what the package does e.g. if a training exercise example, consider putting 'eg' in the name. 
+- be short 
+- be unique (for Google searches) 
+- include either upper or lower case characters but not a mixture of them 
+- be clear about what the package does i.e. reflect the scope
 
-You can read more in the [R Packages section Name your package](https://r-pkgs.org/workflow101.html#name-your-package).
+You can read more in the [R Packages section Name your package](https://r-pkgs.org/workflow101.html#name-your-package)
 
-As we're going to develop a package for the minimal statistical bulletin created as part of the [Introduction to R Markdown](https://github.com/moj-analytical-services/rmarkdown_training), choose a name such as "egnamerap" where the eg is because it's a training exercise, the name is your first name (if your first name is very unique) and the rap because you are going to RAP a minimal statistical bulletin.
 
-Once you have decided on a name, you can create a new github repository using it (following [this Analytical Platform guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/create-project.html#create-a-new-project-in-github)), and make a copy of your repository in your personal R Studio workspace (following step 1 of [this Analytical Platform guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) - note as github.com has changed slightly since this guidance was made, the green button 'Clone or download' is now called 'Code'). 
+**Exercise**
 
-The default branch of an R package GitHub repo should be reserved for working releases of the package. Always make your changes on a different branch then merge to the default branch for each release. 
+1.1 Decide what name to call your package (something like your initials or name combined with "demo",
+"eg", or "toy" might be appropriate for this training).
+1.2 [Create a new github repository](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#create-a-new-project-in-github), giving it your chosen name. Add a .gitignore file but not a license or README at this stage.
+1.3 [Clone the repo](https://user-guidance.analytical-platform.service.justice.gov.uk/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) as an RStudio project.
 
-**Exercise 2:** 
-1. Decide what name to call your package
-2. Create a new github repository, giving it your chosen name and a suitable description (e.g. 'My RAP training exercise'). Add a README file and a .gitignore file but not a license at this stage.
-3. Make a copy of your project in R Studio.
-4. Create a git branch called `0.0.1` where you can make changes.
 
 ## Package structure
+R packages have a standard structure. The following components must be included (either because 
+they are essential package components or because they are essential parts of the development and 
+maintenance process).
+
+- **R/** - A folder where functions are saved (This is for package code only if you are making notes during the training don't save them here!).
+- **man/** - A folder for documentation.
+- **tests/** - A folder for {testthat} infrastructure and testing scrips.
+- **.Rbuildignore** - A file that [allows certain paths to be ignored when the package is built](https://r-pkgs.org/structure.html#sec-rbuildignore).
+- **DESCRIPTION** - A file containing package metadata.
+- **NAMESPACE** - A file containing exported and imported variable names.
+- **LICENCE or LICENSE** - A file or files with information about how the code can be used.
+- **NEWS** - A file that acts as a changelog so returning users can quickly see what has changed between different version of the package.
+- **README** - A file or files that covers how to install the package and a guide for first time users.
+
+
+Some packages may have [other components](https://r-pkgs.org/misc.html), a few common ones that you may want to use are listed below:
+
+* **inst/** - A folder for "other files" e.g. markdown templates.
+* **data/** - A folder for data (**nothing sensitive!**) in .rda format that are available as part of the package e.g. for demonstrating functionality. Each data set will be documented in a similar way to functions. 
+* **data-raw/** - A folder for preserving the creation history of your .rda file (must be added to the .Rbuildignore). This could also contain CSV version of small data files used in testing code.
+
+**Exercise** 
+
+2.1 Take a look at the structure of a github repo which contains an R package e,g, [{stringr}](https://github.com/tidyverse/stringr) or [{dplyr}](https://github.com/tidyverse/dplyr) and see if you can recognise the structure and elements described above.
+
+#### Essentail development practice for R packages
+
+The default branch of an R package GitHub repo must be reserved for working releases of the package. 
+Always make your changes on a different branch then merge to the default branch for each release. 
+
+**Exercise**
+
+2.2 Create a new git branch called `dev` where we will begin building the package.
+
+#### Sidenote - installing packages on the Analytical Platform
+
+Most R packages you install come from CRAN (The Comprehensive R Archive Network) which stores them
+on a series of mirrored servers that act as package repositories. The Analytical Platform is set up 
+to use a fixed R package repository by default. Depending on the version of R on the Analytical 
+Platform you are using this, this may be fairly old. To see which version you are using run 
+`options("repos")` and look at the date at the end. To access the latest versions of packaged you 
+can use the following to update where you install from (this will reset when R is restarted).
+
+```R
+options(repos = "https://packagemanager.rstudio.com/all/__linux__/focal/latest")
+```
+
+#### Tools to help with package development
+
+There are several R packages that contain tools to help ensure your package is set up in the correct
+format and aid development by automating common tasks. The two we will be using today are 
+[{devtools}](https://devtools.r-lib.org/) and [{usethis}](https://usethis.r-lib.org/).
+
+**Exercise** 
+
+2.3 Set the CRAN mirror so you can access the latest versions of packages.
+2.4 Using `install.packages()`, install the {devtools} and {usethis} packages.
 
 ### 3. Create the package 
 
-A repository can easily be converted into a package using R Studio. Assuming you have already installed the package usethis ([see the opening paragraph of this README](#developing-r-packages--rap-ways-of-working)), run the following command and select the option to overwrite what is already there:
+The following {usethis} function will structure your current working directory as an R package 
+(you will need to overwrite what is already there wehn prompted):
+```R
+usethis::create_package(getwd())
+```
+This will create several of the files and folders discussed at the start of the package structure 
+section.
 
-        usethis::create_package("path/to/package/pkgname")
+**Exercise** 
 
-After completing this process the 'Files' window will show additions to the project directory.
+2.5 Set up you project as a folder using `usethis::create_package(getwd())`
+2.6 Which standard package elements have been created?
 
-**Exercise 3:** Follow the above steps, inserting the correct directory path and package name within the create_package command (you can quickly obtain these using the getwd() command). Lastly, follow Steps 2 and 3 of [this guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/rstudio-git.html#work-with-git-in-rstudio) to commit all your changes to git and then push them to github.com. If you refresh your github.com repository page you should now see the additions there.
 
 ### 4. Amend the DESCRIPTION file
 
