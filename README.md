@@ -62,7 +62,7 @@ benefits:
 * Packages facilitate the integration of unit testing.
 * Code changes can be clearly tracked via package versioning.
 
-These benefits together improve the reliability, reusability and sharability of code, give you the 
+These benefits together improve the reliability, reusability and sharability of code, and give you the 
 confidence to update it without the fear of unknowingly breaking something.
 
 PLACEHOLDER - something about what the package built in this training will do.
@@ -78,7 +78,7 @@ contain?" (the scope) and "what will you call it?" (the name).
 
 You could put every function you ever write into one package but it is likely that this would 
 quickly become difficult to maintain especially if this resulted in a large number of dependencies.
-Instead it is better to group your functions into thematically similar activities for example the
+Instead it is better to group your functions into thematically similar activities. For example the
 {forcats} package contains functions for working with categorical data and factors and the {stringr}
 package contains functions for working with strings and regular expressions.
 
