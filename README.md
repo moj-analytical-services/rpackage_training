@@ -67,6 +67,8 @@ confidence to update it without the fear of unknowingly breaking something.
 
 PLACEHOLDER - something about what the package built in this training will do.
 
+This training is designed with exercises to enable you to develop a package.
+
 
 ### 2. Package Scope and Naming
 
