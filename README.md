@@ -115,7 +115,7 @@ to use other open source licences](https://www.nationalarchives.gov.uk/informati
 ```R
 usethis::use_mit_license("Crown Copyright (Ministry of Justice)")
 ```
-This will add two text files to the top level of your project, `LICENCE` and `LICENCE.md`
+This will add two text files to the top level of your project, `LICENCE` and `LICENCE.md`. It will also update the relevant section in the DESCRIPTION file and update the .buildignore file.
 
 **Exercise**
 
