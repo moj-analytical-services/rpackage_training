@@ -135,7 +135,7 @@ Some packages may have [other components](https://r-pkgs.org/misc.html), a few c
 
 2.1 Take a look at the structure of a github repo which contains an R package e,g, [{stringr}](https://github.com/tidyverse/stringr) or [{dplyr}](https://github.com/tidyverse/dplyr) and see if you can recognise the structure and elements described above.
 
-#### Essentail development practice for R packages
+#### Essential development practice for R packages
 
 The default branch of an R package GitHub repo must be reserved for working releases of the package. 
 Always make your changes on a different branch then merge to the default branch for each release. 
