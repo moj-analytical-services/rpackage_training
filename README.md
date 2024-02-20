@@ -120,7 +120,7 @@ maintenance process).
 - **.Rbuildignore** - A file that [allows certain paths to be ignored when the package is built](https://r-pkgs.org/structure.html#sec-rbuildignore).
 - **DESCRIPTION** - A file containing package metadata.
 - **NAMESPACE** - A file containing exported and imported variable names.
-- **LICENCE or LICENSE** - A file or files with information about how the code can be used.
+- **LICENCE and/or LICENSE.md** - A file or files with information about how the code can be used.
 - **NEWS** - A file that acts as a changelog so returning users can quickly see what has changed between different version of the package.
 - **README** - A file or files that covers how to install the package and a guide for first time users.
 
