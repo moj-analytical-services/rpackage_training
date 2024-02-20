@@ -149,8 +149,8 @@ Always make your changes on a different branch then merge to the default branch 
 Most R packages you install come from CRAN (The Comprehensive R Archive Network) which stores them
 on a series of mirrored servers that act as package repositories. The Analytical Platform is set up 
 to use a fixed R package repository by default. Depending on the version of R on the Analytical 
-Platform you are using this, this may be fairly old. To see which version you are using run 
-`options("repos")` and look at the date at the end. To access the latest versions of packaged you 
+Platform you are using, this may be fairly old. Run `options("repos")` and look at the date at the 
+end to see which version you are using. To access the latest versions of packages you 
 can use the following to update where you install from (this will reset when R is restarted).
 
 ```R
@@ -171,7 +171,7 @@ format and aid development by automating common tasks. The two we will be using 
 ### 3. Create the package 
 
 The following {usethis} function will structure your current working directory as an R package 
-(you will need to overwrite what is already there wehn prompted):
+(you will need to overwrite what is already there when prompted):
 ```R
 usethis::create_package(getwd())
 ```
