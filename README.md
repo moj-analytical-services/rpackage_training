@@ -184,11 +184,13 @@ Read the [Semantic Versioning specification](https://semver.org/) but some key p
 * Once your package is in production use you should be at at least version 1.0.0
 
 #### Checking your package
-Packages requre that the right files and the right information are in the right places. A small mistake
+Packages require that the right files and the right information are in the right places. A small mistake
 can prevent the package from functioning as intended. Many package features can be checked using
 the function `devtools::check()`. It runs a series of checks that examine (among other things) package 
 structure, metadata, code structure, and documentation. More information about the individual checks is 
-available [here](https://r-pkgs.org/R-CMD-check.html).
+available [here](https://r-pkgs.org/R-CMD-check.html). Any issues that are identified will be labeled
+as "errors", "warnings" or "notes". Errors and warnings must be fixed. Occasionally it is acceptable
+to leave a "note" but usually these should be fixed too.
 
 **Exercise ** 
 Amend the DESCRIPTION file of your package, specifically the: 
