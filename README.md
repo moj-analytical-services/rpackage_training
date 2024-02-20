@@ -183,6 +183,13 @@ Read the [Semantic Versioning specification](https://semver.org/) but some key p
 * Before version 1.0.0 breaking (backwards incompatible) changes can occur at any point.
 * Once your package is in production use you should be at at least version 1.0.0
 
+#### Checking your package
+Packages requre that the right files and the right information are in the right places. A small mistake
+can prevent the package from functioning as intended. Many package features can be checked using
+the function `devtools::check()`. It runs a series of checks that examine (among other things) package 
+structure, metadata, code structure, and documentation. More information about the individual checks is 
+available [here](https://r-pkgs.org/R-CMD-check.html).
+
 **Exercise ** 
 Amend the DESCRIPTION file of your package, specifically the: 
 - Title PLACEHOLDER - example title
@@ -194,6 +201,8 @@ Add {usethis} and {devtools} to Suggests
 
 - Ensure the package version is `0.1.0`.
 - Commit the changes
+
+Run `devtools::check()` - there should be no errors, warnings or notes.
 
 ## Adding functions
 
