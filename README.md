@@ -196,7 +196,7 @@ to leave a "note" but usually these should be fixed too.
 Amend the DESCRIPTION file of your package, specifically the: 
 - Title PLACEHOLDER - example title
 - Authors@R - make yourself author and maintainer and add Crown Copyright as the copyright holder
-- Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) 
+- Description PLACEHOLDER - example description.
 (save the file)
 
 Add {usethis} and {devtools} to Suggests
