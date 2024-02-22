@@ -172,16 +172,19 @@ to add {devtools} as a suggested package: `usethis::use_package("devtools", type
 #### Semantic Versioning
 
 Semantic Versioning is a version control paradigm which uses a major.minor.patch system to 
-communicate what type of changes occur between versions. 
+communicate what type of changes occur between versions. A "major change" will increment the
+major number, a "minor change" will increment the minor number and a "patch change" will increment
+the patch number. The type of version change is linked to the type of code changes you make. The full 
+[Semantic Versioning specification](https://semver.org/) is worth reading and learning (especially 
+points 2-8) but a basic summary for now now:
 
-Read the [Semantic Versioning specification](https://semver.org/) but some key points for now:
-
-* Don't change your package without also changing the version number
-* Major change - backwards incompatible changes e.g. removing/renaming a function, changing an argument name, etc
-* Minor change - backwards compatible new features e.g. adding a new function, etc
-* Patch change - backwards compatible bug fix e.g. refactoring code, bug fix, etc
-* Before version 1.0.0 breaking (backwards incompatible) changes can occur at any point.
-* Once your package is in production use you should be at at least version 1.0.0
+* **You must not change your package without also changing the version number**.
+* If your code update contains any backwards incompatible (breaking) changes e.g. removing/renaming a function, changing an argument name, etc you must implement a **major** version change.
+* If your code update contains any backwards compatible new features e.g. adding a new function, etc you must implement at least a **minor** version change.
+* If you code update only contains backwards compatible bug fix e.g. refactoring code, bug fix, etc this would be a **patch** version change.
+* Before version 1.0.0 backwards incompatible any type of changes can occur at any point (the normal rules don't apply yet to allow rapid development).
+* Once your package is in use, the version should probably be at least 1.0.0.
+* Incrementing a number sets those to the right of it to zero e.g. a major change from version 1.2.3 would take you to version 2.0.0; a minor change from 0.1.3 would take you to 0.2.0.
 
 #### Checking your package
 Packages require that the right files and the right information are in the right places. A small mistake
