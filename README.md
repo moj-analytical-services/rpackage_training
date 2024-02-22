@@ -120,7 +120,7 @@ This will add two text files to the top level of your project, `LICENCE` and `LI
 **Exercise**
 
 * Add an MIT licence to your package
-* Commit and push both licence files.
+* Commit (to the git version history) and push (to GitHub.com) both licence files
 
 
 ### 4. The description file
