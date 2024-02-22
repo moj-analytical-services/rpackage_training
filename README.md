@@ -129,7 +129,7 @@ Some packages may have [other components](https://r-pkgs.org/misc.html), a few c
 
 * **inst/** - A folder for "other files" e.g. markdown templates.
 * **data/** - A folder for data (**nothing sensitive!**) in .rda format that are available as part of the package e.g. for demonstrating functionality. Each data set should be documented in a similar way to functions. 
-* **data-raw/** - A folder for preserving the creation history of your .rda file (must be added to the .Rbuildignore). This could also contain a CSV version of small data files used in testing code.
+* **data-raw/** - A folder for preserving the creation history of your .rda file (must be added to the .Rbuildignore). This could also contain CSV versions of small data files used in testing code.
 
 **Exercise** 
 
