@@ -181,7 +181,7 @@ points 2-8) but a basic summary for now now:
 * **You must not change your package without also changing the version number**.
 * If your code update contains any backwards incompatible (breaking) changes e.g. removing/renaming a function, changing an argument name, etc you must implement a **major** version change.
 * If your code update contains any backwards compatible new features e.g. adding a new function, etc you must implement at least a **minor** version change.
-* If you code update only contains backwards compatible bug fix e.g. refactoring code, bug fix, etc this would be a **patch** version change.
+* If you code update only contains backwards compatible changes e.g. refactoring code, bug fix, etc this would be a **patch** version change.
 * Before version 1.0.0 any type of changes can occur at any point (the normal rules don't apply to allow rapid development).
 * Once your package is in use, the version should probably be at least 1.0.0.
 * Incrementing a number sets those to the right of it to zero e.g. a major change from version 1.2.3 would take you to version 2.0.0; a minor change from 0.1.3 would take you to 0.2.0.
