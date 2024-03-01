@@ -176,7 +176,7 @@ communicate what type of changes occur between versions. A "major change" will i
 major number, a "minor change" will increment the minor number and a "patch change" will increment
 the patch number. The type of version change is linked to the type of code changes you make. The full 
 [Semantic Versioning specification](https://semver.org/) is worth reading and learning (especially 
-points 2-8) but a basic summary for now now:
+points 2-8) but a basic summary for now:
 
 * **You must not change your package without also changing the version number**.
 * If your code update contains any backwards incompatible (breaking) changes e.g. removing/renaming a function, changing an argument name, etc you must implement a **major** version change.
