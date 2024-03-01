@@ -110,7 +110,7 @@ Licencing code is essential as it sets out how others can use it. You can read m
 [here](https://r-pkgs.org/license.html). The work-product of civil servants falls under 
 [Crown copyright](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/) and usually requires an Open Government Licence but for open source software we have the [option
 to use other open source licences](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/open-government-licence/open-software-licences/). The 
-[MIT licence](https://opensource.org/license/mit/) is the [MoJ prefered choice](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#licence) and can be added to your package using:
+[MIT licence](https://opensource.org/license/mit/) is the [MoJ preferred choice](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#licence) and can be added to your package using:
 
 ```R
 usethis::use_mit_license("Crown Copyright (Ministry of Justice)")
