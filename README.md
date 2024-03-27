@@ -184,40 +184,110 @@ section.
 2.6 Which standard package elements have been created?
 
 
-### 4. Amend the DESCRIPTION file
+### Copyright and licencing
 
-The DESCRIPTION file is one of the files automatically created when you run the create package command. It provides important metadata about the package including declaring the external functions your package imports from other packages and the functions your package exports for external use. You can click on the DESCRIPTION filename in the R Studio files window and then amend it as appropriate. 
+Licencing code is essential as it sets out how others can use it. You can read more about licencing 
+[here](https://r-pkgs.org/license.html). The work-product of civil servants falls under 
+[Crown copyright](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/) and usually requires an Open Government Licence but for open source software we have the [option
+to use other open source licences](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/open-government-licence/open-software-licences/). The 
+[MIT licence](https://opensource.org/license/mit/) is the [MoJ preferred choice](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#licence) and can be added to your package using:
 
-An example of an amended DESCRIPTION file [is provided here](https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION). The formatting is important. Each line consists of a field name and a value, separated by a colon. Where values span multiple lines, they need to be indented. In particular:
+```R
+usethis::use_mit_license("Crown Copyright (Ministry of Justice)")
+```
+This will add two text files to the top level of your project, `LICENCE` and `LICENCE.md`. It will also update the relevant section in the DESCRIPTION file and update the .buildignore file.
 
-- The Title is a one line description of the package - keep this short, with suitable use of capitals and less than 65 characters.
-- The Version should be amended when you update the package
-- The Authors@R field makes use of a three letter code to specify the various roles, the most useful being:
-   - cre: the package maintainer; the person you should contact if you have a problem.
-   - aut: authors; those who have made significant contributions to the package.
-   - ctb: contributors; those who have made smaller contributions, like patches.
-   - cph: copyright holder. This is used if the copyright is held by someone other than the author, typically a company (i.e. the author’s employer).
-- The Description is more detailed than the Title - one paragraph with each line being up to 80 characters.
-- The License determines who can use your code and for what purpose. Without a license, the code is copyrighted by default; to use it, you must contact the author directly and ask permission. You can read more about licensing in the [R Packages Licensing chapter](https://r-pkgs.org/license.html). At MoJ we use the MIT License -  see [Analytical Platofrm User Guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github/create-project.html#licence).
-- The Imports field must contain all the other packages that your package uses. Unless you have the knowledge to do something different, you should assume that the package version needs to be greater than or equal to the version you're currently using. You can add a package to the Imports field with `usethis::use_package("package_name")`.
-- The Suggests field can contain packages that are not required for basic functionality but allow enhanced features such as vignettes or are useful during package development. You can, for example, add `devtools` to your Suggests field with `usethis::use_package("devtools", type = "Suggests")`
+**Exercise**
 
-You can read more about the most important DESCRIPTION fields in the [R Packages Package metadata chapter](https://r-pkgs.org/description.html). 
+* Add an MIT licence to your package
+* Commit (to the git version history) and push (to GitHub.com) both licence files
 
-To specify a particular license, make sure the usethis package you have installed is 2.0.0 or greater and run the appropriate command. For example, to use the permissive MIT license used by MoJ (specifying "Crown Copyright (Ministry of Justice)"):  
 
-        usethis::use_mit_license("Crown Copyright (Ministry of Justice)")
-        
-This specifies the license you have chosen in the DESCRIPTION file and also puts a copy of the full license in LICENSE.md and adds this file to .Rbuildignore.
+### 4. The description file
 
-**Exercise 4:** Amend the DESCRIPTION file, specifically the: 
-- Title (e.g. Create a Minimal Statistical Bulletin) 
-- Authors@R (e.g. make yourself author and maintainer) 
-- Description (e.g. Create a minimal statistical bulletin showing the number of crimes in each year) 
-- Package dependency text (specify the minimum version of R needed and the need for ggplot2, dplyr, readr and magrittr).
-- Package version to `0.0.1`
+The [DESCRIPTION](https://r-pkgs.org/description.html#the-description-file) file contains important 
+metadata about the package; it is a text file that you can open and edit in RStudio. An example of 
+an amended DESCRIPTION file is provided 
+[here](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION). The formatting 
+is important. Each line consists of a field name and a value, separated by a colon. 
+Where values span multiple lines, they need to be indented. In particular:
 
-Follow up by specifying an MIT license. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
+- **Title:** - a one line description of the package - keep this short, with suitable use of capitals and less than 65 characters.
+- **Version:** - the package version. This must be amended when you update the package. Use Semantic Versioning (see below)
+- **Authors@R:** - the package authors and their rolls (more info below)
+- **Description:** - a one paragraph summary of the package
+- **License:** - licencing information (this will have been automatically updated when you added the licence with {usethis}).
+- **Imports:** - all the other packages that your package uses. You can specify a minimum or maximum version in brackets after the name. 
+- **Suggests:** - packages that are not required for basic functionality but allow enhanced features such as vignettes or are useful during package development.
+- **Remotes:** - if your package depends on another one that not on CRAN, this is where you specify how to find it.
+- **Depends:** - this is where you list a minimum version of R if you are aware of one. For example if you are using the R native pipe (`|>`) in your package you would need to specify R (>= 4.1.0). 
+
+
+#### Authors
+
+Package authors are supplied as a vector of persons i.e. `c(person(...), person(...))`. In addition 
+to a name and an email, each person should have a "role"" specified. More information can be found 
+by running `?person` but the four most common roles are detailed below:
+
+- aut: authors; those who have made significant contributions to the package.
+- ctb: contributors; those who have made smaller contributions, like patches.
+- cre: the package maintainer; the person you should contact if you have a problem.
+- cph: copyright holder; most likely `person("Crown Copyright (Ministry of Justice)", role = "cph")` 
+
+#### Dependency Management
+
+The Imports and Suggests fields are used for dependency management for your package/ development 
+processes. You want to be as permissive as possible specifying minimum or maximum versions of 
+packages listed in Imports and Suggests to increase the compatability of your package with others. 
+If you know that your code relies on functionality added in a particular version of a package you 
+must specify the minimum version otherwise don't specify a minimum version.
+
+There is a tool in {usethis} for adding packages to the description file. It will check if the 
+package is installed before adding it so is useful for catching spelling mistakes!
+
+By default, packages are added as Imports e.g. to add {dplyr} as an import: 
+`usethis::use_package("dplyr")`. You can use the `type` argument to add them to Suggests instead e.g.
+to add {devtools} as a suggested package: `usethis::use_package("devtools", type = "Suggests")`.
+
+#### Semantic Versioning
+
+Semantic Versioning is a version control paradigm which uses a major.minor.patch system to 
+communicate what type of changes occur between versions. A "major change" will increment the
+major number, a "minor change" will increment the minor number and a "patch change" will increment
+the patch number. The type of version change is linked to the type of code changes you make. The full 
+[Semantic Versioning specification](https://semver.org/) is worth reading and learning (especially 
+points 2-8) but a basic summary for now:
+
+* **You must not change your package without also changing the version number**.
+* If your code update contains any backwards incompatible (breaking) changes e.g. removing/renaming a function, changing an argument name, etc you must implement a **major** version change.
+* If your code update contains any backwards compatible new features e.g. adding a new function, etc you must implement at least a **minor** version change.
+* If your code update only contains backwards compatible changes e.g. refactoring code, bug fix, etc this would be a **patch** version change.
+* Before version 1.0.0 any type of changes can occur at any point (the normal rules don't apply to allow rapid development).
+* Once your package is in use, the version should probably be at least 1.0.0.
+* Incrementing a number sets those to the right of it to zero e.g. a major change from version 1.2.3 would take you to version 2.0.0; a minor change from 0.1.3 would take you to 0.2.0.
+
+#### Checking your package
+Packages require that the right files and the right information are in the right places. A small mistake
+can prevent the package from functioning as intended. Many package features can be checked using
+the function `devtools::check()`. It runs a series of checks that examine (among other things) package 
+structure, metadata, code structure, and documentation. More information about the individual checks is 
+available [here](https://r-pkgs.org/R-CMD-check.html). Any issues that are identified will be labeled
+as "errors", "warnings" or "notes". Errors and warnings must be fixed. Occasionally it is acceptable
+to leave a "note" but usually these should be fixed too.
+
+**Exercise ** 
+Amend the DESCRIPTION file of your package, specifically the: 
+- Title PLACEHOLDER - example title
+- Authors@R - make yourself author and maintainer and add Crown Copyright as the copyright holder
+- Description PLACEHOLDER - example description.
+(save the file)
+
+Add {usethis} and {devtools} to Suggests
+
+- Ensure the package version is `0.1.0`.
+- Commit the changes
+
+Run `devtools::check()` - there should be no errors, warnings or notes.
 
 ## Adding functions
 
