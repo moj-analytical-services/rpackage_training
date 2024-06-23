@@ -103,10 +103,12 @@ You can read more in the [R Packages section Name your package](https://r-pkgs.o
 
 **Exercise**
 
-1.1 Decide what name to call your package (something like your initials or name combined with "demo",
+**1.1** Decide what name to call your package (something like your initials or name combined with "demo",
 "eg", or "toy" might be appropriate for this training).
-1.2 [Create a new github repository](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#create-a-new-project-in-github), giving it your chosen name and "internal" visibility. Add a .gitignore file but not a license or README at this stage.
-1.3 [Clone the repo](https://user-guidance.analytical-platform.service.justice.gov.uk/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) as an RStudio project.
+
+**1.2** [Create a new github repository](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#create-a-new-project-in-github), giving it your chosen name and "internal" visibility. Add a .gitignore file but not a license or README at this stage.
+
+**1.3** [Clone the repo](https://user-guidance.analytical-platform.service.justice.gov.uk/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) as an RStudio project.
 
 
 ## Package structure
@@ -133,7 +135,7 @@ Some packages may have [other components](https://r-pkgs.org/misc.html), a few c
 
 **Exercise** 
 
-2.1 Take a look at the structure of a github repo which contains an R package e,g, [{stringr}](https://github.com/tidyverse/stringr) or [{dplyr}](https://github.com/tidyverse/dplyr) and see if you can recognise the structure and elements described above.
+**2.1** Take a look at the structure of a github repo which contains an R package e,g, [{stringr}](https://github.com/tidyverse/stringr) or [{dplyr}](https://github.com/tidyverse/dplyr) and see if you can recognise the structure and elements described above.
 
 #### Essential development practice for R packages
 
@@ -142,7 +144,7 @@ Always make your changes on a different branch then merge to the default branch 
 
 **Exercise**
 
-2.2 Create a new git branch called `dev` where we will begin building the package.
+**2.2** Create a new git branch called `dev` where we will begin building the package.
 
 #### Sidenote - installing packages on the Analytical Platform
 
@@ -165,8 +167,9 @@ format and aid development by automating common tasks. The two we will be using 
 
 **Exercise** 
 
-2.3 Set the CRAN mirror so you can access the latest versions of packages.
-2.4 Using `install.packages()`, install the {devtools} and {usethis} packages.
+**2.3** Set the CRAN mirror so you can access the latest versions of packages.
+
+**2.4** Using `install.packages()`, install the {devtools} and {usethis} packages.
 
 ### 3. Create the package 
 
@@ -180,8 +183,9 @@ section.
 
 **Exercise** 
 
-2.5 Set up you project as a folder using `usethis::create_package(getwd())`
-2.6 Which standard package elements have been created?
+**2.5** Set up you project as a folder using `usethis::create_package(getwd())`
+
+**2.6** Which standard package elements have been created?
 
 
 ### Copyright and licencing
