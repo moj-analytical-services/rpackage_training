@@ -213,6 +213,10 @@ Where values span multiple lines, they need to be indented. In particular:
 - **Remotes:** - if your package depends on another one that not on CRAN, this is where you specify how to find it.
 - **Depends:** - this is where you list a minimum version of R if you are aware of one. For example if you are using the R native pipe (`|>`) in your package you would need to specify R (>= 4.1.0). 
 
+**Exercise**
+* Add a package title to the relevant field in the DESCRIPTION file.
+* Add a package description to the relevant field in the DESCRIPTION file.
+
 
 #### Authors
 
@@ -225,20 +229,9 @@ by running `?person` but the four most common roles are detailed below:
 - cre: the package maintainer; the person you should contact if you have a problem.
 - cph: copyright holder; most likely `person("Crown Copyright (Ministry of Justice)", role = "cph")` 
 
-#### Dependency Management
-
-The Imports and Suggests fields are used for dependency management for your package/ development 
-processes. You want to be as permissive as possible specifying minimum or maximum versions of 
-packages listed in Imports and Suggests to increase the compatability of your package with others. 
-If you know that your code relies on functionality added in a particular version of a package you 
-must specify the minimum version otherwise don't specify a minimum version.
-
-There is a tool in {usethis} for adding packages to the description file. It will check if the 
-package is installed before adding it so is useful for catching spelling mistakes!
-
-By default, packages are added as Imports e.g. to add {dplyr} as an import: 
-`usethis::use_package("dplyr")`. You can use the `type` argument to add them to Suggests instead e.g.
-to add {devtools} as a suggested package: `usethis::use_package("devtools", type = "Suggests")`.
+**Exercise**
+* Add yourself to the DESCRIPTION file as the author and maintainer of the package.
+* Add the relevant copyright holder.
 
 #### Semantic Versioning
 
@@ -256,6 +249,30 @@ points 2-8) but a basic summary for now:
 * Before version 1.0.0 any type of changes can occur at any point (the normal rules don't apply to allow rapid development).
 * Once your package is in use, the version should probably be at least 1.0.0.
 * Incrementing a number sets those to the right of it to zero e.g. a major change from version 1.2.3 would take you to version 2.0.0; a minor change from 0.1.3 would take you to 0.2.0.
+
+**Exercise**
+* Amend the description file to set the package version number to "0.1.0".
+
+#### Dependency Management
+
+The Imports and Suggests fields are used for dependency management for your package/ development 
+processes. You want to be as permissive as possible specifying minimum or maximum versions of 
+packages listed in Imports and Suggests to increase the compatability of your package with others. 
+If you know that your code relies on functionality added in a particular version of a package you 
+must specify the minimum version otherwise don't specify a minimum version.
+
+There is a tool in {usethis} for adding packages to the description file. It will check if the 
+package is installed before adding it so is useful for catching spelling mistakes!
+
+By default, packages are added as Imports e.g. to add {dplyr} as an import: 
+`usethis::use_package("dplyr")`. You can use the `type` argument to add them to Suggests instead e.g.
+to add {devtools} as a suggested package: `usethis::use_package("devtools", type = "Suggests")`.
+
+**Exercise**
+* Make sure you have saved any manual changes to the DESCRIPTION file!
+* Add {devtools} and {usethis} to the suggests field.
+* Add {arrow}, {dplyr}, {forcats} and {tidyr} to the imports field.
+
 
 #### Checking your package
 Packages require that the right files and the right information are in the right places. A small mistake
