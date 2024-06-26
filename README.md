@@ -191,7 +191,6 @@ This will add two text files to the top level of your project, `LICENCE` and `LI
 **Exercise**
 
 * Add an MIT licence to your package
-* Commit (to the git version history) and push (to GitHub.com) both licence files
 
 
 ### 4. The description file
@@ -269,82 +268,132 @@ By default, packages are added as Imports e.g. to add {dplyr} as an import:
 to add {devtools} as a suggested package: `usethis::use_package("devtools", type = "Suggests")`.
 
 **Exercise**
-* Make sure you have saved any manual changes to the DESCRIPTION file!
 * Add {devtools} and {usethis} to the suggests field.
-* Add {arrow}, {dplyr}, {forcats} and {tidyr} to the imports field.
+* We will be using the R native pipe so set the minimum version of R as >= 4.1.0 in the depends field.
 
 
 #### Checking your package
-Packages require that the right files and the right information are in the right places. A small mistake
-can prevent the package from functioning as intended. Many package features can be checked using
-the function `devtools::check()`. It runs a series of checks that examine (among other things) package 
-structure, metadata, code structure, and documentation. More information about the individual checks is 
-available [here](https://r-pkgs.org/R-CMD-check.html). Any issues that are identified will be labeled
-as "errors", "warnings" or "notes". Errors and warnings must be fixed. Occasionally it is acceptable
-to leave a "note" but usually these should be fixed too.
+Packages require that the right files and the right information are in the right places. A small 
+mistake can prevent the package from functioning as intended. Many package features can be checked 
+usingthe function `devtools::check()`. It runs a series of checks that examine (among other things) 
+package structure, metadata, code structure, and documentation. More information about the 
+individual checks is available [here](https://r-pkgs.org/R-CMD-check.html). Any issues that are 
+identified will be labeled as "errors", "warnings" or "notes". Errors and warnings must be fixed. 
+Occasionally it is acceptable to leave a "note" but usually these should be fixed too.
 
-**Exercise ** 
-Amend the DESCRIPTION file of your package, specifically the: 
-- Title PLACEHOLDER - example title
-- Authors@R - make yourself author and maintainer and add Crown Copyright as the copyright holder
-- Description PLACEHOLDER - example description.
-(save the file)
-
-Add {usethis} and {devtools} to Suggests
-
-- Ensure the package version is `0.1.0`.
-- Commit the changes
-
-Run `devtools::check()` - there should be no errors, warnings or notes.
+**Exercise** 
+* Run `devtools::check()` - there should be no errors, warnings or notes.
+* If all the checks pass, commit (to the git version history) and push (to GitHub.com) the DESCRIPTION file.
+* If all the checks pass, commit and push  both licence files.
 
 ## Adding functions
 
-### 5. Developing functions
+We are going to include two functions in our example package, one that builds a tabulation of data
+and another that fetches some data from s3 before building the tabulation. Functions must be saved
+in .R files in the R/ folder. You can have multiple functions in a single script (suggestions 
+about how to organise your functions is available 
+[here](https://r-pkgs.org/code.html#sec-code-organising)) but we will use one function per file 
+for this exercise.
 
-Why, when and how to write your own functions is covered by the [Writing functions in R](https://github.com/moj-analytical-services/writing_functions_in_r) training. As this states, functions are a way to bundle up bits of code to make them easy to reuse. They can save you time, reduce the risk of errors, and make your code easier to understand. When commencing a project, you should:
+### Function one
+```R
+wrangle_data <- function(df, pub_year) {
+  
+  df |> 
+    dplyr::filter(.data$year == pub_year) |>
+    dplyr::mutate(
+      month_fct = forcats::fct(.data$quarter_end, month.name)
+    ) |>
+    dplyr::group_by(.data$month_fct, .data$crime) |>
+    dplyr::count() |>
+    tidyr::pivot_wider(names_from = "month_fct", values_from = "n", values_fill = 0)
+}
+```
+### Function two
+```R
+assemble_crime_data <- function(uri, year) {
+  uri |> 
+    arrow::read_parquet() |> 
+    wrangle_data(pub_year = year)
+}
+```
 
-* Consider and make a list of what functions would be beneficial. A good rule of thumb is to develop a function whenever you’d be using the same or similar code in three places. It is also helpful to consider others' needs e.g. you may know another analyst who needs similar code.
-* After you've made a list, check whether the functions already exist (e.g. in the [mojrap](https://github.com/moj-analytical-services/mojrap) package). As appropriate use those that do and develop any that don't. 
-* If developing a new function, consider where it's most beneficial for it to reside. For instance, it may be more beneficial to develop an [mojrap](https://github.com/moj-analytical-services/mojrap) type function within [mojrap](https://github.com/moj-analytical-services/mojrap) than within your package.
+**Exercise**
+* Copy each function to a new R script and save it in the R/ folder. The function name is probably
+an appropriate name for each file.
+* Run `devtools::check()`
 
-**Exercise 5**: Consider (by looking at crimesdata_pub.Rmd) whether it would be beneficial to incorporate any extra functions into your minimal statistical bulletin package (in addition to the summarise_crimes function provided by summarise_crimes.R)? Do you consider the summarise_crimes function beneficial?
-
-### 6. Add R and Rmarkdown code 
-
-Code can be added to a package by saving the R file to the package R directory and the R Markdown file to the package home directory. This can be done in R Studio by saving the files directly (e.g. using the 'Save As' option if they are in a different location), or by using the move/copy GUI options in RStudio. 
-
-If the files are in github.com but not R Studio you have two main options to get them into R Studio. 
-* Clone the relevant repository (as shown in [section 2](#2-choose-a-name)). 
-* If there are only a few files you could click the green github 'Code' button (as in [section 2](#2-choose-a-name) above) and then 'Download ZIP' to download the files to your computer and then upload the relevant ones from your computer into your package using R Studio. 
-
-**Exercise 6:** Add the crimesdata_pub.Rmd file and also the mystyles.docx file (which crimesdata_pub.Rmd calls on) from this repository to your package home directory. Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ### 7. Making functions work in a package
 
-While the format of code inside a package is very similar to "normal R code", it is particularly important to properly reference functions that you are using from other packages. This won't affect how your code runs, but it will ensure that others code works correctly when they use your package.
+While the format of code inside a package is very similar to "normal R code", it is vital to 
+properly reference functions that you are using from other packages. You must never use
+`library()`, `require()` or `source()` calls inside a package; instead you should use 
+`package::function()` syntax. In some instances it is better to import a function from the relevant 
+namespace (more on this later).
 
-Normally when you use a function from another package, you might call that package in a library call, and then reference the function directly e.g.
+Because packages like {dplyr} use "tidy evaluation" we need to make some changes to the code when
+including it packages (more information 
+[here](https://dplyr.tidyverse.org/articles/programming.html)). In function one we get round the use
+of unquoted column names by including the `.data` "pronoun".
 
-        library(dplyr)
-        
-        data %>% filter(Year == 2020)
+**Exercise**
+* Have a look at the use of `package::function()` syntax in the function.
+* Have a look at the use of the `.data` pronoun in function one.
+* Add {arrow}, {dplyr}, {forcats} and {tidyr} to the imports field of the DESCRIPTION file.
+* Commit and push the changes to the DESCRIPTION file.
+* Run `devtools::check()`
 
-Doing this inside a package would cause the dplyr library to be loaded into the R environment which can then have unexpected (global) effects for the user of your package. Their code could then run in ways that they might not expect or want. For example, if someone calls your package that references the dplyr filter() function as above, this could result in their base filter() commands running as if they were dplyr ones. When using a function from another package, you should always specify the function along with the package it's from. You can do this using a double colon e.g.
-
-        data %>% dplyr::filter(Year == 2020)
-
-You will also, instead of using the library() command, need to add any packages you use to your own package's DESCRIPTION file to ensure they are available without causing unexpected effects to anyone who downloads your package. This was covered in [section 4](#4-amend-the-DESCRIPTION-file).   
-
-**Exercise 7:** Add the summarise_crimes.R file from this repository to your package. Open the file and have a look at this function which provides the average number of crimes for the selected years; at the moment the package dplyr is not called correctly. Amend this code so it will work as expected for other users (which it will later after you have added dplyr to your package's DESCRIPTION file (a task in [section 4](#4-amend-the-DESCRIPTION-file))) by removing the "library()" call and calling the two dplyr functions (filter and summarise) specifically using the "double colon method". Lastly, commit all your changes to git and then push them to github.com. You can now refresh your github.com repository page and see the amendments there.
 
 ### 8. Documenting functions
 
-Documentation is really important so users know how to use the package, and package managers and developers can quickly get up to speed. It should therefore be embedded within the package in such a way that it is easily available to all users. Best practice is for documentation about:
- 
-* Datasets (within the package) to be in a separate R script within the R folder.
-* Functions (within the package) to be within the same R scripts.
+Documentation is really important so users know how to use the package, and package managers and 
+developers can quickly get up to speed. It should therefore be embedded within the package in such 
+a way that it is easily available to all users. 
 
-Documentation of functions helps users to understand how they work, what arguments need to be given, and how the arguments need to be formatted.
+We can include "roxygen comments" with our functions to provide documentation that can be 
+automatically knitted into help files. Roxygen comments are denoted by hash and a single quotation 
+mark followed by a space `#' `. Comments can then be labeled with a tag which is a string starting
+with @ e.g. `@title' would be the tag for the help file's title.
+
+A set of roxygen comments for function two are given below.
+
+```
+#' @title Assemble Crime Data
+#' @description Fetch crime data from a specified path and tabulate ready for publication.
+#' @param path A string. The path or S3 URI to the parquet file containing the data.
+#' @param year The year of the publication.
+#' @export
+#' @examples
+#' assemble_crime_data(
+#'   "s3://alpha-r-training/r-package-training/synthetic-crime-data.parquet", 
+#'   year = 2000
+#' )
+```
+
+As a minimum, for each function exported for users of your package you should include:
+* `@title` - the title for the help file
+* `@description` - a description of what your function does
+* `@param` - One for each argument in your function (Note that the name of the parameter comes after the tag followed by another space before the test describing the parameter)
+* `@examples` - Sufficient examples for users to get started with your function (most people will probably look at the examples before reading the text!)
+
+There is a special tag `@export` which indicates that the function should be added to the NAMESPACE
+of your file. This means it will be accessible to users of your package and using the `@export` tag
+will also trigger the generation of a help file. Any function that are for internal package use only
+should not be tagged with `@export`.
+
+Once we have added our roxygen comments we can use `devtools::document()` to generate the the help 
+files. These will be saved in the `man/` folder. You will also see that the function is now listed 
+in the NAMESPACE file. (Note that `devtools::document()` is also run as part of 
+`devtools::check())`.
+
+**Exercises**
+* Copy the roxygen comment chunk above and paste it in the relevant script above function two.
+* Run `devtools::document()` -  you will now see a file in `man/` and a change to the NAMESPACE
+* Add roxygen comments for function one (we can skip adding an example to speed up the training course)
+* Run `devtools::document()` - you will see another file in `man/` and other function added to the NAMESPACE
+* Run `devtools::check()`
+* When all tests pass commit and push the R scripts containing the functions, the `man/` files and the NAMESPACE file.
 
 The documentation of functions is done within the same R script as the function itself - see [this example]( https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R) from the eesectors package. Looking at the first 41 rows you can see a title (one sentence), description, details including inputs, what is returned, some examples, and the @export which enables users to access the function when they load your package. Functions which are not marked with @export can be used by other functions inside the package, but aren't readily available for users directly. Where you see the syntax \code{} the contents of the {} will be regarded as code.  
 
