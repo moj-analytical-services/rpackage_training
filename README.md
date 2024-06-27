@@ -374,7 +374,7 @@ A set of roxygen comments for function two are given below.
 As a minimum, for each function exported for users of your package you should include:
 * `@title` - the title for the help file
 * `@description` - a description of what your function does
-* `@param` - One for each argument in your function (Note that the name of the parameter comes after the tag followed by another space before the test describing the parameter)
+* `@param` - One for each argument in your function (Note that the name of the parameter comes after the tag followed by another space before the text describing the parameter)
 * `@examples` - Sufficient examples for users to get started with your function (most people will probably look at the examples before reading the text!)
 
 There is a special tag `@export` which indicates that the function should be added to the NAMESPACE
