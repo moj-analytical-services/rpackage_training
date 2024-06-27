@@ -537,6 +537,11 @@ You have released your package and have received some feedback from a user - "it
 the year was also included in the date column headings".
 
 * Ensure you are on the `dev` branch
+* install {renv} and run `renv::install()`. This function has special behavior in the presence of a 
+  DESCRIPTION file - it will install the packages listed there.
+* Run `devtools::check()`. This is to see if any changes in your packages dependencies have broken
+  anything (the effectiveness of this will depend on the quality of your code and testing). Address
+  any dependency related issues before making further changes.
 * Add the following as a second argument to the `dplyr::mutate()` in `wrangle_data()`: 
   ```
   month_fct = forcats::fct_relabel(.data$month_fct, ~ paste(.x, pub_year))
