@@ -334,7 +334,7 @@ namespace (more on this later).
 
 Because packages like {dplyr} use "tidy evaluation" we need to make some changes to the code when
 including it within packages (more information 
-[here](https://dplyr.tidyverse.org/articles/programming.html)). In function one we get round the use
+[here](https://dplyr.tidyverse.org/articles/programming.html)). In function one we get around the use
 of unquoted column names by including the `.data` "pronoun".
 
 **Exercise**
