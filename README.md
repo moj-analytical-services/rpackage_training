@@ -333,7 +333,7 @@ properly reference functions that you are using from other packages. You must ne
 namespace (more on this later).
 
 Because packages like {dplyr} use "tidy evaluation" we need to make some changes to the code when
-including it packages (more information 
+including it within packages (more information 
 [here](https://dplyr.tidyverse.org/articles/programming.html)). In function one we get round the use
 of unquoted column names by including the `.data` "pronoun".
 
