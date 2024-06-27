@@ -378,7 +378,7 @@ As a minimum, for each function exported for users of your package you should in
 * `@examples` - Sufficient examples for users to get started with your function (most people will probably look at the examples before reading the text!)
 
 There is a special tag `@export` which indicates that the function should be added to the NAMESPACE
-of your file. This means it will be accessible to users of your package and using the `@export` tag
+of your package. This means it will be accessible to users of your package and using the `@export` tag
 will also trigger the generation of a help file. Any function that are for internal package use only
 should not be tagged with `@export`.
 
@@ -395,24 +395,11 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 * Run `devtools::check()`
 * When all tests pass commit and push the R scripts containing the functions, the `man/` files and the NAMESPACE file.
 
-The documentation of functions is done within the same R script as the function itself - see [this example]( https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R) from the eesectors package. Looking at the first 41 rows you can see a title (one sentence), description, details including inputs, what is returned, some examples, and the @export which enables users to access the function when they load your package. Functions which are not marked with @export can be used by other functions inside the package, but aren't readily available for users directly. Where you see the syntax \code{} the contents of the {} will be regarded as code.  
-
-The process is as follows:
-
-1. Add documentation to the .R file
-2. Run devtools::document()
-3. Preview in the help facility using ?objectname
-4. Amend the documentation as appropriate and repeat steps 2 to 4. 
-
-To check that the documentation enables others to easily understand the code you should get at least one other person to peer review your documentation. Are they able to understand how to use each function from the documentation alone?
-
-You can learn more about documentation more generally by reading the [R Packages Object documentation chapter](https://r-pkgs.org/man.html)
-
-**Exercise 8:** Follow the above process to add suitable documentation to the function summarise_crimes.R. It may be easiest to copy rows 1-41 from [this example](https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R) and then amend. You should include a helpful description, details of the inputs, an example, and specify @export to allow users to access the function. Lastly, commit all your changes to git and then push them to github.com. If you still have time, then do the same for the function that you created in the [section 13](#13-automating-quality-assurance-checks-on-input-data-sets) exercise above.
 
 
+## Testing code your code
 
-## Testing code
+You have written (in this case been given) some code but how
 
 ### 10. Testing your code 
 
@@ -497,17 +484,16 @@ To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
    * Run devtools::test_coverage() to check what percentage of (relevant) code in your package is now being tested.
 6) Lastly, commit all your changes to git and then push them to github.com.
 
-## Releasing a package
 
-### 12. Checking your package
+### Add a Readme
 
-Before releasing your package, you can check it by running the R CMD tests which include over 50 individual checks for common problems, and fix any problems. This can take a long time at first as there may be many error messages. To do this: 
+### 15. Adding a NEWS file
 
-1. Run devtools::check()  
-2. Fix each problem. You should definitely fix the errors, try to eliminate the warnings (essential if submitting to CRAN), and ideally eliminate all notes. To understand more about a problem, look it up in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html). It may also be useful to look at [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html), and at code that has passed the test (e.g. [the eesectors package](https://github.com/DCMSstats/eesectors)). 
-3. Rerun 
+The NEWS markdown file functions as a changelog for your package. It must be updated every time you make changes to your package.
 
-**Exercise 12**: Run the R CMD tests on your code and resolve any error messages. Then commit all your changes to git and then push them to github.com.
+**Exercise 15**: Add a NEWS file to your package (`usethis::use_news_md()`). 
+
+* 
 
 ### 13. Managing releases and future changes to your package
 
@@ -527,11 +513,11 @@ Congratulations, you have successfully produced a working package in R! Open a p
 
 To install a package from a **public** GitHub repo using `renv` you just need the owner and the repo:
 
-    renv::install("moj-analytical-services/mojrap")
+    renv::install("moj-analytical-services/mojchart")
   
 The easiest way install a package from an **internal** or **private** GitHub repo is with the following syntax:
 
-    renv::install("git@github.com:moj-analytical-services/mojrap.git")
+    renv::install("git@github.com:moj-analytical-services/mojchart.git")
     
 Note: If your package has any Imports that are from internal or private repos you will need to also use this syntax in the Remotes field. [Example here.](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION)
     
@@ -543,11 +529,24 @@ With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where 
 
 ## Maintenance cycle
 
-### 15. Adding a NEWS file
+You have released you package and have received some feedback from a user - "it would be better if 
+the year was also included in the date column headings".
 
-The NEWS markdown file functions as a changelog for your package. It must be updated every time you make changes to your package.
+* Ensure you are on the `dev` branch
+* Add the following as a second argument to the `dplyr::mutate()` in `wrangle_data()`: 
+  ```
+  month_fct = forcats::fct_relabel(.data$month_fct, ~ paste(.x, pub_year))
+  ```
+* run `devtools::load_all()` and `devtools::test()`
+* Update the tests as necessary
+* Update the version number in the DESCRIPTION file
+* Update the NEWS file
+* Run `devtools::check()`
+* When all tests pass, commit and push the changes
+* Open a pull request, merge to `main` and generate a new GitHub release
 
-**Exercise 15**: Add a NEWS file to your package (`usethis::use_news_md()`). 
+
+## Annex
 
 ### 16. Continuous integration
 
@@ -564,8 +563,6 @@ This automatically puts a status badge in your README. You can provide extra sec
 You can read further about automating checking in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html).
 
 **Exercise 16**: Setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
-
-## Annex
 
 ### A1. Excluding sensitive data 
 
