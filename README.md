@@ -292,14 +292,20 @@ Occasionally it is acceptable to leave a "note" but usually these should be fixe
 
 ## Adding functions
 
-We are going to include two functions in our example package, one that builds a tabulation of data
-and another that fetches some data from s3 before building the tabulation. Functions must be saved
-in .R files in the R/ folder. You can have multiple functions in a single script (suggestions 
-about how to organise your functions is available 
+A training course on writing functions in R is available 
+[here](https://github.com/moj-analytical-services/writing_functions_in_r) but for speed in this 
+course we will skip over function development. 
+
+We are going to include two functions in our example package, one that builds a tabulation of data 
+and another that fetches some data from s3 before building the tabulation. The functions omit things
+like data validation and error handling that you should include in real produciton code.
+
+In a package, functions must be saved in .R files in the R/ folder. You can have multiple functions 
+in a single script (suggestions about how to organise your functions is available 
 [here](https://r-pkgs.org/code.html#sec-code-organising)) but we will use one function per file 
 for this exercise.
 
-### Function one
+### wrangle data function
 ```R
 wrangle_data <- function(df, pub_year) {
   
@@ -313,7 +319,7 @@ wrangle_data <- function(df, pub_year) {
     tidyr::pivot_wider(names_from = "month_fct", values_from = "n", values_fill = 0)
 }
 ```
-### Function two
+### assemble crime data function
 ```R
 assemble_crime_data <- function(uri, year) {
   uri |> 
@@ -333,13 +339,13 @@ an appropriate name for each file.
 While the format of code inside a package is very similar to "normal R code", it is vital to 
 properly reference functions that you are using from other packages. You must never use
 `library()`, `require()` or `source()` calls inside a package; instead you should use 
-`package::function()` syntax. In some instances it is better to import a function from the relevant 
-namespace (more on this later).
+`package::function()` syntax. More information on why this is the case is available [here](https://r-pkgs.org/code.html#sec-code-r-landscape). In some instances it is better to import 
+a function from the relevant namespace (more on this later).
 
 Because packages like {dplyr} use "tidy evaluation" we need to make some changes to the code when
 including it within packages (more information 
-[here](https://dplyr.tidyverse.org/articles/programming.html)). In function one we get around the use
-of unquoted column names by including the `.data` "pronoun".
+[here](https://dplyr.tidyverse.org/articles/programming.html)). In the wrangle data function we get 
+around the use of unquoted column names by including the `.data` "pronoun".
 
 **Exercise**
 * Have a look at the use of `package::function()` syntax in the function.
@@ -360,7 +366,7 @@ automatically knitted into help files. Roxygen comments are denoted by hash and 
 mark followed by a space `#' `. Comments can then be labeled with a tag which is a string starting
 with @ e.g. `@title' would be the tag for the help file's title.
 
-A set of roxygen comments for function two are given below.
+A set of roxygen comments for the assemble crime data function is given below.
 
 ```
 #' @title Assemble Crime Data
@@ -392,9 +398,9 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 `devtools::check())`.
 
 **Exercises**
-* Copy the roxygen comment chunk above and paste it in the relevant script above function two.
+* Copy the roxygen comment chunk above and paste it in the relevant script above assemble crime data function.
 * Run `devtools::document()` -  you will now see a file in `man/` and a change to the NAMESPACE
-* Add roxygen comments for function one (we can skip adding an example to speed up the training course)
+* Add roxygen comments for the wrangle data function (we can skip adding an example to speed up the training course)
 * Run `devtools::document()` - you will see another file in `man/` and other function added to the NAMESPACE
 * Run `devtools::check()`
 * When all tests pass commit and push the R scripts containing the functions, the `man/` files and the NAMESPACE file.
