@@ -529,7 +529,7 @@ With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where 
 
 ## Maintenance cycle
 
-You have released you package and have received some feedback from a user - "it would be better if 
+You have released your package and have received some feedback from a user - "it would be better if 
 the year was also included in the date column headings".
 
 * Ensure you are on the `dev` branch
