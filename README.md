@@ -379,7 +379,7 @@ As a minimum, for each function exported for users of your package you should in
 
 There is a special tag `@export` which indicates that the function should be added to the NAMESPACE
 of your package. This means it will be accessible to users of your package and using the `@export` tag
-will also trigger the generation of a help file. Any function that are for internal package use only
+will also trigger the generation of a help file. Any functions that are for internal package use only
 should not be tagged with `@export`.
 
 Once we have added our roxygen comments we can use `devtools::document()` to generate the the help 
