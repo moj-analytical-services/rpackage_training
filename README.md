@@ -260,6 +260,10 @@ packages listed in Imports and Suggests to increase the compatability of your pa
 If you know that your code relies on functionality added in a particular version of a package you 
 must specify the minimum version otherwise don't specify a minimum version.
 
+Any package that your code relied upon for core functionality should be listed in the "Imports" 
+section. The "Suggests" section is for packages that are used in the development process or give 
+extra optional functionality.
+
 There is a tool in {usethis} for adding packages to the description file. It will check if the 
 package is installed before adding it so is useful for catching spelling mistakes!
 
