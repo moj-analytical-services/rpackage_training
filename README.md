@@ -409,17 +409,47 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 
 ## Testing code your code
 
-You have written (in this case been given) some code but how
+You have written (in this case been given) some code but how do you know that it is actually doing 
+what you intended? You might use `devtools::load_all()` to load your package and then try the 
+functions to see if they give the expected output. This works but you will need to recreate and 
+inputs and repeat the process if any changes are made to your code base or if there are changes in 
+your dependencies and testing your code quickly becomes a time consuming process.
+
+We can instead formalize this testing process (and automate the running of it) using the [{testthat}
+R package](https://testthat.r-lib.org/index.html).
+
+* Adds `testthat (>= 3.0.0)` to the Suggests field in the DESCRIPTION file.
+* Creates a `tests/` folder, inside of which is a `testthat/` folder, where your R test scripts should be placed, and a `testthat.R` which helps in automating the testing.
+
+
+**Exercise** 
+* Run `usethis::use_testthat()` to set up the testing infrastructure.
+* Navigate to the script containing assemble crime data function and in the console run: `usethis::use_test()`. This will open a new script which is saved in `tests/testhat/`.
+
+### The structure of a tests
+
+The {testthat} tests contain two elements, the name of the test and one or more expectations. 
+
+The name of the test is important for identifying which test failed (when it fails) so should contain 
+information about what you are testing i.e. the function name and what specific behavior you are 
+testing. Each test should always have a unique name within a package to avoid wasting time 
+debugging the wrong test! 
+
+[Expectations](https://testthat.r-lib.org/reference/index.html#expectations) are a series of 
+functions that check for the presence or absence of specific values or properties in function 
+outputs or their side effects.
+
+**Exercise** have a look at the {testthat} reference to
 
 ### 10. Testing your code 
 
 Anytime someone makes a change to the code, this should be accompanied by testing to check that it works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides users with more assurance and helps those making changes to the code to identify any shortcomings and rectify these. 
 
-While tests can be run when desired, it is better to set them up to run automatically before a github pull request is granted (see [section 19](#19-continuous-integration) on continuous integration). 
+
 
 There are two types of test you should consider:
 - unit tests (covered in [section 18](#18-unit-testing)); generally there should be at least one for each function. 
-- integration tests (covered in [section 19](#19-continuous-integration)); testing everything in the whole pipeline (or package). 
+
 
 As testing can have no end to it, it is recommended that you start by considering what really needs to be tested (e.g. what is of high risk?), and then to develop these tests. If in the future you decide something else really needs to be tested you can add a test for this. To make the process as efficient as possible, it may be desirable for you to create mock data (which shouldn't contain any sensitive information) that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. As long as the data files are small, the mock data can be stored in the tests directory ([section 18](#18-unit-testing) covers how to set this directory up).
 
