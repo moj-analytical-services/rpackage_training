@@ -111,7 +111,7 @@ You can read more in the [R Packages section Name your package](https://r-pkgs.o
 **1.1** Decide what name to call your package (something like your initials or name combined with "demo",
 "eg", or "toy" might be appropriate for this training).
 
-**1.2** [Create a new github repository](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#create-a-new-project-in-github), giving it your chosen name and "internal" visibility. Add a .gitignore file but not a license or README at this stage.
+**1.2** [Create a new github repository](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#create-a-new-project-in-github), giving it your chosen name and "internal" visibility. Add a .gitignore file (using the "R" template) but not a license or README at this stage.
 
 **1.3** [Clone the repo](https://user-guidance.analytical-platform.service.justice.gov.uk/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) as an RStudio project.
 
