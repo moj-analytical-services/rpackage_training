@@ -99,9 +99,10 @@ It is also worth considering whether your functions might fit within an existing
 Possibly the hardest part of creating a package is choosing a name for it. This should: 
 
 - be short 
-- be unique (for Google searches) 
-- include either upper or lower case characters but not a mixture of them 
-- be clear about what the package does i.e. reflect the scope
+- be unique (for Google searches)
+- be made of ASCII letters, numbers and "." only (it must start with a letter)
+- not use a mixture of upper and lower case letters (this makes the name hard to rememeber)
+- if possible be clear about what the package does i.e. reflect the scope
 
 You can read more in the [R Packages section Name your package](https://r-pkgs.org/workflow101.html#name-your-package)
 
@@ -109,7 +110,7 @@ You can read more in the [R Packages section Name your package](https://r-pkgs.o
 **Exercise**
 
 **1.1** Decide what name to call your package (something like your initials or name combined with "demo",
-"eg", or "toy" might be appropriate for this training).
+"eg", or "toy" might be appropriate for this training). Make sure you respect the constraints on permitted characters!
 
 **1.2** [Create a new github repository](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#create-a-new-project-in-github), giving it your chosen name and "internal" visibility. Add a .gitignore file (using the "R" template) but not a license or README at this stage.
 
