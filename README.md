@@ -68,9 +68,9 @@ benefits:
 These benefits together improve the reliability, reusability and sharability of code, and give you the 
 confidence to update it without the fear of unknowingly breaking something.
 
-PLACEHOLDER - something about what the package built in this training will do.
-
-This training is designed with exercises to enable you to develop a package.
+This training is designed with exercises to enable you to develop a package. Your example package
+will include function to fetch data from s3 and build a simple tabulation like those found
+in many publicaiton tables and MI-packs etc.
 
 
 ### 2. Package Scope and Naming
@@ -91,6 +91,8 @@ Some packages may contain generalized functions (on a particular theme) that hav
 of applications e.g. [{psutils}](https://github.com/moj-analytical-services/psutils). Others may 
 contain very specialized functions that are only used as part of one process e.g. 
 [{pssf}](https://github.com/moj-analytical-services/pssf).
+
+It is also worth considering whether your functions might fit within an existing package rather than starting a new one.
 
 #### The name
 
