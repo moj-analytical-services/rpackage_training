@@ -160,8 +160,6 @@ format and aid development by automating common tasks. The two we will be using 
 
 **Exercise** 
 
-**2.3** Set the CRAN mirror so you can access the latest versions of packages.
-
 **2.4** Using `install.packages()`, install the {devtools} and {usethis} packages.
 
 ### 3. Create the package 
