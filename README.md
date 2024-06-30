@@ -225,8 +225,8 @@ Where values span multiple lines, they need to be indented. In particular:
 #### Authors
 
 Package authors are supplied as a vector of persons i.e. `c(person(...), person(...))`. In addition 
-to a name and an email, each person should have a "role"" specified. More information can be found 
-by running `?person` but the four most common roles are detailed below:
+to a `given` name, `family` name, and an `email`, each person should have a `role` specified. More information can be found 
+by running `?person` but the four most common roles are detailed below (multiple roles should be combined with `c()`):
 
 - aut: authors; those who have made significant contributions to the package.
 - ctb: contributors; those who have made smaller contributions, like patches.
@@ -234,7 +234,7 @@ by running `?person` but the four most common roles are detailed below:
 - cph: copyright holder; most likely `person("Crown Copyright (Ministry of Justice)", role = "cph")` 
 
 **Exercise**
-* Add yourself to the DESCRIPTION file as the author and maintainer of the package.
+* Add yourself to the DESCRIPTION file as the author and maintainer of the package). 
 * Add the relevant copyright holder.
 
 #### Semantic Versioning
@@ -278,7 +278,7 @@ to add {devtools} as a suggested package: `usethis::use_package("devtools", type
 
 **Exercise**
 * Add {devtools} and {usethis} to the suggests field.
-* We will be using the R native pipe so set the minimum version of R as >= 4.1.0 in the depends field.
+* We will be using the R native pipe so set the minimum version of R as >= 4.1.0 in the depends field: `usethis::use_package("R", type = "Depends", min_version = "4.1.0")`
 
 
 #### Checking your package
