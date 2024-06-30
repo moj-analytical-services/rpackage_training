@@ -293,7 +293,8 @@ Occasionally it is acceptable to leave a "note" but usually these should be fixe
 **Exercise** 
 * Run `devtools::check()` - there should be no errors, warnings or notes.
 * If all the checks pass, commit (to the git version history) and push (to GitHub.com) the DESCRIPTION file.
-* If all the checks pass, commit and push  both licence files.
+* If all the checks pass, commit and push both licence files.
+* If all the checks pass, commit and push any changes to the .Rbuildignore, .gitignore and .Rproj files.
 
 ## Adding functions
 
@@ -336,7 +337,8 @@ assemble_crime_data <- function(uri, year) {
 **Exercise**
 * Copy each function to a new R script and save it in the R/ folder. The function name is probably
 an appropriate name for each file.
-* Run `devtools::check()`
+* Run `devtools::check()` - You will get a warning about undeclared imports and a note about an
+* "undefined global function or variable" we will deal with these in the next section.
 
 
 ### 7. Making functions work in a package
@@ -353,8 +355,8 @@ including it within packages (more information
 around the use of unquoted column names by including the `.data` "pronoun".
 
 **Exercise**
-* Have a look at the use of `package::function()` syntax in the function.
-* Have a look at the use of the `.data` pronoun in function one.
+* Have a look at the use of `package::function()` syntax in the functions.
+* Have a look at the use of the `.data` pronoun in the wrangle data function.
 * Add {arrow}, {dplyr}, {forcats} and {tidyr} to the imports field of the DESCRIPTION file.
 * Commit and push the changes to the DESCRIPTION file.
 * Run `devtools::check()`
