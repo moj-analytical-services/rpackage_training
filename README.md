@@ -175,7 +175,7 @@ section.
 
 **Exercise** 
 
-**2.5** Set up you project as a folder using `usethis::create_package(getwd())`
+**2.5** Set up you project as a folder using `usethis::create_package(getwd())`. You will be asked if you want to overwrite the existing .Rproj file. You do!
 
 **2.6** Which standard package elements have been created?
 
