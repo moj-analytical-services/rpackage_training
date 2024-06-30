@@ -1,22 +1,25 @@
 # Developing R packages
+
+## Pre-course requirements
 This training is designed as an introduction to making and developing R packages which are 
 important to reproducible ways of working. You should first have completed the following training 
 sessions (or reached an equivalent standard to having done so):
 
 - [Introduction to using R on the Analytical Platform](https://github.com/moj-analytical-services/intro_using_r_on_ap)
 - [Introduction to R](https://github.com/moj-analytical-services/IntroRTraining)
-- [R Charting](https://github.com/moj-analytical-services/ggplotTraining)
 - [Writing functions in R](https://github.com/moj-analytical-services/writing_functions_in_r)
+- [Introduction to Git and GitHub](https://github.com/moj-analytical-services/intro_to_github_training)
 
-You must also have completed steps 1 to 4 and 6 of 
-[this MoJ Analytical Platform quickstart guide](https://user-guidance.analytical-platform.service.justice.gov.uk/get-started.html#get-started), 
-making sure you can access RStudio from the control panel but you do not need to clone this repo. If 
-you have any issues, please post them in the appropriate Slack channel (either #[ask-operations-engineering](https://moj.enterprise.slack.com/archives/C01BUKJSZD4) or #[intro_r channel](https://asdslack.slack.com/archives/CGKSJV9HN)).
+You must also have completed steps 1 to 4 and 6 of the
+[MoJ Analytical Platform quickstart guide](https://user-guidance.analytical-platform.service.justice.gov.uk/get-started.html#get-started), 
+making sure you can access RStudio from the control panel. If you have any issues, please post them in the 
+appropriate Slack channel (either [#ask-operations-engineering](https://moj.enterprise.slack.com/archives/C01BUKJSZD4) or [#intro_r](https://asdslack.slack.com/archives/CGKSJV9HN)). 
 
-If you are able to, it may also help to make use of dual screens (your laptop plus a monitor) 
-during the training session to enable you to watch the session on one and code on the other.
+You will also require access to the S3 bucket `alpha-r-training`. You can post an access request to the [#intro_r](https://asdslack.slack.com/archives/CGKSJV9HN) slack channel.
 
-Recordings of these sessions can be viewed via links provided in the [Analytical Platform and related tools training section on R training](https://moj-analytical-services.github.io/ap-tools-training/ITG.html#r-training). If you have any access problems please contact <aidan.mews@justice.gov.uk> or <georgina.eaton4@justice.gov.uk>.
+Using two screens (e.g. your laptop plus a monitor) during the training session might be useful to enable you to watch the session on one and code on the other.
+
+Recordings of these sessions can be viewed via links provided in the [Analytical Platform and related tools training section on R training](https://moj-analytical-services.github.io/ap-tools-training/ITG.html#r-training). If you have any access problems please contact <aidan.mews@justice.gov.uk>.
 
 
 ## Contents
