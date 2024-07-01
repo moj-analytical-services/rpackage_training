@@ -433,7 +433,7 @@ R package](https://testthat.r-lib.org/index.html).
 
 **Exercise** 
 * Run `usethis::use_testthat()` to set up the testing infrastructure.
-* Navigate to the script containing assemble crime data function and in the console run: `usethis::use_test()`. This will open a new script which is saved in `tests/testhat/`.
+* Navigate to the script containing the assemble crime data function and in the console run: `usethis::use_test()`. This will open a new script which is saved in `tests/testhat/`. The script will have the same name as the function script but will have a `test-` prefix. An example test will be given.
 
 ### The structure of a tests
 
