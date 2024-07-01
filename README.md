@@ -357,7 +357,7 @@ around the use of unquoted column names by including the `.data` "pronoun".
 **Exercise**
 * Have a look at the use of `package::function()` syntax in the functions.
 * Have a look at the use of the `.data` pronoun in the wrangle data function.
-* Add {arrow}, {dplyr}, {forcats} and {tidyr} to the imports field of the DESCRIPTION file (install the pacakges if prompted t0).
+* Add {arrow}, {dplyr}, {forcats} and {tidyr} to the imports field of the DESCRIPTION file (install the pacakges if prompted to).
 * Commit and push the changes to the DESCRIPTION file.
 * Run `devtools::check()`
 
