@@ -234,7 +234,7 @@ by running `?person` but the four most common roles are detailed below (multiple
 - cph: copyright holder; most likely `person("Crown Copyright (Ministry of Justice)", role = "cph")` 
 
 **Exercise**
-* Add yourself to the DESCRIPTION file as the author and maintainer of the package). 
+* Add yourself to the DESCRIPTION file as the author and maintainer of the package. 
 * Add the relevant copyright holder.
 
 #### Semantic Versioning
