@@ -304,7 +304,7 @@ course we will skip over function development.
 
 We are going to include two functions in our example package, one that builds a tabulation of data 
 and another that fetches some data from s3 before building the tabulation. The functions omit things
-like data validation and error handling that you should include in real produciton code.
+like data validation and error handling that you should include in real production code.
 
 In a package, functions must be saved in .R files in the R/ folder. You can have multiple functions 
 in a single script (suggestions about how to organise your functions is available 
