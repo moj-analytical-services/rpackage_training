@@ -69,7 +69,7 @@ These benefits together improve the reliability, reusability and sharability of 
 confidence to update it without the fear of unknowingly breaking something.
 
 This training is designed with exercises to enable you to develop a package. Your example package
-will include function to fetch data from s3 and build a simple tabulation like those found
+will include functions to fetch data from s3 and build a simple tabulation like those found
 in many publicaiton tables and MI-packs etc.
 
 
