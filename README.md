@@ -327,8 +327,8 @@ wrangle_data <- function(df, pub_year) {
 ```
 ### assemble crime data function
 ```R
-assemble_crime_data <- function(uri, year) {
-  uri |> 
+assemble_crime_data <- function(path, year) {
+  path |> 
     arrow::read_parquet() |> 
     wrangle_data(pub_year = year)
 }
@@ -409,6 +409,8 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 * Run `devtools::document()` -  you will now see a file in `man/` and a change to the NAMESPACE
 * Add roxygen comments for the wrangle data function (we can skip adding an example to speed up the training course)
 * Run `devtools::document()` - you will see another file in `man/` and other function added to the NAMESPACE
+* Add the following as as additional roxygen comment to the wrangle data file: `#' @importFrom dplyr .data`
+* Run `devtools::document()` - you a new line in your NAMESPACE file that makes dplyr's `.data` available for use in your package. This syntax should also be used for things like operators
 * Run `devtools::check()`
 * When all tests pass commit and push the R scripts containing the functions, the `man/` files and the NAMESPACE file.
 
