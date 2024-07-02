@@ -454,9 +454,7 @@ outputs or their side effects.
 
 Some tests for the assemble crime data function are given below. We are checking that when a valid path (and date) are supplied
 we get a data frame and no warnings are generated. We are not worried about testing the content of the data frame here as that
-is controlled by the wrangle data function. We will cover that with the tests for that function. We may also want to avoid 
-checking specific things like values, number of rows, number of columns etc when using "real" data if there is a risk of
-revealing unpublished information etc.
+is controlled by the wrangle data function. We will cover that with the tests for that function. 
 
 Additionally we are checking that when an invalid path is used we get an error.
 
@@ -495,20 +493,41 @@ Test coverage can be particuarly useful where you have `if()` statements in your
 the various coditions that can arrise have been covered.
 
 **Exercise** 
-* Run `devtools::test_coverage()` - he first time you run in you might be prompted to install the pacakges {covr} and {DT}.
+* Run `devtools::test_coverage()` - the first time you run in you might be prompted to install the pacakges {covr} and {DT}.
 * Add {covr} and {DT} to the Suggests field in your DESCRIPTION file.
 
 ### Tests for the assemble crime data function
 
-* A 13 column data frame (one column for `crime` and twelve for the months)
+In order to properly test the assemble crime data function we probably want to ensure that the following expections
+are met in the output data frame:
+
+* The output is a 13 column data frame (one column for `crime` and twelve for the months)
 * The month columns are arranged in chronological order (January to December)
 * The data are filterd by `pub_year` correctly
 * The number of rows is the same as the number of unique "crimes"
 
-# does filter by correct year
-# output has columns in correct order
-# counts are as expected
+We probably don't want to use "real" data when writing tests. By checking specific things like values, number of rows, 
+number of columns etc in the outputs there is a risk of revealing unpublished information etc. Real data may also be
+subject to change (potentially causing tests to fail incorrectly). Additionally, real data is likely to be quite large
+(slowing down the testing process) and contain a lot of noise i.e. elements that are not relevant for testing a specific
+function.
 
+We will use the following data frame to test the wrangle data function. It contains only the three columns used by the
+test and two rows. The values for `crime` are dummy values i.e. not the same as the values used in the "real" data but
+that difference is not important for testing whether the function works
+
+```R
+testing_df <- data.frame(
+    crime = c("foo", "bar"),
+    year = 2000:2001,
+    month = "January"
+  )
+```
+
+**Exercises**
+* Create a testing file for the wrangle data function.
+* We will use one test - give it an appropriate name.
+* Include the `testing_df` data frame in the test and then add expectations to test the four points listed above.
 
 
 
