@@ -318,7 +318,7 @@ wrangle_data <- function(df, pub_year) {
   df |> 
     dplyr::filter(.data$year == pub_year) |>
     dplyr::mutate(
-      month_fct = forcats::fct(.data$quarter_end, month.name)
+      month_fct = forcats::fct(.data$month, month.name)
     ) |>
     dplyr::group_by(.data$month_fct, .data$crime) |>
     dplyr::count() |>
@@ -455,7 +455,9 @@ outputs or their side effects.
 
 Some tests for the assemble crime data function are given below. We are checking that when a valid path (and date) are supplied
 we get a data frame and no warnings are generated. We are not worried about testing the content of the data frame here as that
-is controlled by the wrangle data function. We will cover that with the tests for that function.
+is controlled by the wrangle data function. We will cover that with the tests for that function. We may also want to avoid 
+checking specific things like values, number of rows, number of columns etc when using "real" data if there is a risk of
+revealing unpublished information etc.
 
 Additionally we are checking that when an invalid path is used we get an error.
 
@@ -481,90 +483,34 @@ test_that("assemble_crime_data fails with invalid path", {
 * Save the test file and run `devtools::load_all()`.
 * Run `devtools::test()`
 
+### Test coverage
+
+Test coverage is a metric that can be useful in assesing the adequecy of tests. The {covr} package can be used to examine 
+test coverage. It builds the package and runs the tests in a modified environment counting how many times each line of
+package code is run by the tests. You should aim to have every line covered by tests but don't rely coverage alone when
+assessing the adequecy of tests. When we run the test coverage of our pacakge we will get 100% (the wrangle data function
+is called by the assemble crime data function) but we are not (yet) properly testing the intended behaviour of the 
+wrangle data function.
+
+Test coverage can be particuarly useful where you have `if()` statements in your code to help you ensure that all
+the various coditions that can arrise have been covered.
+
+**Exercise** 
+* Run `devtools::test_coverage()` - he first time you run in you might be prompted to install the pacakges {covr} and {DT}.
+* Add {covr} and {DT} to the Suggests field in your DESCRIPTION file.
+
+### Tests for the assemble crime data function
+
+* A 13 column data frame (one column for `crime` and twelve for the months)
+* The month columns are arranged in chronological order (January to December)
+* The data are filterd by `pub_year` correctly
+* The number of rows is the same as the number of unique "crimes"
+
+# does filter by correct year
+# output has columns in correct order
+# counts are as expected
 
 
-### 10. Testing your code 
-
-Anytime someone makes a change to the code, this should be accompanied by testing to check that it works as it should and the output is as expected. Such testing is best automated as manual testing is laborious, boring and time-consuming. Moreover, automated testing provides users with more assurance and helps those making changes to the code to identify any shortcomings and rectify these. 
-
-
-
-There are two types of test you should consider:
-- unit tests (covered in [section 18](#18-unit-testing)); generally there should be at least one for each function. 
-
-
-As testing can have no end to it, it is recommended that you start by considering what really needs to be tested (e.g. what is of high risk?), and then to develop these tests. If in the future you decide something else really needs to be tested you can add a test for this. To make the process as efficient as possible, it may be desirable for you to create mock data (which shouldn't contain any sensitive information) that have the key features of the actual data (same columns, names etc.) but be much smaller in size to allow for easy loading and processing. As long as the data files are small, the mock data can be stored in the tests directory ([section 18](#18-unit-testing) covers how to set this directory up).
-
-**Exercise 10**: Consider whether it could be beneficial to create a mock version of the crimedata.csv data. This dataset should retain the structure of the crimedata.csv (same number of columns, column names, data types) but be much smaller (e.g. only two or three rows).
-
-### 11. Unit testing
-
-Unit testing can be easily automated using the [testthat package](https://testthat.r-lib.org/). This:
-* Provides a user friendly way of specifying tests that determine whether a function has run as expected (e.g. returns a particular value).
-* Enables you to write messages that inform the user when running the tests (e.g. figure 1 works as expected).
-* Instructs users about whether checks have passed or failed. 
-* Easily integrates into your existing workflow. 
-
-To set up your package to use testthat run the command:
-
-        usethis::use_testthat(3)
-
-This: 
-* Adds testthat (>= 3.0.0) to the DESCRIPTION Suggests field
-* Creates a 'tests' folder, inside of which is: 
-  * A testthat folder, where your R test scripts should be placed;
-  * The testthat.R file, which runs the R scripts in the testthat folder.
-
-To check what percentage of the (relevant) code in your package is currently being tested, you can run the command:
-
-        devtools::test_coverage()
-
-To develop tests:
-* Select the R script containing the function you want to test, and in the Console run: `usethis::use_test()`
-  * There should generally be one R script for each function which will include all the tests you want to run on it.
-  * Each test file should be named 'test_[function name].R'.
-* Use the R script to: 
-  * Load in any data that you want the test(s) to use.
-  * Specify each test using the test_that() function.
-
-An example R test script is [here](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R). You'll notice this file includes:
-* A single context() call which provides a brief description of its contents.
-* Data being loaded for the tests to use.
-* Tests being specified using the test_that() functions. Where a test_that() function involves more than one expect_ function, it will only a pass if all expect_ functions produce a TRUE result. Otherwise it will fail.
-* Using the package [stringr](https://stringr.tidyverse.org/) in line with the [Section 8. Making functions work in a package](#8-making-functions-work-in-a-package) guidance.
- 
-An example test_that() function is as follows:
-
-    test_that("your_function() Returns object of length five", {
-     expect_equal(length(your_function(x)), 5)
-    })
-
-Notice that:
-* The first argument is for providing a clear description of the test (in this example "Returns object of length five") which is displayed to the user when the test is run. It also contains the name of the function being tested. This helps with debugging if the test fails.
-* Following the first argument, the test itself is specified within curly brackets {} (in this example testing that the returned object is of length 5). You can include multiple expect_ functions within the curly brackets for each test.
-
-Some frequently used expect_ function examples are:
-* expect_equal(): Checks that two outputs are equal
-* expect_match(): Checks a string matches a regular expression
-* expect_type(): Checks an object matches a certain type or class
-* expect_output(): Checks the output has a specific structure such as a list
-* expect_error(): Checks the code returns an error in specific circumstances
-* expect_silent(): Checks that the code executes silently (produces no output, messages, or warnings etc.). 
-
-For a full list of testthat expect_ and other functions see the [testthat function documentation](https://testthat.r-lib.org/reference/). There are also other functions you can use e.g. the package [vdiffr](https://cran.rstudio.com/web/packages/vdiffr/index.html) enables the testing of plots to see whether they look as expected. You can also read more about using testhat in the [R Packages testing sections](https://r-pkgs.org/testing-basics.html).
-  
-To run your tests, use devtools::test() or Ctrl/Cmd + Shift + T.
-
-**Exercise 11**: Create some tests for the summarise_crimes function:  
-1) Run usethis::use_testthat(3) to set up your testing structure.
-2) Inside the tests/testthat folder, create an R file called test_summarise_crimes.R
-3) Create a test (it's easiest to copy and amend lines 1 and 10-13 of [this test script](https://github.com/mammykins/regregrap/blob/master/tests/testthat/test_fivereg_recent.R) which contains tests for [this fivereg_recent function](https://github.com/mammykins/regregrap/blob/master/R/fivereg_recent.R)) to check whether the summarise_crimes function stops running if there is an error (e.g. using expect_silent()).
-4) Run the test you have created. 
-5) If time permits, you could also:
-   * Add tests that the input is not a suitable dataframe and the input dataframe variables 'year' and 'crimes' aren't of class int. 
-   * Try writing a test that the function will fail, just to see what happens!
-   * Run devtools::test_coverage() to check what percentage of (relevant) code in your package is now being tested.
-6) Lastly, commit all your changes to git and then push them to github.com.
 
 
 ### Add a Readme
