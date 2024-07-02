@@ -147,7 +147,7 @@ Some packages may have [other components](https://r-pkgs.org/misc.html), a few c
 
 The default branch of an R package GitHub repo must be reserved for working releases of the package. 
 Always make your changes on a different branch then merge to the default branch for each release. 
-You should also [add protecitons to your `main` branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule) to protect it from accidental pushes.
+You should also [add protections to your `main` branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule) to shield it from accidental pushes.
 
 **Exercise**
 
@@ -338,7 +338,7 @@ assemble_crime_data <- function(path, year) {
 * Copy each function to a new R script and save it in the R/ folder. The function name is probably
 an appropriate name for each file.
 * Run `devtools::check()` - You will get a warning about undeclared imports and a note about an
-* "undefined global function or variable" we will deal with these in the next section.
+* "undefined global function or variable". We will deal with these in the next section.
 
 
 ### 7. Making functions work in a package
@@ -357,7 +357,7 @@ around the use of unquoted column names by including the `.data` "pronoun".
 **Exercise**
 * Have a look at the use of `package::function()` syntax in the functions.
 * Have a look at the use of the `.data` pronoun in the wrangle data function.
-* Add {arrow}, {dplyr}, {forcats} and {tidyr} to the imports field of the DESCRIPTION file (install the pacakges if prompted to).
+* Add {arrow}, {dplyr}, {forcats} and {tidyr} to the imports field of the DESCRIPTION file (install the packages if prompted to).
 * Commit and push the changes to the DESCRIPTION file.
 * Run `devtools::check()` - you will still be getting the note about `.data` - we will deal with this in the next section.
 
