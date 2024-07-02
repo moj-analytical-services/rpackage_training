@@ -448,7 +448,40 @@ debugging the wrong test!
 functions that check for the presence or absence of specific values or properties in function 
 outputs or their side effects.
 
-**Exercise** have a look at the {testthat} reference to
+**Exercise** 
+* Have a look at the {testthat} reference to see some of the pre-built expectations
+
+### Tests for the assemble crime data function
+
+Some tests for the assemble crime data function are given below. We are checking that when a valid path (and date) are supplied
+we get a data frame and no warnings are generated. We are not worried about testing the content of the data frame here as that
+is controlled by the wrangle data function. We will cover that with the tests for that function.
+
+Additionally we are checking that when an invalid path is used we get an error.
+
+```R
+test_that("assemble_crime_data works with valid path", {
+
+  uri <- "s3://alpha-r-training/r-package-training/synthetic-crime-data.parquet"
+
+  assemble_crime_data(uri, year = 2000) |> expect_s3_class("data.frame")
+  assemble_crime_data(uri, year = 2001) |> expect_no_warning()
+  
+})
+
+
+test_that("assemble_crime_data fails with invalid path", {
+  
+  assemble_crime_data("foo", year = 2001) |> expect_error()
+  
+})
+```
+**Exercise** 
+* Copy the code above to the test file for the assemble crime data function.
+* Save the test file and run `devtools::load_all()`.
+* Run `devtools::test()`
+
+
 
 ### 10. Testing your code 
 
