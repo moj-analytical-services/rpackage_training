@@ -314,13 +314,12 @@ for this exercise.
 ### wrangle data function
 ```R
 wrangle_data <- function(df, pub_year) {
-  
-  df |> 
+  df |>
     dplyr::filter(.data$year == pub_year) |>
     dplyr::mutate(
       month_fct = forcats::fct(.data$month, month.name)
     ) |>
-    dplyr::group_by(.data$month_fct, .data$crime) |>
+    dplyr::group_by(.data$crime, .data$month_fct, .drop = FALSE) |>
     dplyr::count() |>
     tidyr::pivot_wider(names_from = "month_fct", values_from = "n", values_fill = 0)
 }
