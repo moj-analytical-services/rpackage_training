@@ -607,95 +607,10 @@ Before setting up this automation, you should have fixed any problems identified
 
 To setup continuous integration using GitHub Actions: 
 
-        usethis::use_github_actions()
+```R
+usethis::use_github_actions()
+```
 
-This automatically puts a status badge in your README. You can provide extra security for your master branch by going to github settings, then Branches, and 'Require pull request reviews before merging' and 'Require status checks to pass before merging'.
+This automatically puts a status badge in your README. 
 
 You can read further about automating checking in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html).
-
-**Exercise 16**: Setup continuous integration using GitHub Actions. Lastly, commit all your changes to git and then push them to github.com.
-
-### A1. Excluding sensitive data 
-
-You should not hold any sensitive data in Github.com as they may be accessed by others. To prevent you accidentally pushing any sensitive data to Github.com: 
-
-* Don't store any sensitive data within the R Studio copy of your repository. 
-* As a second line of protection, specify the names of any sensitive data files in the gitignore file so that they cannot be pushed to Github.com. To do this, open the gitignore file and add the names of the files (e.g. confidential.txt). If there's a file that's not to be ignored then you can specify it while adding an exclamation mark in front of its name e.g. '!unconfidential.txt'. 
-
-A useful [gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore) has been developed by ukdatascience which is free for you to copy, use and amend.
-
-You can also add further protection by using git hooks. These check for certain datafiles and prevent a git push going ahead unless you give specific approval. More guidance about this is available [here](https://github.com/ukgovdatascience/dotfiles).
-
-Note: if you do accidentally end up pushing sensitive data or information to Github, please refer immediately to the Analytical Platform guidance on next steps [here](https://user-guidance.services.alpha.mojanalytics.xyz/information-governance.html#reporting-security-incidents).
-
-**Exercise A1:** 
-1) Place a copy of crimedata.csv into your package Rstudio folder. Amend the gitignore file to also include the code in the ukdatascience [gitignore template](https://github.com/ukgovdatascience/dotfiles/blob/master/.gitignore). After committing and pushing to github.com and refreshing your github.com repository page can you see crimedata.csv there? 
-2) Now specify crimedata.csv as a file not to be ignored at the end of the gitignore file (it doesn't actually contain sensitive data). After pushing to github.com can you now see it?
-
-### A2. Adding data in rda format
-
-While no sensitive data should be stored in the package, it is helpful to include some non-sensitive data to make the development of functions and package testing easier. Where the data are sensitive, fake data should be generated instead.
-
-Any data included within the package should be in the form of a minimal tidy data set, as these are easy to manipulate, model and visualise. Tidy datasets have a specific structure; each variable being a column, each observation a row, and each type of observational unit a table (so for example data relating to offenders and offender managers would be stored in separate tables). More information about tidy data can be found [here](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html). 
-
-The best way to store the data inside the package is as an .rda file, which stores the data in a format native to R. Compared with keeping the data in a .csv file, this format:
-
-- Is faster to restore the data to R
-- Keeps R specific information encoded in the data (e.g. attributes, variable types)
-
-To create a nice .rda file from your .csv file:
-
-1. Create a sub-directory called 'data-raw' in your project Rstudio folder by running the command:
-
-        usethis::use_data_raw()
-        
-2. Place the raw data into 'data-raw/'
-
-3. Open the R script 'DATASET.R' in 'data-raw/' that has automatically been created by step 1. This can then be amended to read in the raw data and put them into 'data/' as an .rda object. The relevent code is:
-
-        crimes_raw_data <- read.csv("your_package_directory_path/crimedata.csv", check.names = TRUE)
-        usethis::use_data(crimes_raw_data)  
-        rm(crimes_raw_data)
-
-4. Run the R script. The folder 'data' should now have been created that contains the object crimes_raw_data.rda
-
-Alternatively, if the data is already loaded into your local environment, to create RData you can simply use
-        
-        save(crimes_raw_data, file = "directory_path/crimes_raw_data.Rda")
-
-This R script could be developed. For instance:
-1. If some processing of the data is needed this could be added e.g. to make a variable of class factor
-2. If the .rda file needs to be updated when the input raw dataset is changed, then add an overwrite=TRUE to the use_data function e.g. usethis::use_data(raw, overwrite = TRUE)  
-
-To see the effect of changes made to the package, the following code needs to be run. All the changes made to the code will now be in memory: 
-
-    devtools::load_all() 
-
-**Exercise A2:** 
-1) Make an .rda file of 'crimesdata.csv' (which is already in tidy data format) by following the above steps and give it the user friendly name 'crimes_raw_data'. 
-2) Amend crimesdata_pub.Rmd so that it now runs using the .rda file by "commenting out" the read_csv line and removing the "commenting out" of the data(crimes_raw_data) line. 
-3) Lastly, commit all your changes to git and then push them to github.com. 
-
-### A3. Adding documentation about package data
-
-Documentation can be added for datasets within a package by creating an data.R file. You can view an example [data.R file](https://github.com/DCMSstats/eesectors/blob/master/R/data.R) from the eesectors package; this makes use of the package roxygen2 to automatically turn the formatted comments into nice looking documentation.
-
-Looking at the first 22 rows you can see a title, subtitle, the format of the data, a description of each of the variables, the source location, keywords and lastly what the data object is called (within speech marks; so if the documentation is about crimes_raw_data.rda then "crimes_raw_data").
-
-After adding or amending documentation in an .R file, the following command can be used to generate a more complicated code (.Rd) file in the man folder, which then enables users to view nice looking documentation through the help facility:
-
-    devtools::document()
-
-The documentation for the data object can then be viewed in the help facility using the usual command i.e.:
-
-    ?objectname
-
-Documenting functions is covered in [section 15](#15-documenting-functions). There is also a separate [R Packages section about documenting datasets](https://r-pkgs.org/data.html#sec-documenting-data) which you may want to look at. 
-
-**Exercise A3:** Create an data.R file in your R folder and paste in the first 22 rows from the example eesectors package [data.R file](https://github.com/DCMSstats/eesectors/blob/master/R/data.R). Amend the contents, generate nice looking documentation, and then take a look at it (using the help facility). Lastly, commit all your changes to git and then push them to github.com. 
-
-
-
-
-
-
