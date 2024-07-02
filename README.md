@@ -599,7 +599,7 @@ the year was also included in the date column headings".
 
 ## Annex
 
-### 16. Continuous integration
+### A1 Continuous integration
 
 Continuous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
 
@@ -614,3 +614,25 @@ usethis::use_github_actions()
 This automatically puts a status badge in your README. 
 
 You can read further about automating checking in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html).
+
+### A2 Solution to testing wrangle data function exercises
+
+```R
+test_that("wrangle_data works", {
+
+  testing_df <- data.frame(
+    crime = c("foo", "bar"),
+    year = 2000:2001,
+    month = "January"
+  )
+
+  out_df_1 <- testing_df |> wrangle_data(pub_year = 2000)
+  out_df_1 |> ncol() |> expect_equal(13)
+  out_df_1 |> names() |> tail(12) |> expect_equal(month.name)
+  out_df_1$crime |> expect_equal("foo")
+
+  out_df_2 <- testing_df |> wrangle_data(pub_year = 2001)
+  out_df_2$crime |> expect_equal("bar")
+
+})
+```
