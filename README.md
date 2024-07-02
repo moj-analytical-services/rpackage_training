@@ -26,7 +26,8 @@ Recordings of these sessions can be viewed via links provided in the [Analytical
 
 * [Package overview](#package-overview)
    + [1. Introduction](#1-introduction)
-   + [2. Package Scope and Naming](2.-package-scope-and-naming)
+   + [2. Package Scope and Naming](#2-package-scope-and-naming)
+   + [3. Package structure](#3-package-structure)
 * [Package structure](#package-structure)
    + [3. Create the package](#3-create-the-package)
    + [4. Amend the DESCRIPTION file](#4-amend-the-DESCRIPTION-file)
@@ -70,7 +71,7 @@ confidence to update it without the fear of unknowingly breaking something.
 
 This training is designed with exercises to enable you to develop a package. Your example package
 will include functions to fetch data from s3 and build a simple tabulation like those found
-in many publicaiton tables and MI-packs etc.
+in many publication tables and MI-packs etc.
 
 
 ### 2. Package Scope and Naming
@@ -117,7 +118,7 @@ You can read more in the [R Packages section Name your package](https://r-pkgs.o
 **1.3** [Clone the repo](https://user-guidance.analytical-platform.service.justice.gov.uk/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) as an RStudio project.
 
 
-## Package structure
+### 3. Package structure
 R packages have a standard structure. The following components must be included (either because 
 they are essential package components or because they are essential parts of the development and 
 maintenance process).
@@ -163,7 +164,7 @@ format and aid development by automating common tasks. The two we will be using 
 
 **2.4** Using `install.packages()`, install the {devtools} and {usethis} packages.
 
-### 3. Create the package 
+## 3. Create the package 
 
 The following {usethis} function will structure your current working directory as an R package 
 (you will need to overwrite what is already there when prompted):
@@ -198,7 +199,7 @@ This will add two text files to the top level of your project, `LICENCE` and `LI
 * Add an MIT licence to your package
 
 
-### 4. The description file
+### 4. Package Metadata
 
 The [DESCRIPTION](https://r-pkgs.org/description.html#the-description-file) file contains important 
 metadata about the package; it is a text file that you can open and edit in RStudio. An example of 
@@ -225,8 +226,9 @@ Where values span multiple lines, they need to be indented. In particular:
 #### Authors
 
 Package authors are supplied as a vector of persons i.e. `c(person(...), person(...))`. In addition 
-to a `given` name, `family` name, and an `email`, each person should have a `role` specified. More information can be found 
-by running `?person` but the four most common roles are detailed below (multiple roles should be combined with `c()`):
+to a `given` name, `family` name, and an `email`, each person should have a `role` specified. More 
+information can be found by running `?person` but the four most common roles are detailed below 
+(multiple roles should be combined with `c()`):
 
 - aut: authors; those who have made significant contributions to the package.
 - ctb: contributors; those who have made smaller contributions, like patches.
@@ -409,7 +411,7 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 * Add roxygen comments for the wrangle data function (we can skip adding an example to speed up the training course)
 * Run `devtools::document()` - you will see another file in `man/` and other function added to the NAMESPACE
 * Add the following as as additional roxygen comment to the wrangle data file: `#' @importFrom dplyr .data`
-* Run `devtools::document()` - you a new line in your NAMESPACE file that makes dplyr's `.data` available for use in your package. This syntax should also be used for things like operators
+* Run `devtools::document()` - you will see a new line in your NAMESPACE file that makes dplyr's `.data` available for use in your package. This syntax should also be used for things like operators
 * Run `devtools::check()`
 * When all tests pass commit and push the R scripts containing the functions, the `man/` files and the NAMESPACE file.
 
@@ -438,9 +440,9 @@ R package](https://testthat.r-lib.org/index.html).
 
 The {testthat} tests contain two elements, the name of the test and one or more expectations. 
 
-The name of the test is important for identifying which test failed (when it fails) so should contain 
-information about what you are testing i.e. the function name and what specific behavior you are 
-testing. Each test should always have a unique name within a package to avoid wasting time 
+The name of the test is important for identifying which test failed (when it fails) so should 
+contain information about what you are testing i.e. the function name and what specific behavior 
+you are testing. Each test should always have a unique name within a package to avoid wasting time 
 debugging the wrong test! 
 
 [Expectations](https://testthat.r-lib.org/reference/index.html#expectations) are a series of 
@@ -452,9 +454,10 @@ outputs or their side effects.
 
 ### Tests for the assemble crime data function
 
-Some tests for the assemble crime data function are given below. We are checking that when a valid path (and date) are supplied
-we get a data frame and no warnings are generated. We are not worried about testing the content of the data frame here as that
-is controlled by the wrangle data function. We will cover that with the tests for that function. 
+Some tests for the assemble crime data function are given below. We are checking that when a valid 
+path (and date) are supplied we get a data frame and no warnings are generated. We are not worried 
+about testing the content of the data frame here as that is controlled by the wrangle data 
+function. We will cover that with the tests for that function. 
 
 Additionally we are checking that when an invalid path is used we get an error.
 
@@ -482,39 +485,42 @@ test_that("assemble_crime_data fails with invalid path", {
 
 ### Test coverage
 
-Test coverage is a metric that can be useful in assesing the adequecy of tests. The {covr} package can be used to examine 
-test coverage. It builds the package and runs the tests in a modified environment counting how many times each line of
-package code is run by the tests. You should aim to have every line covered by tests but don't rely coverage alone when
-assessing the adequecy of tests. When we run the test coverage of our pacakge we will get 100% (the wrangle data function
-is called by the assemble crime data function) but we are not (yet) properly testing the intended behaviour of the 
-wrangle data function.
+Test coverage is a metric that can be useful in assessing the adequacy of tests. The {covr} package 
+can be used to examine test coverage. It builds the package and runs the tests in a modified 
+environment counting how many times each line of package code is run by the tests. You should aim 
+to have every line covered by tests but don't rely coverage alone when assessing the adequacy of 
+tests. When we run the test coverage of our package we will get 100% (the wrangle data function
+is called by the assemble crime data function) but we are not (yet) properly testing the intended 
+behaviour of the wrangle data function.
 
-Test coverage can be particuarly useful where you have `if()` statements in your code to help you ensure that all
-the various coditions that can arrise have been covered.
+Test coverage can be particularly useful where you have `if()` statements in your code to help you 
+ensure that all the various conditions that can arise have been covered.
 
 **Exercise** 
-* Run `devtools::test_coverage()` - the first time you run in you might be prompted to install the pacakges {covr} and {DT}.
+* Run `devtools::test_coverage()` - the first time you run in you might be prompted to install the packages {covr} and {DT}.
 * Add {covr} and {DT} to the Suggests field in your DESCRIPTION file.
 
 ### Tests for the assemble crime data function
 
-In order to properly test the assemble crime data function we probably want to ensure that the following expections
-are met in the output data frame:
+In order to properly test the assemble crime data function we probably want to ensure that the 
+following exceptions are met in the output data frame:
 
 * The output is a 13 column data frame (one column for `crime` and twelve for the months)
 * The month columns are arranged in chronological order (January to December)
-* The data are filterd by `pub_year` correctly
-* The number of rows is the same as the number of unique "crimes"
+* The data are filtered by `pub_year` correctly
+* The number of rows is the same as the number of unique "crimes" for the target year
 
-We probably don't want to use "real" data when writing tests. By checking specific things like values, number of rows, 
-number of columns etc in the outputs there is a risk of revealing unpublished information etc. Real data may also be
-subject to change (potentially causing tests to fail incorrectly). Additionally, real data is likely to be quite large
-(slowing down the testing process) and contain a lot of noise i.e. elements that are not relevant for testing a specific
+We probably don't want to use "real" data when writing tests. By checking specific things like 
+values, number of rows, number of columns etc in the outputs there is a risk of revealing 
+unpublished information etc. Real data may also be subject to change (potentially causing tests to 
+fail incorrectly). Additionally, real data is likely to be quite large (slowing down the testing 
+process) and contain a lot of noise i.e. elements that are not relevant for testing a specific
 function.
 
-We will use the following data frame to test the wrangle data function. It contains only the three columns used by the
-test and two rows. The values for `crime` are dummy values i.e. not the same as the values used in the "real" data but
-that difference is not important for testing whether the function works
+We will use the following data frame to test the wrangle data function. It contains only the three 
+columns used by the test and two rows. The values for `crime` are dummy values i.e. not the same as 
+the values used in the "real" data but that difference is not important for testing whether the 
+function works.
 
 ```R
 testing_df <- data.frame(
@@ -533,51 +539,70 @@ testing_df <- data.frame(
 
 ### Add a Readme
 
+The README acts as a "quick-start guide" for users of your package. It should include:
+* Instructions for installing the package.
+* A brief overview of what the package does.
+* If the package is intended for open collaboration, instructions for how people can get involved.
+
 ### 15. Adding a NEWS file
 
-The NEWS markdown file functions as a changelog for your package. It must be updated every time you make changes to your package.
+The NEWS markdown file functions as a change-log for your package. It must be updated every time 
+you make changes to your package.
 
-**Exercise 15**: Add a NEWS file to your package (`usethis::use_news_md()`). 
+**Exercise** 
+* Add a NEWS file to your package (`usethis::use_news_md()`). 
+* We will not be submitting this package to CRAN so update the n
 
-* 
+### 13. Managing releases of your package
 
-### 13. Managing releases and future changes to your package
+Congratulations, you have successfully produced a working package in R! Open a pull request and 
+merge it to the `main` branch.
 
-Keep the default branch of your repo for the most recent working release of your package. 
-
-Never release changes to your package without updating the version number.
-
-Use [semantic versioning](https://semver.org/).
-
-[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) are a great way to mange the versions of your package. Every time you release an updated version of your package, include a GitHub release. This way if you ever need an older version of your package it is very easy to install using the GitHub Release Tag. 
+[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) 
+are a great way to mange the versions of your package. Every time you release an updated version of 
+your package, include a GitHub release. This way if you ever need an older version of your package 
+it is very easy to install using the GitHub Release Tag. 
 
 **Exercise 13**: Create a GitHub Release for your package
 
 ### 14. Installing and using your package
 
-Congratulations, you have successfully produced a working package in R! Open a pull request and merge it to the main branch.
+To install a package from a **public** GitHub repo using `renv` you just need the owner and the 
+repo:
 
-To install a package from a **public** GitHub repo using `renv` you just need the owner and the repo:
-
-    renv::install("moj-analytical-services/mojchart")
+```R
+renv::install("moj-analytical-services/mojchart")
+```
   
-The easiest way install a package from an **internal** or **private** GitHub repo is with the following syntax:
+The easiest way install a package from an **internal** or **private** GitHub repo is with the 
+following (SSH URL) syntax:
 
-    renv::install("git@github.com:moj-analytical-services/mojchart.git")
+```R
+renv::install("git@github.com:moj-analytical-services/mojchart.git")
+```    
     
-Note: If your package has any Imports that are from internal or private repos you will need to also use this syntax in the Remotes field. [Example here.](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION)
+Note: If your package has any Imports that are from internal or private repos you will need to 
+also use this syntax in the Remotes field. [Example here.](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION)
     
-With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where the "ref" is a branch name, commit or github tag e.g.    
+With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where the "ref" is a 
+branch name, commit or github tag e.g.    
+
+```R
+renv::install("git@github.com:moj-analytical-services/mojrap.git@v1.0.1")
+```
     
-    renv::install("git@github.com:moj-analytical-services/mojrap.git@v1.0.1")
-    
-**Exercise 14**: Try installing your completed package!
+**Exercise 14**: 
+* Try installing your completed package in a different repo
+* Have a look at the help file for the assemble crime data function
+* Run the example from the assemble crime data function help
+
 
 ## Maintenance cycle
 
 You have released your package and have received some feedback from a user - "it would be better if 
 the year was also included in the date column headings".
 
+* Switch back to the RStudio project where you are developing your package
 * Ensure you are on the `dev` branch
 * install {renv} and run `renv::install()`. This function has special behavior in the presence of a 
   DESCRIPTION file - it will install the packages listed there.
