@@ -66,12 +66,20 @@ benefits:
 * Packages facilitate the integration of unit testing.
 * Code changes can be clearly tracked via package versioning.
 
-These benefits together improve the reliability, reusability and sharability of code, and give you the 
-confidence to update it without the fear of unknowingly breaking something.
+These benefits together improve the reliability, reusability and sharability of code, and give you 
+the confidence to update it without the fear of unknowingly breaking something.
 
 This training is designed with exercises to enable you to develop a package. Your example package
 will include functions to fetch data from s3 and build a simple tabulation like those found
-in many publication tables and MI-packs etc.
+in many publication tables and MI-packs etc. A preview of the data we will be using is given below:
+
+```
+Rows: 6,000,000
+Columns: 3
+$ year  <int> 2004, 2005, 2004, 2002, 2002, 2000, 2002, 2000, 2005, 2001, 2003, 2003, 200…
+$ month <chr> "December", "June", "September", "August", "April", "May", "April", "March"…
+$ crime <chr> "Crime C", "Crime A", "Crime B", "Crime B", "Crime C", "Crime C", "Crime C"…
+```
 
 
 ### 2. Package Scope and Naming
