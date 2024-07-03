@@ -439,11 +439,10 @@ inputs and repeat the process if any changes are made to your code base or if th
 your dependencies and testing your code quickly becomes a time consuming process.
 
 We can instead formalize this testing process (and automate the running of it) using the [{testthat}
-R package](https://testthat.r-lib.org/index.html).
-
-* Adds `testthat (>= 3.0.0)` to the Suggests field in the DESCRIPTION file.
+R package](https://testthat.r-lib.org/index.html). When we run the function `usethis::use_testthat()`
+it will:
+* Add `testthat (>= 3.0.0)` to the Suggests field in the DESCRIPTION file.
 * Creates a `tests/` folder, inside of which is a `testthat/` folder, where your R test scripts should be placed, and a `testthat.R` which helps in automating the testing.
-
 
 **Exercise** 
 * Run `usethis::use_testthat()` to set up the testing infrastructure.
