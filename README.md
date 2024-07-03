@@ -503,12 +503,12 @@ behaviour of the wrangle data function.
 
 Test coverage can be particularly useful where you have `if()` statements in your code to help you 
 ensure that all the various conditions that can arise have been covered. For example, if the
-assemble crime data function did something special when the year was greater than 2002 those lines
+assemble crime data function did something special when the year was set to 2002 those lines
 would not be covered by our existing text and this would be revealed by examining the test coverage.
 
 ```R
-if (year > 2002) {
-  return("something special")
+if (year == 2002) {
+  message("Happy 2002!")
 }
 ```
 
