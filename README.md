@@ -495,7 +495,7 @@ test_that("assemble_crime_data fails with invalid path", {
 **Exercise** 
 * Copy the code above to the test file for the assemble crime data function.
 * Save the test file and run `devtools::load_all()`.
-* Run `devtools::test()`
+* Run `devtools::test()` - you will get feedback as the tests run about how many have failed, resulted in a warning, or passed.
 
 ### Test coverage
 
