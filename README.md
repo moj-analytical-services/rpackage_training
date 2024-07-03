@@ -450,12 +450,14 @@ it will:
 
 ### The structure of a tests
 
-The {testthat} tests contain two elements, the name of the test and one or more expectations. 
+The {testthat} tests contain two elements, the name of the test and one or more expectations. A 
+test will fail if at least one expectation is not met or when running the test results in an 
+unexpected error.
 
 The name of the test is important for identifying which test failed (when it fails) so should 
 contain information about what you are testing i.e. the function name and what specific behavior 
 you are testing. Each test should always have a unique name within a package to avoid wasting time 
-debugging the wrong test! 
+debugging the wrong test! You can have multiple tests for a single function.
 
 [Expectations](https://testthat.r-lib.org/reference/index.html#expectations) are a series of 
 functions that check for the presence or absence of specific values or properties in function 
@@ -471,7 +473,7 @@ path (and date) are supplied we get a data frame and no warnings are generated. 
 about testing the content of the data frame here as that is controlled by the wrangle data 
 function. We will cover that with the tests for that function. 
 
-Additionally we are checking that when an invalid path is used we get an error.
+Additionally, we are checking that when an invalid path is used we get an error.
 
 ```R
 test_that("assemble_crime_data works with valid path", {
