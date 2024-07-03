@@ -346,8 +346,7 @@ assemble_crime_data <- function(path, year) {
 **Exercise**
 * Copy each function to a new R script and save it in the R/ folder. The function name is probably
 an appropriate name for each file.
-* Run `devtools::check()` - You will get a warning about undeclared imports and a note about an
-* "undefined global function or variable". We will deal with these in the next section.
+* Run `devtools::check()` - You will get a warning about undeclared imports and a note about an "undefined global function or variable". We will deal with these in the next section.
 
 
 ### 7. Making functions work in a package
