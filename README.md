@@ -407,6 +407,11 @@ of your package. This means it will be accessible to users of your package and u
 will also trigger the generation of a help file. Any functions that are for internal package use only
 should not be tagged with `@export`.
 
+There is another special tag `@importFrom` that can be used to import functions and methods etc from
+the NAMESPACE of other pakcages. The use of this should be reserved for things like operators, 
+funcitons that are always nested inide other functions (for example `aes()` from {ggplot2}) and 
+pronouns where the use of `::` syntax is either invalid or makes the code hard to read.
+
 Once we have added our roxygen comments we can use `devtools::document()` to generate the the help 
 files. These will be saved in the `man/` folder. You will also see that the function is now listed 
 in the NAMESPACE file. (Note that `devtools::document()` is also run as part of 
