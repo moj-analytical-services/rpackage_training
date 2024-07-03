@@ -534,7 +534,7 @@ following exceptions are met in the output data frame:
 
 We probably don't want to use "real" data when writing tests. By checking specific things like 
 values, number of rows, number of columns etc in the outputs there is a risk of revealing 
-unpublished information etc. Real data may also be subject to change (potentially causing tests to 
+unpublished information. Real data may also be subject to change (potentially causing tests to 
 fail incorrectly). Additionally, real data is likely to be quite large (slowing down the testing 
 process) and contain a lot of noise i.e. elements that are not relevant for testing a specific
 function.
