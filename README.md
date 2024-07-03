@@ -420,6 +420,7 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 **Exercises**
 * Copy the roxygen comment chunk above and paste it in the relevant script above assemble crime data function.
 * Run `devtools::document()` -  you will now see a file in `man/` and a change to the NAMESPACE
+* Run `devtools::load_all()` followed by `?assemble_crim_data` to view the help file generated from the roxygen comments
 * Add roxygen comments for the wrangle data function (we can skip adding an example to speed up the training course)
 * Run `devtools::document()` - you will see another file in `man/` and other function added to the NAMESPACE
 * Add the following as as additional roxygen comment to the wrangle data file: `#' @importFrom dplyr .data`
