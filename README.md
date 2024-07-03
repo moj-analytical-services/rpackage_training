@@ -379,7 +379,7 @@ a way that it is easily available to all users.
 We can include "roxygen comments" with our functions to provide documentation that can be 
 automatically knitted into help files. Roxygen comments are denoted by hash and a single quotation 
 mark followed by a space `#' `. Comments can then be labeled with a tag which is a string starting
-with @ e.g. `@title' would be the tag for the help file's title.
+with @ e.g. `@title` would be the tag for the help file's title.
 
 A set of roxygen comments for the assemble crime data function is given below.
 
