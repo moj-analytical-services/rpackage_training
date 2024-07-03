@@ -502,7 +502,15 @@ is called by the assemble crime data function) but we are not (yet) properly tes
 behaviour of the wrangle data function.
 
 Test coverage can be particularly useful where you have `if()` statements in your code to help you 
-ensure that all the various conditions that can arise have been covered.
+ensure that all the various conditions that can arise have been covered. For example, if the
+assemble crime data function did something special when the year was greater than 2002 those lines
+would not be covered by our existing text and this would be revealed by examining the test coverage.
+
+```R
+if (year > 2002) {
+  return("something special")
+}
+```
 
 **Exercise** 
 * Run `devtools::test_coverage()` - the first time you run in you might be prompted to install the packages {covr} and {DT}.
