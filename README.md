@@ -706,3 +706,18 @@ test_that("wrangle_data works", {
 
 })
 ```
+
+### A3 Installing packages on the Analytical Platform (prior to R 4.4.0)
+
+Most R packages you install come from CRAN (The Comprehensive R Archive Network) 
+which stores them on a series of mirrored servers that act as package repositories. 
+Prior to R version 4.4.0 the Analytical Platform is set up to use a fixed R 
+package repository by default. Depending on the version of R on the Analytical 
+Platform you are using, this may be fairly old. Run options("repos") and look at 
+the date at the end to see which version you are using. To access the latest 
+versions of packages you can use the following to update where you install from 
+(this will reset when R is restarted).
+
+```R
+options(repos = "https://packagemanager.rstudio.com/all/__linux__/focal/latest")
+```
