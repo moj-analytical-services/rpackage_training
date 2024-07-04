@@ -567,7 +567,7 @@ testing_df <- data.frame(
 
 The README acts as a "quick-start guide" for users of your package. It should include:
 * Instructions for installing the package.
-* A brief overview of what the package does.
+* A brief overview of what the package does and how you can get started using it.
 * If the package is intended for open collaboration, instructions for how people can get involved.
 
 You can use a simple markdown readme or dynamically generate one use R markdown. This may be
