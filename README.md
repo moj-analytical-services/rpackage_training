@@ -616,7 +616,10 @@ renv::install("git@github.com:moj-analytical-services/mojchart.git")
 ```    
     
 Note: If your package has any Imports that are from internal or private repos you will need to 
-also use this syntax in the Remotes field. [Example here.](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION)
+also use this syntax in the Remotes field. For example the {psutils} package has [{verify} as an
+import](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION#L39) which is 
+another internal package available from 
+[this](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION#L49) SSH remote. 
     
 With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where the "ref" is a 
 branch name, commit or github tag e.g.    
