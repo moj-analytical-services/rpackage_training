@@ -519,7 +519,7 @@ if (year == 2002) {
 ```
 
 **Exercise** 
-* Run `devtools::test_coverage()` - the first time you run in you might be prompted to install the packages {covr} and {DT}.
+* Run `devtools::test_coverage()` - the first time you run this you might be prompted to install the packages {covr} and {DT}.
 * Add {covr} and {DT} to the Suggests field in your DESCRIPTION file.
 
 ### Tests for the assemble crime data function
