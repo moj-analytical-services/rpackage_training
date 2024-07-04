@@ -24,35 +24,42 @@ Recordings of these sessions can be viewed via links provided in the [Analytical
 
 ## Contents
 
-* [Package overview](#package-overview)
-   + [1. Introduction](#1-introduction)
-   + [2. Package Scope and Naming](#2-package-scope-and-naming)
-   + [3. Package structure](#3-package-structure)
-* [Create the package](#create-the-package)
-   + [3. Create the package](#3-create-the-package)
-   + [4. Amend the DESCRIPTION file](#4-amend-the-DESCRIPTION-file)
-* [Adding functions](#adding-functions)
-   + [5. Developing functions](#5-developing-functions)
-   + [6. Add R and Rmarkdown code](#6-add-R-and-Rmarkdown-code)
-   + [7. Making functions work in a package](#7-making-functions-work-in-a-package)
-   + [8. Documenting functions](#8-documenting-functions) 
-* [Testing code](#testing-code)
-   + [10. Testing your code](#10-testing-your-code)
-   + [11. Unit testing](#11-unit-testing)
-* [Releasing a package](#releasing-a-package)
-   + [12. Checking your package](#12-checking-your-package)
-   + [13. Managing releases and future changes to your package](#13-managing-releases-and-future-changes-to-your-package)
-   + [14. Installing and using your package](#14-installing-and-using-your-package)
-* [Maintenance cycle](#maintenance-cycle)
-   + [15. Adding a NEWS file](#15-adding-a-news-file)
-   + [16. Continuous integration](#16-continuous-integration)
+* [Section 1 - Introduction](#section-1---introduction)
+* [Section 2 - Package scope and naming](#section-2---package-scope-and-naming)
+    + [The scope](#the-scope)
+    + [The name](#the-name)
+* [Section 3 - Package structure](#section-3---package-structure)
+* [Section 4 - Create the package](#section-4---create-the-package)
+    + [Essential development practice for R packages](#essential-development-practice-for-r-packages)
+    + [Tools to help with package development](#tools-to-help-with-package-development)
+* [Section 5 - Copyright and licencing](#section-5---copyright-and-licencing)
+* [Section 6 - Package metadata](#section-6---package-metadata)
+    + [Authors](#authors)
+    + [Semantic Versioning](#semantic-versioning)
+    + [Dependency management](#dependency-management)
+* [Section 7 - Checking your package](#section-7---checking-your-package)
+* [Section 8 - Adding functions](#section-8---adding-functions)
+    + [wrangle data function](#wrangle-data-function)
+    + [assemble crime data function](#assemble-crime-data-function)
+* [Section 9 - Making functions work in a package](#section-9---making-functions-work-in-a-package)
+* [Section 10 - Documenting functions](#section-10---documenting-functions)
+* [Section 11 - Testing your code](#section-11---testing-your-code)
+    + [The structure of a test](#the-structure-of-a-test)
+    + [Tests for the assemble crime data function](#tests-for-the-assemble-crime-data-function)
+    + [Test coverage](#test-coverage)
+    + [Tests for the wrangle data function](#tests-for-the-wrangle-data-function)
+* [Section 12 - Add a README](#section-12---add-a-readme)
+* [Section 13 - Add a NEWS file](#section-13---add-a-news-file)
+* [Section 14 - Managing releases of your package](#section-14---managing-releases-of-your-package)
+* [Section 15 - Installing and using your package](#section-15---installing-and-using-your-package)
+* [Section 16 - Maintenance cycle](#section-16---maintenance-cycle)
 * [Annex](#annex)
-   + [A1. Excluding sensitive data](#a1-excluding-sensitive-data)
-   + [A2. Adding data in rda format](#a2-adding-data-in-rda-format)
-   + [A3. Adding documentation about package data](#a3-adding-documentation-about-package-data)
+    + [A1 Continuous integration](#a1-continuous-integration)
+    + [A2 Solution to testing wrangle data function exercises](#a2-solution-to-testing-wrangle-data-function-exercises)
+    + [A3 Installing packages on the Analytical Platform prior to R 4.4.0](#a3-installing-packages-on-the-analytical-platform-prior-to-r-4.4.0)
 
 
-## 1. Introduction
+## Section 1 - Introduction
 
 This training is based on Hadley Wickham's book [R Packages](https://r-pkgs.org/). The goal of it is 
 to teach you how to make and develop packages. R packages are not difficult to make and have several 
@@ -79,7 +86,7 @@ $ crime <chr> "Crime C", "Crime A", "Crime B", "Crime B", "Crime C", "Crime C", 
 ```
 
 
-## 2. Package Scope and Naming
+## Section 2 - Package scope and naming
 
 Before you start developing a package there are two questions to consider "what will your package 
 contain?" (the scope) and "what will you call it?" (the name).
@@ -113,17 +120,14 @@ Possibly the hardest part of creating a package is choosing a name for it. This 
 You can read more in the [R Packages section Name your package](https://r-pkgs.org/workflow101.html#name-your-package)
 
 
-**Exercise**
-
-**1.1** Decide what name to call your package (something like your initials or name combined with "demo",
+##### Exercises
+* **2.1** Decide what name to call your package (something like your initials or name combined with "demo",
 "eg", or "toy" might be appropriate for this training). Make sure you respect the constraints on permitted characters!
-
-**1.2** [Create a new github repository](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#create-a-new-project-in-github), giving it your chosen name and "internal" visibility. Add a .gitignore file (using the "R" template) but not a license or README at this stage.
-
-**1.3** [Clone the repo](https://user-guidance.analytical-platform.service.justice.gov.uk/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) as an RStudio project.
+* **2.2** [Create a new github repository](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#create-a-new-project-in-github), giving it your chosen name and "internal" visibility. Add a .gitignore file (using the "R" template) but not a license or README at this stage.
+* **2.3** [Clone the repo](https://user-guidance.analytical-platform.service.justice.gov.uk/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) as an RStudio project.
 
 
-## 3. Package structure
+## Section 3 - Package structure
 R packages have a standard structure. The following components must be included (either because 
 they are essential package components or because they are essential parts of the development and 
 maintenance process).
@@ -145,9 +149,10 @@ Some packages may have [other components](https://r-pkgs.org/misc.html), a few c
 * **data/** - A folder for data (**nothing sensitive!**) in .rda format that are available as part of the package e.g. for demonstrating functionality. Each data set should be documented in a similar way to functions. 
 * **data-raw/** - A folder for preserving the creation history of your .rda file (must be added to the .Rbuildignore). This could also contain CSV versions of small data files used in testing code.
 
-**Exercise** 
+##### Exercises 
+* **3.1** Take a look at the structure of a github repo which contains an R package e,g, [{stringr}](https://github.com/tidyverse/stringr) or [{dplyr}](https://github.com/tidyverse/dplyr) and see if you can recognise the structure and elements described above.
 
-**2.1** Take a look at the structure of a github repo which contains an R package e,g, [{stringr}](https://github.com/tidyverse/stringr) or [{dplyr}](https://github.com/tidyverse/dplyr) and see if you can recognise the structure and elements described above.
+## Section 4 - Create the package
 
 ### Essential development practice for R packages
 
@@ -155,9 +160,8 @@ The default branch of an R package GitHub repo must be reserved for working rele
 Always make your changes on a different branch then merge to the default branch for each release. 
 You should also [add protections to your `main` branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule) to shield it from accidental pushes. (We will skip this step in the training for speed but it is very important for production code).
 
-**Exercise**
-
-**2.2** Create a new git branch called `dev` where we will begin building the package.
+##### Exercises
+* **4.1** Create a new git branch called `dev` where we will begin building the package.
 
 ### Tools to help with package development
 
@@ -165,11 +169,9 @@ There are several R packages that contain tools to help ensure your package is s
 format and aid development by automating common tasks. The two we will be using today are 
 [{devtools}](https://devtools.r-lib.org/) and [{usethis}](https://usethis.r-lib.org/).
 
-**Exercise** 
+##### Exercises 
+* **4.2** Using `install.packages()`, install the {devtools} and {usethis} packages.
 
-**2.4** Using `install.packages()`, install the {devtools} and {usethis} packages.
-
-## 4. Create the package 
 
 The following {usethis} function will structure your current working directory as an R package 
 (you will need to overwrite what is already there when prompted):
@@ -179,14 +181,12 @@ usethis::create_package(getwd())
 This will create several of the files and folders discussed at the start of the package structure 
 section.
 
-**Exercise** 
-
-**2.5** Set up you project as a folder using `usethis::create_package(getwd())`. You will be asked if you want to overwrite the existing .Rproj file. You do!
-
-**2.6** Which standard package elements have been created?
+##### Exercises 
+* **4.3** Set up you project as a folder using `usethis::create_package(getwd())`. You will be asked if you want to overwrite the existing .Rproj file. You do!
+* **4.4** Which standard package elements have been created?
 
 
-## 5. Copyright and licencing
+## Section 5 - Copyright and licencing
 
 Licencing code is essential as it sets out how others can use it. You can read more about licencing 
 [here](https://r-pkgs.org/license.html). The work-product of civil servants falls under 
@@ -199,12 +199,11 @@ usethis::use_mit_license("Crown Copyright (Ministry of Justice)")
 ```
 This will add two text files to the top level of your project, `LICENCE` and `LICENCE.md`. It will also update the relevant section in the DESCRIPTION file and update the .buildignore file.
 
-**Exercise**
+##### Exercises
+* **5.1** Add an MIT licence to your package
 
-* Add an MIT licence to your package
 
-
-## 6. Package Metadata
+## Section 6 - Package metadata
 
 The [DESCRIPTION](https://r-pkgs.org/description.html#the-description-file) file contains important 
 metadata about the package; it is a text file that you can open and edit in RStudio. An example of 
@@ -223,9 +222,9 @@ Where values span multiple lines, they need to be indented. In particular:
 - **Remotes:** - if your package depends on another one that not on CRAN, this is where you specify how to find it.
 - **Depends:** - this is where you list a minimum version of R if you are aware of one. For example if you are using the R native pipe (`|>`) in your package you would need to specify R (>= 4.1.0). 
 
-**Exercise**
-* Add a package title to the relevant field in the DESCRIPTION file.
-* Add a package description to the relevant field in the DESCRIPTION file.
+##### Exercises
+* **6.1** Add a package title to the relevant field in the DESCRIPTION file.
+* **6.2** Add a package description to the relevant field in the DESCRIPTION file.
 
 
 ### Authors
@@ -240,9 +239,9 @@ information can be found by running `?person` but the four most common roles are
 - cre: the package maintainer; the person you should contact if you have a problem.
 - cph: copyright holder; most likely `person("Crown Copyright (Ministry of Justice)", role = "cph")` 
 
-**Exercise**
-* Add yourself to the DESCRIPTION file as the author and maintainer of the package. 
-* Add the relevant copyright holder.
+##### Exercises
+* **6.3** Add yourself to the DESCRIPTION file as the author and maintainer of the package. 
+* **6.4** Add the relevant copyright holder.
 
 ### Semantic Versioning
 
@@ -261,14 +260,14 @@ points 2-8) but a basic summary for now:
 * Once your package is in use, the version should probably be at least 1.0.0.
 * Incrementing a number sets those to the right of it to zero e.g. a major change from version 1.2.3 would take you to version 2.0.0; a minor change from 0.1.3 would take you to 0.2.0.
 
-**Exercise**
-* Amend the description file to set the package version number to "0.1.0".
+##### Exercises
+* **6.5** Amend the description file to set the package version number to "0.1.0".
 
-### Dependency Management
+### Dependency management
 
 The Imports and Suggests fields are used for dependency management for your package/ development 
 processes. You want to be as permissive as possible specifying minimum or maximum versions of 
-packages listed in Imports and Suggests to increase the compatability of your package with others. 
+packages listed in Imports and Suggests to increase the compatibility of your package with others. 
 If you know that your code relies on functionality added in a particular version of a package you 
 must specify the minimum version otherwise don't specify a minimum version.
 
@@ -283,12 +282,12 @@ By default, packages are added as Imports e.g. to add {dplyr} as an import:
 `usethis::use_package("dplyr")`. You can use the `type` argument to add them to Suggests instead e.g.
 to add {devtools} as a suggested package: `usethis::use_package("devtools", type = "Suggests")`.
 
-**Exercise**
-* Add {devtools} and {usethis} to the suggests field.
-* We will be using the R native pipe so set the minimum version of R as >= 4.1.0 in the depends field: `usethis::use_package("R", type = "Depends", min_version = "4.1.0")`
+##### Exercises
+* **6.6** Add {devtools} and {usethis} to the suggests field.
+* **6.7** We will be using the R native pipe so set the minimum version of R as >= 4.1.0 in the depends field: `usethis::use_package("R", type = "Depends", min_version = "4.1.0")`
 
 
-## 7. Checking your package
+## Section 7 - Checking your package
 Packages require that the right files and the right information are in the right places. A small 
 mistake can prevent the package from functioning as intended. Many package features can be checked 
 using the function `devtools::check()`. It runs a series of checks that examine (among other things) 
@@ -297,13 +296,13 @@ individual checks is available [here](https://r-pkgs.org/R-CMD-check.html). Any 
 identified will be labeled as "errors", "warnings" or "notes". Errors and warnings must be fixed. 
 Occasionally it is acceptable to leave a "note" but usually these should be fixed too.
 
-**Exercise** 
-* Run `devtools::check()` - there should be no errors, warnings or notes.
-* If all the checks pass, commit (to the git version history) and push (to GitHub.com) the DESCRIPTION file.
-* If all the checks pass, commit and push both licence files.
-* If all the checks pass, commit and push any changes to the .Rbuildignore, .gitignore and .Rproj files.
+##### Exercises 
+* **7.1** Run `devtools::check()` - there should be no errors, warnings or notes.
+* **7.2** If all the checks pass, commit (to the git version history) and push (to GitHub.com) the DESCRIPTION file.
+* **7.3** If all the checks pass, commit and push both licence files.
+* **7.4** If all the checks pass, commit and push any changes to the .Rbuildignore, .gitignore and .Rproj files.
 
-## 8. Adding functions
+## Section 8 - Adding functions
 
 A training course on writing functions in R is available 
 [here](https://github.com/moj-analytical-services/writing_functions_in_r) but for speed in this 
@@ -340,13 +339,13 @@ assemble_crime_data <- function(path, year) {
 }
 ```
 
-**Exercise**
-* Copy each function to a new R script and save it in the R/ folder. The function name is probably
+##### Exercises
+* **8.1** Copy each function to a new R script and save it in the R/ folder. The function name is probably
 an appropriate name for each file.
-* Run `devtools::check()` - You will get a warning about undeclared imports and a note about an "undefined global function or variable". We will deal with these in the next section.
+* **8.2** Run `devtools::check()` - You will get a warning about undeclared imports and a note about an "undefined global function or variable". We will deal with these in the next section.
 
 
-## 9. Making functions work in a package
+## Section 9 - Making functions work in a package
 
 While the format of code inside a package is very similar to "normal R code", it is vital to 
 properly reference functions that you are using from other packages. You must never use
@@ -360,15 +359,15 @@ including it within packages (more information
 [here](https://dplyr.tidyverse.org/articles/programming.html)). In the wrangle data function we get 
 around the use of unquoted column names by including the `.data` "pronoun".
 
-**Exercise**
-* Have a look at the use of `package::function()` syntax in the functions.
-* Have a look at the use of the `.data` pronoun in the wrangle data function.
-* Add {arrow}, {dplyr}, {forcats} and {tidyr} to the imports field of the DESCRIPTION file (install the packages if prompted to).
-* Commit and push the changes to the DESCRIPTION file.
-* Run `devtools::check()` - you will still be getting the note about `.data` - we will deal with this in the next section.
+##### Exercises
+* **9.1** Have a look at the use of `package::function()` syntax in the functions.
+* **9.2** Have a look at the use of the `.data` pronoun in the wrangle data function.
+* **9.3** Add {arrow}, {dplyr}, {forcats} and {tidyr} to the imports field of the DESCRIPTION file (install the packages if prompted to).
+* **9.4** Commit and push the changes to the DESCRIPTION file.
+* **9.5** Run `devtools::check()` - you will still be getting the note about `.data` - we will deal with this in the next section.
 
 
-## 10. Documenting functions
+## Section 10 - Documenting functions
 
 Documentation is really important so users know how to use the package, and package managers and 
 developers can quickly get up to speed. It should therefore be embedded within the package in such 
@@ -415,20 +414,20 @@ files. These will be saved in the `man/` folder. You will also see that the func
 in the NAMESPACE file. (Note that `devtools::document()` is also run as part of 
 `devtools::check())`.
 
-**Exercise**
-* Copy the roxygen comment chunk above and paste it in the relevant script above assemble crime data function.
-* Run `devtools::document()` -  you will now see a file in `man/` and a change to the NAMESPACE
-* Run `devtools::load_all()` followed by `?assemble_crim_data` to view the help file generated from the roxygen comments
-* Add roxygen comments for the wrangle data function (we can skip adding an example to speed up the training course)
-* Run `devtools::document()` - you will see another file in `man/` and other function added to the NAMESPACE
-* Add the following as as additional roxygen comment to the wrangle data file: `#' @importFrom dplyr .data`
-* Run `devtools::document()` - you will see a new line in your NAMESPACE file that makes dplyr's `.data` available for use in your package. This syntax should also be used for things like operators
-* Run `devtools::check()`
-* When all tests pass commit and push the R scripts containing the functions, the `man/` files and the NAMESPACE file.
+##### Exercises
+* **10.1** Copy the roxygen comment chunk above and paste it in the relevant script above assemble crime data function.
+* **10.2** Run `devtools::document()` -  you will now see a file in `man/` and a change to the NAMESPACE
+* **10.3** Run `devtools::load_all()` followed by `?assemble_crim_data` to view the help file generated from the roxygen comments
+* **10.4** Add roxygen comments for the wrangle data function (we can skip adding an example to speed up the training course)
+* **10.5** Run `devtools::document()` - you will see another file in `man/` and other function added to the NAMESPACE
+* **10.6** Add the following as as additional roxygen comment to the wrangle data file: `#' @importFrom dplyr .data`
+* **10.7** Run `devtools::document()` - you will see a new line in your NAMESPACE file that makes dplyr's `.data` available for use in your package. This syntax should also be used for things like operators
+* **10.8** Run `devtools::check()`
+* **10.9** When all tests pass commit and push the R scripts containing the functions, the `man/` files and the NAMESPACE file.
 
 
 
-## 11. Testing code your code
+## Section 11 - Testing your code
 
 You have written (in this case been given) some code but how do you know that it is actually doing 
 what you intended? You might use `devtools::load_all()` to load your package and then try the 
@@ -442,11 +441,11 @@ it will:
 * Add `testthat (>= 3.0.0)` to the Suggests field in the DESCRIPTION file.
 * Creates a `tests/` folder, inside of which is a `testthat/` folder, where your R test scripts should be placed, and a `testthat.R` which helps in automating the testing.
 
-**Exercise** 
-* Run `usethis::use_testthat()` to set up the testing infrastructure.
-* Navigate to the script containing the assemble crime data function and in the console run: `usethis::use_test()`. This will open a new script which is saved in `tests/testhat/`. The script will have the same name as the function script but will have a `test-` prefix. An example test will be given.
+##### Exercises 
+* **11.1** Run `usethis::use_testthat()` to set up the testing infrastructure.
+* **11.2** Navigate to the script containing the assemble crime data function and in the console run: `usethis::use_test()`. This will open a new script which is saved in `tests/testhat/`. The script will have the same name as the function script but will have a `test-` prefix. An example test will be given.
 
-### The structure of a tests
+### The structure of a test
 
 The {testthat} tests contain two elements, the name of the test and one or more expectations. A 
 test will fail if at least one expectation is not met or when running the test results in an 
@@ -461,8 +460,8 @@ debugging the wrong test! You can have multiple tests for a single function.
 functions that check for the presence or absence of specific values or properties in function 
 outputs or their side effects.
 
-**Exercise** 
-* Have a look at the {testthat} reference to see some of the pre-built expectations
+##### Exercises 
+* **11.3** Have a look at the {testthat} reference to see some of the pre-built expectations
 
 ### Tests for the assemble crime data function
 
@@ -496,10 +495,10 @@ test_that("assemble_crime_data fails with invalid path", {
   
 })
 ```
-**Exercise** 
-* Copy the code above to the test file for the assemble crime data function.
-* Save the test file and run `devtools::load_all()`.
-* Run `devtools::test()` - you will get feedback as the tests run about how many have failed, resulted in a warning, or passed.
+##### Exercises 
+* **11.4** Copy the code above to the test file for the assemble crime data function.
+* **11.5** Save the test file and run `devtools::load_all()`.
+* **11.6** Run `devtools::test()` - you will get feedback as the tests run about how many have failed, resulted in a warning, or passed.
 
 ### Test coverage
 
@@ -522,13 +521,13 @@ if (year == 2002) {
 }
 ```
 
-**Exercise** 
-* Run `devtools::test_coverage()` - the first time you run this you might be prompted to install the packages {covr} and {DT}.
-* Add {covr} and {DT} to the Suggests field in your DESCRIPTION file.
+##### Exercises 
+* **11.7** Run `devtools::test_coverage()` - the first time you run this you might be prompted to install the packages {covr} and {DT}.
+* **11.8** Add {covr} and {DT} to the Suggests field in your DESCRIPTION file.
 
-### Tests for the assemble crime data function
+### Tests for the wrangle data function
 
-In order to properly test the assemble crime data function we probably want to ensure that the 
+In order to properly test the wrangle data function we probably want to ensure that the 
 following exceptions are met in the output data frame:
 
 * The output is a 13 column data frame (one column for `crime` and twelve for the months)
@@ -556,15 +555,15 @@ testing_df <- data.frame(
   )
 ```
 
-**Exercise**
-* Create a testing file for the wrangle data function.
-* We will use one test - give it an appropriate name.
-* Include the `testing_df` data frame in the test and then add expectations to test the four points listed above.
-* Run `devtools::check()` - this will also run the tests alongside the other checks.
-* If all the checks pass, commit and push the testing files and the DESCRIPTION file.
+##### Exercises
+* **11.9** Create a testing file for the wrangle data function.
+* **11.10** We will use one test - give it an appropriate name.
+* **11.11** Include the `testing_df` data frame in the test and then add expectations to test the four points listed above.
+* **11.12** Run `devtools::check()` - this will also run the tests alongside the other checks.
+* **11.13** If all the checks pass, commit and push the testing files and the DESCRIPTION file.
 
 
-## 12. Add a Readme
+## Section 12 - Add a README
 
 The README acts as a "quick-start guide" for users of your package. It should include:
 * Instructions for installing the package.
@@ -575,23 +574,25 @@ You can use a simple markdown readme or dynamically generate one use R markdown.
 preferable if you want to demonstrate what some of your code does. You can add a README with
 either `usethis::use_readme_md()` or `usethis::use_readme_rmd()` depending on they type you want.
 
-* Add a markdown README to your package
-* Update the install instructions to the following: `renv::install("git@github.com:moj-analytical-services/PACKAGE.git")` (you will need to replace "PACKAGE" with the name of your package). You can also remove the line about installing a "development" version.
-* Replace the example with the example from the assemble crim data function.
-* Update the overview of what your pacakge does.
-* Run `devtools::check()` - if all the check pass commit and push the README.
+##### Exercises
+* **12.1** Add a markdown README to your package
+* **12.2** Update the install instructions to the following: `renv::install("git@github.com:moj-analytical-services/PACKAGE.git")` (you will need to replace "PACKAGE" with the name of your package). You can also remove the line about installing a "development" version.
+* **12.3** Replace the example with the example from the assemble crim data function.
+* **12.4** Update the overview of what your pacakge does.
+* **12.5** Run `devtools::check()` - if all the check pass commit and push the README.
 
-## 13. Adding a NEWS file
+## Section 13 - Add a NEWS file
 
 The NEWS markdown file functions as a change-log for your package. It must be updated every time 
 you make changes to your package.
 
-**Exercise** 
-* Add a NEWS file to your package (`usethis::use_news_md()`). 
-* We will not be submitting this package to CRAN so update the bullet point to something like "initial release".
-* Run `devtools::check()` - if all the check pass commit and push the NEWS file.
+##### Exercises
+* **13.1** Have a look at the [NEWS file for {dplyr}](https://github.com/tidyverse/dplyr/blob/main/NEWS.md) - when were inequality joins introduced?
+* **13.2** Add a NEWS file to your package (`usethis::use_news_md()`). 
+* **13.3** We will not be submitting this package to CRAN so update the bullet point to something like "initial release".
+* **13.4** Run `devtools::check()` - if all the check pass commit and push the NEWS file.
 
-## 14. Managing releases of your package
+## Section 14 - Managing releases of your package
 
 Congratulations, you have successfully produced a working package in R! Open a pull request and 
 merge it to the `main` branch.
@@ -601,10 +602,10 @@ are a great way to manage the versions of your package. Every time you release a
 your package, include a GitHub release. This way if you ever need an older version of your package 
 it is very easy to install using the GitHub Release Tag. 
 
-**Exercise** 
-* Create a GitHub Release for your package
+##### Exercises 
+* **14.1** Create a GitHub Release for your package
 
-## 15. Installing and using your package
+## Section 15 - Installing and using your package
 
 To install a package from a **public** GitHub repo using `renv` you just need the owner and the 
 repo:
@@ -633,35 +634,36 @@ branch name, commit or github tag e.g.
 renv::install("git@github.com:moj-analytical-services/verify.git@v0.0.19")
 ```
     
-**Exercise**: 
-* Try installing your completed package in a different repo
-* Have a look at the help file for the assemble crime data function
-* Run the example from the assemble crime data function help
+##### Exercises
+* **15.1** Try installing your completed package in a different repo
+* **15.2** Have a look at the help file for the assemble crime data function
+* **15.3** Run the example from the assemble crime data function help
 
 
-## 16. Maintenance cycle
+## Section 16 - Maintenance cycle
 
 You have released your package and have received some feedback from a user - "it would be better if 
 the year was also included in the date column headings".
 
-* Switch back to the RStudio project where you are developing your package
-* Create a new `dev` branch
-* install {renv} and run `renv::install()`. This function has special behavior in the presence of a 
+##### Exercises
+* **16.1** Switch back to the RStudio project where you are developing your package
+* **16.2** Create a new `dev` branch
+* **16.3** Install {renv} and run `renv::install()`. This function has special behavior in the presence of a 
   DESCRIPTION file - it will install the packages listed there.
-* Run `devtools::check()`. This is to see if any changes in your packages dependencies have broken
+* **16.4** Run `devtools::check()`. This is to see if any changes in your packages dependencies have broken
   anything (the effectiveness of this will depend on the quality of your code and testing). Address
   any dependency related issues before making further changes.
-* Add the following as a second argument to the `dplyr::mutate()` in `wrangle_data()`: 
+* **16.5** Add the following as a second argument to the `dplyr::mutate()` in `wrangle_data()`: 
   ```
   month_fct = forcats::fct_relabel(.data$month_fct, ~ paste(.x, pub_year))
   ```
-* run `devtools::load_all()` and `devtools::test()`
-* Update the tests as necessary
-* Update the version number in the DESCRIPTION file
-* Update the NEWS file
-* Run `devtools::check()`
-* When all tests pass, commit and push the changes
-* Open a pull request, merge to `main` and generate a new GitHub release
+* **16.6** Run `devtools::load_all()` and `devtools::test()`
+* **16.7** Update the tests as necessary
+* **16.8** Update the version number in the DESCRIPTION file
+* **16.9** Update the NEWS file
+* **16.10** Run `devtools::check()`
+* **16.11** When all tests pass, commit and push the changes
+* **16.12** Open a pull request, merge to `main` and generate a new GitHub release
 
 
 ## Annex
@@ -706,7 +708,7 @@ test_that("wrangle_data works", {
 })
 ```
 
-### A3 Installing packages on the Analytical Platform (prior to R 4.4.0)
+### A3 Installing packages on the Analytical Platform prior to R 4.4.0
 
 Most R packages you install come from CRAN (The Comprehensive R Archive Network) 
 which stores them on a series of mirrored servers that act as package repositories. 
