@@ -570,10 +570,11 @@ The README acts as a "quick-start guide" for users of your package. It should in
 * A brief overview of what the package does and how you can get started using it.
 * If the package is intended for open collaboration, instructions for how people can get involved.
 
-You can use a simple markdown readme or dynamically generate one use R markdown. This may be
-preferable if you want to demonstrate what some of your code does. You can add a README with
-either `usethis::use_readme_md()` or `usethis::use_readme_rmd()` respectively depending on 
-the type you want.
+You can use a simple markdown README or dynamically generate one using R Markdown which 
+enables the ability to embed code chunks and several other extensions useful for writing 
+technical reports. The latter may be preferable if you want to demonstrate what some of 
+your code does. You can add a README with either `usethis::use_readme_md()` or 
+`usethis::use_readme_rmd()` depending on the type you want.
 
 ##### Exercises
 * **12.1** Add a markdown README to your package
