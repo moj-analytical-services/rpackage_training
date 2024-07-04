@@ -405,8 +405,8 @@ will also trigger the generation of a help file. Any functions that are for inte
 should not be tagged with `@export`.
 
 There is another special tag `@importFrom` that can be used to import functions and methods etc from
-the NAMESPACE of other pakcages. The use of this should be reserved for things like operators, 
-funcitons that are always nested inide other functions (for example `aes()` from {ggplot2}) and 
+the NAMESPACE of other packages. The use of this should be reserved for things like operators and 
+functions that are always nested inside other functions (for example `aes()` from {ggplot2}) and 
 pronouns where the use of `::` syntax is either invalid or makes the code hard to read.
 
 Once we have added our roxygen comments we can use `devtools::document()` to generate the the help 
@@ -448,13 +448,13 @@ it will:
 ### The structure of a test
 
 The {testthat} tests contain two elements, the name of the test and one or more expectations. A 
-test will fail if at least one expectation is not met or when running the test results in an 
-unexpected error.
+test will fail if at least one expectation is not met or if there is an unexpected error.
 
-The name of the test is important for identifying which test failed (when it fails) so should 
-contain information about what you are testing i.e. the function name and what specific behavior 
-you are testing. Each test should always have a unique name within a package to avoid wasting time 
-debugging the wrong test! You can have multiple tests for a single function.
+You can have multiple tests for a single function so the name of the test is important for 
+identifying which test failed (when it fails). The test name should therefore contain information 
+about what you are testing i.e. the function name and what specific behavior you are testing. 
+Each test should always have a unique name within a package to avoid wasting time debugging the 
+wrong test! 
 
 [Expectations](https://testthat.r-lib.org/reference/index.html#expectations) are a series of 
 functions that check for the presence or absence of specific values or properties in function 
@@ -472,8 +472,8 @@ function. We will cover that with the tests for that function.
 
 Due to the absence of bespoke error handling/ input checking in the function, and time constraints
 when running the training, we are largely ignoring the `year` argument in the assemble crime data 
-funciton. Furthermore, for "real" production code it would probably be safer/simpler to have 
-separate functions for "getting a data frame into R" and "doing stuff to the data frame". Strucuting 
+function. Furthermore, for "real" production code it would probably be safer/simpler to have 
+separate functions for "getting a data frame into R" and "doing stuff to the data frame". Structuring 
 it like this for the training is useful for conveying particular points in the training.
 
 Additionally, we are checking that when an invalid path is used we get an error.
@@ -572,14 +572,15 @@ The README acts as a "quick-start guide" for users of your package. It should in
 
 You can use a simple markdown readme or dynamically generate one use R markdown. This may be
 preferable if you want to demonstrate what some of your code does. You can add a README with
-either `usethis::use_readme_md()` or `usethis::use_readme_rmd()` depending on they type you want.
+either `usethis::use_readme_md()` or `usethis::use_readme_rmd()` respectively depending on 
+the type you want.
 
 ##### Exercises
 * **12.1** Add a markdown README to your package
 * **12.2** Update the install instructions to the following: `renv::install("git@github.com:moj-analytical-services/PACKAGE.git")` (you will need to replace "PACKAGE" with the name of your package). You can also remove the line about installing a "development" version.
 * **12.3** Replace the example with the example from the assemble crim data function.
 * **12.4** Update the overview of what your pacakge does.
-* **12.5** Run `devtools::check()` - if all the check pass commit and push the README.
+* **12.5** Run `devtools::check()` - if all the checks pass commit and push the README.
 
 ## Section 13 - Add a NEWS file
 
