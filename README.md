@@ -469,9 +469,15 @@ outputs or their side effects.
 ### Tests for the assemble crime data function
 
 Some tests for the assemble crime data function are given below. We are checking that when a valid 
-path (and date) are supplied we get a data frame and no warnings are generated. We are not worried 
+path (and year) are supplied we get a data frame and no warnings are generated. We are not worried 
 about testing the content of the data frame here as that is controlled by the wrangle data 
 function. We will cover that with the tests for that function. 
+
+Due to the absence of bespoke error handling/ input checking in the function, and time constraints
+when running the training, we are largely ignoring the `year` argument in the assemble crime data 
+funciton. Furthermore, for "real" production code it would probably be safer/simpler to have 
+separate functions for "getting a data frame into R" and "doing stuff to the data frame". Strucuting 
+it like this for the training is useful for conveying particular points in the training.
 
 Additionally, we are checking that when an invalid path is used we get an error.
 
