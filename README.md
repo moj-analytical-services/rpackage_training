@@ -556,7 +556,8 @@ testing_df <- data.frame(
 * Create a testing file for the wrangle data function.
 * We will use one test - give it an appropriate name.
 * Include the `testing_df` data frame in the test and then add expectations to test the four points listed above.
-
+* Run `devtools::check()` - this will also run the tests alongside the other checks.
+* If all the checks pass, commit and push the testing files and the DESCRIPTION file.
 
 
 ### Add a Readme
@@ -566,6 +567,16 @@ The README acts as a "quick-start guide" for users of your package. It should in
 * A brief overview of what the package does.
 * If the package is intended for open collaboration, instructions for how people can get involved.
 
+You can use a simple markdown readme or dynamically generate one use R markdown. This may be
+preferable if you want to demonstrate what some of your code does. You can add a README with
+either `usethis::use_readme_md()` or `usethis::use_readme_rmd()` depending on they type you want.
+
+* Add a markdown README to your package
+* Update the install instructions to the following: `renv::install("git@github.com:moj-analytical-services/PACKAGE.git")` (you will need to replace "PACKAGE" with the name of your package). You can also remove the line about installing a "development" version.
+* Replace the example with the example from the assemble crim data function.
+* Update the overview of what your pacakge does.
+* Run `devtools::check()` - if all the check pass commit and push the README.
+
 ### 15. Adding a NEWS file
 
 The NEWS markdown file functions as a change-log for your package. It must be updated every time 
@@ -573,7 +584,8 @@ you make changes to your package.
 
 **Exercise** 
 * Add a NEWS file to your package (`usethis::use_news_md()`). 
-* We will not be submitting this package to CRAN so update the n
+* We will not be submitting this package to CRAN so update the bullet point to something like "initial release".
+* Run `devtools::check()` - if all the check pass commit and push the NEWS file.
 
 ### 13. Managing releases of your package
 
@@ -610,7 +622,7 @@ With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where 
 branch name, commit or github tag e.g.    
 
 ```R
-renv::install("git@github.com:moj-analytical-services/mojrap.git@v1.0.1")
+renv::install("git@github.com:moj-analytical-services/verify.git@v0.0.19")
 ```
     
 **Exercise 14**: 
@@ -625,7 +637,7 @@ You have released your package and have received some feedback from a user - "it
 the year was also included in the date column headings".
 
 * Switch back to the RStudio project where you are developing your package
-* Ensure you are on the `dev` branch
+* Create a new `dev` branch
 * install {renv} and run `renv::install()`. This function has special behavior in the presence of a 
   DESCRIPTION file - it will install the packages listed there.
 * Run `devtools::check()`. This is to see if any changes in your packages dependencies have broken
@@ -674,11 +686,13 @@ test_that("wrangle_data works", {
   )
 
   out_df_1 <- testing_df |> wrangle_data(pub_year = 2000)
+
   out_df_1 |> ncol() |> expect_equal(13)
   out_df_1 |> names() |> tail(12) |> expect_equal(month.name)
   out_df_1$crime |> expect_equal("foo")
 
   out_df_2 <- testing_df |> wrangle_data(pub_year = 2001)
+
   out_df_2$crime |> expect_equal("bar")
 
 })
