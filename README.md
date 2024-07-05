@@ -359,7 +359,7 @@ including it within packages (more information
 [here](https://dplyr.tidyverse.org/articles/programming.html)). In the wrangle data function we get 
 around the use of unquoted column names by including the `.data` "pronoun". For example, outside of
 a package context `iris |> dplyr::filter(Species == "Setosa")` is valid syntax and `Species` will
-be interpreted as a string (the name of a column in the data frame `iris`) via "tidy eveluation".
+be interpreted as a string (the name of a column in the data frame `iris`) via "tidy evaluation".
 In a package context however, it will be interpreted as an object name (and probably the name of an 
 object without a definition). This will cause the checks on the pacakge to fail.
 
