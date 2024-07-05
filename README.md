@@ -357,7 +357,11 @@ a function from the relevant namespace (more on this later).
 Because packages like {dplyr} use "tidy evaluation" we need to make some changes to the code when
 including it within packages (more information 
 [here](https://dplyr.tidyverse.org/articles/programming.html)). In the wrangle data function we get 
-around the use of unquoted column names by including the `.data` "pronoun".
+around the use of unquoted column names by including the `.data` "pronoun". For example, outside of
+a package context `iris |> dplyr::filter(Species == "Setosa")` is valid syntax and `Species` will
+be interpreted as a string (the name of a column in the data frame `iris`) via "tidy eveluation".
+In a package context however, it will be interpreted as an object name (and probably the name of an 
+object without a definition). This will cause the checks on the pacakge to fail.
 
 ##### Exercises
 * **9.1** Have a look at the use of `package::function()` syntax in the functions.
@@ -505,7 +509,7 @@ test_that("assemble_crime_data fails with invalid path", {
 Test coverage is a metric that can be useful in assessing the adequacy of tests. The {covr} package 
 can be used to examine test coverage. It builds the package and runs the tests in a modified 
 environment counting how many times each line of package code is run by the tests. You should aim 
-to have every line covered by tests but don't rely coverage alone when assessing the adequacy of 
+to have every line covered by tests but don't rely on coverage alone when assessing the adequacy of 
 tests. When we run the test coverage of our package we will get 100% (the wrangle data function
 is called by the assemble crime data function) but we are not (yet) properly testing the intended 
 behaviour of the wrangle data function.
@@ -580,7 +584,7 @@ your code does. You can add a README with either `usethis::use_readme_md()` or
 * **12.1** Add a markdown README to your package
 * **12.2** Update the install instructions to the following: `renv::install("git@github.com:moj-analytical-services/PACKAGE.git")` (you will need to replace "PACKAGE" with the name of your package). You can also remove the line about installing a "development" version.
 * **12.3** Replace the example with the example from the assemble crim data function.
-* **12.4** Update the overview of what your pacakge does.
+* **12.4** Update the overview of what your package does.
 * **12.5** Run `devtools::check()` - if all the checks pass commit and push the README.
 
 ## Section 13 - Add a NEWS file
@@ -592,7 +596,7 @@ you make changes to your package.
 * **13.1** Have a look at the [NEWS file for {dplyr}](https://github.com/tidyverse/dplyr/blob/main/NEWS.md) - when were inequality joins introduced?
 * **13.2** Add a NEWS file to your package (`usethis::use_news_md()`). 
 * **13.3** We will not be submitting this package to CRAN so update the bullet point to something like "initial release".
-* **13.4** Run `devtools::check()` - if all the check pass commit and push the NEWS file.
+* **13.4** Run `devtools::check()` - if all the checks pass commit and push the NEWS file.
 
 ## Section 14 - Managing releases of your package
 
