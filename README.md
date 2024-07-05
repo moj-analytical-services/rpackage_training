@@ -605,7 +605,15 @@ your package, include a GitHub release. This way if you ever need an older versi
 it is very easy to install using the GitHub Release Tag. 
 
 ##### Exercises 
-* **14.1** Create a GitHub Release for your package
+* **14.1** Open a pull request and merge the `dev` branch into `main` (delete the `dev` branch once it is merged)
+* **14.2** Click on the "Releases" section on the Code tab of the GitHub repo for your pacakge.
+* **14.3** Click on "Draft a new release"
+* **14.4** Fill in the release title with the Semantic Version number of your package
+* **14.5** Add a description of the release (the seciton of your NEWS file pertaining to this verison of the package might be appropriate)
+* **14.6** Click on "Choose a tag"
+* **14.7** The tag should be the Semantic verison number prepended with a lowercase "v" e.g. for version `0.1.0` the tag will be `v0.1.0`. After
+    typing the tag you will need to click on "Create new tag: ... on publish".
+* **14.8** Click on the "Publish release" button
 
 ## Section 15 - Installing and using your package
 
@@ -649,9 +657,10 @@ the year was also included in the date column headings".
 
 ##### Exercises
 * **16.1** Switch back to the RStudio project where you are developing your package
-* **16.2** Create a new `dev` branch
+* **16.2** Create a new `dev` branch (you first need to remove the existing one - run `git branch -d dev` in the terminal)
 * **16.3** Install {renv} and run `renv::install()`. This function has special behavior in the presence of a 
-  DESCRIPTION file - it will install the packages listed there.
+  DESCRIPTION file - it will install the packages listed there. This behaviour is bugged in some versions of
+  {renv}. If you get an error message, run `renv::install("renv@0.15.4")`, restart R (Ctrl+Shift+F10) then try again.
 * **16.4** Run `devtools::check()`. This is to see if any changes in your packages dependencies have broken
   anything (the effectiveness of this will depend on the quality of your code and testing). Address
   any dependency related issues before making further changes.
@@ -674,7 +683,7 @@ the year was also included in the date column headings".
 
 Continuous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
 
-Before setting up this automation, you should have fixed any problems identified by running the R CMD tests - see [Section 12. Checking your package](#12-hecking-your-package).
+Before setting up this automation, you should have fixed any problems identified by running the R CMD tests - see [Section 7 - Checking your package](#section-7---checking-your-package).
 
 To setup continuous integration using GitHub Actions: 
 
@@ -716,10 +725,10 @@ Most R packages you install come from CRAN (The Comprehensive R Archive Network)
 which stores them on a series of mirrored servers that act as package repositories. 
 Prior to R version 4.4.0 the Analytical Platform is set up to use a fixed R 
 package repository by default. Depending on the version of R on the Analytical 
-Platform you are using, this may be fairly old. Run options("repos") and look at 
-the date at the end to see which version you are using. To access the latest 
-versions of packages you can use the following to update where you install from 
-(this will reset when R is restarted).
+Platform you are using, this may be fairly old. Run options("repos") in the 
+console and look at the date at the end to see which version you are using. To 
+access the latest versions of packages you can use the following to update 
+where you install from (this will reset when R is restarted).
 
 ```R
 options(repos = "https://packagemanager.rstudio.com/all/__linux__/focal/latest")
