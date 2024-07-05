@@ -161,7 +161,7 @@ Always make your changes on a different branch then merge to the default branch 
 You should also [add protections to your `main` branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule) to shield it from accidental pushes. (We will skip this step in the training for speed but it is very important for production code).
 
 ##### Exercises
-* **4.1** Create a new git branch called `dev` where we will begin building the package.
+* **4.1** Create a new git branch called `dev` in RStudio where we will begin building the package.
 
 ### Tools to help with package development
 
