@@ -361,7 +361,7 @@ around the use of unquoted column names by including the `.data` "pronoun". For 
 a package context `iris |> dplyr::filter(Species == "Setosa")` is valid syntax and `Species` will
 be interpreted as a string (the name of a column in the data frame `iris`) via "tidy evaluation".
 In a package context however, it will be interpreted as an object name (and probably the name of an 
-object without a definition). This will cause the checks on the pacakge to fail.
+object without a definition). This will cause the checks on the package to fail.
 
 ##### Exercises
 * **9.1** Have a look at the use of `package::function()` syntax in the functions.
@@ -612,7 +612,7 @@ it is very easy to install using the GitHub Release Tag.
 
 ##### Exercises 
 * **14.1** Open a pull request and merge the `dev` branch into `main` (delete the `dev` branch once it is merged)
-* **14.2** Click on the "Releases" section on the Code tab of the GitHub repo for your pacakge.
+* **14.2** Click on the "Releases" section on the Code tab of the GitHub repo for your package.
 * **14.3** Click on "Draft a new release"
 * **14.4** Fill in the release title with the Semantic Version number of your package
 * **14.5** Add a description of the release (the section of your NEWS file pertaining to this version of the package might be appropriate)
