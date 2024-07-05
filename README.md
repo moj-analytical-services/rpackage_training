@@ -615,9 +615,9 @@ it is very easy to install using the GitHub Release Tag.
 * **14.2** Click on the "Releases" section on the Code tab of the GitHub repo for your pacakge.
 * **14.3** Click on "Draft a new release"
 * **14.4** Fill in the release title with the Semantic Version number of your package
-* **14.5** Add a description of the release (the seciton of your NEWS file pertaining to this verison of the package might be appropriate)
+* **14.5** Add a description of the release (the section of your NEWS file pertaining to this version of the package might be appropriate)
 * **14.6** Click on "Choose a tag"
-* **14.7** The tag should be the Semantic verison number prepended with a lowercase "v" e.g. for version `0.1.0` the tag will be `v0.1.0`. After
+* **14.7** The tag should be the Semantic version number prepended with a lowercase "v" e.g. for version `0.1.0` the tag will be `v0.1.0`. After
     typing the tag you will need to click on "Create new tag: ... on publish".
 * **14.8** Click on the "Publish release" button
 
@@ -663,7 +663,7 @@ the year was also included in the date column headings".
 
 ##### Exercises
 * **16.1** Switch back to the RStudio project where you are developing your package
-* **16.2** Create a new `dev` branch (you first need to remove the existing one - run `git branch -d dev` in the terminal)
+* **16.2** Create a new `dev` branch (if you first need to remove the existing one, run `git branch -d dev` in the terminal)
 * **16.3** Install {renv} and run `renv::install()`. This function has special behavior in the presence of a 
   DESCRIPTION file - it will install the packages listed there. This behaviour is bugged in some versions of
   {renv}. If you get an error message, run `renv::install("renv@0.15.4")`, restart R (Ctrl+Shift+F10) then try again.
