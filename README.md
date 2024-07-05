@@ -687,9 +687,14 @@ the year was also included in the date column headings".
 
 ### A1 Continuous integration
 
-Continuous integration is about automating software workflows. An automated workflow can be setup so that when you or someone else pushes changes to github.com, tests are run to ascertain whether there are any problems. These checks should include the unit tests you've developed and also the R CMD tests (over 50 individual checks for common problems).  
+Continuous integration is about automating software workflows. An automated workflow can be 
+setup so that when you or someone else pushes changes to github.com, tests are run to 
+ascertain whether there are any problems. These checks should include the unit tests you've 
+developed and also the R CMD tests (over 50 individual checks for common problems) carried 
+out when you run `devtools::check()`.
 
-Before setting up this automation, you should have fixed any problems identified by running the R CMD tests - see [Section 7 - Checking your package](#section-7---checking-your-package).
+Before setting up this automation, you should have fixed any problems identified by running 
+the R CMD tests - see [Section 7 - Checking your package](#section-7---checking-your-package).
 
 To setup continuous integration using GitHub Actions: 
 
