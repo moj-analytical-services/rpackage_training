@@ -217,9 +217,9 @@ Where values span multiple lines, they need to be indented. In particular:
 - **Authors@R:** - the package authors and their rolls (more info below)
 - **Description:** - a one paragraph summary of the package
 - **License:** - licencing information (this will have been automatically updated when you added the licence with {usethis}).
-- **Imports:** - all the other packages that your package uses. You can specify a minimum or maximum version in brackets after the name. 
+- **Imports:** - all the other packages that your package uses for basic functionality. You can specify a minimum or maximum version in brackets after the name. 
 - **Suggests:** - packages that are not required for basic functionality but allow enhanced features such as vignettes or are useful during package development.
-- **Remotes:** - if your package depends on another one that not on CRAN, this is where you specify how to find it.
+- **Remotes:** - if your package depends on another one that is not on CRAN, this is where you specify how to find it.
 - **Depends:** - this is where you list a minimum version of R if you are aware of one. For example if you are using the R native pipe (`|>`) in your package you would need to specify R (>= 4.1.0). 
 
 ##### Exercises
