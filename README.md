@@ -435,9 +435,10 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 
 You have written (in this case been given) some code but how do you know that it is actually doing 
 what you intended? You might use `devtools::load_all()` to load your package and then try the 
-functions to see if they give the expected output. This works but you will need to recreate and 
-inputs and repeat the process if any changes are made to your code base or if there are changes in 
-your dependencies and testing your code quickly becomes a time consuming process.
+functions to see if they give the expected output. This works but every time you need to test your 
+functions (e.g. if any changes are made to your code base or if there are changes in your 
+dependencies) you will need to re-create the inputs to the function and re-write the code. This 
+quickly makes testing a very time consuming process. 
 
 We can instead formalize this testing process (and automate the running of it) using the [{testthat}
 R package](https://testthat.r-lib.org/index.html). When we run the function `usethis::use_testthat()`
@@ -477,8 +478,9 @@ function. We will cover that with the tests for that function.
 Due to the absence of bespoke error handling/ input checking in the function, and time constraints
 when running the training, we are largely ignoring the `year` argument in the assemble crime data 
 function. Furthermore, for "real" production code it would probably be safer/simpler to have 
-separate functions for "getting a data frame into R" and "doing stuff to the data frame". Structuring 
-it like this for the training is useful for conveying particular points in the training.
+separate functions for "getting a data frame into R" and "doing stuff to the data frame" rather 
+than just relying on one that combines both elements. Structuring it like this for the training is 
+useful for conveying particular points in the training.
 
 Additionally, we are checking that when an invalid path is used we get an error.
 
