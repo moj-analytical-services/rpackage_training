@@ -56,7 +56,7 @@ Recordings of these sessions can be viewed via links provided in the [Analytical
 * [Annex](#annex)
     + [A1 Continuous integration](#a1-continuous-integration)
     + [A2 Solution to testing wrangle data function exercises](#a2-solution-to-testing-wrangle-data-function-exercises)
-    + [A3 Installing packages on the Analytical Platform prior to R 4.4.0](#a3-installing-packages-on-the-analytical-platform-prior-to-r-4.4.0)
+    + [A3 Installing packages on the Analytical Platform prior to R 4.4.0](#a3-installing-packages-on-the-analytical-platform-prior-to-r-440)
 
 
 ## Section 1 - Introduction
