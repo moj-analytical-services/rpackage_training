@@ -56,7 +56,7 @@ Recordings of these sessions can be viewed via links provided in the [Analytical
 * [Annex](#annex)
     + [A1 Continuous integration](#a1-continuous-integration)
     + [A2 Solution to testing wrangle data function exercises](#a2-solution-to-testing-wrangle-data-function-exercises)
-    + [A3 Installing packages on the Analytical Platform prior to R 4.4.0](#a3-installing-packages-on-the-analytical-platform-prior-to-r-4.4.0)
+    + [A3 Installing packages on the Analytical Platform prior to R 4.4.0](#a3-installing-packages-on-the-analytical-platform-prior-to-r-440)
 
 
 ## Section 1 - Introduction
@@ -170,8 +170,7 @@ format and aid development by automating common tasks. The two we will be using 
 [{devtools}](https://devtools.r-lib.org/) and [{usethis}](https://usethis.r-lib.org/).
 
 ##### Exercises 
-* **4.2** Using `install.packages()`, install the {devtools} and {usethis} packages.
-
+* **4.2** Using `install.packages()`, install the {devtools} and {usethis} packages. If you are using R < 4.4.0 on the AP please review [appendix A3](#a3-installing-packages-on-the-analytical-platform-prior-to-r-440) first.
 
 The following {usethis} function will structure your current working directory as an R package 
 (you will need to overwrite what is already there when prompted):
