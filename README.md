@@ -158,7 +158,7 @@ Some packages may have [other components (R Packages book)](https://r-pkgs.org/m
 
 The default branch of an R package GitHub repo must be reserved for working releases of the package. 
 Always make your changes on a different branch then merge to the default branch for each release. 
-You should also [add protections to your `main` branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule) to shield it from accidental pushes. (We will skip this step in the training for speed but it is very important for production code).
+You should also [add protections to your `main` branch (GitHub Docs article](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule) to shield it from accidental pushes. (We will skip this step in the training for speed but it is very important for production code).
 
 ##### Exercises
 * **4.1** Create a new git branch called `dev` in RStudio where we will begin building the package.
