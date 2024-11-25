@@ -61,7 +61,7 @@ Recordings of these sessions can be viewed via links provided in the [Analytical
 
 ## Section 1 - Introduction
 
-This training is based on Hadley Wickham's book [R Packages](https://r-pkgs.org/). The goal of it is 
+This training is based on the book [R Packages by Hadley Wickham and Jennifer Bryan](https://r-pkgs.org/). The goal of it is 
 to teach you how to make and develop packages. R packages are not difficult to make and have several 
 benefits:
 
