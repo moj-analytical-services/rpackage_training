@@ -301,7 +301,7 @@ Occasionally it is acceptable to leave a "note" but usually these should be fixe
 ## Section 8 - Adding functions
 
 As you can take the [Writing functions in R training course (GitHub repository)](https://github.com/moj-analytical-services/writing_functions_in_r), 
-we will here skip function development. 
+we will skip function development in this course. 
 
 We are going to include two functions in our example package, one that builds a tabulation of data 
 and another that fetches some data from s3 before building the tabulation. The functions omit things
