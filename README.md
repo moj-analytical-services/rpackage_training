@@ -187,11 +187,10 @@ section.
 
 ## Section 5 - Copyright and licencing
 
-Licencing code is essential as it sets out how others can use it. You can read more about licencing 
-[here](https://r-pkgs.org/license.html). The work-product of civil servants falls under 
-[Crown copyright](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/) and usually requires an Open Government Licence but for open source software we have the [option
-to use other open source licences](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/open-government-licence/open-software-licences/). The 
-[MIT licence](https://opensource.org/license/mit/) is the [MoJ preferred choice](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#licence) and can be added to your package using:
+Licencing code is essential as it sets out how others can use it. You can [read more about licencing (R Packages book)](https://r-pkgs.org/license.html). The work-product of civil servants falls under 
+[Crown copyright (archived article)](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/) and usually requires an Open Government Licence but for open source software we have the [option
+to use other open source licences (archived article)](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/open-government-licence/open-software-licences/). The 
+[MIT licence (open source initiative article)](https://opensource.org/license/mit/) is the [MoJ preferred choice (Analytical Platform User Guidance)](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#licence) and can be added to your package using:
 
 ```R
 usethis::use_mit_license("Crown Copyright (Ministry of Justice)")
