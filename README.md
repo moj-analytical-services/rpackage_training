@@ -599,7 +599,7 @@ you make changes to your package.
 Congratulations, you have successfully produced a working package in R! Open a pull request and 
 merge it to the `main` branch.
 
-[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) 
+[GitHub Releases (GitHub Docs article)](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) 
 are a great way to manage the versions of your package. Every time you release an updated version of 
 your package, include a GitHub release. This way if you ever need an older version of your package 
 it is very easy to install using the GitHub Release Tag. 
