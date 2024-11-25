@@ -455,7 +455,7 @@ about what you are testing i.e. the function name and what specific behavior you
 Each test should always have a unique name within a package to avoid wasting time debugging the 
 wrong test! 
 
-[Expectations](https://testthat.r-lib.org/reference/index.html#expectations) are a series of 
+[Expectations ({testthat} reference)](https://testthat.r-lib.org/reference/index.html#expectations) are a series of 
 functions that check for the presence or absence of specific values or properties in function 
 outputs or their side effects.
 
