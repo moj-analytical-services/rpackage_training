@@ -589,7 +589,7 @@ The NEWS markdown file functions as a change-log for your package. It must be up
 you make changes to your package.
 
 ##### Exercises
-* **13.1** Have a look at the [NEWS file for {dplyr}](https://github.com/tidyverse/dplyr/blob/main/NEWS.md) - when were inequality joins introduced?
+* **13.1** Have a look at the [NEWS file for {dplyr} R package](https://github.com/tidyverse/dplyr/blob/main/NEWS.md) - when were inequality joins introduced?
 * **13.2** Add a NEWS file to your package (`usethis::use_news_md()`). 
 * **13.3** We will not be submitting this package to CRAN so update the bullet point to something like "initial release".
 * **13.4** Run `devtools::check()` - if all the checks pass commit and push the NEWS file.
