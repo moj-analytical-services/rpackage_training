@@ -150,7 +150,7 @@ Some packages may have [other components (R Packages book)](https://r-pkgs.org/m
 * **data-raw/** - A folder for preserving the creation history of your .rda file (must be added to the .Rbuildignore). This could also contain CSV versions of small data files used in testing code.
 
 ##### Exercises 
-* **3.1** Take a look at the structure of a github repo which contains an R package e,g, [{stringr}](https://github.com/tidyverse/stringr) or [{dplyr}](https://github.com/tidyverse/dplyr) and see if you can recognise the structure and elements described above.
+* **3.1** Take a look at the structure of a github repo which contains an R package e.g. [{stringr}](https://github.com/tidyverse/stringr) or [{dplyr}](https://github.com/tidyverse/dplyr) and see if you can recognise the structure and elements described above.
 
 ## Section 4 - Create the package
 
@@ -344,9 +344,8 @@ an appropriate name for each file.
 While the format of code inside a package is very similar to "normal R code", it is vital to 
 properly reference functions that you are using from other packages. You must never use
 `library()`, `require()` or `source()` calls inside a package; instead you should use 
-`package::function()` syntax. You can read more about [properly referencing functions  
-(R Packages book)](https://r-pkgs.org/code.html#sec-code-r-landscape). In some instances it is better to import 
-a function from the relevant namespace (more on this later).
+`package::function()` syntax. You can read more about [properly referencing functions (R Packages book)](https://r-pkgs.org/code.html#sec-code-r-landscape). 
+In some instances it is better to import a function from the relevant namespace (more on this later).
 
 Because packages like {dplyr} use "tidy evaluation" we need to make some changes to the code when
 including it within packages. To find out more, read the 
