@@ -300,18 +300,16 @@ Occasionally it is acceptable to leave a "note" but usually these should be fixe
 
 ## Section 8 - Adding functions
 
-A training course on writing functions in R is available 
-[here](https://github.com/moj-analytical-services/writing_functions_in_r) but for speed in this 
-course we will skip over function development. 
+As you can take the [Writing functions in R training course (GitHub repository)](https://github.com/moj-analytical-services/writing_functions_in_r), 
+we will here skip function development. 
 
 We are going to include two functions in our example package, one that builds a tabulation of data 
 and another that fetches some data from s3 before building the tabulation. The functions omit things
 like data validation and error handling that you should include in real production code.
 
 In a package, functions must be saved in .R files in the R/ folder. You can have multiple functions 
-in a single script (suggestions about how to organise your functions is available 
-[here](https://r-pkgs.org/code.html#sec-code-organising)) but we will use one function per file 
-for this exercise.
+in a single script (see [suggestions about how to organise your functions (R Packages book)](https://r-pkgs.org/code.html#sec-code-organising)) 
+but we will use one function per file for this exercise.
 
 ### wrangle data function
 ```R
