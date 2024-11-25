@@ -203,10 +203,8 @@ This will add two text files to the top level of your project, `LICENCE` and `LI
 
 ## Section 6 - Package metadata
 
-The [DESCRIPTION](https://r-pkgs.org/description.html#the-description-file) file contains important 
-metadata about the package; it is a text file that you can open and edit in RStudio. An example of 
-an amended DESCRIPTION file is provided 
-[here](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION). The formatting 
+The [DESCRIPTION (R Packages book)](https://r-pkgs.org/description.html#the-description-file) file contains important 
+metadata about the package; it is a text file that you can open and edit in RStudio. You can view as an example [the amended psutils package DESCRIPTION file](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION). The formatting 
 is important. Each line consists of a field name and a value, separated by a colon. 
 Where values span multiple lines, they need to be indented. In particular:
 
