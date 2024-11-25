@@ -344,13 +344,13 @@ an appropriate name for each file.
 While the format of code inside a package is very similar to "normal R code", it is vital to 
 properly reference functions that you are using from other packages. You must never use
 `library()`, `require()` or `source()` calls inside a package; instead you should use 
-`package::function()` syntax. More information on why this is the case is available 
-[here](https://r-pkgs.org/code.html#sec-code-r-landscape). In some instances it is better to import 
+`package::function()` syntax. You can read more about [properly referencing functions  
+(R Packages book)](https://r-pkgs.org/code.html#sec-code-r-landscape). In some instances it is better to import 
 a function from the relevant namespace (more on this later).
 
 Because packages like {dplyr} use "tidy evaluation" we need to make some changes to the code when
-including it within packages (more information 
-[here](https://dplyr.tidyverse.org/articles/programming.html)). In the wrangle data function we get 
+including it within packages. To find out more, read the 
+[Programming with dplyr article](https://dplyr.tidyverse.org/articles/programming.html)). In the wrangle data function we get 
 around the use of unquoted column names by including the `.data` "pronoun". For example, outside of
 a package context `iris |> dplyr::filter(Species == "Setosa")` is valid syntax and `Species` will
 be interpreted as a string (the name of a column in the data frame `iris`) via "tidy evaluation".
