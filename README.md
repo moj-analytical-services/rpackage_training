@@ -287,8 +287,8 @@ to add {devtools} as a suggested package: `usethis::use_package("devtools", type
 Packages require that the right files and the right information are in the right places. A small 
 mistake can prevent the package from functioning as intended. Many package features can be checked 
 using the function `devtools::check()`. It runs a series of checks that examine (among other things) 
-package structure, metadata, code structure, and documentation. More information about the 
-individual checks is available [here](https://r-pkgs.org/R-CMD-check.html). Any issues that are 
+package structure, metadata, code structure, and documentation. You can read more about [the 
+individual checks (R Packages book)](https://r-pkgs.org/R-CMD-check.html). Any issues that are 
 identified will be labeled as "errors", "warnings" or "notes". Errors and warnings must be fixed. 
 Occasionally it is acceptable to leave a "note" but usually these should be fixed too.
 
