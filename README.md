@@ -135,7 +135,7 @@ maintenance process).
 - **R/** - A folder where functions are saved (This is for package code only if you are making notes during the training don't save them here!).
 - **man/** - A folder for documentation.
 - **tests/** - A folder for {testthat} infrastructure and testing scrips.
-- **.Rbuildignore** - A file that [allows certain paths to be ignored when the package is built](https://r-pkgs.org/structure.html#sec-rbuildignore).
+- **.Rbuildignore** - A file that [allows certain paths to be ignored when the package is built (R Packages book)](https://r-pkgs.org/structure.html#sec-rbuildignore).
 - **DESCRIPTION** - A file containing package metadata.
 - **NAMESPACE** - A file containing exported and imported variable names.
 - **LICENCE and/or LICENSE.md** - A file or files with information about how the code can be used.
@@ -143,7 +143,7 @@ maintenance process).
 - **README** - A file or files that covers how to install the package and a guide for first time users.
 
 
-Some packages may have [other components](https://r-pkgs.org/misc.html), a few common ones that you may want to use are listed below:
+Some packages may have [other components (R Packages book)](https://r-pkgs.org/misc.html), a few common ones that you may want to use are listed below:
 
 * **inst/** - A folder for "other files" e.g. markdown templates.
 * **data/** - A folder for data (**nothing sensitive!**) in .rda format that are available as part of the package e.g. for demonstrating functionality. Each data set should be documented in a similar way to functions. 
