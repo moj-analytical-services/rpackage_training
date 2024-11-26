@@ -15,7 +15,7 @@ You must also have completed steps 1 to 4 and 6 of the
 making sure you can access RStudio from the control panel. If you have any issues, please post them in the 
 appropriate Slack channel (either [#ask-operations-engineering](https://moj.enterprise.slack.com/archives/C01BUKJSZD4) or [#intro_r](https://asdslack.slack.com/archives/CGKSJV9HN)). 
 
-You will also require access to the S3 bucket `alpha-r-training`. You can post an access request to the [#intro_r](https://asdslack.slack.com/archives/CGKSJV9HN) slack channel.
+You will also require access to the S3 bucket `alpha-r-training`. You can post an access request to the [#intro_r (slack channel)](https://asdslack.slack.com/archives/CGKSJV9HN) slack channel.
 
 Using two screens (e.g. your laptop plus a monitor) during the training session might be useful to enable you to watch the session on one and code on the other.
 
@@ -61,7 +61,7 @@ Recordings of these sessions can be viewed via links provided in the [Analytical
 
 ## Section 1 - Introduction
 
-This training is based on Hadley Wickham's book [R Packages](https://r-pkgs.org/). The goal of it is 
+This training is based on the book [R Packages by Hadley Wickham and Jennifer Bryan](https://r-pkgs.org/). The goal of it is 
 to teach you how to make and develop packages. R packages are not difficult to make and have several 
 benefits:
 
@@ -101,9 +101,9 @@ Instead it is better to group your functions into thematically similar activitie
 package contains functions for working with strings and regular expressions.
 
 Some packages may contain generalized functions (on a particular theme) that have a broad spectrum 
-of applications e.g. [{psutils}](https://github.com/moj-analytical-services/psutils). Others may 
+of applications e.g. [the {psutils} R package](https://github.com/moj-analytical-services/psutils). Others may 
 contain very specialized functions that are only used as part of one process e.g. 
-[{pssf}](https://github.com/moj-analytical-services/pssf).
+[the {pssf} R package](https://github.com/moj-analytical-services/pssf).
 
 It is also worth considering whether your functions might fit within an existing package rather than starting a new one.
 
@@ -123,8 +123,8 @@ You can read more in the [R Packages section Name your package](https://r-pkgs.o
 ##### Exercises
 * **2.1** Decide what name to call your package (something like your initials or name combined with "demo",
 "eg", or "toy" might be appropriate for this training). Make sure you respect the constraints on permitted characters!
-* **2.2** [Create a new github repository](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#create-a-new-project-in-github), giving it your chosen name and "internal" visibility. Add a .gitignore file (using the "R" template) but not a license or README at this stage.
-* **2.3** [Clone the repo](https://user-guidance.analytical-platform.service.justice.gov.uk/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) as an RStudio project.
+* **2.2** [Create a new github repository (Analytical Platform User Guidance)](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#create-a-new-project-in-github), giving it your chosen name and "internal" visibility. Add a .gitignore file (using the "R" template) but not a license or README at this stage.
+* **2.3** [Clone the repo (Analytical Platform User Guidance)](https://user-guidance.analytical-platform.service.justice.gov.uk/github/rstudio-git.html#step-1-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) as an RStudio project.
 
 
 ## Section 3 - Package structure
@@ -135,7 +135,7 @@ maintenance process).
 - **R/** - A folder where functions are saved (This is for package code only if you are making notes during the training don't save them here!).
 - **man/** - A folder for documentation.
 - **tests/** - A folder for {testthat} infrastructure and testing scrips.
-- **.Rbuildignore** - A file that [allows certain paths to be ignored when the package is built](https://r-pkgs.org/structure.html#sec-rbuildignore).
+- **.Rbuildignore** - A file that [allows certain paths to be ignored when the package is built (R Packages book)](https://r-pkgs.org/structure.html#sec-rbuildignore).
 - **DESCRIPTION** - A file containing package metadata.
 - **NAMESPACE** - A file containing exported and imported variable names.
 - **LICENCE and/or LICENSE.md** - A file or files with information about how the code can be used.
@@ -143,14 +143,14 @@ maintenance process).
 - **README** - A file or files that covers how to install the package and a guide for first time users.
 
 
-Some packages may have [other components](https://r-pkgs.org/misc.html), a few common ones that you may want to use are listed below:
+Some packages may have [other components (R Packages book)](https://r-pkgs.org/misc.html), a few common ones that you may want to use are listed below:
 
 * **inst/** - A folder for "other files" e.g. markdown templates.
 * **data/** - A folder for data (**nothing sensitive!**) in .rda format that are available as part of the package e.g. for demonstrating functionality. Each data set should be documented in a similar way to functions. 
 * **data-raw/** - A folder for preserving the creation history of your .rda file (must be added to the .Rbuildignore). This could also contain CSV versions of small data files used in testing code.
 
 ##### Exercises 
-* **3.1** Take a look at the structure of a github repo which contains an R package e,g, [{stringr}](https://github.com/tidyverse/stringr) or [{dplyr}](https://github.com/tidyverse/dplyr) and see if you can recognise the structure and elements described above.
+* **3.1** Take a look at the structure of a github repo which contains an R package e.g. [{stringr}](https://github.com/tidyverse/stringr) or [{dplyr}](https://github.com/tidyverse/dplyr) and see if you can recognise the structure and elements described above.
 
 ## Section 4 - Create the package
 
@@ -158,7 +158,7 @@ Some packages may have [other components](https://r-pkgs.org/misc.html), a few c
 
 The default branch of an R package GitHub repo must be reserved for working releases of the package. 
 Always make your changes on a different branch then merge to the default branch for each release. 
-You should also [add protections to your `main` branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule) to shield it from accidental pushes. (We will skip this step in the training for speed but it is very important for production code).
+You should also [add protections to your `main` branch (GitHub Docs article)](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule) to shield it from accidental pushes. (We will skip this step in the training for speed but it is very important for production code).
 
 ##### Exercises
 * **4.1** Create a new git branch called `dev` in RStudio where we will begin building the package.
@@ -187,11 +187,10 @@ section.
 
 ## Section 5 - Copyright and licencing
 
-Licencing code is essential as it sets out how others can use it. You can read more about licencing 
-[here](https://r-pkgs.org/license.html). The work-product of civil servants falls under 
-[Crown copyright](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/) and usually requires an Open Government Licence but for open source software we have the [option
-to use other open source licences](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/open-government-licence/open-software-licences/). The 
-[MIT licence](https://opensource.org/license/mit/) is the [MoJ preferred choice](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#licence) and can be added to your package using:
+Licencing code is essential as it sets out how others can use it. You can [read more about licencing (R Packages book)](https://r-pkgs.org/license.html). The work-product of civil servants falls under 
+[Crown copyright (archived article)](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/) and usually requires an Open Government Licence but for open source software we have the [option
+to use other open source licences (archived article)](https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/open-government-licence/open-software-licences/). The 
+[MIT licence (open source initiative article)](https://opensource.org/license/mit/) is the [MoJ preferred choice (Analytical Platform User Guidance)](https://user-guidance.analytical-platform.service.justice.gov.uk/github/create-project.html#licence) and can be added to your package using:
 
 ```R
 usethis::use_mit_license("Crown Copyright (Ministry of Justice)")
@@ -204,10 +203,8 @@ This will add two text files to the top level of your project, `LICENCE` and `LI
 
 ## Section 6 - Package metadata
 
-The [DESCRIPTION](https://r-pkgs.org/description.html#the-description-file) file contains important 
-metadata about the package; it is a text file that you can open and edit in RStudio. An example of 
-an amended DESCRIPTION file is provided 
-[here](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION). The formatting 
+The [DESCRIPTION file (R Packages book)](https://r-pkgs.org/description.html#the-description-file) contains important 
+metadata about the package; it is a text file that you can open and edit in RStudio. You can view as an example [the amended psutils package DESCRIPTION file](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION). The formatting 
 is important. Each line consists of a field name and a value, separated by a colon. 
 Where values span multiple lines, they need to be indented. In particular:
 
@@ -290,8 +287,8 @@ to add {devtools} as a suggested package: `usethis::use_package("devtools", type
 Packages require that the right files and the right information are in the right places. A small 
 mistake can prevent the package from functioning as intended. Many package features can be checked 
 using the function `devtools::check()`. It runs a series of checks that examine (among other things) 
-package structure, metadata, code structure, and documentation. More information about the 
-individual checks is available [here](https://r-pkgs.org/R-CMD-check.html). Any issues that are 
+package structure, metadata, code structure, and documentation. You can read more about [the 
+individual checks (R Packages book)](https://r-pkgs.org/R-CMD-check.html). Any issues that are 
 identified will be labeled as "errors", "warnings" or "notes". Errors and warnings must be fixed. 
 Occasionally it is acceptable to leave a "note" but usually these should be fixed too.
 
@@ -303,18 +300,16 @@ Occasionally it is acceptable to leave a "note" but usually these should be fixe
 
 ## Section 8 - Adding functions
 
-A training course on writing functions in R is available 
-[here](https://github.com/moj-analytical-services/writing_functions_in_r) but for speed in this 
-course we will skip over function development. 
+As you can take the [Writing functions in R training course (GitHub repository)](https://github.com/moj-analytical-services/writing_functions_in_r), 
+we will skip function development in this course. 
 
 We are going to include two functions in our example package, one that builds a tabulation of data 
 and another that fetches some data from s3 before building the tabulation. The functions omit things
 like data validation and error handling that you should include in real production code.
 
 In a package, functions must be saved in .R files in the R/ folder. You can have multiple functions 
-in a single script (suggestions about how to organise your functions is available 
-[here](https://r-pkgs.org/code.html#sec-code-organising)) but we will use one function per file 
-for this exercise.
+in a single script (see [suggestions about how to organise your functions (R Packages book)](https://r-pkgs.org/code.html#sec-code-organising)) 
+but we will use one function per file for this exercise.
 
 ### wrangle data function
 ```R
@@ -349,13 +344,12 @@ an appropriate name for each file.
 While the format of code inside a package is very similar to "normal R code", it is vital to 
 properly reference functions that you are using from other packages. You must never use
 `library()`, `require()` or `source()` calls inside a package; instead you should use 
-`package::function()` syntax. More information on why this is the case is available 
-[here](https://r-pkgs.org/code.html#sec-code-r-landscape). In some instances it is better to import 
-a function from the relevant namespace (more on this later).
+`package::function()` syntax. You can read more about [properly referencing functions (R Packages book)](https://r-pkgs.org/code.html#sec-code-r-landscape). 
+In some instances it is better to import a function from the relevant namespace (more on this later).
 
 Because packages like {dplyr} use "tidy evaluation" we need to make some changes to the code when
-including it within packages (more information 
-[here](https://dplyr.tidyverse.org/articles/programming.html)). In the wrangle data function we get 
+including it within packages. To find out more, read the 
+[Programming with dplyr article](https://dplyr.tidyverse.org/articles/programming.html)). In the wrangle data function we get 
 around the use of unquoted column names by including the `.data` "pronoun". For example, outside of
 a package context `iris |> dplyr::filter(Species == "Setosa")` is valid syntax and `Species` will
 be interpreted as a string (the name of a column in the data frame `iris`) via "tidy evaluation".
@@ -460,7 +454,7 @@ about what you are testing i.e. the function name and what specific behavior you
 Each test should always have a unique name within a package to avoid wasting time debugging the 
 wrong test! 
 
-[Expectations](https://testthat.r-lib.org/reference/index.html#expectations) are a series of 
+[Expectations ({testthat} reference)](https://testthat.r-lib.org/reference/index.html#expectations) are a series of 
 functions that check for the presence or absence of specific values or properties in function 
 outputs or their side effects.
 
@@ -594,7 +588,7 @@ The NEWS markdown file functions as a change-log for your package. It must be up
 you make changes to your package.
 
 ##### Exercises
-* **13.1** Have a look at the [NEWS file for {dplyr}](https://github.com/tidyverse/dplyr/blob/main/NEWS.md) - when were inequality joins introduced?
+* **13.1** Have a look at the [NEWS file for {dplyr} R package](https://github.com/tidyverse/dplyr/blob/main/NEWS.md) - when were inequality joins introduced?
 * **13.2** Add a NEWS file to your package (`usethis::use_news_md()`). 
 * **13.3** We will not be submitting this package to CRAN so update the bullet point to something like "initial release".
 * **13.4** Run `devtools::check()` - if all the checks pass commit and push the NEWS file.
@@ -604,7 +598,7 @@ you make changes to your package.
 Congratulations, you have successfully produced a working package in R! Open a pull request and 
 merge it to the `main` branch.
 
-[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) 
+[GitHub Releases (GitHub Docs article)](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) 
 are a great way to manage the versions of your package. Every time you release an updated version of 
 your package, include a GitHub release. This way if you ever need an older version of your package 
 it is very easy to install using the GitHub Release Tag. 
@@ -637,10 +631,9 @@ renv::install("git@github.com:moj-analytical-services/mojchart.git")
 ```    
     
 Note: If your package has any Imports that are from internal or private repos you will need to 
-also use this syntax in the Remotes field. For example the {psutils} package has [{verify} as an
-import](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION#L39) which is 
-another internal package available from 
-[this](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION#L49) SSH remote. 
+also use the SSH URL syntax in the Remotes field. For example the [{psutils} package DESCRIPTION FILE includes {verify} as an
+import](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION#L41) and as another internal package, 
+the [{verify} SSH URL syntax is specified in the {psutils} package DESCRIPTION FILE Remotes field](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION#L51). 
     
 With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where the "ref" is a 
 branch name, commit or github tag e.g.    
