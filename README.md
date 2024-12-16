@@ -578,7 +578,7 @@ your code does. You can add a README with either `usethis::use_readme_md()` or
 ##### Exercises
 * **12.1** Add a markdown README to your package
 * **12.2** Update the install instructions to the following: `renv::install("git@github.com:moj-analytical-services/PACKAGE.git")` (you will need to replace "PACKAGE" with the name of your package). You can also remove the line about installing a "development" version.
-* **12.3** Replace the example with the example from the assemble crim data function.
+* **12.3** Replace the example with the example from the assemble crime data function.
 * **12.4** Update the overview of what your package does.
 * **12.5** Run `devtools::check()` - if all the checks pass commit and push the README.
 
@@ -728,7 +728,7 @@ Most R packages you install come from CRAN (The Comprehensive R Archive Network)
 which stores them on a series of mirrored servers that act as package repositories. 
 Prior to R version 4.4.0 the Analytical Platform is set up to use a fixed R 
 package repository by default. Depending on the version of R on the Analytical 
-Platform you are using, this may be fairly old. Run options("repos") in the 
+Platform you are using, this may be fairly old. Run `options("repos")` in the 
 console and look at the date at the end to see which version you are using. To 
 access the latest versions of packages you can use the following to update 
 where you install from (this will reset when R is restarted).
