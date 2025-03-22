@@ -604,7 +604,7 @@ your package, include a GitHub release. This way if you ever need an older versi
 it is very easy to install using the GitHub Release Tag. 
 
 ##### Exercises 
-* **14.1** Open a pull request and merge the `dev` branch into `main` (delete the `dev` branch once it is merged)
+* **14.1** Open a pull request and merge the `dev` branch into `main`.
 * **14.2** Click on the "Releases" section on the Code tab of the GitHub repo for your package.
 * **14.3** Click on "Draft a new release"
 * **14.4** Fill in the release title with the Semantic Version number of your package
@@ -654,8 +654,8 @@ You have released your package and have received some feedback from a user - "it
 the year was also included in the date column headings".
 
 ##### Exercises
-* **16.1** Switch back to the RStudio project where you are developing your package
-* **16.2** Create a new `dev` branch (if you first need to remove the existing one, run `git branch -d dev` in the terminal)
+* **16.1** Switch back to the RStudio project where you are developing your package.
+* **16.2** Ensure you are on the `dev` branch.
 * **16.3** Install {renv} and run `renv::install()`. This function has special behavior in the presence of a 
   DESCRIPTION file - it will install the packages listed there. This behaviour is bugged in some versions of
   {renv}. If you get an error message, run `renv::install("renv@0.15.4")`, restart R (Ctrl+Shift+F10) then try again.
