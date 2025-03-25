@@ -53,8 +53,7 @@ Recordings of these sessions can be viewed via links provided in the [Analytical
 * [Section 16 - Maintenance cycle](#section-16---maintenance-cycle)
 * [Annex](#annex)
     + [A1 Continuous integration](#a1-continuous-integration)
-    + [A2 Solution to testing wrangle data function exercises](#a2-solution-to-testing-wrangle-data-function-exercises)
-    + [A3 Installing packages on the Analytical Platform prior to R 4.4.0](#a3-installing-packages-on-the-analytical-platform-prior-to-r-440)
+    + [A2 Installing packages on the Analytical Platform prior to R 4.4.0](#a2-installing-packages-on-the-analytical-platform-prior-to-r-440)
 
 
 ## Section 1 - Introduction
@@ -159,7 +158,7 @@ format and aid development by automating common tasks. The two we will be using 
 [{devtools}](https://devtools.r-lib.org/) and [{usethis}](https://usethis.r-lib.org/).
 
 ##### Exercises 
-* **4.2** Using `install.packages()`, install the {devtools} and {usethis} packages. If you are using R < 4.4.0 on the AP please review [appendix A3](#a3-installing-packages-on-the-analytical-platform-prior-to-r-440) first.
+* **4.2** Using `install.packages()`, install the {devtools} and {usethis} packages. If you are using R < 4.4.0 on the AP please review [appendix A2](#a2-installing-packages-on-the-analytical-platform-prior-to-r-440) first.
 
 The following {usethis} function will structure your current working directory as an R package 
 (you will need to overwrite what is already there when prompted):
@@ -404,9 +403,9 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 * **10.1** Copy the roxygen comment chunk above and paste it in the relevant script above the is friday function.
 * **10.2** Run `devtools::document()` -  you will now see a file in `man/` and a change to the NAMESPACE
 * **10.3** Run `devtools::load_all()` followed by `?is_friday` to view the help file generated from the roxygen comments
-* **10.4** Add roxygen comments for the select species function (hint: use the `iris` dataset in the example)
+* **10.4** Add roxygen comments for the filter species function (hint: use the `iris` dataset in the example)
 * **10.5** Run `devtools::document()` - you will see another file in `man/` and other function added to the NAMESPACE
-* **10.6** Add the following as as additional roxygen comment to the select species file: `#' @importFrom dplyr .data`
+* **10.6** Add the following as as additional roxygen comment to the filter species file: `#' @importFrom dplyr .data`
 * **10.7** Run `devtools::document()` - you will see a new line in your NAMESPACE file that makes dplyr's `.data` available for use in your package.
 * **10.8** Run `devtools::check()`
 * **10.9** When all checks pass commit and push the R scripts containing the functions, the `man/` files and the NAMESPACE file.
@@ -414,6 +413,9 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 
 
 ## Section 11 - Testing your code
+
+We now have a separate training course ([link to code testing training repo](https://github.com/moj-analytical-services/codetestingtraining)) 
+that gives a more thorough introduction to testing code but we will cover the basics here.
 
 You have written (in this case been given) some code but how do you know that it is actually doing 
 what you intended? You might use `devtools::load_all()` to load your package and then try the 
@@ -450,36 +452,21 @@ outputs or their side effects.
 ##### Exercises 
 * **11.3** Have a look at the {testthat} reference to see some of the pre-built expectations
 
-### Tests for the assemble crime data function
+### Tests for the filter species function
 
-Some tests for the assemble crime data function are given below. We are checking that when a valid 
-path (and year) are supplied we get a data frame and no warnings are generated. We are not worried 
-about testing the content of the data frame here as that is controlled by the wrangle data 
-function. We will cover that with the tests for that function. 
-
-Due to the absence of bespoke error handling/ input checking in the function, and time constraints
-when running the training, we are largely ignoring the `year` argument in the assemble crime data 
-function. Furthermore, for "real" production code it would probably be safer/simpler to have 
-separate functions for "getting a data frame into R" and "doing stuff to the data frame" rather 
-than just relying on one that combines both elements. Structuring it like this for the training is 
-useful for conveying particular points in the training.
-
-Additionally, we are checking that when an invalid path is used we get an error.
+A test (with four expectations) for the filter specis function is given below. The first three
+expectations check various properites of the function output when used with the `iris` data
+frame. The fourth expectation checks that we get an error if we supply something other than
+a data frame to the first argument.
 
 ```R
-test_that("assemble_crime_data works with valid path", {
-
-  uri <- "s3://alpha-r-training/r-package-training/synthetic-crime-data.parquet"
-
-  assemble_crime_data(uri, year = 2000) |> expect_s3_class("data.frame")
-  assemble_crime_data(uri, year = 2001) |> expect_no_warning()
+test_that("filter_species works", {
   
-})
-
-
-test_that("assemble_crime_data fails with invalid path", {
+  filter_species(iris, "setosa") |> expect_s3_class("data.frame")
+  filter_species(iris, "versicolor") |> nrow() |> expect_equal(50)
+  filter_species(iris, "virginica") |> ncol() |> expect_equal(5)
   
-  assemble_crime_data("foo", year = 2001) |> expect_error()
+  select_species("foo", "bar") |> expect_error()
   
 })
 ```
@@ -492,63 +479,41 @@ test_that("assemble_crime_data fails with invalid path", {
 
 Test coverage is a metric that can be useful in assessing the adequacy of tests. The {covr} package 
 can be used to examine test coverage. It builds the package and runs the tests in a modified 
-environment counting how many times each line of package code is run by the tests. You should aim 
-to have every line covered by tests but don't rely on coverage alone when assessing the adequacy of 
-tests. When we run the test coverage of our package we will get 100% (the wrangle data function
-is called by the assemble crime data function) but we are not (yet) properly testing the intended 
-behaviour of the wrangle data function.
+environment counting how many times each line of package code is run by the tests. 
 
-Test coverage can be particularly useful where you have `if()` statements in your code to help you 
-ensure that all the various conditions that can arise have been covered. For example, if the
-assemble crime data function did something special when the year was set to 2002 those lines
-would not be covered by our existing text and this would be revealed by examining the test coverage.
 
-```R
-if (year == 2002) {
-  message("Happy 2002!")
-}
-```
 
 ##### Exercises 
-* **11.7** Run `devtools::test_coverage()` - the first time you run this you might be prompted to install the packages {covr} and {DT}.
+* **11.7** Run `devtools::test_coverage()` and inspect the output - the first time you run this you might be prompted to install the packages {covr} and {DT}.
 * **11.8** Add {covr} and {DT} to the Suggests field in your DESCRIPTION file.
 
-### Tests for the wrangle data function
+### Tests for the is friday function
 
-In order to properly test the wrangle data function we probably want to ensure that the 
-following exceptions are met in the output data frame:
-
-* The output is a 13 column data frame (one column for `crime` and twelve for the months)
-* The month columns are arranged in chronological order (January to December)
-* The data are filtered by `pub_year` correctly
-* The number of rows is the same as the number of unique "crimes" for the target year
-
-We probably don't want to use "real" data when writing tests. By checking specific things like 
-values, number of rows, number of columns etc in the outputs there is a risk of revealing 
-unpublished information. Real data may also be subject to change (potentially causing tests to 
-fail incorrectly). Additionally, real data is likely to be quite large (slowing down the testing 
-process) and contain a lot of noise i.e. elements that are not relevant for testing a specific
-function.
-
-We will use the following data frame to test the wrangle data function. It contains only the three 
-columns used by the test and two rows. The values for `crime` are dummy values i.e. not the same as 
-the values used in the "real" data but that difference is not important for testing whether the 
-function works.
-
+A test (with one expectation) for the is friday function is given below.
 ```R
-testing_df <- data.frame(
-    crime = c("foo", "bar"),
-    year = 2000:2001,
-    month = "January"
-  )
+test_that("is_friday works", {
+  
+  lubridate::ymd("2025-03-28") |> is_friday() |> expect_true()
+  
+})
 ```
 
 ##### Exercises
-* **11.9** Create a testing file for the wrangle data function.
-* **11.10** We will use one test - give it an appropriate name.
-* **11.11** Include the `testing_df` data frame in the test and then add expectations to test the four points listed above.
-* **11.12** Run `devtools::check()` - this will also run the tests alongside the other checks.
-* **11.13** If all the checks pass, commit and push the testing files and the DESCRIPTION file.
+* **11.9** Create a testing file for the is friday function and add the test.
+* **11.10** Run `devtools::load_all()` and `devtools::test()`.
+* **11.11** If all the tests pass, run `devtools::test_coverage()` - why do we not have 100% code coverage?
+
+Test coverage is particularly useful where you have `if()` statements in your code. It helps you 
+ensure that all the various conditions that can arise have been covered. In our single expectation
+for the is friday function, the `if()` statement evaluates as `FALSE` so the "if block" is not run. The
+if block could contain a bug that would not be caught by our current tests.
+
+##### Exercises
+* **11.12** Add another expectation to the is friday test that will cause the if block to run. (Use a string in the form "yyyymmdd" as the input).
+* **11.13** Run `devtools::load_all()` and `devtools::test()`.
+* **11.14** If all the tests pass, run `devtools::test_coverage()` and inspect the output
+* **11.15** Now run `devtools::check()` - this will also run the tests alongside the other checks.
+* **11.16** If all the checks pass, commit and push the testing files and the DESCRIPTION file.
 
 
 ## Section 12 - Add a README
@@ -633,14 +598,26 @@ renv::install("git@github.com:moj-analytical-services/verify.git@v0.0.19")
     
 ##### Exercises
 * **15.1** Try installing your completed package in a different repo
-* **15.2** Have a look at the help file for the assemble crime data function
-* **15.3** Run the example from the assemble crime data function help
+* **15.2** Have a look at the help file for the filter species data function
+* **15.3** Run the examples from the is friday function help
 
 
 ## Section 16 - Maintenance cycle
 
-You have released your package and have received some feedback from a user - "it would be better if 
-the year was also included in the date column headings".
+You have released your package and have received some feedback from a user - "I want a function to 
+test if a date is a Monday".
+
+```R
+is_monday <- function(date) {
+  
+  if (!inherits(date, "Date")) {
+    date <- lubridate::ymd(date)
+  }
+  
+  lubridate::wday(date) == 2
+  
+}
+```
 
 ##### Exercises
 * **16.1** Switch back to the RStudio project where you are developing your package.
@@ -651,12 +628,10 @@ the year was also included in the date column headings".
 * **16.4** Run `devtools::check()`. This is to see if any changes in your packages dependencies have broken
   anything (the effectiveness of this will depend on the quality of your code and testing). Address
   any dependency related issues before making further changes.
-* **16.5** Add the following as a second argument to the `dplyr::mutate()` in `wrangle_data()`: 
-  ```
-  month_fct = forcats::fct_relabel(.data$month_fct, ~ paste(.x, pub_year))
-  ```
-* **16.6** Run `devtools::load_all()` and `devtools::test()`
-* **16.7** Update the tests as necessary
+* **16.5** Add the is monday function to your package. Don't forget to document it!
+* **16.6** Run `devtools::load_all()` and `devtools::check()`. Fix any issues.
+* **16.7** Add tests for the is monday function.
+* * **16.6** Run `devtools::load_all()` and `devtools::test()` and `devtools::code_coverage()`. Fix any issues.
 * **16.8** Update the version number in the DESCRIPTION file
 * **16.9** Update the NEWS file
 * **16.10** Run `devtools::check()`
@@ -687,31 +662,7 @@ This automatically puts a status badge in your README.
 
 You can read further about automating checking in [R Packages Automated Checking chapter](https://r-pkgs.org/r-cmd-check.html).
 
-### A2 Solution to testing wrangle data function exercises
-
-```R
-test_that("wrangle_data works", {
-
-  testing_df <- data.frame(
-    crime = c("foo", "bar"),
-    year = 2000:2001,
-    month = "January"
-  )
-
-  out_df_1 <- testing_df |> wrangle_data(pub_year = 2000)
-
-  out_df_1 |> ncol() |> expect_equal(13)
-  out_df_1 |> names() |> tail(12) |> expect_equal(month.name)
-  out_df_1$crime |> expect_equal("foo")
-
-  out_df_2 <- testing_df |> wrangle_data(pub_year = 2001)
-
-  out_df_2$crime |> expect_equal("bar")
-
-})
-```
-
-### A3 Installing packages on the Analytical Platform prior to R 4.4.0
+### A2 Installing packages on the Analytical Platform prior to R 4.4.0
 
 Most R packages you install come from CRAN (The Comprehensive R Archive Network) 
 which stores them on a series of mirrored servers that act as package repositories. 
