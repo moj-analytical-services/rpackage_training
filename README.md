@@ -15,8 +15,6 @@ You must also have completed steps 1 to 4 and 6 of the
 making sure you can access RStudio from the control panel. If you have any issues, please post them in the 
 appropriate Slack channel (either [#ask-operations-engineering](https://moj.enterprise.slack.com/archives/C01BUKJSZD4) or [#intro_r](https://asdslack.slack.com/archives/CGKSJV9HN)). 
 
-You will also require access to the S3 bucket `alpha-r-training`. You can post an access request to the [#intro_r (slack channel)](https://asdslack.slack.com/archives/CGKSJV9HN) slack channel.
-
 Using two screens (e.g. your laptop plus a monitor) during the training session might be useful to enable you to watch the session on one and code on the other.
 
 Recordings of these sessions can be viewed via links provided in the [Analytical Platform and related tools training section on R training](https://moj-analytical-services.github.io/ap-tools-training/ITG.html#r-training). If you have any access problems please contact <aidan.mews@justice.gov.uk>.
