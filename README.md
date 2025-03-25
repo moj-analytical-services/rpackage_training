@@ -37,15 +37,15 @@ Recordings of these sessions can be viewed via links provided in the [Analytical
     + [Dependency management](#dependency-management)
 * [Section 7 - Checking your package](#section-7---checking-your-package)
 * [Section 8 - Adding functions](#section-8---adding-functions)
-    + [if Friday function](#is-friday-function)
+    + [is Friday function](#is-friday-function)
     + [filter by species function](#filter-by-species-function)
 * [Section 9 - Making functions work in a package](#section-9---making-functions-work-in-a-package)
 * [Section 10 - Documenting functions](#section-10---documenting-functions)
 * [Section 11 - Testing your code](#section-11---testing-your-code)
     + [The structure of a test](#the-structure-of-a-test)
-    + [Tests for the assemble crime data function](#tests-for-the-assemble-crime-data-function)
+    + [Tests for the filter by species function](#tests-for-the-filter-by-species-function)
     + [Test coverage](#test-coverage)
-    + [Tests for the wrangle data function](#tests-for-the-wrangle-data-function)
+    + [Tests for the is Friday function](#tests-for-the-is-friday-function)
 * [Section 12 - Add a README](#section-12---add-a-readme)
 * [Section 13 - Add a NEWS file](#section-13---add-a-news-file)
 * [Section 14 - Managing releases of your package](#section-14---managing-releases-of-your-package)
@@ -357,7 +357,7 @@ automatically knitted into help files. Roxygen comments are denoted by hash and 
 mark followed by a space `#' `. Comments can then be labeled with a tag which is a string starting
 with @ e.g. `@title` would be the tag for the help file's title.
 
-A set of roxygen comments for the is friday function is given below.
+A set of roxygen comments for the is Friday function is given below.
 
 ```
 #' @title Is Friday?
@@ -400,7 +400,7 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 `devtools::check())`.
 
 ##### Exercises
-* **10.1** Copy the roxygen comment chunk above and paste it in the relevant script above the is friday function.
+* **10.1** Copy the roxygen comment chunk above and paste it in the relevant script above the is Friday function.
 * **10.2** Run `devtools::document()` -  you will now see a file in `man/` and a change to the NAMESPACE
 * **10.3** Run `devtools::load_all()` followed by `?is_friday` to view the help file generated from the roxygen comments
 * **10.4** Add roxygen comments for the filter by species function (hint: use the `iris` dataset in the example)
@@ -487,9 +487,9 @@ environment counting how many times each line of package code is run by the test
 * **11.7** Run `devtools::test_coverage()` and inspect the output - the first time you run this you might be prompted to install the packages {covr} and {DT}.
 * **11.8** Add {covr} and {DT} to the Suggests field in your DESCRIPTION file.
 
-### Tests for the is friday function
+### Tests for the is Friday function
 
-A test (with one expectation) for the is friday function is given below.
+A test (with one expectation) for the is Friday function is given below.
 ```R
 test_that("is_friday works", {
   
@@ -499,17 +499,17 @@ test_that("is_friday works", {
 ```
 
 ##### Exercises
-* **11.9** Create a testing file for the is friday function and add the test.
+* **11.9** Create a testing file for the is Friday function and add the test.
 * **11.10** Run `devtools::load_all()` and `devtools::test()`.
 * **11.11** If all the tests pass, run `devtools::test_coverage()` - why do we not have 100% code coverage?
 
 Test coverage is particularly useful where you have `if()` statements in your code. It helps you 
 ensure that all the various conditions that can arise have been covered. In our single expectation
-for the is friday function, the `if()` statement evaluates as `FALSE` so the "if block" is not run. The
+for the is Friday function, the `if()` statement evaluates as `FALSE` so the "if block" is not run. The
 if block could contain a bug that would not be caught by our current tests.
 
 ##### Exercises
-* **11.12** Add another expectation to the is friday test that will cause the if block to run. (Use a string in the form "yyyymmdd" as the input).
+* **11.12** Add another expectation to the is Friday test that will cause the if block to run. (Use a string in the form "yyyymmdd" as the input).
 * **11.13** Run `devtools::load_all()` and `devtools::test()`.
 * **11.14** If all the tests pass, run `devtools::test_coverage()` and inspect the output
 * **11.15** Now run `devtools::check()` - this will also run the tests alongside the other checks.
@@ -599,7 +599,7 @@ renv::install("git@github.com:moj-analytical-services/verify.git@v0.0.19")
 ##### Exercises
 * **15.1** Try installing your completed package in a different repo
 * **15.2** Have a look at the help file for the filter by species function
-* **15.3** Run the examples from the is friday function help
+* **15.3** Run the examples from the is Friday function help
 
 
 ## Section 16 - Maintenance cycle
