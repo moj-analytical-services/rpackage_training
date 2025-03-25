@@ -263,8 +263,8 @@ extra optional functionality.
 There is a tool in {usethis} for adding packages to the description file. It will check if the 
 package is installed before adding it so is useful for catching spelling mistakes!
 
-By default, packages are added as Imports e.g. to add {dplyr} as an import: 
-`usethis::use_package("dplyr")`. You can use the `type` argument to add them to Suggests instead e.g.
+By default, packages are added as Imports e.g. to add {lubridate} as an import: 
+`usethis::use_package("lubridate")`. You can use the `type` argument to add them to Suggests instead e.g.
 to add {devtools} as a suggested package: `usethis::use_package("devtools", type = "Suggests")`.
 
 ##### Exercises
