@@ -72,7 +72,7 @@ These benefits together improve the reliability, reusability and sharability of 
 the confidence to update it without the fear of unknowingly breaking something.
 
 This training is designed with exercises to enable you to develop a package. Your example package
-will include some functions for working with dates (we will provide the functions).
+will include some functions that we will provide.
 
 
 ## Section 2 - Package scope and naming
@@ -292,33 +292,27 @@ Occasionally it is acceptable to leave a "note" but usually these should be fixe
 As you can take the [Writing functions in R training course (GitHub repository)](https://github.com/moj-analytical-services/writing_functions_in_r), 
 we will skip function development in this course. 
 
-We are going to include two functions in our example package, one that builds a tabulation of data 
-and another that fetches some data from s3 before building the tabulation. The functions omit things
-like data validation and error handling that you should include in real production code.
+We are going to include two functions in our example package, one that checks if a date is a Friday and another that 
+filters a data frame by a column called `Species` for rows that match a specific target value.
 
 In a package, functions must be saved in .R files in the R/ folder. You can have multiple functions 
 in a single script (see [suggestions about how to organise your functions (R Packages book)](https://r-pkgs.org/code.html#sec-code-organising)) 
 but we will use one function per file for this exercise.
 
-### wrangle data function
+### is Friday function
 ```R
-wrangle_data <- function(df, pub_year) {
-  df |>
-    dplyr::filter(.data$year == pub_year) |>
-    dplyr::mutate(
-      month_fct = forcats::fct(.data$month, month.name)
-    ) |>
-    dplyr::group_by(.data$crime, .data$month_fct, .drop = FALSE) |>
-    dplyr::count() |>
-    tidyr::pivot_wider(names_from = "month_fct", values_from = "n", values_fill = 0)
+is_friday <- function(date) {
+  if (!inherits(date, "Date")) {
+    date <- lubridate::ymd(date)
+  }
+  lubridate::wday(date) == 6
 }
 ```
-### assemble crime data function
+### filter by species function
 ```R
-assemble_crime_data <- function(path, year) {
-  path |> 
-    arrow::read_parquet() |> 
-    wrangle_data(pub_year = year)
+filter_by_species <- function(df, target_species) {
+  df |>
+    dplyr::filter(.data$Species == target_species)
 }
 ```
 
@@ -338,7 +332,7 @@ In some instances it is better to import a function from the relevant namespace 
 
 Because packages like {dplyr} use "tidy evaluation" we need to make some changes to the code when
 including it within packages. To find out more, read the 
-[Programming with dplyr article](https://dplyr.tidyverse.org/articles/programming.html)). In the wrangle data function we get 
+[Programming with dplyr article](https://dplyr.tidyverse.org/articles/programming.html)). In the "filter by species" function we get 
 around the use of unquoted column names by including the `.data` "pronoun". For example, outside of
 a package context `iris |> dplyr::filter(Species == "Setosa")` is valid syntax and `Species` will
 be interpreted as a string (the name of a column in the data frame `iris`) via "tidy evaluation".
@@ -347,8 +341,8 @@ object without a definition). This will cause the checks on the package to fail.
 
 ##### Exercises
 * **9.1** Have a look at the use of `package::function()` syntax in the functions.
-* **9.2** Have a look at the use of the `.data` pronoun in the wrangle data function.
-* **9.3** Add {arrow}, {dplyr}, {forcats} and {tidyr} to the imports field of the DESCRIPTION file (install the packages if prompted to).
+* **9.2** Have a look at the use of the `.data` pronoun in the filter by species function.
+* **9.3** Add {dplyr} and {lubridate} to the imports field of the DESCRIPTION file (install the packages if prompted to).
 * **9.4** Commit and push the changes to the DESCRIPTION file.
 * **9.5** Run `devtools::check()` - you will still be getting the note about `.data` - we will deal with this in the next section.
 
