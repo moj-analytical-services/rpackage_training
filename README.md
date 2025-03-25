@@ -403,9 +403,9 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 * **10.1** Copy the roxygen comment chunk above and paste it in the relevant script above the is friday function.
 * **10.2** Run `devtools::document()` -  you will now see a file in `man/` and a change to the NAMESPACE
 * **10.3** Run `devtools::load_all()` followed by `?is_friday` to view the help file generated from the roxygen comments
-* **10.4** Add roxygen comments for the filter species function (hint: use the `iris` dataset in the example)
+* **10.4** Add roxygen comments for the filter by species function (hint: use the `iris` dataset in the example)
 * **10.5** Run `devtools::document()` - you will see another file in `man/` and other function added to the NAMESPACE
-* **10.6** Add the following as as additional roxygen comment to the filter species file: `#' @importFrom dplyr .data`
+* **10.6** Add the following as as additional roxygen comment to the filter by species file: `#' @importFrom dplyr .data`
 * **10.7** Run `devtools::document()` - you will see a new line in your NAMESPACE file that makes dplyr's `.data` available for use in your package.
 * **10.8** Run `devtools::check()`
 * **10.9** When all checks pass commit and push the R scripts containing the functions, the `man/` files and the NAMESPACE file.
@@ -452,7 +452,7 @@ outputs or their side effects.
 ##### Exercises 
 * **11.3** Have a look at the {testthat} reference to see some of the pre-built expectations
 
-### Tests for the filter species function
+### Tests for the filter by species function
 
 A test (with four expectations) for the filter specis function is given below. The first three
 expectations check various properites of the function output when used with the `iris` data
@@ -460,13 +460,13 @@ frame. The fourth expectation checks that we get an error if we supply something
 a data frame to the first argument.
 
 ```R
-test_that("filter_species works", {
+test_that("filter_by_species works", {
   
-  filter_species(iris, "setosa") |> expect_s3_class("data.frame")
-  filter_species(iris, "versicolor") |> nrow() |> expect_equal(50)
-  filter_species(iris, "virginica") |> ncol() |> expect_equal(5)
+  filter_by_species(iris, "setosa") |> expect_s3_class("data.frame")
+  filter_by_species(iris, "versicolor") |> nrow() |> expect_equal(50)
+  filter_by_species(iris, "virginica") |> ncol() |> expect_equal(5)
   
-  select_species("foo", "bar") |> expect_error()
+  select_by_species("foo", "bar") |> expect_error()
   
 })
 ```
@@ -598,7 +598,7 @@ renv::install("git@github.com:moj-analytical-services/verify.git@v0.0.19")
     
 ##### Exercises
 * **15.1** Try installing your completed package in a different repo
-* **15.2** Have a look at the help file for the filter species data function
+* **15.2** Have a look at the help file for the filter by species function
 * **15.3** Run the examples from the is friday function help
 
 
