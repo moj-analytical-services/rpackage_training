@@ -358,24 +358,30 @@ automatically knitted into help files. Roxygen comments are denoted by hash and 
 mark followed by a space `#' `. Comments can then be labeled with a tag which is a string starting
 with @ e.g. `@title` would be the tag for the help file's title.
 
-A set of roxygen comments for the assemble crime data function is given below.
+A set of roxygen comments for the is friday function is given below.
 
 ```
-#' @title Assemble Crime Data
-#' @description Fetch crime data from a specified path and tabulate ready for publication.
-#' @param path A string. The path or S3 URI to the parquet file containing the data.
-#' @param year The year of the publication.
+#' @title Is Friday?
+#' @description Check which elements in a vector of dates are Fridays.
+#' @param date A Date class object or a string in the form "yyyymmdd".
+#' @returns A boolean vector the same length as `date`.
 #' @export
 #' @examples
-#' assemble_crime_data(
-#'   "s3://alpha-r-training/r-package-training/synthetic-crime-data.parquet", 
-#'   year = 2000
-#' )
+#' # TRUE
+#' is_friday("2025-03-28")
+#' "2025-03-28" |> lubridate::ymd() |> is_friday()
+#' 
+#' # FALSE
+#' is_friday("2025-03-24")
+#' 
+#' # TRUE, FALSE
+#' c("2025-03-28", "2025-03-24") |> is_friday()
 ```
 
 As a minimum, for each function exported for users of your package you should include:
 * `@title` - the title for the help file
 * `@description` - a description of what your function does
+* `@returns` - a summary of your function output (general properties such as type or structure)
 * `@param` - One for each argument in your function (Note that the name of the parameter comes after the tag followed by another space before the text describing the parameter)
 * `@examples` - Sufficient examples for users to get started with your function (most people will probably look at the examples before reading the text!)
 
@@ -395,15 +401,15 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 `devtools::check())`.
 
 ##### Exercises
-* **10.1** Copy the roxygen comment chunk above and paste it in the relevant script above assemble crime data function.
+* **10.1** Copy the roxygen comment chunk above and paste it in the relevant script above the is friday function.
 * **10.2** Run `devtools::document()` -  you will now see a file in `man/` and a change to the NAMESPACE
-* **10.3** Run `devtools::load_all()` followed by `?assemble_crime_data` to view the help file generated from the roxygen comments
-* **10.4** Add roxygen comments for the wrangle data function (we can skip adding an example to speed up the training course)
+* **10.3** Run `devtools::load_all()` followed by `?is_friday` to view the help file generated from the roxygen comments
+* **10.4** Add roxygen comments for the select species function (hint: use the `iris` dataset in the example)
 * **10.5** Run `devtools::document()` - you will see another file in `man/` and other function added to the NAMESPACE
-* **10.6** Add the following as as additional roxygen comment to the wrangle data file: `#' @importFrom dplyr .data`
-* **10.7** Run `devtools::document()` - you will see a new line in your NAMESPACE file that makes dplyr's `.data` available for use in your package. This syntax should also be used for things like operators
+* **10.6** Add the following as as additional roxygen comment to the select species file: `#' @importFrom dplyr .data`
+* **10.7** Run `devtools::document()` - you will see a new line in your NAMESPACE file that makes dplyr's `.data` available for use in your package.
 * **10.8** Run `devtools::check()`
-* **10.9** When all tests pass commit and push the R scripts containing the functions, the `man/` files and the NAMESPACE file.
+* **10.9** When all checks pass commit and push the R scripts containing the functions, the `man/` files and the NAMESPACE file.
 
 
 
