@@ -638,12 +638,12 @@ is_monday <- function(date) {
 * **16.5** Add the is monday function to your package. Don't forget to document it!
 * **16.6** Run `devtools::load_all()` and `devtools::check()`. Fix any issues.
 * **16.7** Add tests for the is monday function.
-* * **16.6** Run `devtools::load_all()` and `devtools::test()` and `devtools::code_coverage()`. Fix any issues.
-* **16.8** Update the version number in the DESCRIPTION file
-* **16.9** Update the NEWS file
-* **16.10** Run `devtools::check()`
-* **16.11** When all tests pass, commit and push the changes
-* **16.12** Open a pull request, merge to `main` and generate a new GitHub release
+* **16.8** Run `devtools::load_all()` and `devtools::test()` and `devtools::code_coverage()`. Fix any issues.
+* **16.9** Update the version number in the DESCRIPTION file
+* **16.10** Update the NEWS file
+* **16.11** Run `devtools::check()`
+* **16.12** When all tests pass, commit and push the changes
+* **16.13** Open a pull request, merge to `main` and generate a new GitHub release
 
 
 ## Annex
