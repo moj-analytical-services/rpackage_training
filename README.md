@@ -638,7 +638,7 @@ is_monday <- function(date) {
 * **16.5** Add the is monday function to your package. Don't forget to document it!
 * **16.6** Run `devtools::load_all()` and `devtools::check()`. Fix any issues.
 * **16.7** Add tests for the is monday function.
-* **16.8** Run `devtools::load_all()` and `devtools::test()` and `devtools::code_coverage()`. Fix any issues.
+* **16.8** Run `devtools::load_all()` and `devtools::test()` and `devtools::test_coverage()`. Fix any issues.
 * **16.9** Update the version number in the DESCRIPTION file
 * **16.10** Update the NEWS file
 * **16.11** Run `devtools::check()`
