@@ -331,7 +331,7 @@ In some instances it is better to import a function from the relevant namespace 
 
 Because packages like {dplyr} use "tidy evaluation" we need to make some changes to the code when
 including it within packages. To find out more, read the 
-[Programming with dplyr article](https://dplyr.tidyverse.org/articles/programming.html)). In the "filter by species" function we get 
+[Programming with dplyr article](https://dplyr.tidyverse.org/articles/programming.html). In the "filter by species" function we get 
 around the use of unquoted column names by including the `.data` "pronoun". For example, outside of
 a package context `iris |> dplyr::filter(Species == "Setosa")` is valid syntax and `Species` will
 be interpreted as a string (the name of a column in the data frame `iris`) via "tidy evaluation".
@@ -355,7 +355,9 @@ a way that it is easily available to all users.
 We can include "roxygen comments" with our functions to provide documentation that can be 
 automatically knitted into help files. Roxygen comments are denoted by hash and a single quotation 
 mark followed by a space `#' `. Comments can then be labeled with a tag which is a string starting
-with @ e.g. `@title` would be the tag for the help file's title.
+with @ e.g. `@title` would be the tag for the help file's title. You can add a roxygen comment skeleton 
+to a function script with Ctrl + Alt + Shift + R (make sure your cursor is on the first line of or 
+above the function).
 
 A set of roxygen comments for the is Friday function is given below.
 
