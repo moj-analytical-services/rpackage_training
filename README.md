@@ -539,7 +539,7 @@ your code does. You can add a README with either `usethis::use_readme_md()` or
 ##### Exercises
 * **12.1** Add a markdown README to your package
 * **12.2** Update the install instructions to the following: `renv::install("git@github.com:moj-analytical-services/PACKAGE.git")` (you will need to replace "PACKAGE" with the name of your package). You can also remove the line about installing a "development" version.
-* **12.3** Replace the example with the example from the assemble crime data function.
+* **12.3** Replace the example with an example from the is friday function.
 * **12.4** Update the overview of what your package does.
 * **12.5** Run `devtools::check()` - if all the checks pass commit and push the README.
 
