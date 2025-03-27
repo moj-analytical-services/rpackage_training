@@ -301,17 +301,22 @@ but we will use one function per file for this exercise.
 ### is Friday function
 ```R
 is_friday <- function(date) {
+
   if (!inherits(date, "Date")) {
     date <- lubridate::ymd(date)
   }
+
   lubridate::wday(date) == 6
+
 }
 ```
 ### filter by species function
 ```R
 filter_by_species <- function(df, target_species) {
+
   df |>
     dplyr::filter(.data$Species == target_species)
+
 }
 ```
 
