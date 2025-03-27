@@ -198,7 +198,7 @@ Where values span multiple lines, they need to be indented. In particular:
 
 - **Title:** - a one line description of the package - keep this short, with suitable use of capitals and less than 65 characters.
 - **Version:** - the package version. This must be amended when you update the package. Use Semantic Versioning (see below)
-- **Authors@R:** - the package authors and their rolls (more info below)
+- **Authors@R:** - the package authors and their roles (more info below)
 - **Description:** - a one paragraph summary of the package
 - **License:** - licencing information (this will have been automatically updated when you added the licence with {usethis}).
 - **Imports:** - all the other packages that your package uses for basic functionality. You can specify a minimum or maximum version in brackets after the name. 
@@ -439,7 +439,7 @@ it will:
 
 ##### Exercises 
 * **11.1** Run `usethis::use_testthat()` to set up the testing infrastructure.
-* **11.2** Navigate to the script containing the assemble crime data function and in the console run: `usethis::use_test()`. This will open a new script which is saved in `tests/testhat/`. The script will have the same name as the function script but will have a `test-` prefix. An example test will be given.
+* **11.2** Navigate to the script containing the filter by species function and in the console run: `usethis::use_test()`. This will open a new script which is saved in `tests/testhat/`. The script will have the same name as the function script but will have a `test-` prefix. An example test will be given.
 
 ### The structure of a test
 
@@ -478,7 +478,7 @@ test_that("filter_by_species works", {
 })
 ```
 ##### Exercises 
-* **11.4** Copy the code above to the test file for the assemble crime data function.
+* **11.4** Copy the code above to the test file for the filter by species function.
 * **11.5** Save the test file and run `devtools::load_all()`.
 * **11.6** Run `devtools::test()` - you will get feedback as the tests run about how many have failed, resulted in a warning, or passed.
 
