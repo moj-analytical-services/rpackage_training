@@ -89,9 +89,9 @@ Instead it is better to group your functions into thematically similar activitie
 package contains functions for working with strings and regular expressions.
 
 Some packages may contain generalized functions (on a particular theme) that have a broad spectrum 
-of applications e.g. [the {psutils} R package](https://github.com/moj-analytical-services/psutils). Others may 
+of applications e.g. [the {psutils} R package ("prisons stats utilities")](https://github.com/moj-analytical-services/psutils). Others may 
 contain very specialized functions that are only used as part of one process e.g. 
-[the {pssf} R package](https://github.com/moj-analytical-services/pssf).
+[the {pssf} R package ("prisons statis specialised functions")](https://github.com/moj-analytical-services/pssf).
 
 It is also worth considering whether your functions might fit within an existing package rather than starting a new one.
 
@@ -104,6 +104,7 @@ Possibly the hardest part of creating a package is choosing a name for it. This 
 - be made of ASCII letters, numbers and "." only (it must start with a letter)
 - not use a mixture of upper and lower case letters (this makes the name hard to remember)
 - if possible be clear about what the package does i.e. reflect the scope
+- memorable (both {psutils} and {pssf} are terrible names on this account!)
 
 You can read more in the [R Packages section Name your package](https://r-pkgs.org/workflow101.html#name-your-package)
 
