@@ -409,7 +409,7 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 ##### Exercises
 * **10.1** Copy the roxygen comment chunk above and paste it in the relevant script above the is Friday function.
 * **10.2** Run `devtools::document()` -  you will now see a file in `man/` and a change to the NAMESPACE
-* **10.3** Run `devtools::load_all()` followed by `?is_friday` to view the help file generated from the roxygen comments
+* **10.3** Run `?is_friday` to view the help file generated from the roxygen comments (you may need to run `devtools::load_all()` first).
 * **10.4** Add roxygen comments for the filter by species function (hint: use the `iris` dataset in the example)
 * **10.5** Run `devtools::document()` - you will see another file in `man/` and other function added to the NAMESPACE
 * **10.6** Add the following as as additional roxygen comment to the filter by species file: `#' @importFrom dplyr .data`
