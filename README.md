@@ -91,7 +91,7 @@ package contains functions for working with strings and regular expressions.
 Some packages may contain generalized functions (on a particular theme) that have a broad spectrum 
 of applications e.g. [the {psutils} R package ("prisons stats utilities")](https://github.com/moj-analytical-services/psutils). Others may 
 contain very specialized functions that are only used as part of one process e.g. 
-[the {pssf} R package ("prisons statis specialised functions")](https://github.com/moj-analytical-services/pssf).
+[the {pssf} R package ("prisons stats specialised functions")](https://github.com/moj-analytical-services/pssf).
 
 It is also worth considering whether your functions might fit within an existing package rather than starting a new one.
 
