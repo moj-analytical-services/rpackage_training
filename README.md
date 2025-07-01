@@ -474,7 +474,7 @@ test_that("filter_by_species works", {
   filter_by_species(iris, "versicolor") |> nrow() |> expect_equal(50)
   filter_by_species(iris, "virginica") |> ncol() |> expect_equal(5)
   
-  select_by_species("foo", "bar") |> expect_error()
+  filter_by_species("foo", "bar") |> expect_error()
   
 })
 ```
