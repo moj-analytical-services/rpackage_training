@@ -89,9 +89,9 @@ Instead it is better to group your functions into thematically similar activitie
 package contains functions for working with strings and regular expressions.
 
 Some packages may contain generalized functions (on a particular theme) that have a broad spectrum 
-of applications e.g. [the {psutils} R package](https://github.com/moj-analytical-services/psutils). Others may 
+of applications e.g. [the {psutils} R package ("prisons stats utilities")](https://github.com/moj-analytical-services/psutils). Others may 
 contain very specialized functions that are only used as part of one process e.g. 
-[the {pssf} R package](https://github.com/moj-analytical-services/pssf).
+[the {pssf} R package ("prisons stats specialised functions")](https://github.com/moj-analytical-services/pssf).
 
 It is also worth considering whether your functions might fit within an existing package rather than starting a new one.
 
@@ -104,6 +104,7 @@ Possibly the hardest part of creating a package is choosing a name for it. This 
 - be made of ASCII letters, numbers and "." only (it must start with a letter)
 - not use a mixture of upper and lower case letters (this makes the name hard to remember)
 - if possible be clear about what the package does i.e. reflect the scope
+- memorable (both {psutils} and {pssf} are terrible names on this account!)
 
 You can read more in the [R Packages section Name your package](https://r-pkgs.org/workflow101.html#name-your-package)
 
@@ -409,7 +410,7 @@ in the NAMESPACE file. (Note that `devtools::document()` is also run as part of
 ##### Exercises
 * **10.1** Copy the roxygen comment chunk above and paste it in the relevant script above the is Friday function.
 * **10.2** Run `devtools::document()` -  you will now see a file in `man/` and a change to the NAMESPACE
-* **10.3** Run `devtools::load_all()` followed by `?is_friday` to view the help file generated from the roxygen comments
+* **10.3** Run `?is_friday` to view the help file generated from the roxygen comments (you may need to run `devtools::load_all()` first).
 * **10.4** Add roxygen comments for the filter by species function (hint: use the `iris` dataset in the example)
 * **10.5** Run `devtools::document()` - you will see another file in `man/` and other function added to the NAMESPACE
 * **10.6** Add the following as as additional roxygen comment to the filter by species file: `#' @importFrom dplyr .data`
