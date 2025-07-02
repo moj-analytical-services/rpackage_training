@@ -348,9 +348,8 @@ object without a definition). This will cause the checks on the package to fail.
 * **9.1** Have a look at the use of `package::function()` syntax in the functions.
 * **9.2** Have a look at the use of the `.data` pronoun in the filter by species function.
 * **9.3** Add {dplyr} and {lubridate} to the imports field of the DESCRIPTION file (install the packages if prompted to).
-* **9.4** Commit and push the changes to the DESCRIPTION file.
-* **9.5** Run `devtools::check()` - you will still be getting the note about `.data` - we will deal with this in the next section.
-
+* **9.4** Run `devtools::check()` - you will still be getting the note about `.data` - we will deal with this in the next section.
+* **9.5** Commit and push the changes to the DESCRIPTION file.
 
 ## Section 10 - Documenting functions
 
@@ -474,7 +473,7 @@ test_that("filter_by_species works", {
   filter_by_species(iris, "versicolor") |> nrow() |> expect_equal(50)
   filter_by_species(iris, "virginica") |> ncol() |> expect_equal(5)
   
-  select_by_species("foo", "bar") |> expect_error()
+  filter_by_species("foo", "bar") |> expect_error()
   
 })
 ```
