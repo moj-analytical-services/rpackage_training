@@ -89,7 +89,7 @@ Instead it is better to group your functions into thematically similar activitie
 package contains functions for working with strings and regular expressions.
 
 Some packages may contain generalized functions (on a particular theme) that have a broad spectrum 
-of applications e.g. [the {psutils} R package ("prisons stats utilities")](https://github.com/moj-analytical-services/psutils). Others may 
+of applications e.g. [the {pstime} R package ("prisons stats time")](https://github.com/moj-analytical-services/pstime). Others may 
 contain very specialized functions that are only used as part of one process e.g. 
 [the {pssf} R package ("prisons stats specialised functions")](https://github.com/moj-analytical-services/pssf).
 
@@ -104,7 +104,7 @@ Possibly the hardest part of creating a package is choosing a name for it. This 
 - be made of ASCII letters, numbers and "." only (it must start with a letter)
 - not use a mixture of upper and lower case letters (this makes the name hard to remember)
 - if possible be clear about what the package does i.e. reflect the scope
-- memorable (both {psutils} and {pssf} are terrible names on this account!)
+- memorable (both {pstime} and {pssf} are terrible names on this account!)
 
 You can read more in the [R Packages section Name your package](https://r-pkgs.org/workflow101.html#name-your-package)
 
@@ -193,7 +193,7 @@ This will add two text files to the top level of your project, `LICENCE` and `LI
 ## Section 6 - Package metadata
 
 The [DESCRIPTION file (R Packages book)](https://r-pkgs.org/description.html#the-description-file) contains important 
-metadata about the package; it is a text file that you can open and edit in RStudio. You can view as an example [the amended psutils package DESCRIPTION file](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION). The formatting 
+metadata about the package; it is a text file that you can open and edit in RStudio. You can view as an example [the amended pstime package DESCRIPTION file](https://github.com/moj-analytical-services/pstime/blob/main/DESCRIPTION). The formatting 
 is important. Each line consists of a field name and a value, separated by a colon. 
 Where values span multiple lines, they need to be indented. In particular:
 
@@ -592,9 +592,9 @@ renv::install("git@github.com:moj-analytical-services/mojchart.git")
 ```    
     
 Note: If your package has any Imports that are from internal or private repos you will need to 
-also use the SSH URL syntax in the Remotes field. For example the [{psutils} package DESCRIPTION FILE includes {verify} as an
-import](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION#L41) and as another internal package, 
-the [{verify} SSH URL syntax is specified in the {psutils} package DESCRIPTION FILE Remotes field](https://github.com/moj-analytical-services/psutils/blob/main/DESCRIPTION#L51). 
+also use the SSH URL syntax in the Remotes field. For example the [{pstime} package DESCRIPTION FILE includes {verify} as an
+import](https://github.com/moj-analytical-services/pstime/blob/main/DESCRIPTION#L42) and as another internal package, 
+the [{verify} SSH URL syntax is specified in the {pstime} package DESCRIPTION FILE Remotes field](https://github.com/moj-analytical-services/pstime/blob/main/DESCRIPTION#L46). 
     
 With `renv` >= `0.15.0` you can also include `@ref` on the end of the URL where the "ref" is a 
 branch name, commit or github tag e.g.    
